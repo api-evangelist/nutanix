@@ -1,0 +1,149 @@
+name: Nutanix
+description: Nutanix is a hyper-converged infrastructure solution that integrates compute, virtualization, storage, networking, and security to power enterprise applications. This APIs.json file provides information about Nutanix's public APIs for managing and automating infrastructure.
+image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+url: https://www.nutanix.com
+created: 2025-03-14 00:00:00+00:00
+modified: 2025-03-14 00:00:00+00:00
+specificationVersion: '0.18'
+apis:
+- name: Nutanix Prism Central API v3
+  description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Infrastructure
+  - Virtualization
+  - Hyperconverged
+  - Cloud Management
+  - VMs
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: OpenAPI
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix Prism Element API v2
+  description: API for managing individual Nutanix clusters through Prism Element, including storage containers, hosts, and cluster operations.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://www.nutanix.dev/api_references/prism-element/
+  baseURL: https://{{cluster-ip}}:9440/PrismGateway/services/rest/v2.0
+  tags:
+  - Infrastructure
+  - Cluster Management
+  - Storage
+  - Hyperconverged
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-element/#authentication
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix Objects API
+  description: S3-compatible object storage API for Nutanix Objects, enabling cloud-native applications to store and retrieve data.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://portal.nutanix.com/page/documents/details?targetId=Objects-v4_0:Objects-v4_0
+  baseURL: https://{{objects-endpoint}}
+  tags:
+  - Object Storage
+  - S3 Compatible
+  - Cloud Storage
+  - Data Management
+  properties:
+  - type: Documentation
+    url: https://portal.nutanix.com/page/documents/details?targetId=Objects-v4_0:Objects-v4_0
+  - type: S3 Compatibility
+    url: https://portal.nutanix.com/page/documents/details?targetId=Objects-v4_0:top-s3-api-support-r.html
+  contact:
+  - FN: Nutanix Support
+    url: https://www.nutanix.com/support-services/product-support
+- name: Nutanix Files API
+  description: API for managing Nutanix Files, a software-defined file services solution for SMB and NFS protocols.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://portal.nutanix.com/page/documents/details?targetId=Files-v4_2:Files-v4_2
+  baseURL: https://{{files-manager-ip}}:9440/api/nutanix/v3
+  tags:
+  - File Services
+  - NFS
+  - SMB
+  - Storage
+  properties:
+  - type: Documentation
+    url: https://portal.nutanix.com/page/documents/details?targetId=Files-v4_2:Files-v4_2
+  contact:
+  - FN: Nutanix Support
+    url: https://www.nutanix.com/support-services/product-support
+- name: Nutanix Karbon API
+  description: API for managing Kubernetes clusters through Nutanix Karbon, including cluster lifecycle, upgrades, and configuration.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://www.nutanix.dev/api_references/karbon/
+  baseURL: https://{{prism-central-ip}}:9440/karbon
+  tags:
+  - Kubernetes
+  - Container Management
+  - Cloud Native
+  - Orchestration
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/karbon/
+  - type: OpenAPI
+    url: https://www.nutanix.dev/api_references/karbon/
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix NCM Self-Service API
+  description: API for Nutanix Cloud Manager Self-Service (formerly Calm), enabling automation of application deployment and lifecycle management.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://www.nutanix.dev/api_references/ncm-self-service/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Automation
+  - Application Management
+  - Cloud Management
+  - Orchestration
+  - DevOps
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/ncm-self-service/
+  - type: Blueprints
+    url: https://www.nutanix.dev/api_references/ncm-self-service/#blueprints
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+common:
+- type: Developer Portal
+  url: https://www.nutanix.dev/
+- type: Support Portal
+  url: https://portal.nutanix.com/
+- type: Documentation
+  url: https://portal.nutanix.com/page/documents
+- type: Code Samples
+  url: https://www.nutanix.dev/code_samples/
+- type: SDKs
+  url: https://www.nutanix.dev/sdk_reference/
+- type: API Reference
+  url: https://www.nutanix.dev/api_references/
+- type: Community
+  url: https://next.nutanix.com/
+- type: Support
+  url: https://www.nutanix.com/support-services/product-support
+- type: Status
+  url: https://status.nutanix.com/
+- type: Terms of Service
+  url: https://www.nutanix.com/legal/terms-of-use
+- type: Privacy Policy
+  url: https://www.nutanix.com/legal/privacy-notice
+maintainers:
+- FN: Nutanix Developer Relations
+  email: developer@nutanix.com
+  url: https://www.nutanix.dev/
