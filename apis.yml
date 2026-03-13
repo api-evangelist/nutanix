@@ -3,7 +3,7 @@ description: Nutanix is a hyper-converged infrastructure solution that integrate
 image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
 url: https://www.nutanix.com
 created: 2025-03-14 00:00:00+00:00
-modified: 2025-03-14 00:00:00+00:00
+modified: 2026-03-04 00:00:00+00:00
 specificationVersion: '0.18'
 apis:
 - name: Nutanix Prism Central API v3
@@ -24,6 +24,8 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-central-v3/
   - type: Authentication
     url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Reference
+    url: https://www.nutanix.dev/api_reference/apis/prism_v3.html
   contact:
   - FN: Nutanix Developer Support
     email: developer@nutanix.com
@@ -43,6 +45,39 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-element/
   - type: Authentication
     url: https://www.nutanix.dev/api_references/prism-element/#authentication
+  - type: Reference
+    url: https://www.nutanix.dev/api_reference/apis/prism_v2.html
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix Prism Central API v4
+  description: >-
+    The next-generation v4 API for managing the Nutanix Cloud Platform through Prism Central. The v4 APIs are designed for consistency across all products with GA SDKs available for Python, Java, Go, and JavaScript. Covers namespaces including cluster management, virtual machine management, networking, storage, IAM, monitoring, and more.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://www.nutanix.dev/api-reference-v4/
+  baseURL: https://{{prism-central-ip}}:9440/api
+  tags:
+  - Infrastructure
+  - Cloud Management
+  - Virtualization
+  - Networking
+  - Storage
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api-reference-v4/
+  - type: Reference
+    url: https://www.nutanix.dev/api_references/v4/
+  - type: Getting Started
+    url: https://www.nutanix.dev/nutanix-api-user-guide/
+  - type: Authentication
+    url: https://www.nutanix.dev/2025/02/21/nutanix-v4-apis-using-api-key-authentication-part-2/
+  - type: Migration Guide
+    url: https://www.nutanix.dev/nutanix-rest-api-migration-guide/
+  - type: SDKs
+    url: https://www.nutanix.dev/sdk_reference/
+  - type: Change Log
+    url: https://www.nutanix.dev/api-versions/
   contact:
   - FN: Nutanix Developer Support
     email: developer@nutanix.com
@@ -96,6 +131,8 @@ apis:
     url: https://www.nutanix.dev/api_references/karbon/
   - type: OpenAPI
     url: https://www.nutanix.dev/api_references/karbon/
+  - type: Reference
+    url: https://www.nutanix.dev/api_reference/apis/nke.html
   contact:
   - FN: Nutanix Developer Support
     email: developer@nutanix.com
@@ -116,34 +153,220 @@ apis:
     url: https://www.nutanix.dev/api_references/ncm-self-service/
   - type: Blueprints
     url: https://www.nutanix.dev/api_references/ncm-self-service/#blueprints
+  - type: Reference
+    url: https://www.nutanix.dev/api_reference/apis/self-service.html
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix Foundation API
+  description: >-
+    REST API for Nutanix Foundation, the core cluster deployment tool used to streamline the deployment of new and rebuilt Nutanix clusters. Foundation enables automated imaging, configuration, and creation of Nutanix clusters from bare-metal nodes.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://www.nutanix.dev/api_reference/apis/foundation.html
+  baseURL: https://{{foundation-ip}}:8000/foundation
+  tags:
+  - Deployment
+  - Imaging
+  - Cluster Provisioning
+  - Infrastructure
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_reference/apis/foundation.html
+  - type: Reference
+    url: https://www.nutanix.dev/api_references/foundation/
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix Foundation Central API
+  description: >-
+    REST API for Foundation Central, enabling remote cluster creation from factory-imaged nodes and node re-imaging via Prism Central. Foundation Central allows administrators to deploy and manage clusters at remote sites without requiring on-site personnel.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://www.nutanix.dev/api_reference/apis/foundation_central.html
+  baseURL: https://{{prism-central-ip}}:9440/api/fc/v1
+  tags:
+  - Deployment
+  - Remote Management
+  - Cluster Provisioning
+  - Infrastructure
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_reference/apis/foundation_central.html
+  - type: Reference
+    url: https://www.nutanix.dev/api_references/foundation-central/
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix Move API
+  description: >-
+    REST API for Nutanix Move, a cross-hypervisor mobility solution that automates VM migrations with lift-and-shift capabilities. The API enables programmatic control over migration plans, source and target provider configuration, and workload migration from VMware, AWS, Azure, and Hyper-V to Nutanix AHV.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://www.nutanix.dev/api_reference/apis/move.html
+  baseURL: https://{{move-address}}/move/v2
+  tags:
+  - Migration
+  - VM Mobility
+  - Workload Migration
+  - Hypervisor
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_reference/apis/move.html
+  - type: Reference
+    url: https://www.nutanix.dev/api_references/move/
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix Cloud Clusters API
+  description: >-
+    REST API for Nutanix Cloud Clusters (NC2), enabling creation and management of Nutanix clusters on AWS and Azure public clouds. The v2 API supports cluster lifecycle operations including creation, termination, hibernation, and resumption, using JWT-based authentication with MyNutanix API keys.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://www.nutanix.dev/api_reference/apis/nc2.html
+  baseURL: https://api.nutanix.com
+  tags:
+  - Hybrid Cloud
+  - AWS
+  - Azure
+  - Cloud Management
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_reference/apis/nc2.html
+  - type: Reference
+    url: https://www.nutanix.dev/api_references/nc2/
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix Database Service API
+  description: >-
+    REST API for Nutanix Database Service (formerly Era), providing database-as-a-service capabilities that automate database provisioning, cloning, patching, and lifecycle management. Supports PostgreSQL, MySQL, Microsoft SQL Server, Oracle, and MongoDB across on-premises and public cloud environments.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://www.nutanix.dev/api_reference/apis/ndb0.9.html
+  baseURL: https://{{ndb-ip}}:8443/era/v0.9
+  tags:
+  - Database
+  - DBaaS
+  - Automation
+  - Data Management
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_reference/apis/ndb0.9.html
+  - type: Reference
+    url: https://www.nutanix.dev/api_references/ndb/
+  - type: GitHubRepository
+    url: https://github.com/nutanix-cloud-native/ndb-operator
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix Enterprise AI API
+  description: >-
+    REST API for Nutanix Enterprise AI (NAI), providing private and centralized inferencing for large language models. The inference APIs are compliant with OpenAI API specifications and support text generation, embeddings, image generation, and reranking operations with API key authentication.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://www.nutanix.dev/api-reference/nai
+  baseURL: https://{{nai-endpoint}}
+  tags:
+  - Artificial Intelligence
+  - Machine Learning
+  - LLM
+  - Inference
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api-reference/nai
+  - type: Reference
+    url: https://www.nutanix.dev/api_reference/apis/nai2.5.html
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix NCM Cost Governance API
+  description: >-
+    REST API for Nutanix Cloud Manager Cost Governance (formerly Beam), a SaaS offering that provides visibility and analytics for cloud consumption across AWS, Azure, GCP, and Nutanix on-premises environments. The API enables cost optimization, security compliance monitoring, and multi-cloud resource management.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://dev.beam.nutanix.com/reference/welcome
+  baseURL: https://api.beam.nutanix.com
+  tags:
+  - Cost Management
+  - Cloud Governance
+  - Multi-Cloud
+  - FinOps
+  properties:
+  - type: Documentation
+    url: https://dev.beam.nutanix.com/reference/welcome
+  - type: Reference
+    url: https://www.nutanix.dev/api_references/beam/
+  contact:
+  - FN: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+- name: Nutanix NCM Security Central API
+  description: >-
+    REST API for Nutanix Cloud Manager Security Central (formerly Flow Security Central), providing continuous hybrid cloud security compliance, microsegmentation policy planning, and automated incident response with intelligent analysis and regulatory compliance across cloud environments.
+  image: https://www.nutanix.com/content/dam/nutanix/global/logos/nutanix-logo.svg
+  humanURL: https://sc-dev.flow.nutanix.com/reference
+  baseURL: https://sc.flow.nutanix.com
+  tags:
+  - Security
+  - Compliance
+  - Microsegmentation
+  - Cloud Security
+  properties:
+  - type: Documentation
+    url: https://sc-dev.flow.nutanix.com/reference
+  - type: Reference
+    url: https://www.nutanix.dev/api_references/flow-security-central/
   contact:
   - FN: Nutanix Developer Support
     email: developer@nutanix.com
     url: https://www.nutanix.dev/
 common:
-- type: Developer Portal
+- type: Portal
   url: https://www.nutanix.dev/
+- type: Developer Portal
+  url: https://developers.nutanix.com/
 - type: Support Portal
   url: https://portal.nutanix.com/
 - type: Documentation
   url: https://portal.nutanix.com/page/documents
+- type: Getting Started
+  url: https://www.nutanix.dev/nutanix-api-user-guide/
+- type: Authentication
+  url: https://www.nutanix.dev/2025/02/21/nutanix-v4-apis-using-api-key-authentication-part-2/
 - type: Code Samples
   url: https://www.nutanix.dev/code_samples/
 - type: SDKs
   url: https://www.nutanix.dev/sdk_reference/
 - type: API Reference
   url: https://www.nutanix.dev/api_references/
+- type: Change Log
+  url: https://www.nutanix.dev/api-versions/
 - type: Community
   url: https://next.nutanix.com/
+- type: Blog
+  url: https://www.nutanix.dev/blog/
 - type: Support
   url: https://www.nutanix.com/support-services/product-support
 - type: Status
   url: https://status.nutanix.com/
+- type: Website
+  url: https://www.nutanix.com
+- type: Login
+  url: https://my.nutanix.com/
+- type: Sign Up
+  url: https://my.nutanix.com/page/signup
+- type: Console
+  url: https://cloud.nutanix.com/
+- type: GitHub Organization
+  url: https://github.com/nutanix
+- type: GitHubRepository
+  url: https://github.com/nutanixdev
 - type: Terms of Service
   url: https://www.nutanix.com/legal/terms-of-use
 - type: Privacy Policy
   url: https://www.nutanix.com/legal/privacy-notice
 maintainers:
-- FN: Nutanix Developer Relations
-  email: developer@nutanix.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
   url: https://www.nutanix.dev/

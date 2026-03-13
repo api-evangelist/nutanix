@@ -1,0 +1,1140 @@
+openapi: 3.1.0
+info:
+  title: Nutanix Prism Central API v3
+  description: >-
+    RESTful API for managing Nutanix clusters, VMs, storage, networking, and
+    other infrastructure components through Prism Central. The v3 API uses an
+    intent-based model where resources are defined by their desired state, and
+    the system works to achieve that state. All list operations use POST with
+    server-side filtering, grouping, and sorting. Authentication is via HTTP
+    Basic Auth with Prism Central credentials.
+  version: '3.1.0'
+  contact:
+    name: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+  termsOfService: https://www.nutanix.com/legal/terms-of-use
+externalDocs:
+  description: Nutanix Prism Central v3 API Documentation
+  url: https://www.nutanix.dev/api_references/prism-central-v3/
+servers:
+  - url: https://{prismCentralIp}:9440/api/nutanix/v3
+    description: Prism Central Server
+    variables:
+      prismCentralIp:
+        default: localhost
+        description: IP address or FQDN of the Prism Central instance.
+tags:
+  - name: VMs
+    description: >-
+      Manage virtual machines including creation, update, deletion, and power
+      state operations through the intent-based API model.
+  - name: Clusters
+    description: >-
+      Retrieve and manage Nutanix cluster configurations and metadata across the
+      Prism Central deployment.
+  - name: Subnets
+    description: >-
+      Manage AHV network subnets including VLAN and overlay network
+      configurations.
+  - name: Images
+    description: >-
+      Manage disk images distributed across clusters for VM provisioning,
+      including ISO and disk image uploads.
+  - name: Categories
+    description: >-
+      Manage categories and category values used for tagging and organizing
+      resources across the Nutanix environment.
+  - name: Projects
+    description: >-
+      Manage projects that define resource quotas, user access, and
+      infrastructure boundaries for self-service consumption.
+  - name: Hosts
+    description: >-
+      Retrieve information about physical hosts in the Nutanix cluster
+      infrastructure.
+  - name: Network Security Rules
+    description: >-
+      Manage Flow microsegmentation policies that control network traffic
+      between VMs based on categories.
+  - name: Webhooks
+    description: >-
+      Manage webhook listeners that receive event notifications from the
+      Nutanix platform.
+security:
+  - basicAuth: []
+paths:
+  /vms/list:
+    post:
+      operationId: listVms
+      summary: List virtual machines
+      description: >-
+        Retrieves a list of VMs with optional filtering, sorting, and
+        pagination. The v3 API standardizes on POST for list operations to
+        support server-side filtering, grouping, and sorting via the request
+        body.
+      tags:
+        - VMs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VmListResponse'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /vms:
+    post:
+      operationId: createVm
+      summary: Create a virtual machine
+      description: >-
+        Creates a new VM using the intent-based spec. The request includes the
+        desired specification and metadata. The system returns a task that
+        tracks the creation progress.
+      tags:
+        - VMs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VmIntentInput'
+      responses:
+        '202':
+          description: Accepted - VM creation task started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VmIntentResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /vms/{uuid}:
+    get:
+      operationId: getVm
+      summary: Get a virtual machine
+      description: >-
+        Retrieves the current state and specification of a VM by its UUID.
+      tags:
+        - VMs
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VmIntentResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: VM not found
+    put:
+      operationId: updateVm
+      summary: Update a virtual machine
+      description: >-
+        Updates the specification of an existing VM. The full intent spec must
+        be provided including unchanged fields.
+      tags:
+        - VMs
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VmIntentInput'
+      responses:
+        '202':
+          description: Accepted - VM update task started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VmIntentResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: VM not found
+    delete:
+      operationId: deleteVm
+      summary: Delete a virtual machine
+      description: >-
+        Deletes a VM identified by its UUID.
+      tags:
+        - VMs
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '202':
+          description: Accepted - VM deletion task started
+        '401':
+          description: Unauthorized
+        '404':
+          description: VM not found
+  /clusters/list:
+    post:
+      operationId: listClusters
+      summary: List clusters
+      description: >-
+        Retrieves a list of clusters managed by Prism Central with optional
+        filtering and pagination.
+      tags:
+        - Clusters
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterListResponse'
+        '401':
+          description: Unauthorized
+  /clusters/{uuid}:
+    get:
+      operationId: getCluster
+      summary: Get a cluster
+      description: >-
+        Retrieves the configuration and status of a specific cluster by UUID.
+      tags:
+        - Clusters
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterIntentResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Cluster not found
+  /subnets/list:
+    post:
+      operationId: listSubnets
+      summary: List subnets
+      description: >-
+        Retrieves a list of subnets with optional filtering and pagination.
+      tags:
+        - Subnets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubnetListResponse'
+        '401':
+          description: Unauthorized
+  /subnets:
+    post:
+      operationId: createSubnet
+      summary: Create a subnet
+      description: >-
+        Creates a new AHV subnet with the specified configuration including
+        VLAN ID, IP address management, and cluster assignment.
+      tags:
+        - Subnets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubnetIntentInput'
+      responses:
+        '202':
+          description: Accepted - Subnet creation task started
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /subnets/{uuid}:
+    get:
+      operationId: getSubnet
+      summary: Get a subnet
+      description: >-
+        Retrieves the configuration and status of a specific subnet by UUID.
+      tags:
+        - Subnets
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Subnet not found
+    put:
+      operationId: updateSubnet
+      summary: Update a subnet
+      description: >-
+        Updates the configuration of an existing subnet.
+      tags:
+        - Subnets
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubnetIntentInput'
+      responses:
+        '202':
+          description: Accepted - Subnet update task started
+        '401':
+          description: Unauthorized
+        '404':
+          description: Subnet not found
+    delete:
+      operationId: deleteSubnet
+      summary: Delete a subnet
+      description: >-
+        Deletes a subnet identified by its UUID.
+      tags:
+        - Subnets
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '202':
+          description: Accepted - Subnet deletion task started
+        '401':
+          description: Unauthorized
+        '404':
+          description: Subnet not found
+  /images/list:
+    post:
+      operationId: listImages
+      summary: List images
+      description: >-
+        Retrieves a list of disk images with optional filtering and pagination.
+      tags:
+        - Images
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageListResponse'
+        '401':
+          description: Unauthorized
+  /images:
+    post:
+      operationId: createImage
+      summary: Create an image
+      description: >-
+        Creates a new image resource. Images can be uploaded from a URL source
+        or from a file and are distributed to clusters for VM provisioning.
+      tags:
+        - Images
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageIntentInput'
+      responses:
+        '202':
+          description: Accepted - Image creation task started
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /images/{uuid}:
+    get:
+      operationId: getImage
+      summary: Get an image
+      description: >-
+        Retrieves the metadata and status of a specific image by UUID.
+      tags:
+        - Images
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Image not found
+    delete:
+      operationId: deleteImage
+      summary: Delete an image
+      description: >-
+        Deletes an image identified by its UUID.
+      tags:
+        - Images
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '202':
+          description: Accepted - Image deletion task started
+        '401':
+          description: Unauthorized
+        '404':
+          description: Image not found
+  /categories/{name}:
+    get:
+      operationId: getCategory
+      summary: Get a category key
+      description: >-
+        Retrieves a category key and its associated metadata.
+      tags:
+        - Categories
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the category key.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Category not found
+    put:
+      operationId: updateCategory
+      summary: Create or update a category key
+      description: >-
+        Creates or updates a category key with the specified metadata.
+      tags:
+        - Categories
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the category key.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: Description of the category.
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteCategory
+      summary: Delete a category key
+      description: >-
+        Deletes a category key and all its associated values.
+      tags:
+        - Categories
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the category key.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Category not found
+  /categories/{name}/{value}:
+    put:
+      operationId: updateCategoryValue
+      summary: Create or update a category value
+      description: >-
+        Creates or updates a value for the specified category key.
+      tags:
+        - Categories
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the category key.
+          schema:
+            type: string
+        - name: value
+          in: path
+          required: true
+          description: The category value.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteCategoryValue
+      summary: Delete a category value
+      description: >-
+        Deletes a specific value from a category key.
+      tags:
+        - Categories
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the category key.
+          schema:
+            type: string
+        - name: value
+          in: path
+          required: true
+          description: The category value.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Category value not found
+  /projects/list:
+    post:
+      operationId: listProjects
+      summary: List projects
+      description: >-
+        Retrieves a list of projects with optional filtering and pagination.
+      tags:
+        - Projects
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+  /projects/{uuid}:
+    get:
+      operationId: getProject
+      summary: Get a project
+      description: >-
+        Retrieves the configuration and status of a specific project by UUID.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Project not found
+  /hosts/list:
+    post:
+      operationId: listHosts
+      summary: List hosts
+      description: >-
+        Retrieves a list of physical hosts with optional filtering and
+        pagination.
+      tags:
+        - Hosts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+  /hosts/{uuid}:
+    get:
+      operationId: getHost
+      summary: Get a host
+      description: >-
+        Retrieves information about a specific physical host by UUID.
+      tags:
+        - Hosts
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Host not found
+  /network_security_rules/list:
+    post:
+      operationId: listNetworkSecurityRules
+      summary: List network security rules
+      description: >-
+        Retrieves a list of Flow network security rules with optional filtering
+        and pagination.
+      tags:
+        - Network Security Rules
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+  /network_security_rules:
+    post:
+      operationId: createNetworkSecurityRule
+      summary: Create a network security rule
+      description: >-
+        Creates a new Flow microsegmentation network security rule that
+        controls traffic between VMs based on categories.
+      tags:
+        - Network Security Rules
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '202':
+          description: Accepted - Rule creation task started
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /network_security_rules/{uuid}:
+    get:
+      operationId: getNetworkSecurityRule
+      summary: Get a network security rule
+      description: >-
+        Retrieves the configuration of a specific network security rule by UUID.
+      tags:
+        - Network Security Rules
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Rule not found
+    put:
+      operationId: updateNetworkSecurityRule
+      summary: Update a network security rule
+      description: >-
+        Updates the configuration of an existing network security rule.
+      tags:
+        - Network Security Rules
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '202':
+          description: Accepted - Rule update task started
+        '401':
+          description: Unauthorized
+        '404':
+          description: Rule not found
+    delete:
+      operationId: deleteNetworkSecurityRule
+      summary: Delete a network security rule
+      description: >-
+        Deletes a network security rule identified by its UUID.
+      tags:
+        - Network Security Rules
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '202':
+          description: Accepted - Rule deletion task started
+        '401':
+          description: Unauthorized
+        '404':
+          description: Rule not found
+  /webhooks/list:
+    post:
+      operationId: listWebhooks
+      summary: List webhooks
+      description: >-
+        Retrieves a list of registered webhook listeners with optional
+        filtering and pagination.
+      tags:
+        - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+  /webhooks:
+    post:
+      operationId: createWebhook
+      summary: Create a webhook
+      description: >-
+        Registers a new webhook listener to receive event notifications from
+        the Nutanix platform. Specifies the URL and event types for the
+        listener.
+      tags:
+        - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '202':
+          description: Accepted - Webhook created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /webhooks/{uuid}:
+    get:
+      operationId: getWebhook
+      summary: Get a webhook
+      description: >-
+        Retrieves the configuration of a specific webhook listener by UUID.
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Webhook not found
+    put:
+      operationId: updateWebhook
+      summary: Update a webhook
+      description: >-
+        Updates the configuration of an existing webhook listener.
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '202':
+          description: Accepted - Webhook updated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Webhook not found
+    delete:
+      operationId: deleteWebhook
+      summary: Delete a webhook
+      description: >-
+        Deletes a webhook listener identified by its UUID.
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/Uuid'
+      responses:
+        '202':
+          description: Accepted - Webhook deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Webhook not found
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: >-
+        HTTP Basic Authentication using Prism Central username and password
+        credentials.
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    ListMetadata:
+      type: object
+      description: >-
+        Request body for list operations supporting server-side filtering,
+        sorting, and pagination.
+      properties:
+        kind:
+          type: string
+          description: The entity kind to list.
+        offset:
+          type: integer
+          description: Offset from the start of the entity list.
+          minimum: 0
+        length:
+          type: integer
+          description: The number of records to retrieve.
+          minimum: 1
+          maximum: 500
+        filter:
+          type: string
+          description: The filter criteria in FIQL format.
+        sort_order:
+          type: string
+          description: The sort order.
+          enum:
+            - ASCENDING
+            - DESCENDING
+        sort_attribute:
+          type: string
+          description: The attribute to sort results by.
+    VmListResponse:
+      type: object
+      description: Response for listing VMs.
+      properties:
+        api_version:
+          type: string
+          description: API version.
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/VmIntentResponse'
+          description: List of VM intent responses.
+    VmIntentInput:
+      type: object
+      description: Input for creating or updating a VM with the intent model.
+      required:
+        - spec
+        - metadata
+      properties:
+        spec:
+          $ref: '#/components/schemas/VmSpec'
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    VmIntentResponse:
+      type: object
+      description: Response containing VM intent status and spec.
+      properties:
+        status:
+          type: object
+          description: The current status of the VM.
+        spec:
+          $ref: '#/components/schemas/VmSpec'
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    VmSpec:
+      type: object
+      description: VM specification describing the desired state.
+      properties:
+        name:
+          type: string
+          description: The name of the VM.
+        description:
+          type: string
+          description: A description of the VM.
+        resources:
+          type: object
+          description: VM resource configuration.
+          properties:
+            num_sockets:
+              type: integer
+              description: Number of vCPU sockets.
+              minimum: 1
+            num_vcpus_per_socket:
+              type: integer
+              description: Number of vCPUs per socket.
+              minimum: 1
+            memory_size_mib:
+              type: integer
+              description: Memory size in MiB.
+              minimum: 1
+            power_state:
+              type: string
+              description: The desired power state of the VM.
+              enum:
+                - 'ON'
+                - 'OFF'
+            disk_list:
+              type: array
+              items:
+                type: object
+                properties:
+                  device_properties:
+                    type: object
+                    properties:
+                      device_type:
+                        type: string
+                        enum:
+                          - DISK
+                          - CDROM
+                      disk_address:
+                        type: object
+                        properties:
+                          adapter_type:
+                            type: string
+                            enum:
+                              - SCSI
+                              - IDE
+                              - PCI
+                              - SATA
+                              - SPAPR
+                          device_index:
+                            type: integer
+                  disk_size_mib:
+                    type: integer
+                    description: Size of the disk in MiB.
+              description: List of disks attached to the VM.
+            nic_list:
+              type: array
+              items:
+                type: object
+                properties:
+                  subnet_reference:
+                    $ref: '#/components/schemas/Reference'
+                  ip_endpoint_list:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        ip:
+                          type: string
+                          description: IP address.
+                        type:
+                          type: string
+                          enum:
+                            - ASSIGNED
+                            - LEARNED
+              description: List of NICs attached to the VM.
+        cluster_reference:
+          $ref: '#/components/schemas/Reference'
+    EntityMetadata:
+      type: object
+      description: Metadata for an entity.
+      properties:
+        kind:
+          type: string
+          description: The kind of entity.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the entity.
+        spec_version:
+          type: integer
+          description: Version number of the spec.
+        categories:
+          type: object
+          additionalProperties:
+            type: string
+          description: Categories assigned to the entity as key-value pairs.
+        owner_reference:
+          $ref: '#/components/schemas/Reference'
+        project_reference:
+          $ref: '#/components/schemas/Reference'
+    Reference:
+      type: object
+      description: A reference to another entity.
+      required:
+        - kind
+        - uuid
+      properties:
+        kind:
+          type: string
+          description: The kind of entity being referenced.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the referenced entity.
+        name:
+          type: string
+          description: The name of the referenced entity.
+    ClusterListResponse:
+      type: object
+      description: Response for listing clusters.
+      properties:
+        api_version:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClusterIntentResponse'
+    ClusterIntentResponse:
+      type: object
+      description: Response containing cluster intent status and spec.
+      properties:
+        status:
+          type: object
+          description: The current status of the cluster.
+        spec:
+          type: object
+          description: The cluster specification.
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    SubnetListResponse:
+      type: object
+      description: Response for listing subnets.
+      properties:
+        api_version:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            type: object
+    SubnetIntentInput:
+      type: object
+      description: Input for creating or updating a subnet.
+      required:
+        - spec
+        - metadata
+      properties:
+        spec:
+          type: object
+          properties:
+            name:
+              type: string
+              description: The name of the subnet.
+            resources:
+              type: object
+              properties:
+                subnet_type:
+                  type: string
+                  description: The type of subnet.
+                  enum:
+                    - VLAN
+                    - OVERLAY
+                vlan_id:
+                  type: integer
+                  description: VLAN ID for VLAN-type subnets.
+                ip_config:
+                  type: object
+                  properties:
+                    subnet_ip:
+                      type: string
+                      description: Subnet IP address.
+                    prefix_length:
+                      type: integer
+                      description: Network prefix length.
+                    default_gateway_ip:
+                      type: string
+                      description: Default gateway IP address.
+                    pool_list:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          range:
+                            type: string
+                            description: IP range in the format start_ip end_ip.
+            cluster_reference:
+              $ref: '#/components/schemas/Reference'
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    ImageListResponse:
+      type: object
+      description: Response for listing images.
+      properties:
+        api_version:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            type: object
+    ImageIntentInput:
+      type: object
+      description: Input for creating an image.
+      required:
+        - spec
+        - metadata
+      properties:
+        spec:
+          type: object
+          properties:
+            name:
+              type: string
+              description: The name of the image.
+            description:
+              type: string
+              description: Description of the image.
+            resources:
+              type: object
+              properties:
+                image_type:
+                  type: string
+                  description: The type of image.
+                  enum:
+                    - DISK_IMAGE
+                    - ISO_IMAGE
+                source_uri:
+                  type: string
+                  format: uri
+                  description: URL to download the image from.
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
