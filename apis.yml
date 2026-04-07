@@ -8,10 +8,10 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - Cloud Management
+  - Hyperconverged
   - Infrastructure
   - Virtualization
-  - Hyperconverged
-  - Cloud Management
 url: https://raw.githubusercontent.com/api-evangelist/nutanix/refs/heads/main/apis.yml
 created: '2025-03-14'
 modified: '2026-03-16'
@@ -25,9 +25,9 @@ apis:
     humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
     baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
     tags:
+      - Cloud Management
       - Infrastructure
       - Virtualization
-      - Cloud Management
     properties:
       - type: Documentation
         url: https://www.nutanix.dev/api_references/prism-central-v3/
@@ -41,8 +41,8 @@ apis:
     humanURL: https://www.nutanix.dev/api-reference-v4/
     baseURL: https://{{prism-central-ip}}:9440/api
     tags:
-      - Infrastructure
       - Cloud Management
+      - Infrastructure
     properties:
       - type: Documentation
         url: https://www.nutanix.dev/api-reference-v4/
@@ -59,8 +59,8 @@ apis:
       including storage containers, hosts, and cluster operations.
     humanURL: https://www.nutanix.dev/api_references/prism-element/
     tags:
-      - Infrastructure
       - Cluster Management
+      - Infrastructure
     properties:
       - type: Documentation
         url: https://www.nutanix.dev/api_references/prism-element/
@@ -69,8 +69,8 @@ apis:
     description: API for managing Kubernetes clusters through Nutanix Karbon.
     humanURL: https://www.nutanix.dev/api_references/karbon/
     tags:
-      - Kubernetes
       - Container Management
+      - Kubernetes
     properties:
       - type: Documentation
         url: https://www.nutanix.dev/api_references/karbon/
@@ -94,9 +94,9 @@ apis:
     humanURL: https://www.nutanix.dev/api_reference/apis/nc2.html
     baseURL: https://api.nutanix.com
     tags:
-      - Hybrid Cloud
       - AWS
       - Azure
+      - Hybrid Cloud
     properties:
       - type: Documentation
         url: https://www.nutanix.dev/api_reference/apis/nc2.html

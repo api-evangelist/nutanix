@@ -25,38 +25,38 @@ servers:
         default: localhost
         description: IP address or FQDN of the Prism Central instance.
 tags:
-  - name: VMs
-    description: >-
-      Manage virtual machines including creation, update, deletion, and power
-      state operations through the intent-based API model.
-  - name: Clusters
-    description: >-
-      Retrieve and manage Nutanix cluster configurations and metadata across the
-      Prism Central deployment.
-  - name: Subnets
-    description: >-
-      Manage AHV network subnets including VLAN and overlay network
-      configurations.
-  - name: Images
-    description: >-
-      Manage disk images distributed across clusters for VM provisioning,
-      including ISO and disk image uploads.
   - name: Categories
     description: >-
       Manage categories and category values used for tagging and organizing
       resources across the Nutanix environment.
-  - name: Projects
+  - name: Clusters
     description: >-
-      Manage projects that define resource quotas, user access, and
-      infrastructure boundaries for self-service consumption.
+      Retrieve and manage Nutanix cluster configurations and metadata across the
+      Prism Central deployment.
   - name: Hosts
     description: >-
       Retrieve information about physical hosts in the Nutanix cluster
       infrastructure.
+  - name: Images
+    description: >-
+      Manage disk images distributed across clusters for VM provisioning,
+      including ISO and disk image uploads.
   - name: Network Security Rules
     description: >-
       Manage Flow microsegmentation policies that control network traffic
       between VMs based on categories.
+  - name: Projects
+    description: >-
+      Manage projects that define resource quotas, user access, and
+      infrastructure boundaries for self-service consumption.
+  - name: Subnets
+    description: >-
+      Manage AHV network subnets including VLAN and overlay network
+      configurations.
+  - name: VMs
+    description: >-
+      Manage virtual machines including creation, update, deletion, and power
+      state operations through the intent-based API model.
   - name: Webhooks
     description: >-
       Manage webhook listeners that receive event notifications from the

@@ -25,10 +25,25 @@ servers:
         default: localhost
         description: IP address or FQDN of the Nutanix cluster or CVM.
 tags:
+  - name: Alerts
+    description: >-
+      Retrieve and manage cluster alerts for monitoring health and
+      operational events.
   - name: Clusters
     description: >-
       Manage cluster-level configuration, health status, and operational
       settings for the local Nutanix cluster.
+  - name: Hosts
+    description: >-
+      Retrieve information about physical hosts (nodes) in the cluster
+      including hardware, hypervisor, and CVM details.
+  - name: Protection Domains
+    description: >-
+      Manage protection domains that define groups of VMs and volume groups
+      for data protection and disaster recovery.
+  - name: Snapshots
+    description: >-
+      Manage VM snapshots for point-in-time recovery of virtual machines.
   - name: Storage Containers
     description: >-
       Manage storage containers that provide logical storage partitions
@@ -37,29 +52,14 @@ tags:
     description: >-
       Manage storage pools which represent groups of physical disks used
       for storing data across the cluster.
-  - name: Hosts
-    description: >-
-      Retrieve information about physical hosts (nodes) in the cluster
-      including hardware, hypervisor, and CVM details.
-  - name: VMs
-    description: >-
-      Manage virtual machines running on the local cluster including
-      power operations and configuration.
   - name: Virtual Disks
     description: >-
       Manage virtual disks including disk statistics and configuration
       within the cluster.
-  - name: Protection Domains
+  - name: VMs
     description: >-
-      Manage protection domains that define groups of VMs and volume groups
-      for data protection and disaster recovery.
-  - name: Snapshots
-    description: >-
-      Manage VM snapshots for point-in-time recovery of virtual machines.
-  - name: Alerts
-    description: >-
-      Retrieve and manage cluster alerts for monitoring health and
-      operational events.
+      Manage virtual machines running on the local cluster including
+      power operations and configuration.
 security:
   - basicAuth: []
 paths:
