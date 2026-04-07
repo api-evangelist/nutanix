@@ -67,7 +67,7 @@ paths:
   /vms/list:
     post:
       operationId: listVms
-      summary: List virtual machines
+      summary: Nutanix List virtual machines
       description: >-
         Retrieves a list of VMs with optional filtering, sorting, and
         pagination. The v3 API standardizes on POST for list operations to
@@ -95,7 +95,7 @@ paths:
   /vms:
     post:
       operationId: createVm
-      summary: Create a virtual machine
+      summary: Nutanix Create a virtual machine
       description: >-
         Creates a new VM using the intent-based spec. The request includes the
         desired specification and metadata. The system returns a task that
@@ -122,7 +122,7 @@ paths:
   /vms/{uuid}:
     get:
       operationId: getVm
-      summary: Get a virtual machine
+      summary: Nutanix Get a virtual machine
       description: >-
         Retrieves the current state and specification of a VM by its UUID.
       tags:
@@ -142,7 +142,7 @@ paths:
           description: VM not found
     put:
       operationId: updateVm
-      summary: Update a virtual machine
+      summary: Nutanix Update a virtual machine
       description: >-
         Updates the specification of an existing VM. The full intent spec must
         be provided including unchanged fields.
@@ -171,7 +171,7 @@ paths:
           description: VM not found
     delete:
       operationId: deleteVm
-      summary: Delete a virtual machine
+      summary: Nutanix Delete a virtual machine
       description: >-
         Deletes a VM identified by its UUID.
       tags:
@@ -188,7 +188,7 @@ paths:
   /clusters/list:
     post:
       operationId: listClusters
-      summary: List clusters
+      summary: Nutanix List clusters
       description: >-
         Retrieves a list of clusters managed by Prism Central with optional
         filtering and pagination.
@@ -212,7 +212,7 @@ paths:
   /clusters/{uuid}:
     get:
       operationId: getCluster
-      summary: Get a cluster
+      summary: Nutanix Get a cluster
       description: >-
         Retrieves the configuration and status of a specific cluster by UUID.
       tags:
@@ -233,7 +233,7 @@ paths:
   /subnets/list:
     post:
       operationId: listSubnets
-      summary: List subnets
+      summary: Nutanix List subnets
       description: >-
         Retrieves a list of subnets with optional filtering and pagination.
       tags:
@@ -256,7 +256,7 @@ paths:
   /subnets:
     post:
       operationId: createSubnet
-      summary: Create a subnet
+      summary: Nutanix Create a subnet
       description: >-
         Creates a new AHV subnet with the specified configuration including
         VLAN ID, IP address management, and cluster assignment.
@@ -278,7 +278,7 @@ paths:
   /subnets/{uuid}:
     get:
       operationId: getSubnet
-      summary: Get a subnet
+      summary: Nutanix Get a subnet
       description: >-
         Retrieves the configuration and status of a specific subnet by UUID.
       tags:
@@ -294,7 +294,7 @@ paths:
           description: Subnet not found
     put:
       operationId: updateSubnet
-      summary: Update a subnet
+      summary: Nutanix Update a subnet
       description: >-
         Updates the configuration of an existing subnet.
       tags:
@@ -316,7 +316,7 @@ paths:
           description: Subnet not found
     delete:
       operationId: deleteSubnet
-      summary: Delete a subnet
+      summary: Nutanix Delete a subnet
       description: >-
         Deletes a subnet identified by its UUID.
       tags:
@@ -333,7 +333,7 @@ paths:
   /images/list:
     post:
       operationId: listImages
-      summary: List images
+      summary: Nutanix List images
       description: >-
         Retrieves a list of disk images with optional filtering and pagination.
       tags:
@@ -356,7 +356,7 @@ paths:
   /images:
     post:
       operationId: createImage
-      summary: Create an image
+      summary: Nutanix Create an image
       description: >-
         Creates a new image resource. Images can be uploaded from a URL source
         or from a file and are distributed to clusters for VM provisioning.
@@ -378,7 +378,7 @@ paths:
   /images/{uuid}:
     get:
       operationId: getImage
-      summary: Get an image
+      summary: Nutanix Get an image
       description: >-
         Retrieves the metadata and status of a specific image by UUID.
       tags:
@@ -394,7 +394,7 @@ paths:
           description: Image not found
     delete:
       operationId: deleteImage
-      summary: Delete an image
+      summary: Nutanix Delete an image
       description: >-
         Deletes an image identified by its UUID.
       tags:
@@ -411,7 +411,7 @@ paths:
   /categories/{name}:
     get:
       operationId: getCategory
-      summary: Get a category key
+      summary: Nutanix Get a category key
       description: >-
         Retrieves a category key and its associated metadata.
       tags:
@@ -432,7 +432,7 @@ paths:
           description: Category not found
     put:
       operationId: updateCategory
-      summary: Create or update a category key
+      summary: Nutanix Create or update a category key
       description: >-
         Creates or updates a category key with the specified metadata.
       tags:
@@ -461,7 +461,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteCategory
-      summary: Delete a category key
+      summary: Nutanix Delete a category key
       description: >-
         Deletes a category key and all its associated values.
       tags:
@@ -483,7 +483,7 @@ paths:
   /categories/{name}/{value}:
     put:
       operationId: updateCategoryValue
-      summary: Create or update a category value
+      summary: Nutanix Create or update a category value
       description: >-
         Creates or updates a value for the specified category key.
       tags:
@@ -508,7 +508,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteCategoryValue
-      summary: Delete a category value
+      summary: Nutanix Delete a category value
       description: >-
         Deletes a specific value from a category key.
       tags:
@@ -536,7 +536,7 @@ paths:
   /projects/list:
     post:
       operationId: listProjects
-      summary: List projects
+      summary: Nutanix List projects
       description: >-
         Retrieves a list of projects with optional filtering and pagination.
       tags:
@@ -555,7 +555,7 @@ paths:
   /projects/{uuid}:
     get:
       operationId: getProject
-      summary: Get a project
+      summary: Nutanix Get a project
       description: >-
         Retrieves the configuration and status of a specific project by UUID.
       tags:
@@ -572,7 +572,7 @@ paths:
   /hosts/list:
     post:
       operationId: listHosts
-      summary: List hosts
+      summary: Nutanix List hosts
       description: >-
         Retrieves a list of physical hosts with optional filtering and
         pagination.
@@ -592,7 +592,7 @@ paths:
   /hosts/{uuid}:
     get:
       operationId: getHost
-      summary: Get a host
+      summary: Nutanix Get a host
       description: >-
         Retrieves information about a specific physical host by UUID.
       tags:
@@ -609,7 +609,7 @@ paths:
   /network_security_rules/list:
     post:
       operationId: listNetworkSecurityRules
-      summary: List network security rules
+      summary: Nutanix List network security rules
       description: >-
         Retrieves a list of Flow network security rules with optional filtering
         and pagination.
@@ -629,7 +629,7 @@ paths:
   /network_security_rules:
     post:
       operationId: createNetworkSecurityRule
-      summary: Create a network security rule
+      summary: Nutanix Create a network security rule
       description: >-
         Creates a new Flow microsegmentation network security rule that
         controls traffic between VMs based on categories.
@@ -651,7 +651,7 @@ paths:
   /network_security_rules/{uuid}:
     get:
       operationId: getNetworkSecurityRule
-      summary: Get a network security rule
+      summary: Nutanix Get a network security rule
       description: >-
         Retrieves the configuration of a specific network security rule by UUID.
       tags:
@@ -667,7 +667,7 @@ paths:
           description: Rule not found
     put:
       operationId: updateNetworkSecurityRule
-      summary: Update a network security rule
+      summary: Nutanix Update a network security rule
       description: >-
         Updates the configuration of an existing network security rule.
       tags:
@@ -689,7 +689,7 @@ paths:
           description: Rule not found
     delete:
       operationId: deleteNetworkSecurityRule
-      summary: Delete a network security rule
+      summary: Nutanix Delete a network security rule
       description: >-
         Deletes a network security rule identified by its UUID.
       tags:
@@ -706,7 +706,7 @@ paths:
   /webhooks/list:
     post:
       operationId: listWebhooks
-      summary: List webhooks
+      summary: Nutanix List webhooks
       description: >-
         Retrieves a list of registered webhook listeners with optional
         filtering and pagination.
@@ -726,7 +726,7 @@ paths:
   /webhooks:
     post:
       operationId: createWebhook
-      summary: Create a webhook
+      summary: Nutanix Create a webhook
       description: >-
         Registers a new webhook listener to receive event notifications from
         the Nutanix platform. Specifies the URL and event types for the
@@ -749,7 +749,7 @@ paths:
   /webhooks/{uuid}:
     get:
       operationId: getWebhook
-      summary: Get a webhook
+      summary: Nutanix Get a webhook
       description: >-
         Retrieves the configuration of a specific webhook listener by UUID.
       tags:
@@ -765,7 +765,7 @@ paths:
           description: Webhook not found
     put:
       operationId: updateWebhook
-      summary: Update a webhook
+      summary: Nutanix Update a webhook
       description: >-
         Updates the configuration of an existing webhook listener.
       tags:
@@ -787,7 +787,7 @@ paths:
           description: Webhook not found
     delete:
       operationId: deleteWebhook
-      summary: Delete a webhook
+      summary: Nutanix Delete a webhook
       description: >-
         Deletes a webhook listener identified by its UUID.
       tags:

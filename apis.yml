@@ -18,7 +18,7 @@ modified: '2026-03-16'
 specificationVersion: '0.19'
 apis:
   - aid: nutanix:prism-central-v3
-    name: Nutanix Prism Central API v3
+    name: Nutanix Prism Central API V3
     description: >-
       RESTful API for managing Nutanix clusters, VMs, storage, networking, and
       other infrastructure components through Prism Central.
@@ -34,7 +34,7 @@ apis:
       - type: Authentication
         url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
   - aid: nutanix:prism-central-v4
-    name: Nutanix Prism Central API v4
+    name: Nutanix Prism Central API V4
     description: >-
       The next-generation v4 API for managing the Nutanix Cloud Platform through
       Prism Central with GA SDKs for Python, Java, Go, and JavaScript.
@@ -53,7 +53,7 @@ apis:
       - type: Change Log
         url: https://www.nutanix.dev/api-versions/
   - aid: nutanix:prism-element-v2
-    name: Nutanix Prism Element API v2
+    name: Nutanix Prism Element API V2
     description: >-
       API for managing individual Nutanix clusters through Prism Element,
       including storage containers, hosts, and cluster operations.

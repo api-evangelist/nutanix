@@ -66,7 +66,7 @@ paths:
   /cluster:
     get:
       operationId: getCluster
-      summary: Get cluster information
+      summary: Nutanix Get cluster information
       description: >-
         Retrieves detailed information about the local Nutanix cluster
         including configuration, health status, and resource utilization.
@@ -84,7 +84,7 @@ paths:
   /storage_containers:
     get:
       operationId: listStorageContainers
-      summary: List storage containers
+      summary: Nutanix List storage containers
       description: >-
         Retrieves a list of all storage containers in the cluster with their
         configuration and usage statistics.
@@ -108,7 +108,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createStorageContainer
-      summary: Create a storage container
+      summary: Nutanix Create a storage container
       description: >-
         Creates a new storage container with the specified configuration
         including name, storage pool, and data services settings.
@@ -130,7 +130,7 @@ paths:
   /storage_containers/{id}:
     get:
       operationId: getStorageContainer
-      summary: Get a storage container
+      summary: Nutanix Get a storage container
       description: >-
         Retrieves details about a specific storage container by its ID.
       tags:
@@ -150,7 +150,7 @@ paths:
           description: Storage container not found
     put:
       operationId: updateStorageContainer
-      summary: Update a storage container
+      summary: Nutanix Update a storage container
       description: >-
         Updates the configuration of an existing storage container.
       tags:
@@ -172,7 +172,7 @@ paths:
           description: Storage container not found
     delete:
       operationId: deleteStorageContainer
-      summary: Delete a storage container
+      summary: Nutanix Delete a storage container
       description: >-
         Deletes a storage container identified by its ID.
       tags:
@@ -189,7 +189,7 @@ paths:
   /storage_pools:
     get:
       operationId: listStoragePools
-      summary: List storage pools
+      summary: Nutanix List storage pools
       description: >-
         Retrieves a list of all storage pools in the cluster.
       tags:
@@ -202,7 +202,7 @@ paths:
   /storage_pools/{id}:
     get:
       operationId: getStoragePool
-      summary: Get a storage pool
+      summary: Nutanix Get a storage pool
       description: >-
         Retrieves details about a specific storage pool by its ID.
       tags:
@@ -219,7 +219,7 @@ paths:
   /hosts:
     get:
       operationId: listHosts
-      summary: List hosts
+      summary: Nutanix List hosts
       description: >-
         Retrieves a list of all physical hosts in the cluster with hardware
         details, hypervisor information, and CVM status.
@@ -244,7 +244,7 @@ paths:
   /hosts/{id}:
     get:
       operationId: getHost
-      summary: Get a host
+      summary: Nutanix Get a host
       description: >-
         Retrieves detailed information about a specific host by its ID.
       tags:
@@ -265,7 +265,7 @@ paths:
   /vms:
     get:
       operationId: listVms
-      summary: List virtual machines
+      summary: Nutanix List virtual machines
       description: >-
         Retrieves a list of all VMs on the local cluster with their
         configuration and current state.
@@ -292,7 +292,7 @@ paths:
   /vms/{id}:
     get:
       operationId: getVm
-      summary: Get a virtual machine
+      summary: Nutanix Get a virtual machine
       description: >-
         Retrieves detailed information about a specific VM by its ID.
       tags:
@@ -309,7 +309,7 @@ paths:
   /vms/{id}/set_power_state:
     post:
       operationId: setVmPowerState
-      summary: Set VM power state
+      summary: Nutanix Set VM power state
       description: >-
         Changes the power state of a VM to ON, OFF, POWERCYCLE, RESET,
         PAUSE, SUSPEND, or ACPI_SHUTDOWN.
@@ -347,7 +347,7 @@ paths:
   /virtual_disks:
     get:
       operationId: listVirtualDisks
-      summary: List virtual disks
+      summary: Nutanix List virtual disks
       description: >-
         Retrieves a list of all virtual disks in the cluster.
       tags:
@@ -360,7 +360,7 @@ paths:
   /protection_domains:
     get:
       operationId: listProtectionDomains
-      summary: List protection domains
+      summary: Nutanix List protection domains
       description: >-
         Retrieves a list of all protection domains configured on the cluster
         for data protection.
@@ -373,7 +373,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createProtectionDomain
-      summary: Create a protection domain
+      summary: Nutanix Create a protection domain
       description: >-
         Creates a new protection domain for grouping entities for data
         protection and replication.
@@ -401,7 +401,7 @@ paths:
   /snapshots:
     get:
       operationId: listSnapshots
-      summary: List snapshots
+      summary: Nutanix List snapshots
       description: >-
         Retrieves a list of all VM snapshots available in the cluster.
       tags:
@@ -414,7 +414,7 @@ paths:
   /alerts:
     get:
       operationId: listAlerts
-      summary: List alerts
+      summary: Nutanix List alerts
       description: >-
         Retrieves a list of alerts generated by the cluster for health
         monitoring and operational events.
@@ -443,7 +443,7 @@ paths:
   /alerts/{id}:
     get:
       operationId: getAlert
-      summary: Get an alert
+      summary: Nutanix Get an alert
       description: >-
         Retrieves details about a specific alert by its ID.
       tags:
