@@ -1,0 +1,1186 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Nutanix Prism Central API v3
+  description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through
+    Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system
+    works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication
+    is via HTTP Basic Auth with Prism Central credentials.
+  tags:
+  - Nutanix
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: nutanix
+    baseUri: https://localhost:9440/api/nutanix/v3
+    description: Nutanix Prism Central API v3 HTTP API.
+    authentication:
+      type: basic
+      username: '{{NUTANIX_USERNAME}}'
+      password: '{{NUTANIX_PASSWORD}}'
+    resources:
+    - name: vms-list
+      path: /vms/list
+      operations:
+      - name: listvms
+        method: POST
+        description: Nutanix List virtual machines
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: vms
+      path: /vms
+      operations:
+      - name: createvm
+        method: POST
+        description: Nutanix Create a virtual machine
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: vms-uuid
+      path: /vms/{uuid}
+      operations:
+      - name: getvm
+        method: GET
+        description: Nutanix Get a virtual machine
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatevm
+        method: PUT
+        description: Nutanix Update a virtual machine
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletevm
+        method: DELETE
+        description: Nutanix Delete a virtual machine
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: clusters-list
+      path: /clusters/list
+      operations:
+      - name: listclusters
+        method: POST
+        description: Nutanix List clusters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: clusters-uuid
+      path: /clusters/{uuid}
+      operations:
+      - name: getcluster
+        method: GET
+        description: Nutanix Get a cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subnets-list
+      path: /subnets/list
+      operations:
+      - name: listsubnets
+        method: POST
+        description: Nutanix List subnets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subnets
+      path: /subnets
+      operations:
+      - name: createsubnet
+        method: POST
+        description: Nutanix Create a subnet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subnets-uuid
+      path: /subnets/{uuid}
+      operations:
+      - name: getsubnet
+        method: GET
+        description: Nutanix Get a subnet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatesubnet
+        method: PUT
+        description: Nutanix Update a subnet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletesubnet
+        method: DELETE
+        description: Nutanix Delete a subnet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: images-list
+      path: /images/list
+      operations:
+      - name: listimages
+        method: POST
+        description: Nutanix List images
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: images
+      path: /images
+      operations:
+      - name: createimage
+        method: POST
+        description: Nutanix Create an image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: images-uuid
+      path: /images/{uuid}
+      operations:
+      - name: getimage
+        method: GET
+        description: Nutanix Get an image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteimage
+        method: DELETE
+        description: Nutanix Delete an image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: categories-name
+      path: /categories/{name}
+      operations:
+      - name: getcategory
+        method: GET
+        description: Nutanix Get a category key
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the category key.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecategory
+        method: PUT
+        description: Nutanix Create or update a category key
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the category key.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecategory
+        method: DELETE
+        description: Nutanix Delete a category key
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the category key.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: categories-name-value
+      path: /categories/{name}/{value}
+      operations:
+      - name: updatecategoryvalue
+        method: PUT
+        description: Nutanix Create or update a category value
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the category key.
+        - name: value
+          in: path
+          type: string
+          required: true
+          description: The category value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecategoryvalue
+        method: DELETE
+        description: Nutanix Delete a category value
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the category key.
+        - name: value
+          in: path
+          type: string
+          required: true
+          description: The category value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-list
+      path: /projects/list
+      operations:
+      - name: listprojects
+        method: POST
+        description: Nutanix List projects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-uuid
+      path: /projects/{uuid}
+      operations:
+      - name: getproject
+        method: GET
+        description: Nutanix Get a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: hosts-list
+      path: /hosts/list
+      operations:
+      - name: listhosts
+        method: POST
+        description: Nutanix List hosts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: hosts-uuid
+      path: /hosts/{uuid}
+      operations:
+      - name: gethost
+        method: GET
+        description: Nutanix Get a host
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: network-security-rules-list
+      path: /network_security_rules/list
+      operations:
+      - name: listnetworksecurityrules
+        method: POST
+        description: Nutanix List network security rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: network-security-rules
+      path: /network_security_rules
+      operations:
+      - name: createnetworksecurityrule
+        method: POST
+        description: Nutanix Create a network security rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: network-security-rules-uuid
+      path: /network_security_rules/{uuid}
+      operations:
+      - name: getnetworksecurityrule
+        method: GET
+        description: Nutanix Get a network security rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatenetworksecurityrule
+        method: PUT
+        description: Nutanix Update a network security rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletenetworksecurityrule
+        method: DELETE
+        description: Nutanix Delete a network security rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: webhooks-list
+      path: /webhooks/list
+      operations:
+      - name: listwebhooks
+        method: POST
+        description: Nutanix List webhooks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: webhooks
+      path: /webhooks
+      operations:
+      - name: createwebhook
+        method: POST
+        description: Nutanix Create a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: webhooks-uuid
+      path: /webhooks/{uuid}
+      operations:
+      - name: getwebhook
+        method: GET
+        description: Nutanix Get a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatewebhook
+        method: PUT
+        description: Nutanix Update a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletewebhook
+        method: DELETE
+        description: Nutanix Delete a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: nutanix-rest
+    description: REST adapter for Nutanix Prism Central API v3.
+    resources:
+    - path: /vms/list
+      name: listvms
+      operations:
+      - method: POST
+        name: listvms
+        description: Nutanix List virtual machines
+        call: nutanix.listvms
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /vms
+      name: createvm
+      operations:
+      - method: POST
+        name: createvm
+        description: Nutanix Create a virtual machine
+        call: nutanix.createvm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /vms/{uuid}
+      name: getvm
+      operations:
+      - method: GET
+        name: getvm
+        description: Nutanix Get a virtual machine
+        call: nutanix.getvm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /vms/{uuid}
+      name: updatevm
+      operations:
+      - method: PUT
+        name: updatevm
+        description: Nutanix Update a virtual machine
+        call: nutanix.updatevm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /vms/{uuid}
+      name: deletevm
+      operations:
+      - method: DELETE
+        name: deletevm
+        description: Nutanix Delete a virtual machine
+        call: nutanix.deletevm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /clusters/list
+      name: listclusters
+      operations:
+      - method: POST
+        name: listclusters
+        description: Nutanix List clusters
+        call: nutanix.listclusters
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /clusters/{uuid}
+      name: getcluster
+      operations:
+      - method: GET
+        name: getcluster
+        description: Nutanix Get a cluster
+        call: nutanix.getcluster
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /subnets/list
+      name: listsubnets
+      operations:
+      - method: POST
+        name: listsubnets
+        description: Nutanix List subnets
+        call: nutanix.listsubnets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /subnets
+      name: createsubnet
+      operations:
+      - method: POST
+        name: createsubnet
+        description: Nutanix Create a subnet
+        call: nutanix.createsubnet
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /subnets/{uuid}
+      name: getsubnet
+      operations:
+      - method: GET
+        name: getsubnet
+        description: Nutanix Get a subnet
+        call: nutanix.getsubnet
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /subnets/{uuid}
+      name: updatesubnet
+      operations:
+      - method: PUT
+        name: updatesubnet
+        description: Nutanix Update a subnet
+        call: nutanix.updatesubnet
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /subnets/{uuid}
+      name: deletesubnet
+      operations:
+      - method: DELETE
+        name: deletesubnet
+        description: Nutanix Delete a subnet
+        call: nutanix.deletesubnet
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /images/list
+      name: listimages
+      operations:
+      - method: POST
+        name: listimages
+        description: Nutanix List images
+        call: nutanix.listimages
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /images
+      name: createimage
+      operations:
+      - method: POST
+        name: createimage
+        description: Nutanix Create an image
+        call: nutanix.createimage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /images/{uuid}
+      name: getimage
+      operations:
+      - method: GET
+        name: getimage
+        description: Nutanix Get an image
+        call: nutanix.getimage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /images/{uuid}
+      name: deleteimage
+      operations:
+      - method: DELETE
+        name: deleteimage
+        description: Nutanix Delete an image
+        call: nutanix.deleteimage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /categories/{name}
+      name: getcategory
+      operations:
+      - method: GET
+        name: getcategory
+        description: Nutanix Get a category key
+        call: nutanix.getcategory
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /categories/{name}
+      name: updatecategory
+      operations:
+      - method: PUT
+        name: updatecategory
+        description: Nutanix Create or update a category key
+        call: nutanix.updatecategory
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /categories/{name}
+      name: deletecategory
+      operations:
+      - method: DELETE
+        name: deletecategory
+        description: Nutanix Delete a category key
+        call: nutanix.deletecategory
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /categories/{name}/{value}
+      name: updatecategoryvalue
+      operations:
+      - method: PUT
+        name: updatecategoryvalue
+        description: Nutanix Create or update a category value
+        call: nutanix.updatecategoryvalue
+        with:
+          name: rest.name
+          value: rest.value
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /categories/{name}/{value}
+      name: deletecategoryvalue
+      operations:
+      - method: DELETE
+        name: deletecategoryvalue
+        description: Nutanix Delete a category value
+        call: nutanix.deletecategoryvalue
+        with:
+          name: rest.name
+          value: rest.value
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/list
+      name: listprojects
+      operations:
+      - method: POST
+        name: listprojects
+        description: Nutanix List projects
+        call: nutanix.listprojects
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{uuid}
+      name: getproject
+      operations:
+      - method: GET
+        name: getproject
+        description: Nutanix Get a project
+        call: nutanix.getproject
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /hosts/list
+      name: listhosts
+      operations:
+      - method: POST
+        name: listhosts
+        description: Nutanix List hosts
+        call: nutanix.listhosts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /hosts/{uuid}
+      name: gethost
+      operations:
+      - method: GET
+        name: gethost
+        description: Nutanix Get a host
+        call: nutanix.gethost
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /network_security_rules/list
+      name: listnetworksecurityrules
+      operations:
+      - method: POST
+        name: listnetworksecurityrules
+        description: Nutanix List network security rules
+        call: nutanix.listnetworksecurityrules
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /network_security_rules
+      name: createnetworksecurityrule
+      operations:
+      - method: POST
+        name: createnetworksecurityrule
+        description: Nutanix Create a network security rule
+        call: nutanix.createnetworksecurityrule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /network_security_rules/{uuid}
+      name: getnetworksecurityrule
+      operations:
+      - method: GET
+        name: getnetworksecurityrule
+        description: Nutanix Get a network security rule
+        call: nutanix.getnetworksecurityrule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /network_security_rules/{uuid}
+      name: updatenetworksecurityrule
+      operations:
+      - method: PUT
+        name: updatenetworksecurityrule
+        description: Nutanix Update a network security rule
+        call: nutanix.updatenetworksecurityrule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /network_security_rules/{uuid}
+      name: deletenetworksecurityrule
+      operations:
+      - method: DELETE
+        name: deletenetworksecurityrule
+        description: Nutanix Delete a network security rule
+        call: nutanix.deletenetworksecurityrule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /webhooks/list
+      name: listwebhooks
+      operations:
+      - method: POST
+        name: listwebhooks
+        description: Nutanix List webhooks
+        call: nutanix.listwebhooks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /webhooks
+      name: createwebhook
+      operations:
+      - method: POST
+        name: createwebhook
+        description: Nutanix Create a webhook
+        call: nutanix.createwebhook
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /webhooks/{uuid}
+      name: getwebhook
+      operations:
+      - method: GET
+        name: getwebhook
+        description: Nutanix Get a webhook
+        call: nutanix.getwebhook
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /webhooks/{uuid}
+      name: updatewebhook
+      operations:
+      - method: PUT
+        name: updatewebhook
+        description: Nutanix Update a webhook
+        call: nutanix.updatewebhook
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /webhooks/{uuid}
+      name: deletewebhook
+      operations:
+      - method: DELETE
+        name: deletewebhook
+        description: Nutanix Delete a webhook
+        call: nutanix.deletewebhook
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: nutanix-mcp
+    transport: http
+    description: MCP adapter for Nutanix Prism Central API v3 for AI agent use.
+    tools:
+    - name: listvms
+      description: Nutanix List virtual machines
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.listvms
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createvm
+      description: Nutanix Create a virtual machine
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.createvm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getvm
+      description: Nutanix Get a virtual machine
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nutanix.getvm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatevm
+      description: Nutanix Update a virtual machine
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nutanix.updatevm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletevm
+      description: Nutanix Delete a virtual machine
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: nutanix.deletevm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listclusters
+      description: Nutanix List clusters
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.listclusters
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcluster
+      description: Nutanix Get a cluster
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nutanix.getcluster
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsubnets
+      description: Nutanix List subnets
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.listsubnets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createsubnet
+      description: Nutanix Create a subnet
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.createsubnet
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsubnet
+      description: Nutanix Get a subnet
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nutanix.getsubnet
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatesubnet
+      description: Nutanix Update a subnet
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nutanix.updatesubnet
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletesubnet
+      description: Nutanix Delete a subnet
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: nutanix.deletesubnet
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listimages
+      description: Nutanix List images
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.listimages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createimage
+      description: Nutanix Create an image
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.createimage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getimage
+      description: Nutanix Get an image
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nutanix.getimage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteimage
+      description: Nutanix Delete an image
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: nutanix.deleteimage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcategory
+      description: Nutanix Get a category key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nutanix.getcategory
+      with:
+        name: tools.name
+      inputParameters:
+      - name: name
+        type: string
+        description: The name of the category key.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatecategory
+      description: Nutanix Create or update a category key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nutanix.updatecategory
+      with:
+        name: tools.name
+      inputParameters:
+      - name: name
+        type: string
+        description: The name of the category key.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletecategory
+      description: Nutanix Delete a category key
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: nutanix.deletecategory
+      with:
+        name: tools.name
+      inputParameters:
+      - name: name
+        type: string
+        description: The name of the category key.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatecategoryvalue
+      description: Nutanix Create or update a category value
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nutanix.updatecategoryvalue
+      with:
+        name: tools.name
+        value: tools.value
+      inputParameters:
+      - name: name
+        type: string
+        description: The name of the category key.
+        required: true
+      - name: value
+        type: string
+        description: The category value.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletecategoryvalue
+      description: Nutanix Delete a category value
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: nutanix.deletecategoryvalue
+      with:
+        name: tools.name
+        value: tools.value
+      inputParameters:
+      - name: name
+        type: string
+        description: The name of the category key.
+        required: true
+      - name: value
+        type: string
+        description: The category value.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listprojects
+      description: Nutanix List projects
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.listprojects
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getproject
+      description: Nutanix Get a project
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nutanix.getproject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listhosts
+      description: Nutanix List hosts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.listhosts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gethost
+      description: Nutanix Get a host
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nutanix.gethost
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listnetworksecurityrules
+      description: Nutanix List network security rules
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.listnetworksecurityrules
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createnetworksecurityrule
+      description: Nutanix Create a network security rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.createnetworksecurityrule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getnetworksecurityrule
+      description: Nutanix Get a network security rule
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nutanix.getnetworksecurityrule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatenetworksecurityrule
+      description: Nutanix Update a network security rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nutanix.updatenetworksecurityrule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletenetworksecurityrule
+      description: Nutanix Delete a network security rule
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: nutanix.deletenetworksecurityrule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listwebhooks
+      description: Nutanix List webhooks
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.listwebhooks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createwebhook
+      description: Nutanix Create a webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nutanix.createwebhook
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getwebhook
+      description: Nutanix Get a webhook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nutanix.getwebhook
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatewebhook
+      description: Nutanix Update a webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nutanix.updatewebhook
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletewebhook
+      description: Nutanix Delete a webhook
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: nutanix.deletewebhook
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    NUTANIX_USERNAME: NUTANIX_USERNAME
+    NUTANIX_PASSWORD: NUTANIX_PASSWORD
