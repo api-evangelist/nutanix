@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,10 +9,11 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Nutanix
 providerId: nutanix
-publisherName: Nutanix
-serviceCategory: API
+publisherName: Nutanix, Inc.
+serviceCategory: Hybrid Cloud Infrastructure
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Cloud Management
   - Hyperconverged
@@ -22,96 +24,95 @@ tags:
   - FinOps
   - Cost Management
   - FOCUS
-description: FinOps framework definition for the Nutanix API surface. Provides a FOCUS-aligned mapping
-  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+description: 'FOCUS-aligned FinOps for Nutanix: per-node / per-core software subscription bundled with
+  on-prem hardware, plus hourly metered NC2 in AWS/Azure cloud marketplaces. APIs are included with the
+  license. Cost governance is provided by Nutanix Cloud Manager (NCM) Cost Governance.'
+sources:
+  - https://www.nutanix.com/products/cloud-platform
+  - https://www.nutanix.com/products/cloud-manager
+  - https://www.nutanix.com/products/cloud-clusters
 principles:
   - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
+    description: Use NCM Cost Governance (formerly Beam) to see consumption and chargeback across on-prem
+      Nutanix clusters and NC2 cloud spend. Pull NC2 billing from AWS Cost Explorer / Azure Cost Management
+      via FOCUS-aligned exports; pull on-prem usage from Prism Central.
   - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
+    description: Tag VMs and projects in Prism Central / NCM Self-Service for chargeback. Use NC2 cloud
+      tags to allocate AWS/Azure infrastructure spend back to consuming teams.
   - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
+    description: Use NCM Cost Governance recommendations to right-size VMs, identify idle resources, and
+      optimize NC2 footprint. Burst into NC2 only when on-prem capacity is exhausted; run baseline in
+      lower-cost on-prem.
   - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+    description: 'Establish per-business-unit chargeback via NCM. Assign owners for: on-prem cluster utilization,
+      NC2 cloud spend, and NDB database sprawl. Review monthly.'
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Subscription (Per-Node) + Marketplace Hourly
+  billingFrequency: Annual (subscription) or Hourly (NC2 via cloud)
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
+    - Usage
     - Tax
-    - Credit
     - Adjustment
+    - Credit
   chargeFrequency: Recurring
 focusColumns:
   ServiceName: Nutanix
-  ServiceCategory: Developer Tools / API
+  ServiceCategory: Hybrid Cloud Infrastructure
   ProviderName: Nutanix
-  PublisherName: Nutanix
-  InvoiceIssuerName: Nutanix
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  PublisherName: Nutanix, Inc.
+  InvoiceIssuerName: Nutanix, Inc. (or AWS/Azure for NC2 marketplace)
+  PricingCategory: Subscription
+  PricingUnit: node
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: nci_node_subscription
+    description: Per-node Nutanix Cloud Infrastructure subscription
+    unit: node
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
+      - edition
+      - cluster
       - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
+  - name: nci_core_subscription
+    description: Per-core Nutanix Cloud Infrastructure subscription (capacity-based licensing)
+    unit: core
     aggregation: sum
     dimensions:
-      - api
+      - edition
+      - cluster
+  - name: ncm_vm_subscription
+    description: Per-VM or per-core NCM (Cloud Manager) subscription
+    unit: vm
+    aggregation: sum
+    dimensions:
+      - product
+      - cluster
+  - name: ndb_db_subscription
+    description: Per-database Nutanix Database Service subscription
+    unit: database
+    aggregation: sum
+    dimensions:
+      - engine
+      - cluster
+  - name: nc2_software_hours
+    description: Hourly Nutanix software meter on NC2 (AWS/Azure)
+    unit: instance-hour
+    aggregation: sum
+    dimensions:
+      - cloud
       - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
+      - instance_type
+  - name: nc2_cloud_infra
+    description: Underlying cloud-provider infrastructure consumed by NC2
+    unit: instance-hour
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
+      - cloud
+      - region
+      - instance_type
 apis:
   - name: Nutanix Prism Central API V3
     baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
@@ -120,38 +121,35 @@ apis:
       - Infrastructure
       - Virtualization
     serviceName: Nutanix Prism Central API V3
-    serviceCategory: API
+    serviceCategory: Cloud Management
   - name: Nutanix Prism Central API V4
     baseURL: https://{{prism-central-ip}}:9440/api
     tags:
       - Cloud Management
-      - Infrastructure
       - SDK
     serviceName: Nutanix Prism Central API V4
-    serviceCategory: API
+    serviceCategory: Cloud Management
   - name: Nutanix Prism Element API V2
     baseURL: https://{{cluster-ip}}:9440/PrismGateway/services/rest/v2.0
     tags:
       - Cluster Management
-      - Infrastructure
       - Storage
     serviceName: Nutanix Prism Element API V2
-    serviceCategory: API
+    serviceCategory: Cluster Management
   - name: Nutanix Karbon API
     baseURL: ''
     tags:
       - Container Management
       - Kubernetes
-      - Orchestration
     serviceName: Nutanix Karbon API
-    serviceCategory: API
+    serviceCategory: Container Management
   - name: Nutanix Database Service API
     baseURL: ''
     tags:
       - Database
       - DBaaS
     serviceName: Nutanix Database Service API
-    serviceCategory: API
+    serviceCategory: Database
   - name: Nutanix Cloud Clusters API
     baseURL: https://api.nutanix.com
     tags:
@@ -159,30 +157,28 @@ apis:
       - Azure
       - Hybrid Cloud
     serviceName: Nutanix Cloud Clusters API
-    serviceCategory: API
+    serviceCategory: Hybrid Cloud
   - name: Nutanix NCM Self-Service API
     baseURL: ''
     tags:
       - Automation
       - Application Management
-      - Orchestration
-      - DevOps
     serviceName: Nutanix NCM Self-Service API
-    serviceCategory: API
+    serviceCategory: Cloud Management
   - name: Nutanix Foundation API
     baseURL: ''
     tags:
       - Cluster Deployment
       - Automation
     serviceName: Nutanix Foundation API
-    serviceCategory: API
+    serviceCategory: Cluster Management
 unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+  - name: Cost per VM-month (on-prem)
+    metric: nci_subscription_cost / running_vms
+    target: track against AWS/Azure equivalent for buy/burst decisions
+  - name: Cost per NC2 cluster-hour
+    metric: nc2_software_hours_cost + nc2_cloud_infra_cost / nc2_active_clusters
+    target: minimize via reserved instances on AWS/Azure for steady-state
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

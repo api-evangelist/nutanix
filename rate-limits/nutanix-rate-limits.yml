@@ -4,7 +4,8 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Nutanix
 providerId: nutanix
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Cloud Management
   - Hyperconverged
@@ -13,113 +14,57 @@ tags:
   - Kubernetes
   - Database
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Nutanix API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: Nutanix APIs (Prism Central v3/v4, Prism Element v2, Karbon, NDB, NC2, NCM Self-Service,
+  Foundation) are deployed within customer-controlled clusters and do not have public per-tier rate limits.
+  Throughput is bounded by the cluster's CPU/memory/network and Prism Central's task queue. Long-running
+  operations are returned as task UUIDs for asynchronous polling. Public docs do not publish numeric per-second
+  ceilings.
+notes: Per-API numeric rate limits are not publicly documented; clients should pace requests against
+  cluster capacity and use task-based polling. Update if Nutanix publishes specific limits.
+sources:
+  - https://www.nutanix.dev/
+  - https://docs.api.nutanix.com/
 responseCodes:
+  unauthorized: 401
+  forbidden: 403
   throttled: 429
-  quotaExceeded: 429
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
+  - name: Prism Central / Prism Element
+    scope: cluster
+    metric: varies
+    limit: cluster-bounded; not numerically published. Use task-based polling for long ops.
     applies:
       - Nutanix Prism Central API V3
       - Nutanix Prism Central API V4
       - Nutanix Prism Element API V2
-      - Nutanix Karbon API
-      - Nutanix Database Service API
-      - Nutanix Cloud Clusters API
-      - Nutanix NCM Self-Service API
-      - Nutanix Foundation API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
+  - name: NCM Self-Service / Karbon / NDB / Foundation
+    scope: cluster
+    metric: varies
+    limit: cluster-bounded; defer to product-specific docs
     applies:
-      - Nutanix Prism Central API V3
-      - Nutanix Prism Central API V4
-      - Nutanix Prism Element API V2
       - Nutanix Karbon API
       - Nutanix Database Service API
-      - Nutanix Cloud Clusters API
       - Nutanix NCM Self-Service API
       - Nutanix Foundation API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
+  - name: Nutanix Cloud Clusters (NC2)
+    scope: tenant
+    metric: varies
+    limit: see Nutanix portal documentation
     applies:
-      - Nutanix Prism Central API V3
-      - Nutanix Prism Central API V4
-      - Nutanix Prism Element API V2
-      - Nutanix Karbon API
-      - Nutanix Database Service API
       - Nutanix Cloud Clusters API
-      - Nutanix NCM Self-Service API
-      - Nutanix Foundation API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Nutanix Prism Central API V3
-      - Nutanix Prism Central API V4
-      - Nutanix Prism Element API V2
-      - Nutanix Karbon API
-      - Nutanix Database Service API
-      - Nutanix Cloud Clusters API
-      - Nutanix NCM Self-Service API
-      - Nutanix Foundation API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Nutanix Prism Central API V3
-      - Nutanix Prism Central API V4
-      - Nutanix Prism Element API V2
-      - Nutanix Karbon API
-      - Nutanix Database Service API
-      - Nutanix Cloud Clusters API
-      - Nutanix NCM Self-Service API
-      - Nutanix Foundation API
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Async tasks
+    description: Most write operations on Prism return a task UUID; clients should poll the tasks endpoint
+      for completion rather than blocking on the request.
+  - name: Authentication
+    description: Prism uses Basic auth or API key over HTTPS; v4 supports key-based auth via Prism Central
+      service accounts.
+  - name: Backoff
+    description: Implement exponential backoff with jitter on 429/503 and respect Retry-After when present.
+  - name: Cluster capacity
+    description: Effective rate is bounded by the cluster's CPU and Prism Central scheduler; sustained
+      heavy automation should batch and pace requests.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
