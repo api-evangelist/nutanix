@@ -56,11 +56,11 @@ apis:
     properties:
       - type: Documentation
         url: https://www.nutanix.dev/api-reference-v4/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://www.nutanix.dev/nutanix-api-user-guide/
       - type: SDKs
         url: https://www.nutanix.dev/sdk_reference/
-      - type: Change Log
+      - type: ChangeLog
         url: https://www.nutanix.dev/api-versions/
       - type: Developer Portal
         url: https://developers.nutanix.com/
@@ -152,7 +152,7 @@ common:
     url: https://www.nutanix.com
   - type: Documentation
     url: https://www.nutanix.dev/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://www.nutanix.dev/nutanix-api-user-guide/
   - type: SDKs
     url: https://www.nutanix.dev/sdk_reference/
@@ -160,7 +160,7 @@ common:
     url: https://www.nutanix.dev/api_references/
   - type: Code Samples
     url: https://www.nutanix.dev/code_samples/
-  - type: Change Log
+  - type: ChangeLog
     url: https://www.nutanix.dev/api-versions/
   - type: Blog
     url: https://www.nutanix.dev/blog/
@@ -168,19 +168,19 @@ common:
     url: https://next.nutanix.com/
   - type: Support
     url: https://www.nutanix.com/support-services/product-support
-  - type: Status
+  - type: StatusPage
     url: https://status.nutanix.com/
   - type: Login
     url: https://my.nutanix.com/
-  - type: Sign Up
+  - type: SignUp
     url: https://my.nutanix.com/page/signup
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/nutanix
   - type: Developer Portal
     url: https://developers.nutanix.com/
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.nutanix.com/legal/terms-of-use
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.nutanix.com/legal/privacy-notice
 maintainers:
   - FN: Kin Lane
