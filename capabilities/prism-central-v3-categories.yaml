@@ -1,0 +1,249 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Nutanix Prism Central API v3 — Categories
+  description: 'Nutanix Prism Central API v3 — Categories. 5 operations. Lead operation: Nutanix Get a category key. Self-contained
+    Naftiko capability covering one Nutanix business surface.'
+  tags:
+  - Nutanix
+  - Categories
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NUTANIX_API_KEY: NUTANIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: prism-central-v3-categories
+    baseUri: https://{prismCentralIp}:9440/api/nutanix/v3
+    description: Nutanix Prism Central API v3 — Categories business capability. Self-contained, no shared references.
+    resources:
+    - name: categories-name
+      path: /categories/{name}
+      operations:
+      - name: getcategory
+        method: GET
+        description: Nutanix Get a category key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: The name of the category key.
+          required: true
+      - name: updatecategory
+        method: PUT
+        description: Nutanix Create or update a category key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: The name of the category key.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecategory
+        method: DELETE
+        description: Nutanix Delete a category key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: The name of the category key.
+          required: true
+    - name: categories-name-value
+      path: /categories/{name}/{value}
+      operations:
+      - name: updatecategoryvalue
+        method: PUT
+        description: Nutanix Create or update a category value
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: The name of the category key.
+          required: true
+        - name: value
+          in: path
+          type: string
+          description: The category value.
+          required: true
+      - name: deletecategoryvalue
+        method: DELETE
+        description: Nutanix Delete a category value
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: The name of the category key.
+          required: true
+        - name: value
+          in: path
+          type: string
+          description: The category value.
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.NUTANIX_USER}}'
+      password: '{{env.NUTANIX_PASS}}'
+  exposes:
+  - type: rest
+    namespace: prism-central-v3-categories-rest
+    port: 8080
+    description: REST adapter for Nutanix Prism Central API v3 — Categories. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/categories/{name}
+      name: categories-name
+      description: REST surface for categories-name.
+      operations:
+      - method: GET
+        name: getcategory
+        description: Nutanix Get a category key
+        call: prism-central-v3-categories.getcategory
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecategory
+        description: Nutanix Create or update a category key
+        call: prism-central-v3-categories.updatecategory
+        with:
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecategory
+        description: Nutanix Delete a category key
+        call: prism-central-v3-categories.deletecategory
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/categories/{name}/{value}
+      name: categories-name-value
+      description: REST surface for categories-name-value.
+      operations:
+      - method: PUT
+        name: updatecategoryvalue
+        description: Nutanix Create or update a category value
+        call: prism-central-v3-categories.updatecategoryvalue
+        with:
+          name: rest.name
+          value: rest.value
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecategoryvalue
+        description: Nutanix Delete a category value
+        call: prism-central-v3-categories.deletecategoryvalue
+        with:
+          name: rest.name
+          value: rest.value
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: prism-central-v3-categories-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Nutanix Prism Central API v3 — Categories. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: nutanix-get-category-key
+      description: Nutanix Get a category key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: prism-central-v3-categories.getcategory
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-create-update-category-key
+      description: Nutanix Create or update a category key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: prism-central-v3-categories.updatecategory
+      with:
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-delete-category-key
+      description: Nutanix Delete a category key
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: prism-central-v3-categories.deletecategory
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-create-update-category-value
+      description: Nutanix Create or update a category value
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: prism-central-v3-categories.updatecategoryvalue
+      with:
+        name: tools.name
+        value: tools.value
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-delete-category-value
+      description: Nutanix Delete a category value
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: prism-central-v3-categories.deletecategoryvalue
+      with:
+        name: tools.name
+        value: tools.value
+      outputParameters:
+      - type: object
+        mapping: $.

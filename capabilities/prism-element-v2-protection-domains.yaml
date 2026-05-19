@@ -1,0 +1,106 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Nutanix Prism Element API v2 — Protection Domains
+  description: 'Nutanix Prism Element API v2 — Protection Domains. 2 operations. Lead operation: Nutanix List protection domains.
+    Self-contained Naftiko capability covering one Nutanix business surface.'
+  tags:
+  - Nutanix
+  - Protection Domains
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NUTANIX_API_KEY: NUTANIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: prism-element-v2-protection-domains
+    baseUri: https://{clusterIp}:9440/PrismGateway/services/rest/v2.0
+    description: Nutanix Prism Element API v2 — Protection Domains business capability. Self-contained, no shared references.
+    resources:
+    - name: protection_domains
+      path: /protection_domains
+      operations:
+      - name: listprotectiondomains
+        method: GET
+        description: Nutanix List protection domains
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createprotectiondomain
+        method: POST
+        description: Nutanix Create a protection domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.NUTANIX_USER}}'
+      password: '{{env.NUTANIX_PASS}}'
+  exposes:
+  - type: rest
+    namespace: prism-element-v2-protection-domains-rest
+    port: 8080
+    description: REST adapter for Nutanix Prism Element API v2 — Protection Domains. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/protection-domains
+      name: protection-domains
+      description: REST surface for protection_domains.
+      operations:
+      - method: GET
+        name: listprotectiondomains
+        description: Nutanix List protection domains
+        call: prism-element-v2-protection-domains.listprotectiondomains
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createprotectiondomain
+        description: Nutanix Create a protection domain
+        call: prism-element-v2-protection-domains.createprotectiondomain
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: prism-element-v2-protection-domains-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Nutanix Prism Element API v2 — Protection Domains. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: nutanix-list-protection-domains
+      description: Nutanix List protection domains
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: prism-element-v2-protection-domains.listprotectiondomains
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-create-protection-domain
+      description: Nutanix Create a protection domain
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: prism-element-v2-protection-domains.createprotectiondomain
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

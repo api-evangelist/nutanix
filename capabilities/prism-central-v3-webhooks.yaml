@@ -1,0 +1,215 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Nutanix Prism Central API v3 — Webhooks
+  description: 'Nutanix Prism Central API v3 — Webhooks. 5 operations. Lead operation: Nutanix Create a webhook. Self-contained
+    Naftiko capability covering one Nutanix business surface.'
+  tags:
+  - Nutanix
+  - Webhooks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NUTANIX_API_KEY: NUTANIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: prism-central-v3-webhooks
+    baseUri: https://{prismCentralIp}:9440/api/nutanix/v3
+    description: Nutanix Prism Central API v3 — Webhooks business capability. Self-contained, no shared references.
+    resources:
+    - name: webhooks
+      path: /webhooks
+      operations:
+      - name: createwebhook
+        method: POST
+        description: Nutanix Create a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: webhooks-list
+      path: /webhooks/list
+      operations:
+      - name: listwebhooks
+        method: POST
+        description: Nutanix List webhooks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: webhooks-uuid
+      path: /webhooks/{uuid}
+      operations:
+      - name: getwebhook
+        method: GET
+        description: Nutanix Get a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatewebhook
+        method: PUT
+        description: Nutanix Update a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletewebhook
+        method: DELETE
+        description: Nutanix Delete a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.NUTANIX_USER}}'
+      password: '{{env.NUTANIX_PASS}}'
+  exposes:
+  - type: rest
+    namespace: prism-central-v3-webhooks-rest
+    port: 8080
+    description: REST adapter for Nutanix Prism Central API v3 — Webhooks. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/webhooks
+      name: webhooks
+      description: REST surface for webhooks.
+      operations:
+      - method: POST
+        name: createwebhook
+        description: Nutanix Create a webhook
+        call: prism-central-v3-webhooks.createwebhook
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/webhooks/list
+      name: webhooks-list
+      description: REST surface for webhooks-list.
+      operations:
+      - method: POST
+        name: listwebhooks
+        description: Nutanix List webhooks
+        call: prism-central-v3-webhooks.listwebhooks
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/webhooks/{uuid}
+      name: webhooks-uuid
+      description: REST surface for webhooks-uuid.
+      operations:
+      - method: GET
+        name: getwebhook
+        description: Nutanix Get a webhook
+        call: prism-central-v3-webhooks.getwebhook
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatewebhook
+        description: Nutanix Update a webhook
+        call: prism-central-v3-webhooks.updatewebhook
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletewebhook
+        description: Nutanix Delete a webhook
+        call: prism-central-v3-webhooks.deletewebhook
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: prism-central-v3-webhooks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Nutanix Prism Central API v3 — Webhooks. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: nutanix-create-webhook
+      description: Nutanix Create a webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: prism-central-v3-webhooks.createwebhook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-list-webhooks
+      description: Nutanix List webhooks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: prism-central-v3-webhooks.listwebhooks
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-get-webhook
+      description: Nutanix Get a webhook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: prism-central-v3-webhooks.getwebhook
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-update-webhook
+      description: Nutanix Update a webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: prism-central-v3-webhooks.updatewebhook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-delete-webhook
+      description: Nutanix Delete a webhook
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: prism-central-v3-webhooks.deletewebhook
+      outputParameters:
+      - type: object
+        mapping: $.

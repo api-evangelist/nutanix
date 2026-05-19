@@ -1,0 +1,198 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Nutanix Prism Element API v2 — Storage Containers
+  description: 'Nutanix Prism Element API v2 — Storage Containers. 5 operations. Lead operation: Nutanix List storage containers.
+    Self-contained Naftiko capability covering one Nutanix business surface.'
+  tags:
+  - Nutanix
+  - Storage Containers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NUTANIX_API_KEY: NUTANIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: prism-element-v2-storage-containers
+    baseUri: https://{clusterIp}:9440/PrismGateway/services/rest/v2.0
+    description: Nutanix Prism Element API v2 — Storage Containers business capability. Self-contained, no shared references.
+    resources:
+    - name: storage_containers
+      path: /storage_containers
+      operations:
+      - name: liststoragecontainers
+        method: GET
+        description: Nutanix List storage containers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createstoragecontainer
+        method: POST
+        description: Nutanix Create a storage container
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: storage_containers-id
+      path: /storage_containers/{id}
+      operations:
+      - name: getstoragecontainer
+        method: GET
+        description: Nutanix Get a storage container
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatestoragecontainer
+        method: PUT
+        description: Nutanix Update a storage container
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletestoragecontainer
+        method: DELETE
+        description: Nutanix Delete a storage container
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.NUTANIX_USER}}'
+      password: '{{env.NUTANIX_PASS}}'
+  exposes:
+  - type: rest
+    namespace: prism-element-v2-storage-containers-rest
+    port: 8080
+    description: REST adapter for Nutanix Prism Element API v2 — Storage Containers. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/storage-containers
+      name: storage-containers
+      description: REST surface for storage_containers.
+      operations:
+      - method: GET
+        name: liststoragecontainers
+        description: Nutanix List storage containers
+        call: prism-element-v2-storage-containers.liststoragecontainers
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createstoragecontainer
+        description: Nutanix Create a storage container
+        call: prism-element-v2-storage-containers.createstoragecontainer
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/storage-containers/{id}
+      name: storage-containers-id
+      description: REST surface for storage_containers-id.
+      operations:
+      - method: GET
+        name: getstoragecontainer
+        description: Nutanix Get a storage container
+        call: prism-element-v2-storage-containers.getstoragecontainer
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatestoragecontainer
+        description: Nutanix Update a storage container
+        call: prism-element-v2-storage-containers.updatestoragecontainer
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletestoragecontainer
+        description: Nutanix Delete a storage container
+        call: prism-element-v2-storage-containers.deletestoragecontainer
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: prism-element-v2-storage-containers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Nutanix Prism Element API v2 — Storage Containers. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: nutanix-list-storage-containers
+      description: Nutanix List storage containers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: prism-element-v2-storage-containers.liststoragecontainers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-create-storage-container
+      description: Nutanix Create a storage container
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: prism-element-v2-storage-containers.createstoragecontainer
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-get-storage-container
+      description: Nutanix Get a storage container
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: prism-element-v2-storage-containers.getstoragecontainer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-update-storage-container
+      description: Nutanix Update a storage container
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: prism-element-v2-storage-containers.updatestoragecontainer
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-delete-storage-container
+      description: Nutanix Delete a storage container
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: prism-element-v2-storage-containers.deletestoragecontainer
+      outputParameters:
+      - type: object
+        mapping: $.

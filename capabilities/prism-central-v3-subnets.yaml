@@ -1,0 +1,215 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Nutanix Prism Central API v3 — Subnets
+  description: 'Nutanix Prism Central API v3 — Subnets. 5 operations. Lead operation: Nutanix Create a subnet. Self-contained
+    Naftiko capability covering one Nutanix business surface.'
+  tags:
+  - Nutanix
+  - Subnets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NUTANIX_API_KEY: NUTANIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: prism-central-v3-subnets
+    baseUri: https://{prismCentralIp}:9440/api/nutanix/v3
+    description: Nutanix Prism Central API v3 — Subnets business capability. Self-contained, no shared references.
+    resources:
+    - name: subnets
+      path: /subnets
+      operations:
+      - name: createsubnet
+        method: POST
+        description: Nutanix Create a subnet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: subnets-list
+      path: /subnets/list
+      operations:
+      - name: listsubnets
+        method: POST
+        description: Nutanix List subnets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: subnets-uuid
+      path: /subnets/{uuid}
+      operations:
+      - name: getsubnet
+        method: GET
+        description: Nutanix Get a subnet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatesubnet
+        method: PUT
+        description: Nutanix Update a subnet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletesubnet
+        method: DELETE
+        description: Nutanix Delete a subnet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.NUTANIX_USER}}'
+      password: '{{env.NUTANIX_PASS}}'
+  exposes:
+  - type: rest
+    namespace: prism-central-v3-subnets-rest
+    port: 8080
+    description: REST adapter for Nutanix Prism Central API v3 — Subnets. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/subnets
+      name: subnets
+      description: REST surface for subnets.
+      operations:
+      - method: POST
+        name: createsubnet
+        description: Nutanix Create a subnet
+        call: prism-central-v3-subnets.createsubnet
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subnets/list
+      name: subnets-list
+      description: REST surface for subnets-list.
+      operations:
+      - method: POST
+        name: listsubnets
+        description: Nutanix List subnets
+        call: prism-central-v3-subnets.listsubnets
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subnets/{uuid}
+      name: subnets-uuid
+      description: REST surface for subnets-uuid.
+      operations:
+      - method: GET
+        name: getsubnet
+        description: Nutanix Get a subnet
+        call: prism-central-v3-subnets.getsubnet
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatesubnet
+        description: Nutanix Update a subnet
+        call: prism-central-v3-subnets.updatesubnet
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletesubnet
+        description: Nutanix Delete a subnet
+        call: prism-central-v3-subnets.deletesubnet
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: prism-central-v3-subnets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Nutanix Prism Central API v3 — Subnets. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: nutanix-create-subnet
+      description: Nutanix Create a subnet
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: prism-central-v3-subnets.createsubnet
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-list-subnets
+      description: Nutanix List subnets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: prism-central-v3-subnets.listsubnets
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-get-subnet
+      description: Nutanix Get a subnet
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: prism-central-v3-subnets.getsubnet
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-update-subnet
+      description: Nutanix Update a subnet
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: prism-central-v3-subnets.updatesubnet
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nutanix-delete-subnet
+      description: Nutanix Delete a subnet
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: prism-central-v3-subnets.deletesubnet
+      outputParameters:
+      - type: object
+        mapping: $.
