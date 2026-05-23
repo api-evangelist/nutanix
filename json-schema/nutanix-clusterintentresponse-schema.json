@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClusterIntentResponse",
+  "title": "ClusterIntentResponse",
+  "type": "object",
+  "description": "Response containing cluster intent status and spec.",
+  "properties": {
+    "status": {
+      "type": "object",
+      "description": "The current status of the cluster."
+    },
+    "spec": {
+      "type": "object",
+      "description": "The cluster specification."
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/EntityMetadata"
+    }
+  }
+}

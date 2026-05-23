@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VmIntentInput",
+  "title": "VmIntentInput",
+  "type": "object",
+  "description": "Input for creating or updating a VM with the intent model.",
+  "required": [
+    "spec",
+    "metadata"
+  ],
+  "properties": {
+    "spec": {
+      "$ref": "#/components/schemas/VmSpec"
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/EntityMetadata"
+    }
+  }
+}

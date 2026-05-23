@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VmIntentResponse",
+  "title": "VmIntentResponse",
+  "type": "object",
+  "description": "Response containing VM intent status and spec.",
+  "properties": {
+    "status": {
+      "type": "object",
+      "description": "The current status of the VM."
+    },
+    "spec": {
+      "$ref": "#/components/schemas/VmSpec"
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/EntityMetadata"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListMetadata",
+  "title": "ListMetadata",
+  "type": "object",
+  "description": "Request body for list operations supporting server-side filtering, sorting, and pagination.",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The entity kind to list."
+    },
+    "offset": {
+      "type": "integer",
+      "description": "Offset from the start of the entity list.",
+      "minimum": 0
+    },
+    "length": {
+      "type": "integer",
+      "description": "The number of records to retrieve.",
+      "minimum": 1,
+      "maximum": 500
+    },
+    "filter": {
+      "type": "string",
+      "description": "The filter criteria in FIQL format."
+    },
+    "sort_order": {
+      "type": "string",
+      "description": "The sort order.",
+      "enum": [
+        "ASCENDING",
+        "DESCENDING"
+      ]
+    },
+    "sort_attribute": {
+      "type": "string",
+      "description": "The attribute to sort results by."
+    }
+  }
+}

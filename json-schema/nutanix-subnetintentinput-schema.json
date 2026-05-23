@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SubnetIntentInput",
+  "title": "SubnetIntentInput",
+  "type": "object",
+  "description": "Input for creating or updating a subnet.",
+  "required": [
+    "spec",
+    "metadata"
+  ],
+  "properties": {
+    "spec": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the subnet."
+        },
+        "resources": {
+          "type": "object",
+          "properties": {
+            "subnet_type": {
+              "type": "string",
+              "description": "The type of subnet.",
+              "enum": [
+                "VLAN",
+                "OVERLAY"
+              ]
+            },
+            "vlan_id": {
+              "type": "integer",
+              "description": "VLAN ID for VLAN-type subnets."
+            },
+            "ip_config": {
+              "type": "object",
+              "properties": {
+                "subnet_ip": {
+                  "type": "string",
+                  "description": "Subnet IP address."
+                },
+                "prefix_length": {
+                  "type": "integer",
+                  "description": "Network prefix length."
+                },
+                "default_gateway_ip": {
+                  "type": "string",
+                  "description": "Default gateway IP address."
+                },
+                "pool_list": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "range": {
+                        "type": "string",
+                        "description": "IP range in the format start_ip end_ip."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cluster_reference": {
+          "$ref": "#/components/schemas/Reference"
+        }
+      }
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/EntityMetadata"
+    }
+  }
+}

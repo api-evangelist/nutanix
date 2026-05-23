@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ImageListResponse",
+  "title": "ImageListResponse",
+  "type": "object",
+  "description": "Response for listing images.",
+  "properties": {
+    "api_version": {
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/ListMetadata"
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

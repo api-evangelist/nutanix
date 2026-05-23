@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ImageIntentInput",
+  "title": "ImageIntentInput",
+  "type": "object",
+  "description": "Input for creating an image.",
+  "required": [
+    "spec",
+    "metadata"
+  ],
+  "properties": {
+    "spec": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the image."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the image."
+        },
+        "resources": {
+          "type": "object",
+          "properties": {
+            "image_type": {
+              "type": "string",
+              "description": "The type of image.",
+              "enum": [
+                "DISK_IMAGE",
+                "ISO_IMAGE"
+              ]
+            },
+            "source_uri": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL to download the image from."
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/EntityMetadata"
+    }
+  }
+}

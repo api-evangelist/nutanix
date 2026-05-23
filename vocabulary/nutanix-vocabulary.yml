@@ -1,0 +1,24 @@
+name: Nutanix Domain Vocabulary
+provider: Nutanix
+providerId: nutanix
+description: Tag-derived vocabulary for the Nutanix API surface; sourced from openapi/ tags.
+terms:
+- term: Categories
+  description: Manage categories and category values used for tagging and organizing resources across the Nutanix environment.
+- term: Clusters
+  description: Retrieve and manage Nutanix cluster configurations and metadata across the Prism Central deployment.
+- term: Hosts
+  description: Retrieve information about physical hosts in the Nutanix cluster infrastructure.
+- term: Images
+  description: Manage disk images distributed across clusters for VM provisioning, including ISO and disk image uploads.
+- term: Network Security Rules
+  description: Manage Flow microsegmentation policies that control network traffic between VMs based on categories.
+- term: Projects
+  description: Manage projects that define resource quotas, user access, and infrastructure boundaries for self-service consumption.
+- term: Subnets
+  description: Manage AHV network subnets including VLAN and overlay network configurations.
+- term: VMs
+  description: Manage virtual machines including creation, update, deletion, and power state operations through the intent-based
+    API model.
+- term: Webhooks
+  description: Manage webhook listeners that receive event notifications from the Nutanix platform.

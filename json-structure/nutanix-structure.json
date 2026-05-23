@@ -1,0 +1,417 @@
+{
+  "provider": "Nutanix",
+  "providerId": "nutanix",
+  "kind": "json-structure",
+  "description": "Structural overview of the Nutanix API surface; extracted from openapi/.",
+  "schemaCount": 13,
+  "operationCount": 35,
+  "schemas": [
+    {
+      "name": "ListMetadata",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "VmListResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "VmIntentInput",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "spec",
+        "metadata"
+      ]
+    },
+    {
+      "name": "VmIntentResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "VmSpec",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "EntityMetadata",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "Reference",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "kind",
+        "uuid"
+      ]
+    },
+    {
+      "name": "ClusterListResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ClusterIntentResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SubnetListResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SubnetIntentInput",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "spec",
+        "metadata"
+      ]
+    },
+    {
+      "name": "ImageListResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ImageIntentInput",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "spec",
+        "metadata"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/vms/list",
+      "operationId": "listVms",
+      "summary": "Nutanix List virtual machines",
+      "tags": [
+        "VMs"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/vms",
+      "operationId": "createVm",
+      "summary": "Nutanix Create a virtual machine",
+      "tags": [
+        "VMs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/vms/{uuid}",
+      "operationId": "getVm",
+      "summary": "Nutanix Get a virtual machine",
+      "tags": [
+        "VMs"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/vms/{uuid}",
+      "operationId": "updateVm",
+      "summary": "Nutanix Update a virtual machine",
+      "tags": [
+        "VMs"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/vms/{uuid}",
+      "operationId": "deleteVm",
+      "summary": "Nutanix Delete a virtual machine",
+      "tags": [
+        "VMs"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/clusters/list",
+      "operationId": "listClusters",
+      "summary": "Nutanix List clusters",
+      "tags": [
+        "Clusters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/clusters/{uuid}",
+      "operationId": "getCluster",
+      "summary": "Nutanix Get a cluster",
+      "tags": [
+        "Clusters"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subnets/list",
+      "operationId": "listSubnets",
+      "summary": "Nutanix List subnets",
+      "tags": [
+        "Subnets"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subnets",
+      "operationId": "createSubnet",
+      "summary": "Nutanix Create a subnet",
+      "tags": [
+        "Subnets"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subnets/{uuid}",
+      "operationId": "getSubnet",
+      "summary": "Nutanix Get a subnet",
+      "tags": [
+        "Subnets"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subnets/{uuid}",
+      "operationId": "updateSubnet",
+      "summary": "Nutanix Update a subnet",
+      "tags": [
+        "Subnets"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subnets/{uuid}",
+      "operationId": "deleteSubnet",
+      "summary": "Nutanix Delete a subnet",
+      "tags": [
+        "Subnets"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/images/list",
+      "operationId": "listImages",
+      "summary": "Nutanix List images",
+      "tags": [
+        "Images"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/images",
+      "operationId": "createImage",
+      "summary": "Nutanix Create an image",
+      "tags": [
+        "Images"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/images/{uuid}",
+      "operationId": "getImage",
+      "summary": "Nutanix Get an image",
+      "tags": [
+        "Images"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/images/{uuid}",
+      "operationId": "deleteImage",
+      "summary": "Nutanix Delete an image",
+      "tags": [
+        "Images"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/categories/{name}",
+      "operationId": "getCategory",
+      "summary": "Nutanix Get a category key",
+      "tags": [
+        "Categories"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/categories/{name}",
+      "operationId": "updateCategory",
+      "summary": "Nutanix Create or update a category key",
+      "tags": [
+        "Categories"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/categories/{name}",
+      "operationId": "deleteCategory",
+      "summary": "Nutanix Delete a category key",
+      "tags": [
+        "Categories"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/categories/{name}/{value}",
+      "operationId": "updateCategoryValue",
+      "summary": "Nutanix Create or update a category value",
+      "tags": [
+        "Categories"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/categories/{name}/{value}",
+      "operationId": "deleteCategoryValue",
+      "summary": "Nutanix Delete a category value",
+      "tags": [
+        "Categories"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/list",
+      "operationId": "listProjects",
+      "summary": "Nutanix List projects",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{uuid}",
+      "operationId": "getProject",
+      "summary": "Nutanix Get a project",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/hosts/list",
+      "operationId": "listHosts",
+      "summary": "Nutanix List hosts",
+      "tags": [
+        "Hosts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hosts/{uuid}",
+      "operationId": "getHost",
+      "summary": "Nutanix Get a host",
+      "tags": [
+        "Hosts"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/network_security_rules/list",
+      "operationId": "listNetworkSecurityRules",
+      "summary": "Nutanix List network security rules",
+      "tags": [
+        "Network Security Rules"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/network_security_rules",
+      "operationId": "createNetworkSecurityRule",
+      "summary": "Nutanix Create a network security rule",
+      "tags": [
+        "Network Security Rules"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/network_security_rules/{uuid}",
+      "operationId": "getNetworkSecurityRule",
+      "summary": "Nutanix Get a network security rule",
+      "tags": [
+        "Network Security Rules"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/network_security_rules/{uuid}",
+      "operationId": "updateNetworkSecurityRule",
+      "summary": "Nutanix Update a network security rule",
+      "tags": [
+        "Network Security Rules"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/network_security_rules/{uuid}",
+      "operationId": "deleteNetworkSecurityRule",
+      "summary": "Nutanix Delete a network security rule",
+      "tags": [
+        "Network Security Rules"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/webhooks/list",
+      "operationId": "listWebhooks",
+      "summary": "Nutanix List webhooks",
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/webhooks",
+      "operationId": "createWebhook",
+      "summary": "Nutanix Create a webhook",
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/webhooks/{uuid}",
+      "operationId": "getWebhook",
+      "summary": "Nutanix Get a webhook",
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/webhooks/{uuid}",
+      "operationId": "updateWebhook",
+      "summary": "Nutanix Update a webhook",
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/webhooks/{uuid}",
+      "operationId": "deleteWebhook",
+      "summary": "Nutanix Delete a webhook",
+      "tags": [
+        "Webhooks"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StorageContainer",
+  "title": "StorageContainer",
+  "type": "object",
+  "description": "A storage container in the Nutanix cluster.",
+  "properties": {
+    "storage_container_uuid": {
+      "type": "string",
+      "description": "The UUID of the storage container."
+    },
+    "id": {
+      "type": "string",
+      "description": "The ID of the storage container."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the storage container."
+    },
+    "max_capacity": {
+      "type": "integer",
+      "description": "Maximum capacity in bytes."
+    },
+    "usage_bytes": {
+      "type": "integer",
+      "description": "Current usage in bytes."
+    },
+    "replication_factor": {
+      "type": "integer",
+      "description": "Data replication factor."
+    },
+    "compression_enabled": {
+      "type": "boolean",
+      "description": "Whether inline compression is enabled."
+    },
+    "dedupe_enabled": {
+      "type": "boolean",
+      "description": "Whether deduplication is enabled."
+    }
+  }
+}

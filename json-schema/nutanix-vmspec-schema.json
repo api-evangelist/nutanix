@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VmSpec",
+  "title": "VmSpec",
+  "type": "object",
+  "description": "VM specification describing the desired state.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the VM."
+    },
+    "description": {
+      "type": "string",
+      "description": "A description of the VM."
+    },
+    "resources": {
+      "type": "object",
+      "description": "VM resource configuration.",
+      "properties": {
+        "num_sockets": {
+          "type": "integer",
+          "description": "Number of vCPU sockets.",
+          "minimum": 1
+        },
+        "num_vcpus_per_socket": {
+          "type": "integer",
+          "description": "Number of vCPUs per socket.",
+          "minimum": 1
+        },
+        "memory_size_mib": {
+          "type": "integer",
+          "description": "Memory size in MiB.",
+          "minimum": 1
+        },
+        "power_state": {
+          "type": "string",
+          "description": "The desired power state of the VM.",
+          "enum": [
+            "ON",
+            "OFF"
+          ]
+        },
+        "disk_list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "device_properties": {
+                "type": "object",
+                "properties": {
+                  "device_type": {
+                    "type": "string",
+                    "enum": [
+                      "DISK",
+                      "CDROM"
+                    ]
+                  },
+                  "disk_address": {
+                    "type": "object",
+                    "properties": {
+                      "adapter_type": {
+                        "type": "string",
+                        "enum": [
+                          "SCSI",
+                          "IDE",
+                          "PCI",
+                          "SATA",
+                          "SPAPR"
+                        ]
+                      },
+                      "device_index": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              },
+              "disk_size_mib": {
+                "type": "integer",
+                "description": "Size of the disk in MiB."
+              }
+            }
+          },
+          "description": "List of disks attached to the VM."
+        },
+        "nic_list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "subnet_reference": {
+                "$ref": "#/components/schemas/Reference"
+              },
+              "ip_endpoint_list": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "ip": {
+                      "type": "string",
+                      "description": "IP address."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "ASSIGNED",
+                        "LEARNED"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "List of NICs attached to the VM."
+        }
+      }
+    },
+    "cluster_reference": {
+      "$ref": "#/components/schemas/Reference"
+    }
+  }
+}

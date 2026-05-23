@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EntityMetadata",
+  "title": "EntityMetadata",
+  "type": "object",
+  "description": "Metadata for an entity.",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The kind of entity."
+    },
+    "uuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the entity."
+    },
+    "spec_version": {
+      "type": "integer",
+      "description": "Version number of the spec."
+    },
+    "categories": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Categories assigned to the entity as key-value pairs."
+    },
+    "owner_reference": {
+      "$ref": "#/components/schemas/Reference"
+    },
+    "project_reference": {
+      "$ref": "#/components/schemas/Reference"
+    }
+  }
+}

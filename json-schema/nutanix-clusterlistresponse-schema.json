@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClusterListResponse",
+  "title": "ClusterListResponse",
+  "type": "object",
+  "description": "Response for listing clusters.",
+  "properties": {
+    "api_version": {
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/ListMetadata"
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClusterIntentResponse"
+      }
+    }
+  }
+}

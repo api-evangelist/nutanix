@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Reference",
+  "title": "Reference",
+  "type": "object",
+  "description": "A reference to another entity.",
+  "required": [
+    "kind",
+    "uuid"
+  ],
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The kind of entity being referenced."
+    },
+    "uuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the referenced entity."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the referenced entity."
+    }
+  }
+}

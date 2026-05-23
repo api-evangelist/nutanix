@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Cluster",
+  "title": "Cluster",
+  "type": "object",
+  "description": "Nutanix cluster information.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier of the cluster."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "The UUID of the cluster."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the cluster."
+    },
+    "cluster_external_ipaddress": {
+      "type": "string",
+      "description": "External IP address of the cluster."
+    },
+    "num_nodes": {
+      "type": "integer",
+      "description": "Number of nodes in the cluster."
+    },
+    "version": {
+      "type": "string",
+      "description": "AOS version running on the cluster."
+    },
+    "hypervisor_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Hypervisor types in the cluster."
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Host",
+  "title": "Host",
+  "type": "object",
+  "description": "A physical host in the Nutanix cluster.",
+  "properties": {
+    "uuid": {
+      "type": "string",
+      "description": "The UUID of the host."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the host."
+    },
+    "serial": {
+      "type": "string",
+      "description": "Serial number of the host."
+    },
+    "block_serial": {
+      "type": "string",
+      "description": "Block serial number."
+    },
+    "block_model": {
+      "type": "string",
+      "description": "Hardware block model."
+    },
+    "hypervisor_address": {
+      "type": "string",
+      "description": "IP address of the hypervisor."
+    },
+    "controller_vm_backplane_ip": {
+      "type": "string",
+      "description": "CVM backplane IP address."
+    },
+    "num_cpu_sockets": {
+      "type": "integer",
+      "description": "Number of physical CPU sockets."
+    },
+    "num_cpu_cores": {
+      "type": "integer",
+      "description": "Number of CPU cores."
+    },
+    "memory_capacity_in_bytes": {
+      "type": "integer",
+      "description": "Total memory capacity in bytes."
+    },
+    "hypervisor_type": {
+      "type": "string",
+      "description": "Type of hypervisor running on the host."
+    }
+  }
+}

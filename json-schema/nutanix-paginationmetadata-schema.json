@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PaginationMetadata",
+  "title": "PaginationMetadata",
+  "type": "object",
+  "description": "Pagination metadata for list responses.",
+  "properties": {
+    "grand_total_entities": {
+      "type": "integer",
+      "description": "Total number of entities."
+    },
+    "total_entities": {
+      "type": "integer",
+      "description": "Number of entities in the current response."
+    },
+    "count": {
+      "type": "integer",
+      "description": "Count of entities returned."
+    },
+    "start_index": {
+      "type": "integer",
+      "description": "Starting index of the returned entities."
+    },
+    "end_index": {
+      "type": "integer",
+      "description": "Ending index of the returned entities."
+    }
+  }
+}

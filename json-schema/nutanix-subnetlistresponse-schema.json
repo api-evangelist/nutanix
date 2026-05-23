@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SubnetListResponse",
+  "title": "SubnetListResponse",
+  "type": "object",
+  "description": "Response for listing subnets.",
+  "properties": {
+    "api_version": {
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/ListMetadata"
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}
