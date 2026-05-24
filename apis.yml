@@ -204,6 +204,8 @@ common:
   url: https://www.nutanix.com/legal/terms-of-use
 - type: PrivacyPolicy
   url: https://www.nutanix.com/legal/privacy-notice
+- type: LLMsTxt
+  url: https://developers.nutanix.com/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
