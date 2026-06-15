@@ -1,0 +1,406 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutanix Prism Element API v2",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clusters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix Get cluster information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/cluster"
+          },
+          "docs": "Retrieves detailed information about the local Nutanix cluster including configuration, health status, and resource utilization."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Storage Containers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List storage containers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/storage_containers"
+          },
+          "docs": "Retrieves a list of all storage containers in the cluster with their configuration and usage statistics."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create a storage container",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/storage_containers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new storage container with the specified configuration including name, storage pool, and data services settings."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a storage container",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/storage_containers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves details about a specific storage container by its ID."
+        },
+        {
+          "info": {
+            "name": "Nutanix Update a storage container",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/storage_containers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the configuration of an existing storage container."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete a storage container",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/storage_containers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the entity."
+              }
+            ]
+          },
+          "docs": "Deletes a storage container identified by its ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Storage Pools",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List storage pools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/storage_pools"
+          },
+          "docs": "Retrieves a list of all storage pools in the cluster."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a storage pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/storage_pools/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves details about a specific storage pool by its ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Hosts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List hosts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/hosts"
+          },
+          "docs": "Retrieves a list of all physical hosts in the cluster with hardware details, hypervisor information, and CVM status."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a host",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/hosts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves detailed information about a specific host by its ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "VMs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List virtual machines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/vms",
+            "params": [
+              {
+                "name": "include_vm_disk_config",
+                "value": "",
+                "type": "query",
+                "description": "Include VM disk configuration details in the response."
+              },
+              {
+                "name": "include_vm_nic_config",
+                "value": "",
+                "type": "query",
+                "description": "Include VM NIC configuration details in the response."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of all VMs on the local cluster with their configuration and current state."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a virtual machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/vms/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves detailed information about a specific VM by its ID."
+        },
+        {
+          "info": {
+            "name": "Nutanix Set VM power state",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/vms/:id/set_power_state",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Changes the power state of a VM to ON, OFF, POWERCYCLE, RESET, PAUSE, SUSPEND, or ACPI_SHUTDOWN."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Virtual Disks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List virtual disks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/virtual_disks"
+          },
+          "docs": "Retrieves a list of all virtual disks in the cluster."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Protection Domains",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List protection domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/protection_domains"
+          },
+          "docs": "Retrieves a list of all protection domains configured on the cluster for data protection."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create a protection domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/protection_domains",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new protection domain for grouping entities for data protection and replication."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Snapshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List snapshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/snapshots"
+          },
+          "docs": "Retrieves a list of all VM snapshots available in the cluster."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Alerts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List alerts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/alerts",
+            "params": [
+              {
+                "name": "resolved",
+                "value": "",
+                "type": "query",
+                "description": "Filter by resolved status."
+              },
+              {
+                "name": "severity",
+                "value": "",
+                "type": "query",
+                "description": "Filter by alert severity."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of alerts generated by the cluster for health monitoring and operational events."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get an alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{clusterIp}:9440/PrismGateway/services/rest/v2.0/alerts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves details about a specific alert by its ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

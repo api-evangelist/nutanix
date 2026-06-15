@@ -1,0 +1,734 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutanix Prism Central API v3",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VMs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List virtual machines",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/vms/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of VMs with optional filtering, sorting, and pagination. The v3 API standardizes on POST for list operations to support server-side filtering, grouping, and sorting via the request body."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create a virtual machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/vms",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new VM using the intent-based spec. The request includes the desired specification and metadata. The system returns a task that tracks the creation progress."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a virtual machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/vms/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves the current state and specification of a VM by its UUID."
+        },
+        {
+          "info": {
+            "name": "Nutanix Update a virtual machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/vms/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specification of an existing VM. The full intent spec must be provided including unchanged fields."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete a virtual machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/vms/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Deletes a VM identified by its UUID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Clusters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/clusters/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of clusters managed by Prism Central with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/clusters/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves the configuration and status of a specific cluster by UUID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Subnets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List subnets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/subnets/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of subnets with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create a subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/subnets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new AHV subnet with the specified configuration including VLAN ID, IP address management, and cluster assignment."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/subnets/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves the configuration and status of a specific subnet by UUID."
+        },
+        {
+          "info": {
+            "name": "Nutanix Update a subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/subnets/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the configuration of an existing subnet."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete a subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/subnets/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Deletes a subnet identified by its UUID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List images",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/images/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of disk images with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create an image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/images",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new image resource. Images can be uploaded from a URL source or from a file and are distributed to clusters for VM provisioning."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get an image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/images/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves the metadata and status of a specific image by UUID."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete an image",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/images/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Deletes an image identified by its UUID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix Get a category key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/categories/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the category key."
+              }
+            ]
+          },
+          "docs": "Retrieves a category key and its associated metadata."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create or update a category key",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/categories/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the category key."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates a category key with the specified metadata."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete a category key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/categories/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the category key."
+              }
+            ]
+          },
+          "docs": "Deletes a category key and all its associated values."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create or update a category value",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/categories/:name/:value",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the category key."
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "path",
+                "description": "The category value."
+              }
+            ]
+          },
+          "docs": "Creates or updates a value for the specified category key."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete a category value",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/categories/:name/:value",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the category key."
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "path",
+                "description": "The category value."
+              }
+            ]
+          },
+          "docs": "Deletes a specific value from a category key."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/projects/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of projects with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/projects/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves the configuration and status of a specific project by UUID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Hosts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List hosts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/hosts/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of physical hosts with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a host",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/hosts/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves information about a specific physical host by UUID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Network Security Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List network security rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/network_security_rules/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of Flow network security rules with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create a network security rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/network_security_rules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Flow microsegmentation network security rule that controls traffic between VMs based on categories."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a network security rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/network_security_rules/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves the configuration of a specific network security rule by UUID."
+        },
+        {
+          "info": {
+            "name": "Nutanix Update a network security rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/network_security_rules/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the configuration of an existing network security rule."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete a network security rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/network_security_rules/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Deletes a network security rule identified by its UUID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/webhooks/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of registered webhook listeners with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create a webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/webhooks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Registers a new webhook listener to receive event notifications from the Nutanix platform. Specifies the URL and event types for the listener."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/webhooks/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves the configuration of a specific webhook listener by UUID."
+        },
+        {
+          "info": {
+            "name": "Nutanix Update a webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/webhooks/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the configuration of an existing webhook listener."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete a webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/webhooks/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Deletes a webhook listener identified by its UUID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
