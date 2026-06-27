@@ -60,7 +60,7 @@ apis:
         url: https://www.nutanix.dev/sdk_reference/
       - type: ChangeLog
         url: https://www.nutanix.dev/api-versions/
-      - type: Developer Portal
+      - type: DeveloperPortal
         url: https://developers.nutanix.com/
   - aid: nutanix:prism-element-v2
     name: Nutanix Prism Element API V2
@@ -169,17 +169,17 @@ common:
     url: https://status.nutanix.com/
   - type: Login
     url: https://my.nutanix.com/
-  - type: SignUp
+  - type: Signup
     url: https://my.nutanix.com/page/signup
   - type: GitHubOrganization
     url: https://github.com/nutanix
-  - type: Developer Portal
+  - type: DeveloperPortal
     url: https://developers.nutanix.com/
   - type: TermsOfService
     url: https://www.nutanix.com/legal/terms-of-use
   - type: PrivacyPolicy
     url: https://www.nutanix.com/legal/privacy-notice
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://developers.nutanix.com/llms.txt
 maintainers:
   - FN: Kin Lane
