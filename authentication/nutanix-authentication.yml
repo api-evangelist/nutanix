@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/nutanix-prism-central-v3-openapi.yml, openapi/nutanix-prism-element-v2-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic Authentication using Prism Central username and password credentials.
+  sources:
+  - openapi/nutanix-prism-central-v3-openapi.yml
+  - openapi/nutanix-prism-element-v2-openapi.yml

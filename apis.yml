@@ -143,6 +143,10 @@ apis:
       - type: Documentation
         url: https://www.nutanix.dev/api_references/foundation/
 common:
+  - type: DomainSecurity
+    url: security/nutanix-domain-security.yml
+  - type: Authentication
+    url: authentication/nutanix-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/nutanix
   - type: Website
