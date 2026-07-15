@@ -143,6 +143,8 @@ apis:
       - type: Documentation
         url: https://www.nutanix.dev/api_references/foundation/
 common:
+  - type: AgenticAccess
+    url: agentic-access/nutanix-agentic-access.yml
   - type: DomainSecurity
     url: security/nutanix-domain-security.yml
   - type: Authentication
