@@ -1,0 +1,226 @@
+openapi: 3.1.0
+info:
+  title: Nutanix Prism Central API v3 Alerts Images API
+  description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.
+  version: 3.1.0
+  contact:
+    name: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+  termsOfService: https://www.nutanix.com/legal/terms-of-use
+servers:
+- url: https://{prismCentralIp}:9440/api/nutanix/v3
+  description: Prism Central Server
+  variables:
+    prismCentralIp:
+      default: localhost
+      description: IP address or FQDN of the Prism Central instance.
+security:
+- basicAuth: []
+tags:
+- name: Images
+  description: Manage disk images distributed across clusters for VM provisioning, including ISO and disk image uploads.
+paths:
+  /images/list:
+    post:
+      operationId: listImages
+      summary: Nutanix List images
+      description: Retrieves a list of disk images with optional filtering and pagination.
+      tags:
+      - Images
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageListResponse'
+        '401':
+          description: Unauthorized
+  /images:
+    post:
+      operationId: createImage
+      summary: Nutanix Create an image
+      description: Creates a new image resource. Images can be uploaded from a URL source or from a file and are distributed to clusters for VM provisioning.
+      tags:
+      - Images
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageIntentInput'
+      responses:
+        '202':
+          description: Accepted - Image creation task started
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /images/{uuid}:
+    get:
+      operationId: getImage
+      summary: Nutanix Get an image
+      description: Retrieves the metadata and status of a specific image by UUID.
+      tags:
+      - Images
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Image not found
+    delete:
+      operationId: deleteImage
+      summary: Nutanix Delete an image
+      description: Deletes an image identified by its UUID.
+      tags:
+      - Images
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      responses:
+        '202':
+          description: Accepted - Image deletion task started
+        '401':
+          description: Unauthorized
+        '404':
+          description: Image not found
+components:
+  schemas:
+    ImageIntentInput:
+      type: object
+      description: Input for creating an image.
+      required:
+      - spec
+      - metadata
+      properties:
+        spec:
+          type: object
+          properties:
+            name:
+              type: string
+              description: The name of the image.
+            description:
+              type: string
+              description: Description of the image.
+            resources:
+              type: object
+              properties:
+                image_type:
+                  type: string
+                  description: The type of image.
+                  enum:
+                  - DISK_IMAGE
+                  - ISO_IMAGE
+                source_uri:
+                  type: string
+                  format: uri
+                  description: URL to download the image from.
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    ImageListResponse:
+      type: object
+      description: Response for listing images.
+      properties:
+        api_version:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            type: object
+    Reference:
+      type: object
+      description: A reference to another entity.
+      required:
+      - kind
+      - uuid
+      properties:
+        kind:
+          type: string
+          description: The kind of entity being referenced.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the referenced entity.
+        name:
+          type: string
+          description: The name of the referenced entity.
+    EntityMetadata:
+      type: object
+      description: Metadata for an entity.
+      properties:
+        kind:
+          type: string
+          description: The kind of entity.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the entity.
+        spec_version:
+          type: integer
+          description: Version number of the spec.
+        categories:
+          type: object
+          additionalProperties:
+            type: string
+          description: Categories assigned to the entity as key-value pairs.
+        owner_reference:
+          $ref: '#/components/schemas/Reference'
+        project_reference:
+          $ref: '#/components/schemas/Reference'
+    ListMetadata:
+      type: object
+      description: Request body for list operations supporting server-side filtering, sorting, and pagination.
+      properties:
+        kind:
+          type: string
+          description: The entity kind to list.
+        offset:
+          type: integer
+          description: Offset from the start of the entity list.
+          minimum: 0
+        length:
+          type: integer
+          description: The number of records to retrieve.
+          minimum: 1
+          maximum: 500
+        filter:
+          type: string
+          description: The filter criteria in FIQL format.
+        sort_order:
+          type: string
+          description: The sort order.
+          enum:
+          - ASCENDING
+          - DESCENDING
+        sort_attribute:
+          type: string
+          description: The attribute to sort results by.
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using Prism Central username and password credentials.
+externalDocs:
+  description: Nutanix Prism Central v3 API Documentation
+  url: https://www.nutanix.dev/api_references/prism-central-v3/

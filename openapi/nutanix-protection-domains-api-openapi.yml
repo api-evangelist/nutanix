@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  title: Nutanix Prism Central API v3 Alerts Protection Domains API
+  description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.
+  version: 3.1.0
+  contact:
+    name: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+  termsOfService: https://www.nutanix.com/legal/terms-of-use
+servers:
+- url: https://{prismCentralIp}:9440/api/nutanix/v3
+  description: Prism Central Server
+  variables:
+    prismCentralIp:
+      default: localhost
+      description: IP address or FQDN of the Prism Central instance.
+security:
+- basicAuth: []
+tags:
+- name: Protection Domains
+  description: Manage protection domains that define groups of VMs and volume groups for data protection and disaster recovery.
+paths:
+  /protection_domains:
+    get:
+      operationId: listProtectionDomains
+      summary: Nutanix List protection domains
+      description: Retrieves a list of all protection domains configured on the cluster for data protection.
+      tags:
+      - Protection Domains
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createProtectionDomain
+      summary: Nutanix Create a protection domain
+      description: Creates a new protection domain for grouping entities for data protection and replication.
+      tags:
+      - Protection Domains
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - value
+              properties:
+                value:
+                  type: string
+                  description: The name of the protection domain.
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using Prism Central username and password credentials.
+externalDocs:
+  description: Nutanix Prism Central v3 API Documentation
+  url: https://www.nutanix.dev/api_references/prism-central-v3/

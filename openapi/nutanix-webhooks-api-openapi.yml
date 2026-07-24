@@ -1,0 +1,160 @@
+openapi: 3.1.0
+info:
+  title: Nutanix Prism Central API v3 Alerts Webhooks API
+  description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.
+  version: 3.1.0
+  contact:
+    name: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+  termsOfService: https://www.nutanix.com/legal/terms-of-use
+servers:
+- url: https://{prismCentralIp}:9440/api/nutanix/v3
+  description: Prism Central Server
+  variables:
+    prismCentralIp:
+      default: localhost
+      description: IP address or FQDN of the Prism Central instance.
+security:
+- basicAuth: []
+tags:
+- name: Webhooks
+  description: Manage webhook listeners that receive event notifications from the Nutanix platform.
+paths:
+  /webhooks/list:
+    post:
+      operationId: listWebhooks
+      summary: Nutanix List webhooks
+      description: Retrieves a list of registered webhook listeners with optional filtering and pagination.
+      tags:
+      - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+  /webhooks:
+    post:
+      operationId: createWebhook
+      summary: Nutanix Create a webhook
+      description: Registers a new webhook listener to receive event notifications from the Nutanix platform. Specifies the URL and event types for the listener.
+      tags:
+      - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '202':
+          description: Accepted - Webhook created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /webhooks/{uuid}:
+    get:
+      operationId: getWebhook
+      summary: Nutanix Get a webhook
+      description: Retrieves the configuration of a specific webhook listener by UUID.
+      tags:
+      - Webhooks
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Webhook not found
+    put:
+      operationId: updateWebhook
+      summary: Nutanix Update a webhook
+      description: Updates the configuration of an existing webhook listener.
+      tags:
+      - Webhooks
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '202':
+          description: Accepted - Webhook updated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Webhook not found
+    delete:
+      operationId: deleteWebhook
+      summary: Nutanix Delete a webhook
+      description: Deletes a webhook listener identified by its UUID.
+      tags:
+      - Webhooks
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      responses:
+        '202':
+          description: Accepted - Webhook deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Webhook not found
+components:
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    ListMetadata:
+      type: object
+      description: Request body for list operations supporting server-side filtering, sorting, and pagination.
+      properties:
+        kind:
+          type: string
+          description: The entity kind to list.
+        offset:
+          type: integer
+          description: Offset from the start of the entity list.
+          minimum: 0
+        length:
+          type: integer
+          description: The number of records to retrieve.
+          minimum: 1
+          maximum: 500
+        filter:
+          type: string
+          description: The filter criteria in FIQL format.
+        sort_order:
+          type: string
+          description: The sort order.
+          enum:
+          - ASCENDING
+          - DESCENDING
+        sort_attribute:
+          type: string
+          description: The attribute to sort results by.
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using Prism Central username and password credentials.
+externalDocs:
+  description: Nutanix Prism Central v3 API Documentation
+  url: https://www.nutanix.dev/api_references/prism-central-v3/

@@ -1,0 +1,424 @@
+openapi: 3.1.0
+info:
+  title: Nutanix Prism Central API v3 Alerts VMs API
+  description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.
+  version: 3.1.0
+  contact:
+    name: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+  termsOfService: https://www.nutanix.com/legal/terms-of-use
+servers:
+- url: https://{prismCentralIp}:9440/api/nutanix/v3
+  description: Prism Central Server
+  variables:
+    prismCentralIp:
+      default: localhost
+      description: IP address or FQDN of the Prism Central instance.
+security:
+- basicAuth: []
+tags:
+- name: VMs
+  description: Manage virtual machines including creation, update, deletion, and power state operations through the intent-based API model.
+paths:
+  /vms/list:
+    post:
+      operationId: listVms
+      summary: Nutanix List virtual machines
+      description: Retrieves a list of VMs with optional filtering, sorting, and pagination. The v3 API standardizes on POST for list operations to support server-side filtering, grouping, and sorting via the request body.
+      tags:
+      - VMs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VmListResponse'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /vms:
+    post:
+      operationId: createVm
+      summary: Nutanix Create a virtual machine
+      description: Creates a new VM using the intent-based spec. The request includes the desired specification and metadata. The system returns a task that tracks the creation progress.
+      tags:
+      - VMs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VmIntentInput'
+      responses:
+        '202':
+          description: Accepted - VM creation task started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VmIntentResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    get:
+      operationId: listVms
+      summary: Nutanix List virtual machines
+      description: Retrieves a list of all VMs on the local cluster with their configuration and current state.
+      tags:
+      - VMs
+      parameters:
+      - name: include_vm_disk_config
+        in: query
+        description: Include VM disk configuration details in the response.
+        schema:
+          type: boolean
+          default: false
+      - name: include_vm_nic_config
+        in: query
+        description: Include VM NIC configuration details in the response.
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+  /vms/{uuid}:
+    get:
+      operationId: getVm
+      summary: Nutanix Get a virtual machine
+      description: Retrieves the current state and specification of a VM by its UUID.
+      tags:
+      - VMs
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VmIntentResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: VM not found
+    put:
+      operationId: updateVm
+      summary: Nutanix Update a virtual machine
+      description: Updates the specification of an existing VM. The full intent spec must be provided including unchanged fields.
+      tags:
+      - VMs
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VmIntentInput'
+      responses:
+        '202':
+          description: Accepted - VM update task started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VmIntentResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: VM not found
+    delete:
+      operationId: deleteVm
+      summary: Nutanix Delete a virtual machine
+      description: Deletes a VM identified by its UUID.
+      tags:
+      - VMs
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      responses:
+        '202':
+          description: Accepted - VM deletion task started
+        '401':
+          description: Unauthorized
+        '404':
+          description: VM not found
+  /vms/{id}:
+    get:
+      operationId: getVm
+      summary: Nutanix Get a virtual machine
+      description: Retrieves detailed information about a specific VM by its ID.
+      tags:
+      - VMs
+      parameters:
+      - $ref: '#/components/parameters/EntityId'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: VM not found
+  /vms/{id}/set_power_state:
+    post:
+      operationId: setVmPowerState
+      summary: Nutanix Set VM power state
+      description: Changes the power state of a VM to ON, OFF, POWERCYCLE, RESET, PAUSE, SUSPEND, or ACPI_SHUTDOWN.
+      tags:
+      - VMs
+      parameters:
+      - $ref: '#/components/parameters/EntityId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - transition
+              properties:
+                transition:
+                  type: string
+                  enum:
+                  - 'ON'
+                  - 'OFF'
+                  - POWERCYCLE
+                  - RESET
+                  - PAUSE
+                  - SUSPEND
+                  - ACPI_SHUTDOWN
+                  description: The power state transition to perform.
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: VM not found
+components:
+  schemas:
+    VmSpec:
+      type: object
+      description: VM specification describing the desired state.
+      properties:
+        name:
+          type: string
+          description: The name of the VM.
+        description:
+          type: string
+          description: A description of the VM.
+        resources:
+          type: object
+          description: VM resource configuration.
+          properties:
+            num_sockets:
+              type: integer
+              description: Number of vCPU sockets.
+              minimum: 1
+            num_vcpus_per_socket:
+              type: integer
+              description: Number of vCPUs per socket.
+              minimum: 1
+            memory_size_mib:
+              type: integer
+              description: Memory size in MiB.
+              minimum: 1
+            power_state:
+              type: string
+              description: The desired power state of the VM.
+              enum:
+              - 'ON'
+              - 'OFF'
+            disk_list:
+              type: array
+              items:
+                type: object
+                properties:
+                  device_properties:
+                    type: object
+                    properties:
+                      device_type:
+                        type: string
+                        enum:
+                        - DISK
+                        - CDROM
+                      disk_address:
+                        type: object
+                        properties:
+                          adapter_type:
+                            type: string
+                            enum:
+                            - SCSI
+                            - IDE
+                            - PCI
+                            - SATA
+                            - SPAPR
+                          device_index:
+                            type: integer
+                  disk_size_mib:
+                    type: integer
+                    description: Size of the disk in MiB.
+              description: List of disks attached to the VM.
+            nic_list:
+              type: array
+              items:
+                type: object
+                properties:
+                  subnet_reference:
+                    $ref: '#/components/schemas/Reference'
+                  ip_endpoint_list:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        ip:
+                          type: string
+                          description: IP address.
+                        type:
+                          type: string
+                          enum:
+                          - ASSIGNED
+                          - LEARNED
+              description: List of NICs attached to the VM.
+        cluster_reference:
+          $ref: '#/components/schemas/Reference'
+    Reference:
+      type: object
+      description: A reference to another entity.
+      required:
+      - kind
+      - uuid
+      properties:
+        kind:
+          type: string
+          description: The kind of entity being referenced.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the referenced entity.
+        name:
+          type: string
+          description: The name of the referenced entity.
+    VmIntentInput:
+      type: object
+      description: Input for creating or updating a VM with the intent model.
+      required:
+      - spec
+      - metadata
+      properties:
+        spec:
+          $ref: '#/components/schemas/VmSpec'
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    VmIntentResponse:
+      type: object
+      description: Response containing VM intent status and spec.
+      properties:
+        status:
+          type: object
+          description: The current status of the VM.
+        spec:
+          $ref: '#/components/schemas/VmSpec'
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    VmListResponse:
+      type: object
+      description: Response for listing VMs.
+      properties:
+        api_version:
+          type: string
+          description: API version.
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/VmIntentResponse'
+          description: List of VM intent responses.
+    EntityMetadata:
+      type: object
+      description: Metadata for an entity.
+      properties:
+        kind:
+          type: string
+          description: The kind of entity.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the entity.
+        spec_version:
+          type: integer
+          description: Version number of the spec.
+        categories:
+          type: object
+          additionalProperties:
+            type: string
+          description: Categories assigned to the entity as key-value pairs.
+        owner_reference:
+          $ref: '#/components/schemas/Reference'
+        project_reference:
+          $ref: '#/components/schemas/Reference'
+    ListMetadata:
+      type: object
+      description: Request body for list operations supporting server-side filtering, sorting, and pagination.
+      properties:
+        kind:
+          type: string
+          description: The entity kind to list.
+        offset:
+          type: integer
+          description: Offset from the start of the entity list.
+          minimum: 0
+        length:
+          type: integer
+          description: The number of records to retrieve.
+          minimum: 1
+          maximum: 500
+        filter:
+          type: string
+          description: The filter criteria in FIQL format.
+        sort_order:
+          type: string
+          description: The sort order.
+          enum:
+          - ASCENDING
+          - DESCENDING
+        sort_attribute:
+          type: string
+          description: The attribute to sort results by.
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
+    EntityId:
+      name: id
+      in: path
+      required: true
+      description: The ID of the entity.
+      schema:
+        type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using Prism Central username and password credentials.
+externalDocs:
+  description: Nutanix Prism Central v3 API Documentation
+  url: https://www.nutanix.dev/api_references/prism-central-v3/

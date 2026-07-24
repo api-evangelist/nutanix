@@ -1,0 +1,44 @@
+openapi: 3.1.0
+info:
+  title: Nutanix Prism Central API v3 Alerts Virtual Disks API
+  description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.
+  version: 3.1.0
+  contact:
+    name: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+  termsOfService: https://www.nutanix.com/legal/terms-of-use
+servers:
+- url: https://{prismCentralIp}:9440/api/nutanix/v3
+  description: Prism Central Server
+  variables:
+    prismCentralIp:
+      default: localhost
+      description: IP address or FQDN of the Prism Central instance.
+security:
+- basicAuth: []
+tags:
+- name: Virtual Disks
+  description: Manage virtual disks including disk statistics and configuration within the cluster.
+paths:
+  /virtual_disks:
+    get:
+      operationId: listVirtualDisks
+      summary: Nutanix List virtual disks
+      description: Retrieves a list of all virtual disks in the cluster.
+      tags:
+      - Virtual Disks
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using Prism Central username and password credentials.
+externalDocs:
+  description: Nutanix Prism Central v3 API Documentation
+  url: https://www.nutanix.dev/api_references/prism-central-v3/

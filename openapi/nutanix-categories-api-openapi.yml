@@ -1,0 +1,152 @@
+openapi: 3.1.0
+info:
+  title: Nutanix Prism Central API v3 Alerts Categories API
+  description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.
+  version: 3.1.0
+  contact:
+    name: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+  termsOfService: https://www.nutanix.com/legal/terms-of-use
+servers:
+- url: https://{prismCentralIp}:9440/api/nutanix/v3
+  description: Prism Central Server
+  variables:
+    prismCentralIp:
+      default: localhost
+      description: IP address or FQDN of the Prism Central instance.
+security:
+- basicAuth: []
+tags:
+- name: Categories
+  description: Manage categories and category values used for tagging and organizing resources across the Nutanix environment.
+paths:
+  /categories/{name}:
+    get:
+      operationId: getCategory
+      summary: Nutanix Get a category key
+      description: Retrieves a category key and its associated metadata.
+      tags:
+      - Categories
+      parameters:
+      - name: name
+        in: path
+        required: true
+        description: The name of the category key.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Category not found
+    put:
+      operationId: updateCategory
+      summary: Nutanix Create or update a category key
+      description: Creates or updates a category key with the specified metadata.
+      tags:
+      - Categories
+      parameters:
+      - name: name
+        in: path
+        required: true
+        description: The name of the category key.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: Description of the category.
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteCategory
+      summary: Nutanix Delete a category key
+      description: Deletes a category key and all its associated values.
+      tags:
+      - Categories
+      parameters:
+      - name: name
+        in: path
+        required: true
+        description: The name of the category key.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Category not found
+  /categories/{name}/{value}:
+    put:
+      operationId: updateCategoryValue
+      summary: Nutanix Create or update a category value
+      description: Creates or updates a value for the specified category key.
+      tags:
+      - Categories
+      parameters:
+      - name: name
+        in: path
+        required: true
+        description: The name of the category key.
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        description: The category value.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteCategoryValue
+      summary: Nutanix Delete a category value
+      description: Deletes a specific value from a category key.
+      tags:
+      - Categories
+      parameters:
+      - name: name
+        in: path
+        required: true
+        description: The name of the category key.
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        description: The category value.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Category value not found
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using Prism Central username and password credentials.
+externalDocs:
+  description: Nutanix Prism Central v3 API Documentation
+  url: https://www.nutanix.dev/api_references/prism-central-v3/

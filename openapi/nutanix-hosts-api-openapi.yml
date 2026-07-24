@@ -1,0 +1,210 @@
+openapi: 3.1.0
+info:
+  title: Nutanix Prism Central API v3 Alerts Hosts API
+  description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.
+  version: 3.1.0
+  contact:
+    name: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+  termsOfService: https://www.nutanix.com/legal/terms-of-use
+servers:
+- url: https://{prismCentralIp}:9440/api/nutanix/v3
+  description: Prism Central Server
+  variables:
+    prismCentralIp:
+      default: localhost
+      description: IP address or FQDN of the Prism Central instance.
+security:
+- basicAuth: []
+tags:
+- name: Hosts
+  description: Retrieve information about physical hosts in the Nutanix cluster infrastructure.
+paths:
+  /hosts/list:
+    post:
+      operationId: listHosts
+      summary: Nutanix List hosts
+      description: Retrieves a list of physical hosts with optional filtering and pagination.
+      tags:
+      - Hosts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+  /hosts/{uuid}:
+    get:
+      operationId: getHost
+      summary: Nutanix Get a host
+      description: Retrieves information about a specific physical host by UUID.
+      tags:
+      - Hosts
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Host not found
+  /hosts:
+    get:
+      operationId: listHosts
+      summary: Nutanix List hosts
+      description: Retrieves a list of all physical hosts in the cluster with hardware details, hypervisor information, and CVM status.
+      tags:
+      - Hosts
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  entities:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Host'
+                  metadata:
+                    $ref: '#/components/schemas/PaginationMetadata'
+        '401':
+          description: Unauthorized
+  /hosts/{id}:
+    get:
+      operationId: getHost
+      summary: Nutanix Get a host
+      description: Retrieves detailed information about a specific host by its ID.
+      tags:
+      - Hosts
+      parameters:
+      - $ref: '#/components/parameters/EntityId'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Host'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Host not found
+components:
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
+    EntityId:
+      name: id
+      in: path
+      required: true
+      description: The ID of the entity.
+      schema:
+        type: string
+  schemas:
+    Host:
+      type: object
+      description: A physical host in the Nutanix cluster.
+      properties:
+        uuid:
+          type: string
+          description: The UUID of the host.
+        name:
+          type: string
+          description: The name of the host.
+        serial:
+          type: string
+          description: Serial number of the host.
+        block_serial:
+          type: string
+          description: Block serial number.
+        block_model:
+          type: string
+          description: Hardware block model.
+        hypervisor_address:
+          type: string
+          description: IP address of the hypervisor.
+        controller_vm_backplane_ip:
+          type: string
+          description: CVM backplane IP address.
+        num_cpu_sockets:
+          type: integer
+          description: Number of physical CPU sockets.
+        num_cpu_cores:
+          type: integer
+          description: Number of CPU cores.
+        memory_capacity_in_bytes:
+          type: integer
+          description: Total memory capacity in bytes.
+        hypervisor_type:
+          type: string
+          description: Type of hypervisor running on the host.
+    PaginationMetadata:
+      type: object
+      description: Pagination metadata for list responses.
+      properties:
+        grand_total_entities:
+          type: integer
+          description: Total number of entities.
+        total_entities:
+          type: integer
+          description: Number of entities in the current response.
+        count:
+          type: integer
+          description: Count of entities returned.
+        start_index:
+          type: integer
+          description: Starting index of the returned entities.
+        end_index:
+          type: integer
+          description: Ending index of the returned entities.
+    ListMetadata:
+      type: object
+      description: Request body for list operations supporting server-side filtering, sorting, and pagination.
+      properties:
+        kind:
+          type: string
+          description: The entity kind to list.
+        offset:
+          type: integer
+          description: Offset from the start of the entity list.
+          minimum: 0
+        length:
+          type: integer
+          description: The number of records to retrieve.
+          minimum: 1
+          maximum: 500
+        filter:
+          type: string
+          description: The filter criteria in FIQL format.
+        sort_order:
+          type: string
+          description: The sort order.
+          enum:
+          - ASCENDING
+          - DESCENDING
+        sort_attribute:
+          type: string
+          description: The attribute to sort results by.
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using Prism Central username and password credentials.
+externalDocs:
+  description: Nutanix Prism Central v3 API Documentation
+  url: https://www.nutanix.dev/api_references/prism-central-v3/

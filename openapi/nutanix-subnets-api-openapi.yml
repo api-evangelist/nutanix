@@ -1,0 +1,265 @@
+openapi: 3.1.0
+info:
+  title: Nutanix Prism Central API v3 Alerts Subnets API
+  description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.
+  version: 3.1.0
+  contact:
+    name: Nutanix Developer Support
+    email: developer@nutanix.com
+    url: https://www.nutanix.dev/
+  termsOfService: https://www.nutanix.com/legal/terms-of-use
+servers:
+- url: https://{prismCentralIp}:9440/api/nutanix/v3
+  description: Prism Central Server
+  variables:
+    prismCentralIp:
+      default: localhost
+      description: IP address or FQDN of the Prism Central instance.
+security:
+- basicAuth: []
+tags:
+- name: Subnets
+  description: Manage AHV network subnets including VLAN and overlay network configurations.
+paths:
+  /subnets/list:
+    post:
+      operationId: listSubnets
+      summary: Nutanix List subnets
+      description: Retrieves a list of subnets with optional filtering and pagination.
+      tags:
+      - Subnets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListMetadata'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubnetListResponse'
+        '401':
+          description: Unauthorized
+  /subnets:
+    post:
+      operationId: createSubnet
+      summary: Nutanix Create a subnet
+      description: Creates a new AHV subnet with the specified configuration including VLAN ID, IP address management, and cluster assignment.
+      tags:
+      - Subnets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubnetIntentInput'
+      responses:
+        '202':
+          description: Accepted - Subnet creation task started
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /subnets/{uuid}:
+    get:
+      operationId: getSubnet
+      summary: Nutanix Get a subnet
+      description: Retrieves the configuration and status of a specific subnet by UUID.
+      tags:
+      - Subnets
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Subnet not found
+    put:
+      operationId: updateSubnet
+      summary: Nutanix Update a subnet
+      description: Updates the configuration of an existing subnet.
+      tags:
+      - Subnets
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubnetIntentInput'
+      responses:
+        '202':
+          description: Accepted - Subnet update task started
+        '401':
+          description: Unauthorized
+        '404':
+          description: Subnet not found
+    delete:
+      operationId: deleteSubnet
+      summary: Nutanix Delete a subnet
+      description: Deletes a subnet identified by its UUID.
+      tags:
+      - Subnets
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      responses:
+        '202':
+          description: Accepted - Subnet deletion task started
+        '401':
+          description: Unauthorized
+        '404':
+          description: Subnet not found
+components:
+  schemas:
+    Reference:
+      type: object
+      description: A reference to another entity.
+      required:
+      - kind
+      - uuid
+      properties:
+        kind:
+          type: string
+          description: The kind of entity being referenced.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the referenced entity.
+        name:
+          type: string
+          description: The name of the referenced entity.
+    SubnetIntentInput:
+      type: object
+      description: Input for creating or updating a subnet.
+      required:
+      - spec
+      - metadata
+      properties:
+        spec:
+          type: object
+          properties:
+            name:
+              type: string
+              description: The name of the subnet.
+            resources:
+              type: object
+              properties:
+                subnet_type:
+                  type: string
+                  description: The type of subnet.
+                  enum:
+                  - VLAN
+                  - OVERLAY
+                vlan_id:
+                  type: integer
+                  description: VLAN ID for VLAN-type subnets.
+                ip_config:
+                  type: object
+                  properties:
+                    subnet_ip:
+                      type: string
+                      description: Subnet IP address.
+                    prefix_length:
+                      type: integer
+                      description: Network prefix length.
+                    default_gateway_ip:
+                      type: string
+                      description: Default gateway IP address.
+                    pool_list:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          range:
+                            type: string
+                            description: IP range in the format start_ip end_ip.
+            cluster_reference:
+              $ref: '#/components/schemas/Reference'
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    EntityMetadata:
+      type: object
+      description: Metadata for an entity.
+      properties:
+        kind:
+          type: string
+          description: The kind of entity.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the entity.
+        spec_version:
+          type: integer
+          description: Version number of the spec.
+        categories:
+          type: object
+          additionalProperties:
+            type: string
+          description: Categories assigned to the entity as key-value pairs.
+        owner_reference:
+          $ref: '#/components/schemas/Reference'
+        project_reference:
+          $ref: '#/components/schemas/Reference'
+    SubnetListResponse:
+      type: object
+      description: Response for listing subnets.
+      properties:
+        api_version:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            type: object
+    ListMetadata:
+      type: object
+      description: Request body for list operations supporting server-side filtering, sorting, and pagination.
+      properties:
+        kind:
+          type: string
+          description: The entity kind to list.
+        offset:
+          type: integer
+          description: Offset from the start of the entity list.
+          minimum: 0
+        length:
+          type: integer
+          description: The number of records to retrieve.
+          minimum: 1
+          maximum: 500
+        filter:
+          type: string
+          description: The filter criteria in FIQL format.
+        sort_order:
+          type: string
+          description: The sort order.
+          enum:
+          - ASCENDING
+          - DESCENDING
+        sort_attribute:
+          type: string
+          description: The attribute to sort results by.
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using Prism Central username and password credentials.
+externalDocs:
+  description: Nutanix Prism Central v3 API Documentation
+  url: https://www.nutanix.dev/api_references/prism-central-v3/
