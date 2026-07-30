@@ -6,9 +6,22 @@ description: >-
   including Prism Central, Prism Element, Karbon Kubernetes, Nutanix Database Service (NDB), Cloud Clusters (NC2), NCM
   Self-Service, and the GA v4 API platform.
 type: Index
+accessModel:
+  pricing: free-trial
+  onboarding: self-serve
+  trial: true
+  try_now: true
+  public: false
+  label: Free trial · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Producer
 access: 1st-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nutanix.png
 tags:
   - Cloud Management
   - Hyperconverged
@@ -21,128 +34,349 @@ created: '2025-03-14'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: nutanix:prism-central-v3
-    name: Nutanix Prism Central API V3
-    description: >-
-      RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through
-      Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state.
-    humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
-    baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
-    tags:
-      - Cloud Management
-      - Infrastructure
-      - Virtualization
-    properties:
-      - type: Documentation
-        url: https://www.nutanix.dev/api_references/prism-central-v3/
-      - type: Authentication
-        url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/nutanix/refs/heads/main/openapi/nutanix-prism-central-v3-openapi.yml
-  - aid: nutanix:prism-central-v4
-    name: Nutanix Prism Central API V4
-    description: >-
-      The next-generation v4 API for managing the Nutanix Cloud Platform through Prism Central with GA SDKs for Python,
-      Java, Go, and JavaScript. The v4 API is now the recommended version for production environments.
-    humanURL: https://www.nutanix.dev/api-reference-v4/
-    baseURL: https://{{prism-central-ip}}:9440/api
-    tags:
-      - Cloud Management
-      - Infrastructure
-      - SDK
-    properties:
-      - type: Documentation
-        url: https://www.nutanix.dev/api-reference-v4/
-      - type: GettingStarted
-        url: https://www.nutanix.dev/nutanix-api-user-guide/
-      - type: SDKs
-        url: https://www.nutanix.dev/sdk_reference/
-      - type: ChangeLog
-        url: https://www.nutanix.dev/api-versions/
-      - type: DeveloperPortal
-        url: https://developers.nutanix.com/
-  - aid: nutanix:prism-element-v2
-    name: Nutanix Prism Element API V2
-    description: >-
-      Cluster-local API for managing individual Nutanix clusters through Prism Element, including storage containers,
-      hosts, virtual machines, and cluster operations.
-    humanURL: https://www.nutanix.dev/api_references/prism-element/
-    baseURL: https://{{cluster-ip}}:9440/PrismGateway/services/rest/v2.0
-    tags:
-      - Cluster Management
-      - Infrastructure
-      - Storage
-    properties:
-      - type: Documentation
-        url: https://www.nutanix.dev/api_references/prism-element/
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/nutanix/refs/heads/main/openapi/nutanix-prism-element-v2-openapi.yml
-  - aid: nutanix:karbon
-    name: Nutanix Karbon API
-    description: >-
-      API for managing Kubernetes clusters through Nutanix Karbon, including cluster lifecycle, upgrades, and
-      configuration.
-    humanURL: https://www.nutanix.dev/api_references/karbon/
-    tags:
-      - Container Management
-      - Kubernetes
-      - Orchestration
-    properties:
-      - type: Documentation
-        url: https://www.nutanix.dev/api_references/karbon/
-  - aid: nutanix:ndb
-    name: Nutanix Database Service API
-    description: >-
-      REST API for Nutanix Database Service (NDB) providing database-as-a-service capabilities for PostgreSQL, MySQL,
-      SQL Server, Oracle, and MongoDB.
-    humanURL: https://www.nutanix.dev/api_reference/apis/ndb0.9.html
-    tags:
-      - Database
-      - DBaaS
-    properties:
-      - type: Documentation
-        url: https://www.nutanix.dev/api_reference/apis/ndb0.9.html
-  - aid: nutanix:nc2
-    name: Nutanix Cloud Clusters API
-    description: >-
-      REST API for Nutanix Cloud Clusters (NC2), enabling creation and management of Nutanix clusters on AWS and Azure
-      public clouds.
-    humanURL: https://www.nutanix.dev/api_reference/apis/nc2.html
-    baseURL: https://api.nutanix.com
-    tags:
-      - AWS
-      - Azure
-      - Hybrid Cloud
-    properties:
-      - type: Documentation
-        url: https://www.nutanix.dev/api_reference/apis/nc2.html
-  - aid: nutanix:ncm-self-service
-    name: Nutanix NCM Self-Service API
-    description: >-
-      API for Nutanix Cloud Manager Self-Service (formerly Calm), enabling automation of application deployment and
-      lifecycle management through blueprints and runbooks.
-    humanURL: https://www.nutanix.dev/api_references/ncm-self-service/
-    tags:
-      - Automation
-      - Application Management
-      - Orchestration
-      - DevOps
-    properties:
-      - type: Documentation
-        url: https://www.nutanix.dev/api_references/ncm-self-service/
-  - aid: nutanix:foundation
-    name: Nutanix Foundation API
-    description: API for Foundation and Foundation Central, enabling automated cluster deployment and remote node imaging.
-    humanURL: https://www.nutanix.dev/api_references/foundation/
-    tags:
-      - Cluster Deployment
-      - Automation
-    properties:
-      - type: Documentation
-        url: https://www.nutanix.dev/api_references/foundation/
+- aid: nutanix:prism-central-v4
+  name: Nutanix Prism Central API V4
+  description: >-
+    The next-generation v4 API for managing the Nutanix Cloud Platform through Prism Central with GA SDKs
+    for Python, Java, Go, and JavaScript. The v4 API is now the recommended version for production environments.
+  humanURL: https://www.nutanix.dev/api-reference-v4/
+  baseURL: https://{{prism-central-ip}}:9440/api
+  tags:
+  - Cloud Management
+  - Infrastructure
+  - SDK
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api-reference-v4/
+  - type: GettingStarted
+    url: https://www.nutanix.dev/nutanix-api-user-guide/
+  - type: SDKs
+    url: https://www.nutanix.dev/sdk_reference/
+  - type: ChangeLog
+    url: https://www.nutanix.dev/api-versions/
+  - type: DeveloperPortal
+    url: https://developers.nutanix.com/
+- aid: nutanix:karbon
+  name: Nutanix Karbon API
+  description: >-
+    API for managing Kubernetes clusters through Nutanix Karbon, including cluster lifecycle, upgrades,
+    and configuration.
+  humanURL: https://www.nutanix.dev/api_references/karbon/
+  tags:
+  - Container Management
+  - Kubernetes
+  - Orchestration
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/karbon/
+- aid: nutanix:ndb
+  name: Nutanix Database Service API
+  description: >-
+    REST API for Nutanix Database Service (NDB) providing database-as-a-service capabilities for PostgreSQL,
+    MySQL, SQL Server, Oracle, and MongoDB.
+  humanURL: https://www.nutanix.dev/api_reference/apis/ndb0.9.html
+  tags:
+  - Database
+  - DBaaS
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_reference/apis/ndb0.9.html
+- aid: nutanix:nc2
+  name: Nutanix Cloud Clusters API
+  description: >-
+    REST API for Nutanix Cloud Clusters (NC2), enabling creation and management of Nutanix clusters on
+    AWS and Azure public clouds.
+  humanURL: https://www.nutanix.dev/api_reference/apis/nc2.html
+  baseURL: https://api.nutanix.com
+  tags:
+  - AWS
+  - Azure
+  - Hybrid Cloud
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_reference/apis/nc2.html
+- aid: nutanix:ncm-self-service
+  name: Nutanix NCM Self-Service API
+  description: >-
+    API for Nutanix Cloud Manager Self-Service (formerly Calm), enabling automation of application deployment
+    and lifecycle management through blueprints and runbooks.
+  humanURL: https://www.nutanix.dev/api_references/ncm-self-service/
+  tags:
+  - Automation
+  - Application Management
+  - Orchestration
+  - DevOps
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/ncm-self-service/
+- aid: nutanix:foundation
+  name: Nutanix Foundation API
+  description: >-
+    API for Foundation and Foundation Central, enabling automated cluster deployment and remote node imaging.
+  humanURL: https://www.nutanix.dev/api_references/foundation/
+  tags:
+  - Cluster Deployment
+  - Automation
+  properties:
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/foundation/
+- aid: nutanix:nutanix-alerts-api
+  name: Nutanix Alerts API
+  description: Retrieve and manage cluster alerts for monitoring health and operational events.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-alerts-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-categories-api
+  name: Nutanix Categories API
+  description: >-
+    Manage categories and category values used for tagging and organizing resources across the Nutanix
+    environment.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-categories-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-clusters-api
+  name: Nutanix Clusters API
+  description: >-
+    Retrieve and manage Nutanix cluster configurations and metadata across the Prism Central deployment.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Clusters
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-clusters-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-hosts-api
+  name: Nutanix Hosts API
+  description: Retrieve information about physical hosts in the Nutanix cluster infrastructure.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Hosts
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-hosts-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-images-api
+  name: Nutanix Images API
+  description: >-
+    Manage disk images distributed across clusters for VM provisioning, including ISO and disk image uploads.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-images-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-network-security-rules-api
+  name: Nutanix Network Security Rules API
+  description: >-
+    Manage Flow microsegmentation policies that control network traffic between VMs based on categories.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Network Security Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-network-security-rules-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-projects-api
+  name: Nutanix Projects API
+  description: >-
+    Manage projects that define resource quotas, user access, and infrastructure boundaries for self-service
+    consumption.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-projects-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-protection-domains-api
+  name: Nutanix Protection Domains API
+  description: >-
+    Manage protection domains that define groups of VMs and volume groups for data protection and disaster
+    recovery.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Protection Domains
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-protection-domains-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-snapshots-api
+  name: Nutanix Snapshots API
+  description: Manage VM snapshots for point-in-time recovery of virtual machines.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Snapshots
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-snapshots-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-storage-containers-api
+  name: Nutanix Storage Containers API
+  description: >-
+    Manage storage containers that provide logical storage partitions within the Nutanix distributed storage
+    fabric.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Storage Containers
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-storage-containers-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-storage-pools-api
+  name: Nutanix Storage Pools API
+  description: >-
+    Manage storage pools which represent groups of physical disks used for storing data across the cluster.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Storage Pools
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-storage-pools-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-subnets-api
+  name: Nutanix Subnets API
+  description: Manage AHV network subnets including VLAN and overlay network configurations.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Subnets
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-subnets-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-virtual-disks-api
+  name: Nutanix Virtual Disks API
+  description: Manage virtual disks including disk statistics and configuration within the cluster.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Virtual Disks
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-virtual-disks-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-vms-api
+  name: Nutanix VMs API
+  description: >-
+    Manage virtual machines including creation, update, deletion, and power state operations through the
+    intent-based API model.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - VMs
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-vms-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-webhooks-api
+  name: Nutanix Webhooks API
+  description: Manage webhook listeners that receive event notifications from the Nutanix platform.
+  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
+  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/nutanix/overview
   - type: AgenticAccess
     url: agentic-access/nutanix-agentic-access.yml
   - type: DomainSecurity
