@@ -1,0 +1,899 @@
+{
+  "info": {
+    "_postman_id": "ae7d675c-45d3-4529-b337-ccd6456d51e9",
+    "name": "Nutanix Prism Central API v3 Alerts Network Security Rules API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:23:38.000Z",
+    "updatedAt": "2026-07-28T02:23:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ae7d675c-45d3-4529-b337-ccd6456d51e9"
+  },
+  "item": [
+    {
+      "name": "network_security_rules",
+      "item": [
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Nutanix List network security rules",
+              "id": "bb012667-4af6-415a-b819-da9683fcf02c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/network_security_rules/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network_security_rules",
+                    "list"
+                  ]
+                },
+                "description": "Retrieves a list of Flow network security rules with optional filtering and pagination."
+              },
+              "response": [
+                {
+                  "id": "935aa162-f8a7-43e6-901a-9afbb4956e33",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/network_security_rules/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network_security_rules",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:38.000Z",
+                  "updatedAt": "2026-07-28T02:23:38.000Z",
+                  "uid": "35240-935aa162-f8a7-43e6-901a-9afbb4956e33"
+                },
+                {
+                  "id": "9232dffd-aae9-4d5a-af00-e1c04d6cfdc8",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/network_security_rules/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network_security_rules",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:38.000Z",
+                  "updatedAt": "2026-07-28T02:23:38.000Z",
+                  "uid": "35240-9232dffd-aae9-4d5a-af00-e1c04d6cfdc8"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:38.000Z",
+              "updatedAt": "2026-07-28T02:23:38.000Z",
+              "uid": "35240-bb012667-4af6-415a-b819-da9683fcf02c"
+            }
+          ],
+          "id": "495be29c-5439-4982-b070-5c94b2b12c56",
+          "createdAt": "2026-07-28T02:23:38.000Z",
+          "updatedAt": "2026-07-28T02:23:38.000Z",
+          "uid": "35240-495be29c-5439-4982-b070-5c94b2b12c56"
+        },
+        {
+          "name": "{uuid}",
+          "item": [
+            {
+              "name": "Nutanix Get a network security rule",
+              "id": "8a3a809a-6b93-4ddd-b662-c1bc77429792",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network_security_rules",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d76ad6ba-1985-4923-bccb-fd09868c9f02",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Retrieves the configuration of a specific network security rule by UUID."
+              },
+              "response": [
+                {
+                  "id": "af3d4f89-e6af-4d9e-8001-f2163a8a0868",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network_security_rules",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:38.000Z",
+                  "updatedAt": "2026-07-28T02:23:38.000Z",
+                  "uid": "35240-af3d4f89-e6af-4d9e-8001-f2163a8a0868"
+                },
+                {
+                  "id": "4eb6b81f-9200-421a-908f-20e4b75a1e1c",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network_security_rules",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:38.000Z",
+                  "updatedAt": "2026-07-28T02:23:38.000Z",
+                  "uid": "35240-4eb6b81f-9200-421a-908f-20e4b75a1e1c"
+                },
+                {
+                  "id": "338cdc73-f38f-43f7-afb6-bd32608254a7",
+                  "name": "Rule not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network_security_rules",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:38.000Z",
+                  "updatedAt": "2026-07-28T02:23:38.000Z",
+                  "uid": "35240-338cdc73-f38f-43f7-afb6-bd32608254a7"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:38.000Z",
+              "updatedAt": "2026-07-28T02:23:38.000Z",
+              "uid": "35240-8a3a809a-6b93-4ddd-b662-c1bc77429792"
+            },
+            {
+              "name": "Nutanix Update a network security rule",
+              "id": "65444a50-b772-4f2c-835d-7a65a55a9c96",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network_security_rules",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ef752a55-7755-4e01-a0ab-0a8b01f5cef9",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Updates the configuration of an existing network security rule."
+              },
+              "response": [
+                {
+                  "id": "7bd115b5-6432-4e3b-8c8c-60f981be04ec",
+                  "name": "Accepted - Rule update task started",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network_security_rules",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:38.000Z",
+                  "updatedAt": "2026-07-28T02:23:38.000Z",
+                  "uid": "35240-7bd115b5-6432-4e3b-8c8c-60f981be04ec"
+                },
+                {
+                  "id": "9d7577ef-eca5-4644-a7fa-9459e63fb79b",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network_security_rules",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:38.000Z",
+                  "updatedAt": "2026-07-28T02:23:38.000Z",
+                  "uid": "35240-9d7577ef-eca5-4644-a7fa-9459e63fb79b"
+                },
+                {
+                  "id": "4f3aca2f-1f98-48f4-9c86-02d2db22c090",
+                  "name": "Rule not found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network_security_rules",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:38.000Z",
+                  "updatedAt": "2026-07-28T02:23:38.000Z",
+                  "uid": "35240-4f3aca2f-1f98-48f4-9c86-02d2db22c090"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:38.000Z",
+              "updatedAt": "2026-07-28T02:23:38.000Z",
+              "uid": "35240-65444a50-b772-4f2c-835d-7a65a55a9c96"
+            },
+            {
+              "name": "Nutanix Delete a network security rule",
+              "id": "07a00019-60f0-46bf-8583-c9b3c4caeea0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network_security_rules",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "38824efa-cf8d-4865-875f-efef45695dfb",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Deletes a network security rule identified by its UUID."
+              },
+              "response": [
+                {
+                  "id": "d2f5d049-5073-4da0-b753-99ff48e7f4b7",
+                  "name": "Accepted - Rule deletion task started",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network_security_rules",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:38.000Z",
+                  "updatedAt": "2026-07-28T02:23:38.000Z",
+                  "uid": "35240-d2f5d049-5073-4da0-b753-99ff48e7f4b7"
+                },
+                {
+                  "id": "55657eaa-f732-4203-8b73-9c5f4b06943d",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network_security_rules",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:38.000Z",
+                  "updatedAt": "2026-07-28T02:23:38.000Z",
+                  "uid": "35240-55657eaa-f732-4203-8b73-9c5f4b06943d"
+                },
+                {
+                  "id": "5068ad77-f312-4178-a9f5-2a075263d102",
+                  "name": "Rule not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/network_security_rules/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network_security_rules",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:38.000Z",
+                  "updatedAt": "2026-07-28T02:23:38.000Z",
+                  "uid": "35240-5068ad77-f312-4178-a9f5-2a075263d102"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:38.000Z",
+              "updatedAt": "2026-07-28T02:23:38.000Z",
+              "uid": "35240-07a00019-60f0-46bf-8583-c9b3c4caeea0"
+            }
+          ],
+          "id": "f10109c7-e4e5-4745-aed0-f490ce6c6181",
+          "createdAt": "2026-07-28T02:23:38.000Z",
+          "updatedAt": "2026-07-28T02:23:38.000Z",
+          "uid": "35240-f10109c7-e4e5-4745-aed0-f490ce6c6181"
+        },
+        {
+          "name": "Nutanix Create a network security rule",
+          "id": "5f354df5-d697-4120-a0d5-9526dbc96ea2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/network_security_rules",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "network_security_rules"
+              ]
+            },
+            "description": "Creates a new Flow microsegmentation network security rule that controls traffic between VMs based on categories."
+          },
+          "response": [
+            {
+              "id": "1ebd2cff-e9a6-44a0-b1ea-7f22cea839aa",
+              "name": "Accepted - Rule creation task started",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/network_security_rules",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network_security_rules"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:38.000Z",
+              "updatedAt": "2026-07-28T02:23:38.000Z",
+              "uid": "35240-1ebd2cff-e9a6-44a0-b1ea-7f22cea839aa"
+            },
+            {
+              "id": "6a5cd1f7-39a7-4099-9031-6c7f0d7eaf4d",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/network_security_rules",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network_security_rules"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:38.000Z",
+              "updatedAt": "2026-07-28T02:23:38.000Z",
+              "uid": "35240-6a5cd1f7-39a7-4099-9031-6c7f0d7eaf4d"
+            },
+            {
+              "id": "2b321dff-3459-4a03-866d-c34ac281aa46",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/network_security_rules",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network_security_rules"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:38.000Z",
+              "updatedAt": "2026-07-28T02:23:38.000Z",
+              "uid": "35240-2b321dff-3459-4a03-866d-c34ac281aa46"
+            }
+          ],
+          "createdAt": "2026-07-28T02:23:38.000Z",
+          "updatedAt": "2026-07-28T02:23:38.000Z",
+          "uid": "35240-5f354df5-d697-4120-a0d5-9526dbc96ea2"
+        }
+      ],
+      "id": "a41756c0-2a45-47ce-8228-2a2ede0575ba",
+      "createdAt": "2026-07-28T02:23:38.000Z",
+      "updatedAt": "2026-07-28T02:23:38.000Z",
+      "uid": "35240-a41756c0-2a45-47ce-8228-2a2ede0575ba"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

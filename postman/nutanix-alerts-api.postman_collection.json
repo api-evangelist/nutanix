@@ -1,0 +1,337 @@
+{
+  "info": {
+    "_postman_id": "7ce93509-f90a-4478-a336-678702a01c75",
+    "name": "Nutanix Prism Central API v3 Alerts API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:23:28.000Z",
+    "updatedAt": "2026-07-28T02:23:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7ce93509-f90a-4478-a336-678702a01c75"
+  },
+  "item": [
+    {
+      "name": "alerts",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Nutanix Get an alert",
+              "id": "787b2cd2-3263-4f44-9840-b0fa154fe566",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/alerts/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "alerts",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2cae4121-3263-46c7-8fc1-69d3516e6dd4",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the entity."
+                    }
+                  ]
+                },
+                "description": "Retrieves details about a specific alert by its ID."
+              },
+              "response": [
+                {
+                  "id": "4c3d401b-bf9c-40d0-8ed7-3c376f06fc16",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/alerts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "alerts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:28.000Z",
+                  "updatedAt": "2026-07-28T02:23:28.000Z",
+                  "uid": "35240-4c3d401b-bf9c-40d0-8ed7-3c376f06fc16"
+                },
+                {
+                  "id": "1c2182bc-2426-428f-a1a9-4a0a7b05d484",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/alerts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "alerts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:28.000Z",
+                  "updatedAt": "2026-07-28T02:23:28.000Z",
+                  "uid": "35240-1c2182bc-2426-428f-a1a9-4a0a7b05d484"
+                },
+                {
+                  "id": "c032c84d-99d5-484f-a3e8-5f8a69d9fdf4",
+                  "name": "Alert not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/alerts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "alerts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:28.000Z",
+                  "updatedAt": "2026-07-28T02:23:28.000Z",
+                  "uid": "35240-c032c84d-99d5-484f-a3e8-5f8a69d9fdf4"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:28.000Z",
+              "updatedAt": "2026-07-28T02:23:28.000Z",
+              "uid": "35240-787b2cd2-3263-4f44-9840-b0fa154fe566"
+            }
+          ],
+          "id": "ccc89672-3e8b-4d2c-8883-47d3dd0aa2f7",
+          "createdAt": "2026-07-28T02:23:28.000Z",
+          "updatedAt": "2026-07-28T02:23:28.000Z",
+          "uid": "35240-ccc89672-3e8b-4d2c-8883-47d3dd0aa2f7"
+        },
+        {
+          "name": "Nutanix List alerts",
+          "id": "79782785-bbc7-4f27-87df-a61ec7d3a28a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/alerts?resolved=<boolean>&severity=INFO",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "alerts"
+              ],
+              "query": [
+                {
+                  "description": "Filter by resolved status.",
+                  "key": "resolved",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Filter by alert severity.",
+                  "key": "severity",
+                  "value": "INFO"
+                }
+              ]
+            },
+            "description": "Retrieves a list of alerts generated by the cluster for health monitoring and operational events."
+          },
+          "response": [
+            {
+              "id": "289da41b-d689-49d9-b652-76d85054ed8c",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/alerts?resolved=<boolean>&severity=INFO",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "alerts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by resolved status.",
+                      "key": "resolved",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by alert severity.",
+                      "key": "severity",
+                      "value": "INFO"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:28.000Z",
+              "updatedAt": "2026-07-28T02:23:28.000Z",
+              "uid": "35240-289da41b-d689-49d9-b652-76d85054ed8c"
+            },
+            {
+              "id": "322f5b45-c5fd-4240-9e62-a01eef357639",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/alerts?resolved=<boolean>&severity=INFO",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "alerts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by resolved status.",
+                      "key": "resolved",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by alert severity.",
+                      "key": "severity",
+                      "value": "INFO"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:28.000Z",
+              "updatedAt": "2026-07-28T02:23:28.000Z",
+              "uid": "35240-322f5b45-c5fd-4240-9e62-a01eef357639"
+            }
+          ],
+          "createdAt": "2026-07-28T02:23:28.000Z",
+          "updatedAt": "2026-07-28T02:23:28.000Z",
+          "uid": "35240-79782785-bbc7-4f27-87df-a61ec7d3a28a"
+        }
+      ],
+      "id": "13623319-8740-4b66-b4a8-adc3ed454669",
+      "createdAt": "2026-07-28T02:23:28.000Z",
+      "updatedAt": "2026-07-28T02:23:28.000Z",
+      "uid": "35240-13623319-8740-4b66-b4a8-adc3ed454669"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

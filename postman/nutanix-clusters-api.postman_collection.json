@@ -1,0 +1,498 @@
+{
+  "info": {
+    "_postman_id": "d6d1a08f-453b-4d69-8a2f-a4ff94c6eb5e",
+    "name": "Nutanix Prism Central API v3 Alerts Clusters API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:23:30.000Z",
+    "updatedAt": "2026-07-28T02:23:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d6d1a08f-453b-4d69-8a2f-a4ff94c6eb5e"
+  },
+  "item": [
+    {
+      "name": "clusters",
+      "item": [
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Nutanix List clusters",
+              "id": "92cb0014-737d-4144-a6f2-66cb29318914",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/clusters/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clusters",
+                    "list"
+                  ]
+                },
+                "description": "Retrieves a list of clusters managed by Prism Central with optional filtering and pagination."
+              },
+              "response": [
+                {
+                  "id": "753dd697-2303-4154-abf0-d9b65751929c",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/clusters/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clusters",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"api_version\": \"<string>\",\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"length\": \"<integer>\",\n    \"filter\": \"<string>\",\n    \"sort_order\": \"DESCENDING\",\n    \"sort_attribute\": \"<string>\"\n  },\n  \"entities\": [\n    {\n      \"status\": {},\n      \"spec\": {},\n      \"metadata\": {\n        \"kind\": \"<string>\",\n        \"uuid\": \"<uuid>\",\n        \"spec_version\": \"<integer>\",\n        \"categories\": {\n          \"esse9\": \"<string>\"\n        },\n        \"owner_reference\": {\n          \"kind\": \"<string>\",\n          \"uuid\": \"<uuid>\",\n          \"name\": \"<string>\"\n        },\n        \"project_reference\": {\n          \"kind\": \"<string>\",\n          \"uuid\": \"<uuid>\",\n          \"name\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"status\": {},\n      \"spec\": {},\n      \"metadata\": {\n        \"kind\": \"<string>\",\n        \"uuid\": \"<uuid>\",\n        \"spec_version\": \"<integer>\",\n        \"categories\": {\n          \"nostrud_c5\": \"<string>\",\n          \"irure__\": \"<string>\",\n          \"dolore_6\": \"<string>\",\n          \"fugiat_1\": \"<string>\"\n        },\n        \"owner_reference\": {\n          \"kind\": \"<string>\",\n          \"uuid\": \"<uuid>\",\n          \"name\": \"<string>\"\n        },\n        \"project_reference\": {\n          \"kind\": \"<string>\",\n          \"uuid\": \"<uuid>\",\n          \"name\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:23:30.000Z",
+                  "updatedAt": "2026-07-28T02:23:30.000Z",
+                  "uid": "35240-753dd697-2303-4154-abf0-d9b65751929c"
+                },
+                {
+                  "id": "5ec888e5-62e5-40bb-ab8c-29dde7affdd7",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/clusters/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clusters",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:30.000Z",
+                  "updatedAt": "2026-07-28T02:23:30.000Z",
+                  "uid": "35240-5ec888e5-62e5-40bb-ab8c-29dde7affdd7"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:30.000Z",
+              "updatedAt": "2026-07-28T02:23:30.000Z",
+              "uid": "35240-92cb0014-737d-4144-a6f2-66cb29318914"
+            }
+          ],
+          "id": "2360f404-45f7-40d3-9f2f-19821cded467",
+          "createdAt": "2026-07-28T02:23:30.000Z",
+          "updatedAt": "2026-07-28T02:23:30.000Z",
+          "uid": "35240-2360f404-45f7-40d3-9f2f-19821cded467"
+        },
+        {
+          "name": "{uuid}",
+          "item": [
+            {
+              "name": "Nutanix Get a cluster",
+              "id": "1603679d-2e9c-422c-a4c0-ade7ac2bdc3e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/clusters/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clusters",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "21e41d19-4a3e-4017-abcf-5f077f5dfaeb",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Retrieves the configuration and status of a specific cluster by UUID."
+              },
+              "response": [
+                {
+                  "id": "035c1e02-30e7-4f3c-aebb-5b565ba45049",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clusters/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clusters",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": {},\n  \"spec\": {},\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"qui5a2\": \"<string>\",\n      \"id_3\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:23:30.000Z",
+                  "updatedAt": "2026-07-28T02:23:30.000Z",
+                  "uid": "35240-035c1e02-30e7-4f3c-aebb-5b565ba45049"
+                },
+                {
+                  "id": "74b95146-b7f1-40dc-8cb6-4481cef7cf5a",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clusters/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clusters",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:30.000Z",
+                  "updatedAt": "2026-07-28T02:23:30.000Z",
+                  "uid": "35240-74b95146-b7f1-40dc-8cb6-4481cef7cf5a"
+                },
+                {
+                  "id": "d381e710-15ae-4a83-a212-7fc669a7f2d2",
+                  "name": "Cluster not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clusters/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clusters",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:30.000Z",
+                  "updatedAt": "2026-07-28T02:23:30.000Z",
+                  "uid": "35240-d381e710-15ae-4a83-a212-7fc669a7f2d2"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:30.000Z",
+              "updatedAt": "2026-07-28T02:23:30.000Z",
+              "uid": "35240-1603679d-2e9c-422c-a4c0-ade7ac2bdc3e"
+            }
+          ],
+          "id": "e57d52e2-dd20-4222-a56f-4f642eeda736",
+          "createdAt": "2026-07-28T02:23:30.000Z",
+          "updatedAt": "2026-07-28T02:23:30.000Z",
+          "uid": "35240-e57d52e2-dd20-4222-a56f-4f642eeda736"
+        }
+      ],
+      "id": "5fbcd3dc-cd35-4107-b1ee-e1869b6ed400",
+      "createdAt": "2026-07-28T02:23:30.000Z",
+      "updatedAt": "2026-07-28T02:23:30.000Z",
+      "uid": "35240-5fbcd3dc-cd35-4107-b1ee-e1869b6ed400"
+    },
+    {
+      "name": "cluster",
+      "item": [
+        {
+          "name": "Nutanix Get cluster information",
+          "id": "a4822e0c-0bb1-49ab-b924-ea2c47f3d5f3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cluster",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cluster"
+              ]
+            },
+            "description": "Retrieves detailed information about the local Nutanix cluster including configuration, health status, and resource utilization."
+          },
+          "response": [
+            {
+              "id": "305c77ce-3618-48ab-a31e-63766f02b319",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cluster",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cluster"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"cluster_external_ipaddress\": \"<string>\",\n  \"num_nodes\": \"<integer>\",\n  \"version\": \"<string>\",\n  \"hypervisor_types\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:23:30.000Z",
+              "updatedAt": "2026-07-28T02:23:30.000Z",
+              "uid": "35240-305c77ce-3618-48ab-a31e-63766f02b319"
+            },
+            {
+              "id": "50c10d55-5999-495c-b1ee-0248ad523f48",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cluster",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cluster"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:30.000Z",
+              "updatedAt": "2026-07-28T02:23:30.000Z",
+              "uid": "35240-50c10d55-5999-495c-b1ee-0248ad523f48"
+            }
+          ],
+          "createdAt": "2026-07-28T02:23:30.000Z",
+          "updatedAt": "2026-07-28T02:23:30.000Z",
+          "uid": "35240-a4822e0c-0bb1-49ab-b924-ea2c47f3d5f3"
+        }
+      ],
+      "id": "f6c9861c-1168-48d3-9ec1-c00047d57a96",
+      "createdAt": "2026-07-28T02:23:30.000Z",
+      "updatedAt": "2026-07-28T02:23:30.000Z",
+      "uid": "35240-f6c9861c-1168-48d3-9ec1-c00047d57a96"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

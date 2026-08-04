@@ -1,0 +1,637 @@
+{
+  "info": {
+    "_postman_id": "92151863-8e4d-48fe-89eb-0a84cbc4e899",
+    "name": "Nutanix Prism Central API v3 Alerts Hosts API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:23:31.000Z",
+    "updatedAt": "2026-07-28T02:23:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-92151863-8e4d-48fe-89eb-0a84cbc4e899"
+  },
+  "item": [
+    {
+      "name": "hosts",
+      "item": [
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Nutanix List hosts",
+              "id": "4a88c9c7-eaac-403b-8588-d25f17ba92c5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/hosts/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "hosts",
+                    "list"
+                  ]
+                },
+                "description": "Retrieves a list of physical hosts with optional filtering and pagination."
+              },
+              "response": [
+                {
+                  "id": "95d13450-6f44-4a0b-b52c-df5fc84c9d90",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/hosts/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hosts",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:31.000Z",
+                  "updatedAt": "2026-07-28T02:23:31.000Z",
+                  "uid": "35240-95d13450-6f44-4a0b-b52c-df5fc84c9d90"
+                },
+                {
+                  "id": "c7f34a30-01ec-48b0-aa33-86c9ee818280",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/hosts/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hosts",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:31.000Z",
+                  "updatedAt": "2026-07-28T02:23:31.000Z",
+                  "uid": "35240-c7f34a30-01ec-48b0-aa33-86c9ee818280"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:31.000Z",
+              "updatedAt": "2026-07-28T02:23:31.000Z",
+              "uid": "35240-4a88c9c7-eaac-403b-8588-d25f17ba92c5"
+            }
+          ],
+          "id": "735bf90a-3748-49f0-9a70-c9a3bbb7706c",
+          "createdAt": "2026-07-28T02:23:31.000Z",
+          "updatedAt": "2026-07-28T02:23:31.000Z",
+          "uid": "35240-735bf90a-3748-49f0-9a70-c9a3bbb7706c"
+        },
+        {
+          "name": "{uuid}",
+          "item": [
+            {
+              "name": "Nutanix Get a host",
+              "id": "1baf2076-7fe6-402c-9ccd-4b5ccca4af57",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/hosts/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "hosts",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "20e8ea96-8772-4534-a6fb-1aeda9da2abf",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Retrieves information about a specific physical host by UUID."
+              },
+              "response": [
+                {
+                  "id": "e3649b92-ae52-444c-b421-cc921bb58868",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hosts/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hosts",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:31.000Z",
+                  "updatedAt": "2026-07-28T02:23:31.000Z",
+                  "uid": "35240-e3649b92-ae52-444c-b421-cc921bb58868"
+                },
+                {
+                  "id": "99e44b33-5546-4a76-be7b-fd62bbec8589",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hosts/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hosts",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:31.000Z",
+                  "updatedAt": "2026-07-28T02:23:31.000Z",
+                  "uid": "35240-99e44b33-5546-4a76-be7b-fd62bbec8589"
+                },
+                {
+                  "id": "f937d602-895a-4197-bdbd-7ba512188868",
+                  "name": "Host not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hosts/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hosts",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:31.000Z",
+                  "updatedAt": "2026-07-28T02:23:31.000Z",
+                  "uid": "35240-f937d602-895a-4197-bdbd-7ba512188868"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:31.000Z",
+              "updatedAt": "2026-07-28T02:23:31.000Z",
+              "uid": "35240-1baf2076-7fe6-402c-9ccd-4b5ccca4af57"
+            }
+          ],
+          "id": "0b205aca-a933-40c5-8ad9-b0a11b85238f",
+          "createdAt": "2026-07-28T02:23:31.000Z",
+          "updatedAt": "2026-07-28T02:23:31.000Z",
+          "uid": "35240-0b205aca-a933-40c5-8ad9-b0a11b85238f"
+        },
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Nutanix Get a host",
+              "id": "78d92165-8ee6-4127-92c0-eae7518e9905",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/hosts/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "hosts",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "761d8ed4-73d5-4e05-b379-6aeee83a0d3a",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the entity."
+                    }
+                  ]
+                },
+                "description": "Retrieves detailed information about a specific host by its ID."
+              },
+              "response": [
+                {
+                  "id": "dd965ea5-6cf6-4a8b-8531-1896e466b405",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hosts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hosts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"serial\": \"<string>\",\n  \"block_serial\": \"<string>\",\n  \"block_model\": \"<string>\",\n  \"hypervisor_address\": \"<string>\",\n  \"controller_vm_backplane_ip\": \"<string>\",\n  \"num_cpu_sockets\": \"<integer>\",\n  \"num_cpu_cores\": \"<integer>\",\n  \"memory_capacity_in_bytes\": \"<integer>\",\n  \"hypervisor_type\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:23:31.000Z",
+                  "updatedAt": "2026-07-28T02:23:31.000Z",
+                  "uid": "35240-dd965ea5-6cf6-4a8b-8531-1896e466b405"
+                },
+                {
+                  "id": "b1cd5a03-6301-45e5-a748-edf29e818d22",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hosts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hosts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:31.000Z",
+                  "updatedAt": "2026-07-28T02:23:31.000Z",
+                  "uid": "35240-b1cd5a03-6301-45e5-a748-edf29e818d22"
+                },
+                {
+                  "id": "185a7eff-de97-410f-943a-003214e41941",
+                  "name": "Host not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hosts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hosts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:31.000Z",
+                  "updatedAt": "2026-07-28T02:23:31.000Z",
+                  "uid": "35240-185a7eff-de97-410f-943a-003214e41941"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:31.000Z",
+              "updatedAt": "2026-07-28T02:23:31.000Z",
+              "uid": "35240-78d92165-8ee6-4127-92c0-eae7518e9905"
+            }
+          ],
+          "id": "bebc7c07-315b-40c0-9b33-3ac8e653f93c",
+          "createdAt": "2026-07-28T02:23:31.000Z",
+          "updatedAt": "2026-07-28T02:23:31.000Z",
+          "uid": "35240-bebc7c07-315b-40c0-9b33-3ac8e653f93c"
+        },
+        {
+          "name": "Nutanix List hosts",
+          "id": "a4b8b891-7f26-4840-aa94-f27499046a18",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/hosts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "hosts"
+              ]
+            },
+            "description": "Retrieves a list of all physical hosts in the cluster with hardware details, hypervisor information, and CVM status."
+          },
+          "response": [
+            {
+              "id": "6ac075ca-b28b-4f63-95e2-b10b0a0cde85",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/hosts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "hosts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"entities\": [\n    {\n      \"uuid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"serial\": \"<string>\",\n      \"block_serial\": \"<string>\",\n      \"block_model\": \"<string>\",\n      \"hypervisor_address\": \"<string>\",\n      \"controller_vm_backplane_ip\": \"<string>\",\n      \"num_cpu_sockets\": \"<integer>\",\n      \"num_cpu_cores\": \"<integer>\",\n      \"memory_capacity_in_bytes\": \"<integer>\",\n      \"hypervisor_type\": \"<string>\"\n    },\n    {\n      \"uuid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"serial\": \"<string>\",\n      \"block_serial\": \"<string>\",\n      \"block_model\": \"<string>\",\n      \"hypervisor_address\": \"<string>\",\n      \"controller_vm_backplane_ip\": \"<string>\",\n      \"num_cpu_sockets\": \"<integer>\",\n      \"num_cpu_cores\": \"<integer>\",\n      \"memory_capacity_in_bytes\": \"<integer>\",\n      \"hypervisor_type\": \"<string>\"\n    }\n  ],\n  \"metadata\": {\n    \"grand_total_entities\": \"<integer>\",\n    \"total_entities\": \"<integer>\",\n    \"count\": \"<integer>\",\n    \"start_index\": \"<integer>\",\n    \"end_index\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:23:31.000Z",
+              "updatedAt": "2026-07-28T02:23:31.000Z",
+              "uid": "35240-6ac075ca-b28b-4f63-95e2-b10b0a0cde85"
+            },
+            {
+              "id": "85674432-7eab-4850-abb5-2596a4aed1a0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/hosts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "hosts"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:31.000Z",
+              "updatedAt": "2026-07-28T02:23:31.000Z",
+              "uid": "35240-85674432-7eab-4850-abb5-2596a4aed1a0"
+            }
+          ],
+          "createdAt": "2026-07-28T02:23:31.000Z",
+          "updatedAt": "2026-07-28T02:23:31.000Z",
+          "uid": "35240-a4b8b891-7f26-4840-aa94-f27499046a18"
+        }
+      ],
+      "id": "8d1553c1-33a3-49d7-9cb8-082a4b3b6990",
+      "createdAt": "2026-07-28T02:23:31.000Z",
+      "updatedAt": "2026-07-28T02:23:31.000Z",
+      "uid": "35240-8d1553c1-33a3-49d7-9cb8-082a4b3b6990"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

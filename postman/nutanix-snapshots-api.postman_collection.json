@@ -1,0 +1,140 @@
+{
+  "info": {
+    "_postman_id": "796edbda-27e5-4e28-ae9c-ad9b4fa811dc",
+    "name": "Nutanix Prism Central API v3 Alerts Snapshots API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:23:40.000Z",
+    "updatedAt": "2026-07-28T02:23:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-796edbda-27e5-4e28-ae9c-ad9b4fa811dc"
+  },
+  "item": [
+    {
+      "name": "snapshots",
+      "item": [
+        {
+          "name": "Nutanix List snapshots",
+          "id": "28b2e11c-cec6-482d-be72-2fce0200f1c0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/snapshots",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "snapshots"
+              ]
+            },
+            "description": "Retrieves a list of all VM snapshots available in the cluster."
+          },
+          "response": [
+            {
+              "id": "339cdc87-f30b-4917-a9c6-4043438fe9ae",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/snapshots",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "snapshots"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:41.000Z",
+              "updatedAt": "2026-07-28T02:23:41.000Z",
+              "uid": "35240-339cdc87-f30b-4917-a9c6-4043438fe9ae"
+            },
+            {
+              "id": "746dfa09-294c-4862-95d7-c0143587cdcc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/snapshots",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "snapshots"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:41.000Z",
+              "updatedAt": "2026-07-28T02:23:41.000Z",
+              "uid": "35240-746dfa09-294c-4862-95d7-c0143587cdcc"
+            }
+          ],
+          "createdAt": "2026-07-28T02:23:41.000Z",
+          "updatedAt": "2026-07-28T02:23:41.000Z",
+          "uid": "35240-28b2e11c-cec6-482d-be72-2fce0200f1c0"
+        }
+      ],
+      "id": "9004e4a8-45f8-4584-bf0e-758f06d01a57",
+      "createdAt": "2026-07-28T02:23:41.000Z",
+      "updatedAt": "2026-07-28T02:23:41.000Z",
+      "uid": "35240-9004e4a8-45f8-4584-bf0e-758f06d01a57"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

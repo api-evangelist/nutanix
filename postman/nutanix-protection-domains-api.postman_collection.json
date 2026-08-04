@@ -1,0 +1,322 @@
+{
+  "info": {
+    "_postman_id": "88c3b9a5-8e90-49f5-b5a9-d76f365a8e22",
+    "name": "Nutanix Prism Central API v3 Alerts Protection Domains API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:23:40.000Z",
+    "updatedAt": "2026-07-28T02:23:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-88c3b9a5-8e90-49f5-b5a9-d76f365a8e22"
+  },
+  "item": [
+    {
+      "name": "protection_domains",
+      "item": [
+        {
+          "name": "Nutanix List protection domains",
+          "id": "9f7cef74-85dd-431c-88ee-548561415a4e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/protection_domains",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "protection_domains"
+              ]
+            },
+            "description": "Retrieves a list of all protection domains configured on the cluster for data protection."
+          },
+          "response": [
+            {
+              "id": "46c0d3c8-e491-4578-a077-a055dc37bd2f",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/protection_domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "protection_domains"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:40.000Z",
+              "updatedAt": "2026-07-28T02:23:40.000Z",
+              "uid": "35240-46c0d3c8-e491-4578-a077-a055dc37bd2f"
+            },
+            {
+              "id": "3ddf02cf-2cf6-4344-8d6b-ad428c91c767",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/protection_domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "protection_domains"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:40.000Z",
+              "updatedAt": "2026-07-28T02:23:40.000Z",
+              "uid": "35240-3ddf02cf-2cf6-4344-8d6b-ad428c91c767"
+            }
+          ],
+          "createdAt": "2026-07-28T02:23:40.000Z",
+          "updatedAt": "2026-07-28T02:23:40.000Z",
+          "uid": "35240-9f7cef74-85dd-431c-88ee-548561415a4e"
+        },
+        {
+          "name": "Nutanix Create a protection domain",
+          "id": "73ffbe1d-6164-4025-8de0-ab449c8998f7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/protection_domains",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "protection_domains"
+              ]
+            },
+            "description": "Creates a new protection domain for grouping entities for data protection and replication."
+          },
+          "response": [
+            {
+              "id": "abb60095-5980-4c9b-ba25-8bff0bf7d638",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/protection_domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "protection_domains"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:40.000Z",
+              "updatedAt": "2026-07-28T02:23:40.000Z",
+              "uid": "35240-abb60095-5980-4c9b-ba25-8bff0bf7d638"
+            },
+            {
+              "id": "447d7f7c-d8fc-4eea-840b-637448e6f045",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/protection_domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "protection_domains"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:40.000Z",
+              "updatedAt": "2026-07-28T02:23:40.000Z",
+              "uid": "35240-447d7f7c-d8fc-4eea-840b-637448e6f045"
+            },
+            {
+              "id": "8d2dafdf-e5da-418a-add8-567f3fb1a4fb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/protection_domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "protection_domains"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:40.000Z",
+              "updatedAt": "2026-07-28T02:23:40.000Z",
+              "uid": "35240-8d2dafdf-e5da-418a-add8-567f3fb1a4fb"
+            }
+          ],
+          "createdAt": "2026-07-28T02:23:40.000Z",
+          "updatedAt": "2026-07-28T02:23:40.000Z",
+          "uid": "35240-73ffbe1d-6164-4025-8de0-ab449c8998f7"
+        }
+      ],
+      "id": "33de750d-f019-4b01-9ceb-523e9fde1ce2",
+      "createdAt": "2026-07-28T02:23:40.000Z",
+      "updatedAt": "2026-07-28T02:23:40.000Z",
+      "uid": "35240-33de750d-f019-4b01-9ceb-523e9fde1ce2"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

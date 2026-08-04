@@ -1,0 +1,872 @@
+{
+  "info": {
+    "_postman_id": "26a7d530-27b8-469a-88e6-4f6b70be5c8e",
+    "name": "Nutanix Prism Central API v3 Alerts Storage Containers API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:23:41.000Z",
+    "updatedAt": "2026-07-28T02:23:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-26a7d530-27b8-469a-88e6-4f6b70be5c8e"
+  },
+  "item": [
+    {
+      "name": "storage_containers",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Nutanix Get a storage container",
+              "id": "f1119cd8-73a5-4305-9029-53a4b0a73e2e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/storage_containers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a269af4d-ee77-4462-a95e-038d25a8165c",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the entity."
+                    }
+                  ]
+                },
+                "description": "Retrieves details about a specific storage container by its ID."
+              },
+              "response": [
+                {
+                  "id": "e7a1a110-e2da-4b9a-b745-188e6036ba51",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_containers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_containers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"storage_container_uuid\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"max_capacity\": \"<integer>\",\n  \"usage_bytes\": \"<integer>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T02:23:42.000Z",
+                  "updatedAt": "2026-07-28T02:23:42.000Z",
+                  "uid": "35240-e7a1a110-e2da-4b9a-b745-188e6036ba51"
+                },
+                {
+                  "id": "1edd963c-b1a7-44fe-9399-7e57ffd26079",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_containers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_containers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:42.000Z",
+                  "updatedAt": "2026-07-28T02:23:42.000Z",
+                  "uid": "35240-1edd963c-b1a7-44fe-9399-7e57ffd26079"
+                },
+                {
+                  "id": "b44da104-ff44-4017-b4e1-3a9afac1664d",
+                  "name": "Storage container not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_containers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_containers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:42.000Z",
+                  "updatedAt": "2026-07-28T02:23:42.000Z",
+                  "uid": "35240-b44da104-ff44-4017-b4e1-3a9afac1664d"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:42.000Z",
+              "updatedAt": "2026-07-28T02:23:42.000Z",
+              "uid": "35240-f1119cd8-73a5-4305-9029-53a4b0a73e2e"
+            },
+            {
+              "name": "Nutanix Update a storage container",
+              "id": "0423b010-b9de-4880-a9a0-915433194ab1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/storage_containers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3bd66845-ad2d-4c39-9510-2323605154ad",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the entity."
+                    }
+                  ]
+                },
+                "description": "Updates the configuration of an existing storage container."
+              },
+              "response": [
+                {
+                  "id": "fcb940d0-6dd7-4d00-8739-d2c8b81aee3b",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_containers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_containers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:42.000Z",
+                  "updatedAt": "2026-07-28T02:23:42.000Z",
+                  "uid": "35240-fcb940d0-6dd7-4d00-8739-d2c8b81aee3b"
+                },
+                {
+                  "id": "ba7e6a7e-2aa5-439d-bca2-7832c9f5636f",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_containers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_containers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:42.000Z",
+                  "updatedAt": "2026-07-28T02:23:42.000Z",
+                  "uid": "35240-ba7e6a7e-2aa5-439d-bca2-7832c9f5636f"
+                },
+                {
+                  "id": "cbc81255-41e9-4fe1-953e-a2f5e02bb2aa",
+                  "name": "Storage container not found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_containers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_containers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:42.000Z",
+                  "updatedAt": "2026-07-28T02:23:42.000Z",
+                  "uid": "35240-cbc81255-41e9-4fe1-953e-a2f5e02bb2aa"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:42.000Z",
+              "updatedAt": "2026-07-28T02:23:42.000Z",
+              "uid": "35240-0423b010-b9de-4880-a9a0-915433194ab1"
+            },
+            {
+              "name": "Nutanix Delete a storage container",
+              "id": "a00b0f0e-0afd-4c4b-976c-93bc367c0d94",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/storage_containers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f496669e-de7c-43b6-9e41-7d9dd6e5b540",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the entity."
+                    }
+                  ]
+                },
+                "description": "Deletes a storage container identified by its ID."
+              },
+              "response": [
+                {
+                  "id": "5c74809a-273b-4cdd-aa2e-976df6736be8",
+                  "name": "Deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_containers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_containers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:42.000Z",
+                  "updatedAt": "2026-07-28T02:23:42.000Z",
+                  "uid": "35240-5c74809a-273b-4cdd-aa2e-976df6736be8"
+                },
+                {
+                  "id": "64cd9cfb-26dc-46d6-a282-1eea4e388605",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_containers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_containers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:42.000Z",
+                  "updatedAt": "2026-07-28T02:23:42.000Z",
+                  "uid": "35240-64cd9cfb-26dc-46d6-a282-1eea4e388605"
+                },
+                {
+                  "id": "49ea98b3-bc6d-4e5d-b7c3-29e31b0ff65b",
+                  "name": "Storage container not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_containers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_containers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:42.000Z",
+                  "updatedAt": "2026-07-28T02:23:42.000Z",
+                  "uid": "35240-49ea98b3-bc6d-4e5d-b7c3-29e31b0ff65b"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:42.000Z",
+              "updatedAt": "2026-07-28T02:23:42.000Z",
+              "uid": "35240-a00b0f0e-0afd-4c4b-976c-93bc367c0d94"
+            }
+          ],
+          "id": "76200716-6fa8-41e4-b5b5-fa982b7b83a2",
+          "createdAt": "2026-07-28T02:23:42.000Z",
+          "updatedAt": "2026-07-28T02:23:42.000Z",
+          "uid": "35240-76200716-6fa8-41e4-b5b5-fa982b7b83a2"
+        },
+        {
+          "name": "Nutanix List storage containers",
+          "id": "ea14915b-2f50-4670-a0ab-2b3e6d232244",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/storage_containers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "storage_containers"
+              ]
+            },
+            "description": "Retrieves a list of all storage containers in the cluster with their configuration and usage statistics."
+          },
+          "response": [
+            {
+              "id": "9eacc696-a548-4542-9977-f9b96da28d27",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/storage_containers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage_containers"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"entities\": [\n    {\n      \"storage_container_uuid\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"max_capacity\": \"<integer>\",\n      \"usage_bytes\": \"<integer>\",\n      \"replication_factor\": \"<integer>\",\n      \"compression_enabled\": \"<boolean>\",\n      \"dedupe_enabled\": \"<boolean>\"\n    },\n    {\n      \"storage_container_uuid\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"max_capacity\": \"<integer>\",\n      \"usage_bytes\": \"<integer>\",\n      \"replication_factor\": \"<integer>\",\n      \"compression_enabled\": \"<boolean>\",\n      \"dedupe_enabled\": \"<boolean>\"\n    }\n  ],\n  \"metadata\": {\n    \"grand_total_entities\": \"<integer>\",\n    \"total_entities\": \"<integer>\",\n    \"count\": \"<integer>\",\n    \"start_index\": \"<integer>\",\n    \"end_index\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:23:42.000Z",
+              "updatedAt": "2026-07-28T02:23:42.000Z",
+              "uid": "35240-9eacc696-a548-4542-9977-f9b96da28d27"
+            },
+            {
+              "id": "c5bce342-31a5-49a7-a8ee-20565c63e507",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/storage_containers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage_containers"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:42.000Z",
+              "updatedAt": "2026-07-28T02:23:42.000Z",
+              "uid": "35240-c5bce342-31a5-49a7-a8ee-20565c63e507"
+            }
+          ],
+          "createdAt": "2026-07-28T02:23:42.000Z",
+          "updatedAt": "2026-07-28T02:23:42.000Z",
+          "uid": "35240-ea14915b-2f50-4670-a0ab-2b3e6d232244"
+        },
+        {
+          "name": "Nutanix Create a storage container",
+          "id": "4afe8d85-b830-486b-a660-6b6ac365189e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/storage_containers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "storage_containers"
+              ]
+            },
+            "description": "Creates a new storage container with the specified configuration including name, storage pool, and data services settings."
+          },
+          "response": [
+            {
+              "id": "ce35cd9d-1819-497d-876f-b73169ca7156",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/storage_containers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage_containers"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:42.000Z",
+              "updatedAt": "2026-07-28T02:23:42.000Z",
+              "uid": "35240-ce35cd9d-1819-497d-876f-b73169ca7156"
+            },
+            {
+              "id": "f2c7f468-5f90-4bf9-96ca-b93ed2641c90",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/storage_containers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage_containers"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:42.000Z",
+              "updatedAt": "2026-07-28T02:23:42.000Z",
+              "uid": "35240-f2c7f468-5f90-4bf9-96ca-b93ed2641c90"
+            },
+            {
+              "id": "fc9c0b4d-f6a1-4a61-a7a9-023c7563321c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/storage_containers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage_containers"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:42.000Z",
+              "updatedAt": "2026-07-28T02:23:42.000Z",
+              "uid": "35240-fc9c0b4d-f6a1-4a61-a7a9-023c7563321c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:23:42.000Z",
+          "updatedAt": "2026-07-28T02:23:42.000Z",
+          "uid": "35240-4afe8d85-b830-486b-a660-6b6ac365189e"
+        }
+      ],
+      "id": "dbd09ac5-0f47-40c7-9950-715d5e906321",
+      "createdAt": "2026-07-28T02:23:42.000Z",
+      "updatedAt": "2026-07-28T02:23:42.000Z",
+      "uid": "35240-dbd09ac5-0f47-40c7-9950-715d5e906321"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

@@ -1,0 +1,825 @@
+{
+  "info": {
+    "_postman_id": "9476adde-270a-4d5d-8685-eb2805e03b3a",
+    "name": "Nutanix Prism Central API v3 Alerts Categories API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:23:29.000Z",
+    "updatedAt": "2026-07-28T02:23:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9476adde-270a-4d5d-8685-eb2805e03b3a"
+  },
+  "item": [
+    {
+      "name": "categories",
+      "item": [
+        {
+          "name": "{name}",
+          "item": [
+            {
+              "name": "{value}",
+              "item": [
+                {
+                  "name": "Nutanix Create or update a category value",
+                  "id": "3157582b-e4fa-42a4-9a87-23b85742de23",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/:name/:value",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        ":name",
+                        ":value"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3170ce14-a187-4a47-a661-428c6c29aabc",
+                          "key": "name",
+                          "value": "<string>",
+                          "description": "(Required) The name of the category key."
+                        },
+                        {
+                          "id": "05a67005-dbcf-431f-bdf2-5c376f0859c6",
+                          "key": "value",
+                          "value": "<string>",
+                          "description": "(Required) The category value."
+                        }
+                      ]
+                    },
+                    "description": "Creates or updates a value for the specified category key."
+                  },
+                  "response": [
+                    {
+                      "id": "e7daf637-cce6-4c8c-8224-bb7204072eb1",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/categories/:name/:value",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "categories",
+                            ":name",
+                            ":value"
+                          ],
+                          "variable": [
+                            {
+                              "key": "name"
+                            },
+                            {
+                              "key": "value"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:23:29.000Z",
+                      "updatedAt": "2026-07-28T02:23:29.000Z",
+                      "uid": "35240-e7daf637-cce6-4c8c-8224-bb7204072eb1"
+                    },
+                    {
+                      "id": "cd6464bc-64c6-450c-8708-0160639a9541",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/categories/:name/:value",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "categories",
+                            ":name",
+                            ":value"
+                          ],
+                          "variable": [
+                            {
+                              "key": "name"
+                            },
+                            {
+                              "key": "value"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:23:29.000Z",
+                      "updatedAt": "2026-07-28T02:23:29.000Z",
+                      "uid": "35240-cd6464bc-64c6-450c-8708-0160639a9541"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:23:29.000Z",
+                  "updatedAt": "2026-07-28T02:23:29.000Z",
+                  "uid": "35240-3157582b-e4fa-42a4-9a87-23b85742de23"
+                },
+                {
+                  "name": "Nutanix Delete a category value",
+                  "id": "e4aef513-ee86-40b3-a5fa-8428a1f56a0f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/:name/:value",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        ":name",
+                        ":value"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a353b7e3-d4f6-4bbf-85b6-4cbc5b856c07",
+                          "key": "name",
+                          "value": "<string>",
+                          "description": "(Required) The name of the category key."
+                        },
+                        {
+                          "id": "2567e9f2-bb0a-45c8-8cf6-9778ffa26c93",
+                          "key": "value",
+                          "value": "<string>",
+                          "description": "(Required) The category value."
+                        }
+                      ]
+                    },
+                    "description": "Deletes a specific value from a category key."
+                  },
+                  "response": [
+                    {
+                      "id": "ba87d700-4d74-4cd6-8c3d-829e9fc2fef3",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/categories/:name/:value",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "categories",
+                            ":name",
+                            ":value"
+                          ],
+                          "variable": [
+                            {
+                              "key": "name"
+                            },
+                            {
+                              "key": "value"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:23:29.000Z",
+                      "updatedAt": "2026-07-28T02:23:29.000Z",
+                      "uid": "35240-ba87d700-4d74-4cd6-8c3d-829e9fc2fef3"
+                    },
+                    {
+                      "id": "83f123ca-4168-4a74-a8d6-aae980b916b5",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/categories/:name/:value",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "categories",
+                            ":name",
+                            ":value"
+                          ],
+                          "variable": [
+                            {
+                              "key": "name"
+                            },
+                            {
+                              "key": "value"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:23:29.000Z",
+                      "updatedAt": "2026-07-28T02:23:29.000Z",
+                      "uid": "35240-83f123ca-4168-4a74-a8d6-aae980b916b5"
+                    },
+                    {
+                      "id": "38cd697b-6b79-45f9-8b47-8293e39aa3d5",
+                      "name": "Category value not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/categories/:name/:value",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "categories",
+                            ":name",
+                            ":value"
+                          ],
+                          "variable": [
+                            {
+                              "key": "name"
+                            },
+                            {
+                              "key": "value"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:23:29.000Z",
+                      "updatedAt": "2026-07-28T02:23:29.000Z",
+                      "uid": "35240-38cd697b-6b79-45f9-8b47-8293e39aa3d5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:23:29.000Z",
+                  "updatedAt": "2026-07-28T02:23:29.000Z",
+                  "uid": "35240-e4aef513-ee86-40b3-a5fa-8428a1f56a0f"
+                }
+              ],
+              "id": "d8c6ec51-64ef-45f8-85ef-d71be5a8a0f5",
+              "createdAt": "2026-07-28T02:23:29.000Z",
+              "updatedAt": "2026-07-28T02:23:29.000Z",
+              "uid": "35240-d8c6ec51-64ef-45f8-85ef-d71be5a8a0f5"
+            },
+            {
+              "name": "Nutanix Get a category key",
+              "id": "3517c9df-5894-4753-854f-4878f65cf08b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/categories/:name",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "categories",
+                    ":name"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c5bb2e4d-af5d-4efa-9981-c30d69617abb",
+                      "key": "name",
+                      "value": "<string>",
+                      "description": "(Required) The name of the category key."
+                    }
+                  ]
+                },
+                "description": "Retrieves a category key and its associated metadata."
+              },
+              "response": [
+                {
+                  "id": "d9d2f2e0-5885-4c3e-bce3-e10e78b2f74d",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:29.000Z",
+                  "updatedAt": "2026-07-28T02:23:29.000Z",
+                  "uid": "35240-d9d2f2e0-5885-4c3e-bce3-e10e78b2f74d"
+                },
+                {
+                  "id": "6d915eed-8bb5-4303-974e-3225fe2afdf4",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:29.000Z",
+                  "updatedAt": "2026-07-28T02:23:29.000Z",
+                  "uid": "35240-6d915eed-8bb5-4303-974e-3225fe2afdf4"
+                },
+                {
+                  "id": "419870ba-1e22-484b-bc18-f34c44839892",
+                  "name": "Category not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:29.000Z",
+                  "updatedAt": "2026-07-28T02:23:29.000Z",
+                  "uid": "35240-419870ba-1e22-484b-bc18-f34c44839892"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:29.000Z",
+              "updatedAt": "2026-07-28T02:23:29.000Z",
+              "uid": "35240-3517c9df-5894-4753-854f-4878f65cf08b"
+            },
+            {
+              "name": "Nutanix Create or update a category key",
+              "id": "3fe4df30-ce71-4637-aa78-ca04aa830425",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/categories/:name",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "categories",
+                    ":name"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6e0a74cf-73ee-4ba8-8ef6-06f1d891bb39",
+                      "key": "name",
+                      "value": "<string>",
+                      "description": "(Required) The name of the category key."
+                    }
+                  ]
+                },
+                "description": "Creates or updates a category key with the specified metadata."
+              },
+              "response": [
+                {
+                  "id": "ab44786a-7403-44c1-888c-f0701937a49d",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:29.000Z",
+                  "updatedAt": "2026-07-28T02:23:29.000Z",
+                  "uid": "35240-ab44786a-7403-44c1-888c-f0701937a49d"
+                },
+                {
+                  "id": "374f1af1-0d7b-4b6e-b079-4f7c1c042a33",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:29.000Z",
+                  "updatedAt": "2026-07-28T02:23:29.000Z",
+                  "uid": "35240-374f1af1-0d7b-4b6e-b079-4f7c1c042a33"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:29.000Z",
+              "updatedAt": "2026-07-28T02:23:29.000Z",
+              "uid": "35240-3fe4df30-ce71-4637-aa78-ca04aa830425"
+            },
+            {
+              "name": "Nutanix Delete a category key",
+              "id": "c4a02297-8a1e-4022-81f9-7b235171e428",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/categories/:name",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "categories",
+                    ":name"
+                  ],
+                  "variable": [
+                    {
+                      "id": "585ea43e-c749-468a-ba7b-67fa88cc5903",
+                      "key": "name",
+                      "value": "<string>",
+                      "description": "(Required) The name of the category key."
+                    }
+                  ]
+                },
+                "description": "Deletes a category key and all its associated values."
+              },
+              "response": [
+                {
+                  "id": "4f94c86c-0753-4fe7-9c5f-1fd94b0579ba",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:29.000Z",
+                  "updatedAt": "2026-07-28T02:23:29.000Z",
+                  "uid": "35240-4f94c86c-0753-4fe7-9c5f-1fd94b0579ba"
+                },
+                {
+                  "id": "41b399e2-a898-4a81-9810-bc240e777b1b",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:29.000Z",
+                  "updatedAt": "2026-07-28T02:23:29.000Z",
+                  "uid": "35240-41b399e2-a898-4a81-9810-bc240e777b1b"
+                },
+                {
+                  "id": "69067c5c-9e4d-43db-9e69-7eae26eee93d",
+                  "name": "Category not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:29.000Z",
+                  "updatedAt": "2026-07-28T02:23:29.000Z",
+                  "uid": "35240-69067c5c-9e4d-43db-9e69-7eae26eee93d"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:29.000Z",
+              "updatedAt": "2026-07-28T02:23:29.000Z",
+              "uid": "35240-c4a02297-8a1e-4022-81f9-7b235171e428"
+            }
+          ],
+          "id": "8872d2c4-23ed-4e89-894c-effa0eed251d",
+          "createdAt": "2026-07-28T02:23:29.000Z",
+          "updatedAt": "2026-07-28T02:23:29.000Z",
+          "uid": "35240-8872d2c4-23ed-4e89-894c-effa0eed251d"
+        }
+      ],
+      "id": "09db7b01-0a5c-41a3-a551-e1285862d20a",
+      "createdAt": "2026-07-28T02:23:29.000Z",
+      "updatedAt": "2026-07-28T02:23:29.000Z",
+      "uid": "35240-09db7b01-0a5c-41a3-a551-e1285862d20a"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

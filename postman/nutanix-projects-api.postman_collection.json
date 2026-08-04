@@ -1,0 +1,356 @@
+{
+  "info": {
+    "_postman_id": "278a95c8-c78d-4b60-b1fe-1ece882d175b",
+    "name": "Nutanix Prism Central API v3 Alerts Projects API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:23:39.000Z",
+    "updatedAt": "2026-07-28T02:23:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-278a95c8-c78d-4b60-b1fe-1ece882d175b"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Nutanix List projects",
+              "id": "35ee129d-dc57-44e5-809a-2fdc55476aed",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/projects/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "projects",
+                    "list"
+                  ]
+                },
+                "description": "Retrieves a list of projects with optional filtering and pagination."
+              },
+              "response": [
+                {
+                  "id": "01f4c98b-d0a7-49a0-b5a0-60acba351638",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:39.000Z",
+                  "updatedAt": "2026-07-28T02:23:39.000Z",
+                  "uid": "35240-01f4c98b-d0a7-49a0-b5a0-60acba351638"
+                },
+                {
+                  "id": "2adca4d3-3cbc-48de-9faf-5dc0d9d87c80",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:39.000Z",
+                  "updatedAt": "2026-07-28T02:23:39.000Z",
+                  "uid": "35240-2adca4d3-3cbc-48de-9faf-5dc0d9d87c80"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:39.000Z",
+              "updatedAt": "2026-07-28T02:23:39.000Z",
+              "uid": "35240-35ee129d-dc57-44e5-809a-2fdc55476aed"
+            }
+          ],
+          "id": "7fb5403a-d338-4493-b3d5-405ac843374b",
+          "createdAt": "2026-07-28T02:23:39.000Z",
+          "updatedAt": "2026-07-28T02:23:39.000Z",
+          "uid": "35240-7fb5403a-d338-4493-b3d5-405ac843374b"
+        },
+        {
+          "name": "{uuid}",
+          "item": [
+            {
+              "name": "Nutanix Get a project",
+              "id": "b1e49b0a-b1f9-4244-81df-98137a452262",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/projects/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "projects",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "50c71880-7abc-49e4-b119-dea2ccf22d04",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Retrieves the configuration and status of a specific project by UUID."
+              },
+              "response": [
+                {
+                  "id": "9c59ac9c-8ab4-4f5a-95d3-e235b8093985",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:39.000Z",
+                  "updatedAt": "2026-07-28T02:23:39.000Z",
+                  "uid": "35240-9c59ac9c-8ab4-4f5a-95d3-e235b8093985"
+                },
+                {
+                  "id": "c9f09b8a-9a17-4243-b86a-a98577d568a6",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:39.000Z",
+                  "updatedAt": "2026-07-28T02:23:39.000Z",
+                  "uid": "35240-c9f09b8a-9a17-4243-b86a-a98577d568a6"
+                },
+                {
+                  "id": "521b855a-5928-4a57-958f-f48517f73b8a",
+                  "name": "Project not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:39.000Z",
+                  "updatedAt": "2026-07-28T02:23:39.000Z",
+                  "uid": "35240-521b855a-5928-4a57-958f-f48517f73b8a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:39.000Z",
+              "updatedAt": "2026-07-28T02:23:39.000Z",
+              "uid": "35240-b1e49b0a-b1f9-4244-81df-98137a452262"
+            }
+          ],
+          "id": "29554436-0229-4a04-b38a-e008323d99ad",
+          "createdAt": "2026-07-28T02:23:39.000Z",
+          "updatedAt": "2026-07-28T02:23:39.000Z",
+          "uid": "35240-29554436-0229-4a04-b38a-e008323d99ad"
+        }
+      ],
+      "id": "d4e55a53-a799-462b-b503-2a7d272e5d85",
+      "createdAt": "2026-07-28T02:23:39.000Z",
+      "updatedAt": "2026-07-28T02:23:39.000Z",
+      "uid": "35240-d4e55a53-a799-462b-b503-2a7d272e5d85"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

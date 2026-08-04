@@ -1,0 +1,912 @@
+{
+  "info": {
+    "_postman_id": "486b0d1e-2984-4919-bad6-f3680854f462",
+    "name": "Nutanix Prism Central API v3 Alerts Subnets API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:26:32.000Z",
+    "updatedAt": "2026-07-28T02:26:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-486b0d1e-2984-4919-bad6-f3680854f462"
+  },
+  "item": [
+    {
+      "name": "subnets",
+      "item": [
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Nutanix List subnets",
+              "id": "5db9cab1-5e61-4659-9e4c-3696c3afdb9d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subnets/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subnets",
+                    "list"
+                  ]
+                },
+                "description": "Retrieves a list of subnets with optional filtering and pagination."
+              },
+              "response": [
+                {
+                  "id": "2c111864-94ba-43fe-9a4c-f1862fbf0eed",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subnets/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subnets",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"api_version\": \"<string>\",\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"length\": \"<integer>\",\n    \"filter\": \"<string>\",\n    \"sort_order\": \"DESCENDING\",\n    \"sort_attribute\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:26:32.000Z",
+                  "updatedAt": "2026-07-28T02:26:32.000Z",
+                  "uid": "35240-2c111864-94ba-43fe-9a4c-f1862fbf0eed"
+                },
+                {
+                  "id": "4564340d-a7ae-4b1e-8ea3-5f6cd759c424",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subnets/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subnets",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:32.000Z",
+                  "updatedAt": "2026-07-28T02:26:32.000Z",
+                  "uid": "35240-4564340d-a7ae-4b1e-8ea3-5f6cd759c424"
+                }
+              ],
+              "createdAt": "2026-07-28T02:26:32.000Z",
+              "updatedAt": "2026-07-28T02:26:32.000Z",
+              "uid": "35240-5db9cab1-5e61-4659-9e4c-3696c3afdb9d"
+            }
+          ],
+          "id": "a4ca3763-3ab9-4a4d-95ad-c4addc0f3d23",
+          "createdAt": "2026-07-28T02:26:32.000Z",
+          "updatedAt": "2026-07-28T02:26:32.000Z",
+          "uid": "35240-a4ca3763-3ab9-4a4d-95ad-c4addc0f3d23"
+        },
+        {
+          "name": "{uuid}",
+          "item": [
+            {
+              "name": "Nutanix Get a subnet",
+              "id": "3d616403-ba73-4452-877b-d8200536fdf1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/subnets/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "86a9302f-a5ca-45b9-adbd-9b5f1f2400dc",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Retrieves the configuration and status of a specific subnet by UUID."
+              },
+              "response": [
+                {
+                  "id": "120d999f-c475-412a-acfc-63c63bf8cde1",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subnets/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subnets",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:32.000Z",
+                  "updatedAt": "2026-07-28T02:26:32.000Z",
+                  "uid": "35240-120d999f-c475-412a-acfc-63c63bf8cde1"
+                },
+                {
+                  "id": "e9e25e45-88a5-4b48-a793-fe470d5df9b6",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subnets/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subnets",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:32.000Z",
+                  "updatedAt": "2026-07-28T02:26:32.000Z",
+                  "uid": "35240-e9e25e45-88a5-4b48-a793-fe470d5df9b6"
+                },
+                {
+                  "id": "c9086d8e-b3be-4a1c-a827-986f7bc06b5b",
+                  "name": "Subnet not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subnets/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subnets",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:32.000Z",
+                  "updatedAt": "2026-07-28T02:26:32.000Z",
+                  "uid": "35240-c9086d8e-b3be-4a1c-a827-986f7bc06b5b"
+                }
+              ],
+              "createdAt": "2026-07-28T02:26:32.000Z",
+              "updatedAt": "2026-07-28T02:26:32.000Z",
+              "uid": "35240-3d616403-ba73-4452-877b-d8200536fdf1"
+            },
+            {
+              "name": "Nutanix Update a subnet",
+              "id": "65b83d72-6db4-4ccb-888d-0c4b76b5dbd8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"VLAN\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"mollit_12\": \"<string>\",\n      \"aliqua_8e1\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subnets/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "93922dbd-7e7c-45e9-bbca-89777b0309bc",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Updates the configuration of an existing subnet."
+              },
+              "response": [
+                {
+                  "id": "1cbe5b0d-bfe1-48fd-9e28-2f64ae113187",
+                  "name": "Accepted - Subnet update task started",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"VLAN\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"mollit_12\": \"<string>\",\n      \"aliqua_8e1\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subnets/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subnets",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:32.000Z",
+                  "updatedAt": "2026-07-28T02:26:32.000Z",
+                  "uid": "35240-1cbe5b0d-bfe1-48fd-9e28-2f64ae113187"
+                },
+                {
+                  "id": "efe05b74-02bd-42a6-ad12-6f0d7ca3721e",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"VLAN\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"mollit_12\": \"<string>\",\n      \"aliqua_8e1\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subnets/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subnets",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:32.000Z",
+                  "updatedAt": "2026-07-28T02:26:32.000Z",
+                  "uid": "35240-efe05b74-02bd-42a6-ad12-6f0d7ca3721e"
+                },
+                {
+                  "id": "8c203e02-1132-4f89-8616-9ab28b0132d1",
+                  "name": "Subnet not found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"VLAN\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"mollit_12\": \"<string>\",\n      \"aliqua_8e1\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subnets/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subnets",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:32.000Z",
+                  "updatedAt": "2026-07-28T02:26:32.000Z",
+                  "uid": "35240-8c203e02-1132-4f89-8616-9ab28b0132d1"
+                }
+              ],
+              "createdAt": "2026-07-28T02:26:32.000Z",
+              "updatedAt": "2026-07-28T02:26:32.000Z",
+              "uid": "35240-65b83d72-6db4-4ccb-888d-0c4b76b5dbd8"
+            },
+            {
+              "name": "Nutanix Delete a subnet",
+              "id": "1537ec57-7a20-49a1-b8a9-9f1d0af3c028",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/subnets/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "07606e91-80af-4f2c-bcd9-c5f72d08cbec",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Deletes a subnet identified by its UUID."
+              },
+              "response": [
+                {
+                  "id": "ad254bc7-7efa-4517-ad2d-0d819f7127f9",
+                  "name": "Accepted - Subnet deletion task started",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subnets/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subnets",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:32.000Z",
+                  "updatedAt": "2026-07-28T02:26:32.000Z",
+                  "uid": "35240-ad254bc7-7efa-4517-ad2d-0d819f7127f9"
+                },
+                {
+                  "id": "111f3745-e96b-4acf-a77c-622d9352a53b",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subnets/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subnets",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:32.000Z",
+                  "updatedAt": "2026-07-28T02:26:32.000Z",
+                  "uid": "35240-111f3745-e96b-4acf-a77c-622d9352a53b"
+                },
+                {
+                  "id": "2fe56514-cea6-4627-9a19-9c5011444e21",
+                  "name": "Subnet not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subnets/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subnets",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:32.000Z",
+                  "updatedAt": "2026-07-28T02:26:32.000Z",
+                  "uid": "35240-2fe56514-cea6-4627-9a19-9c5011444e21"
+                }
+              ],
+              "createdAt": "2026-07-28T02:26:32.000Z",
+              "updatedAt": "2026-07-28T02:26:32.000Z",
+              "uid": "35240-1537ec57-7a20-49a1-b8a9-9f1d0af3c028"
+            }
+          ],
+          "id": "3bba3df0-194d-4595-a532-3d36a3aeb00f",
+          "createdAt": "2026-07-28T02:26:32.000Z",
+          "updatedAt": "2026-07-28T02:26:32.000Z",
+          "uid": "35240-3bba3df0-194d-4595-a532-3d36a3aeb00f"
+        },
+        {
+          "name": "Nutanix Create a subnet",
+          "id": "04935667-680f-493b-9da5-e5490038a7b2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"VLAN\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"mollit_12\": \"<string>\",\n      \"aliqua_8e1\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/subnets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "subnets"
+              ]
+            },
+            "description": "Creates a new AHV subnet with the specified configuration including VLAN ID, IP address management, and cluster assignment."
+          },
+          "response": [
+            {
+              "id": "5f49aabc-eccb-4745-bfd4-85f5216177e0",
+              "name": "Accepted - Subnet creation task started",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"VLAN\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"mollit_12\": \"<string>\",\n      \"aliqua_8e1\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subnets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subnets"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:26:32.000Z",
+              "updatedAt": "2026-07-28T02:26:32.000Z",
+              "uid": "35240-5f49aabc-eccb-4745-bfd4-85f5216177e0"
+            },
+            {
+              "id": "0c0e0266-ce4e-4009-81ef-e3ae26d85b23",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"VLAN\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"mollit_12\": \"<string>\",\n      \"aliqua_8e1\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subnets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subnets"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:26:32.000Z",
+              "updatedAt": "2026-07-28T02:26:32.000Z",
+              "uid": "35240-0c0e0266-ce4e-4009-81ef-e3ae26d85b23"
+            },
+            {
+              "id": "c7d0458d-b5de-43a0-a68e-fe697e16f443",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"VLAN\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"mollit_12\": \"<string>\",\n      \"aliqua_8e1\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subnets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subnets"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:26:32.000Z",
+              "updatedAt": "2026-07-28T02:26:32.000Z",
+              "uid": "35240-c7d0458d-b5de-43a0-a68e-fe697e16f443"
+            }
+          ],
+          "createdAt": "2026-07-28T02:26:32.000Z",
+          "updatedAt": "2026-07-28T02:26:32.000Z",
+          "uid": "35240-04935667-680f-493b-9da5-e5490038a7b2"
+        }
+      ],
+      "id": "9734fb7d-46d6-406a-868a-7edc70b9d043",
+      "createdAt": "2026-07-28T02:26:32.000Z",
+      "updatedAt": "2026-07-28T02:26:32.000Z",
+      "uid": "35240-9734fb7d-46d6-406a-868a-7edc70b9d043"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

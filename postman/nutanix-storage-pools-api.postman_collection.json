@@ -1,0 +1,301 @@
+{
+  "info": {
+    "_postman_id": "6ec81e7d-ad53-4d49-b436-6b2991907494",
+    "name": "Nutanix Prism Central API v3 Alerts Storage Pools API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:26:30.000Z",
+    "updatedAt": "2026-07-28T02:26:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6ec81e7d-ad53-4d49-b436-6b2991907494"
+  },
+  "item": [
+    {
+      "name": "storage_pools",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Nutanix Get a storage pool",
+              "id": "c62a6d81-2ad5-4d00-8997-f31d00e8b2a0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/storage_pools/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage_pools",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d077f935-aa7f-4ecb-a9eb-b0b70687a69f",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the entity."
+                    }
+                  ]
+                },
+                "description": "Retrieves details about a specific storage pool by its ID."
+              },
+              "response": [
+                {
+                  "id": "3816dc01-46a4-47f7-9d1b-06af16eda8bc",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_pools/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_pools",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:31.000Z",
+                  "updatedAt": "2026-07-28T02:26:31.000Z",
+                  "uid": "35240-3816dc01-46a4-47f7-9d1b-06af16eda8bc"
+                },
+                {
+                  "id": "d19e0917-d72b-4467-a20e-79010ce6e57f",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_pools/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_pools",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:31.000Z",
+                  "updatedAt": "2026-07-28T02:26:31.000Z",
+                  "uid": "35240-d19e0917-d72b-4467-a20e-79010ce6e57f"
+                },
+                {
+                  "id": "41740a00-f42d-4911-87b3-631ebb3c159d",
+                  "name": "Storage pool not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage_pools/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage_pools",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:31.000Z",
+                  "updatedAt": "2026-07-28T02:26:31.000Z",
+                  "uid": "35240-41740a00-f42d-4911-87b3-631ebb3c159d"
+                }
+              ],
+              "createdAt": "2026-07-28T02:26:31.000Z",
+              "updatedAt": "2026-07-28T02:26:31.000Z",
+              "uid": "35240-c62a6d81-2ad5-4d00-8997-f31d00e8b2a0"
+            }
+          ],
+          "id": "11693f88-3582-4787-ad7b-875095076e44",
+          "createdAt": "2026-07-28T02:26:31.000Z",
+          "updatedAt": "2026-07-28T02:26:31.000Z",
+          "uid": "35240-11693f88-3582-4787-ad7b-875095076e44"
+        },
+        {
+          "name": "Nutanix List storage pools",
+          "id": "52e55715-27bb-4259-8448-a054888ce0cb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/storage_pools",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "storage_pools"
+              ]
+            },
+            "description": "Retrieves a list of all storage pools in the cluster."
+          },
+          "response": [
+            {
+              "id": "d0cf224e-51eb-40ac-81f1-bb9d22d4d878",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/storage_pools",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage_pools"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:26:31.000Z",
+              "updatedAt": "2026-07-28T02:26:31.000Z",
+              "uid": "35240-d0cf224e-51eb-40ac-81f1-bb9d22d4d878"
+            },
+            {
+              "id": "6acff4ab-5df7-4aab-b9ef-7faca8209b8d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/storage_pools",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage_pools"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:26:31.000Z",
+              "updatedAt": "2026-07-28T02:26:31.000Z",
+              "uid": "35240-6acff4ab-5df7-4aab-b9ef-7faca8209b8d"
+            }
+          ],
+          "createdAt": "2026-07-28T02:26:31.000Z",
+          "updatedAt": "2026-07-28T02:26:31.000Z",
+          "uid": "35240-52e55715-27bb-4259-8448-a054888ce0cb"
+        }
+      ],
+      "id": "9c8378cf-d322-4e3f-9291-cce4853dd86c",
+      "createdAt": "2026-07-28T02:26:31.000Z",
+      "updatedAt": "2026-07-28T02:26:31.000Z",
+      "uid": "35240-9c8378cf-d322-4e3f-9291-cce4853dd86c"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

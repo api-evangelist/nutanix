@@ -1,0 +1,703 @@
+{
+  "info": {
+    "_postman_id": "335a4812-fe87-4d33-b4d9-02aca6f54b4e",
+    "name": "Nutanix Prism Central API v3 Alerts Images API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:23:32.000Z",
+    "updatedAt": "2026-07-28T02:23:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-335a4812-fe87-4d33-b4d9-02aca6f54b4e"
+  },
+  "item": [
+    {
+      "name": "images",
+      "item": [
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Nutanix List images",
+              "id": "2afabb16-269f-4577-81a1-d30460d36cc9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "list"
+                  ]
+                },
+                "description": "Retrieves a list of disk images with optional filtering and pagination."
+              },
+              "response": [
+                {
+                  "id": "e5188bb2-30c4-4bbe-830c-fb865d94104a",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"api_version\": \"<string>\",\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"length\": \"<integer>\",\n    \"filter\": \"<string>\",\n    \"sort_order\": \"ASCENDING\",\n    \"sort_attribute\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:23:32.000Z",
+                  "updatedAt": "2026-07-28T02:23:32.000Z",
+                  "uid": "35240-e5188bb2-30c4-4bbe-830c-fb865d94104a"
+                },
+                {
+                  "id": "55a73b9a-fece-4c30-879b-67c0ad7bc073",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"DESCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:32.000Z",
+                  "updatedAt": "2026-07-28T02:23:32.000Z",
+                  "uid": "35240-55a73b9a-fece-4c30-879b-67c0ad7bc073"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:32.000Z",
+              "updatedAt": "2026-07-28T02:23:32.000Z",
+              "uid": "35240-2afabb16-269f-4577-81a1-d30460d36cc9"
+            }
+          ],
+          "id": "3bc444be-07d4-422e-ae05-bbb9c5463901",
+          "createdAt": "2026-07-28T02:23:32.000Z",
+          "updatedAt": "2026-07-28T02:23:32.000Z",
+          "uid": "35240-3bc444be-07d4-422e-ae05-bbb9c5463901"
+        },
+        {
+          "name": "{uuid}",
+          "item": [
+            {
+              "name": "Nutanix Get an image",
+              "id": "a76e4efe-bc22-4ac0-b712-f1f3b55c4841",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/images/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e562db90-d34f-42bb-985c-751dffc59e34",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Retrieves the metadata and status of a specific image by UUID."
+              },
+              "response": [
+                {
+                  "id": "a8756bc7-d69e-436a-90f9-1cf4d7c4c6ba",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/images/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:32.000Z",
+                  "updatedAt": "2026-07-28T02:23:32.000Z",
+                  "uid": "35240-a8756bc7-d69e-436a-90f9-1cf4d7c4c6ba"
+                },
+                {
+                  "id": "8612a836-8a63-4286-8e3d-5afcbe345203",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/images/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:32.000Z",
+                  "updatedAt": "2026-07-28T02:23:32.000Z",
+                  "uid": "35240-8612a836-8a63-4286-8e3d-5afcbe345203"
+                },
+                {
+                  "id": "2194a631-21b8-4eb3-8de1-d0c2cb8162b5",
+                  "name": "Image not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/images/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:32.000Z",
+                  "updatedAt": "2026-07-28T02:23:32.000Z",
+                  "uid": "35240-2194a631-21b8-4eb3-8de1-d0c2cb8162b5"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:32.000Z",
+              "updatedAt": "2026-07-28T02:23:32.000Z",
+              "uid": "35240-a76e4efe-bc22-4ac0-b712-f1f3b55c4841"
+            },
+            {
+              "name": "Nutanix Delete an image",
+              "id": "07610c0f-3bba-415e-bfdc-f26b8456dfe8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/images/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3fe7aa49-1fba-4df3-a3e9-b39ec6cb04c6",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Deletes an image identified by its UUID."
+              },
+              "response": [
+                {
+                  "id": "39270ba0-d026-4470-8130-c22bf415fefc",
+                  "name": "Accepted - Image deletion task started",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/images/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:32.000Z",
+                  "updatedAt": "2026-07-28T02:23:32.000Z",
+                  "uid": "35240-39270ba0-d026-4470-8130-c22bf415fefc"
+                },
+                {
+                  "id": "a9cc7cf8-bc4f-4ba2-ba8b-41ce8c200456",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/images/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:32.000Z",
+                  "updatedAt": "2026-07-28T02:23:32.000Z",
+                  "uid": "35240-a9cc7cf8-bc4f-4ba2-ba8b-41ce8c200456"
+                },
+                {
+                  "id": "1189082a-adc7-4798-a999-2768024ecd72",
+                  "name": "Image not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/images/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:23:32.000Z",
+                  "updatedAt": "2026-07-28T02:23:32.000Z",
+                  "uid": "35240-1189082a-adc7-4798-a999-2768024ecd72"
+                }
+              ],
+              "createdAt": "2026-07-28T02:23:32.000Z",
+              "updatedAt": "2026-07-28T02:23:32.000Z",
+              "uid": "35240-07610c0f-3bba-415e-bfdc-f26b8456dfe8"
+            }
+          ],
+          "id": "1a2a64c7-f2a5-485f-a580-c70d509015f8",
+          "createdAt": "2026-07-28T02:23:32.000Z",
+          "updatedAt": "2026-07-28T02:23:32.000Z",
+          "uid": "35240-1a2a64c7-f2a5-485f-a580-c70d509015f8"
+        },
+        {
+          "name": "Nutanix Create an image",
+          "id": "cb148b2a-ee81-4bdf-b968-83aac79654ec",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"resources\": {\n      \"image_type\": \"DISK_IMAGE\",\n      \"source_uri\": \"<uri>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"aute_6\": \"<string>\",\n      \"reprehenderit_0\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/images",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "images"
+              ]
+            },
+            "description": "Creates a new image resource. Images can be uploaded from a URL source or from a file and are distributed to clusters for VM provisioning."
+          },
+          "response": [
+            {
+              "id": "a7ac54ea-b594-46c7-8b91-ac91c9a612c0",
+              "name": "Accepted - Image creation task started",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"resources\": {\n      \"image_type\": \"DISK_IMAGE\",\n      \"source_uri\": \"<uri>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"aute_6\": \"<string>\",\n      \"reprehenderit_0\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:32.000Z",
+              "updatedAt": "2026-07-28T02:23:32.000Z",
+              "uid": "35240-a7ac54ea-b594-46c7-8b91-ac91c9a612c0"
+            },
+            {
+              "id": "36c6bf5e-6e2d-4ca9-9729-3dc22bc4f90e",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"resources\": {\n      \"image_type\": \"DISK_IMAGE\",\n      \"source_uri\": \"<uri>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"aute_6\": \"<string>\",\n      \"reprehenderit_0\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:32.000Z",
+              "updatedAt": "2026-07-28T02:23:32.000Z",
+              "uid": "35240-36c6bf5e-6e2d-4ca9-9729-3dc22bc4f90e"
+            },
+            {
+              "id": "35d74a7e-40f3-42f6-beac-ea3d2ee4776a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"resources\": {\n      \"image_type\": \"DISK_IMAGE\",\n      \"source_uri\": \"<uri>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"aute_6\": \"<string>\",\n      \"reprehenderit_0\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:23:32.000Z",
+              "updatedAt": "2026-07-28T02:23:32.000Z",
+              "uid": "35240-35d74a7e-40f3-42f6-beac-ea3d2ee4776a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:23:32.000Z",
+          "updatedAt": "2026-07-28T02:23:32.000Z",
+          "uid": "35240-cb148b2a-ee81-4bdf-b968-83aac79654ec"
+        }
+      ],
+      "id": "1c033ed5-f020-4f73-bdda-b56b0eb9393e",
+      "createdAt": "2026-07-28T02:23:32.000Z",
+      "updatedAt": "2026-07-28T02:23:32.000Z",
+      "uid": "35240-1c033ed5-f020-4f73-bdda-b56b0eb9393e"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

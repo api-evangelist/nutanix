@@ -1,0 +1,899 @@
+{
+  "info": {
+    "_postman_id": "ee95ca75-8eb2-4e4d-9f57-49986b2bc79d",
+    "name": "Nutanix Prism Central API v3 Alerts Webhooks API",
+    "description": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:26:36.000Z",
+    "updatedAt": "2026-07-28T02:26:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ee95ca75-8eb2-4e4d-9f57-49986b2bc79d"
+  },
+  "item": [
+    {
+      "name": "webhooks",
+      "item": [
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Nutanix List webhooks",
+              "id": "581f1597-8b95-4e7b-b567-53614659db41",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks",
+                    "list"
+                  ]
+                },
+                "description": "Retrieves a list of registered webhook listeners with optional filtering and pagination."
+              },
+              "response": [
+                {
+                  "id": "0dc84bac-6e35-49e7-bc62-fc72044acd9b",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:37.000Z",
+                  "updatedAt": "2026-07-28T02:26:37.000Z",
+                  "uid": "35240-0dc84bac-6e35-49e7-bc62-fc72044acd9b"
+                },
+                {
+                  "id": "624d1d54-258d-4b45-bb4e-703f4dabbf3f",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:37.000Z",
+                  "updatedAt": "2026-07-28T02:26:37.000Z",
+                  "uid": "35240-624d1d54-258d-4b45-bb4e-703f4dabbf3f"
+                }
+              ],
+              "createdAt": "2026-07-28T02:26:37.000Z",
+              "updatedAt": "2026-07-28T02:26:37.000Z",
+              "uid": "35240-581f1597-8b95-4e7b-b567-53614659db41"
+            }
+          ],
+          "id": "00ff7e6d-1047-4d02-95af-e46ee7f9f082",
+          "createdAt": "2026-07-28T02:26:37.000Z",
+          "updatedAt": "2026-07-28T02:26:37.000Z",
+          "uid": "35240-00ff7e6d-1047-4d02-95af-e46ee7f9f082"
+        },
+        {
+          "name": "{uuid}",
+          "item": [
+            {
+              "name": "Nutanix Get a webhook",
+              "id": "1a9d561b-5b86-4db1-ab6a-ccf25e0fe880",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e70237da-b2b9-4e29-8724-004d4253374e",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Retrieves the configuration of a specific webhook listener by UUID."
+              },
+              "response": [
+                {
+                  "id": "66d36d2b-7ea3-4eed-8382-0111f4c161f5",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:37.000Z",
+                  "updatedAt": "2026-07-28T02:26:37.000Z",
+                  "uid": "35240-66d36d2b-7ea3-4eed-8382-0111f4c161f5"
+                },
+                {
+                  "id": "1d9c9739-a02f-493f-b246-fbe51e03f389",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:37.000Z",
+                  "updatedAt": "2026-07-28T02:26:37.000Z",
+                  "uid": "35240-1d9c9739-a02f-493f-b246-fbe51e03f389"
+                },
+                {
+                  "id": "0bc5dc6a-5a39-4004-81e7-7ce1b8e1e3a3",
+                  "name": "Webhook not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:37.000Z",
+                  "updatedAt": "2026-07-28T02:26:37.000Z",
+                  "uid": "35240-0bc5dc6a-5a39-4004-81e7-7ce1b8e1e3a3"
+                }
+              ],
+              "createdAt": "2026-07-28T02:26:37.000Z",
+              "updatedAt": "2026-07-28T02:26:37.000Z",
+              "uid": "35240-1a9d561b-5b86-4db1-ab6a-ccf25e0fe880"
+            },
+            {
+              "name": "Nutanix Update a webhook",
+              "id": "8e59acb7-9456-4a83-9b96-a2fc199ad843",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "31dbd5a3-aa8e-45b4-9319-2816ea033e56",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Updates the configuration of an existing webhook listener."
+              },
+              "response": [
+                {
+                  "id": "948cb5d0-8fd3-4635-9952-cba96a9f7e67",
+                  "name": "Accepted - Webhook updated",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:37.000Z",
+                  "updatedAt": "2026-07-28T02:26:37.000Z",
+                  "uid": "35240-948cb5d0-8fd3-4635-9952-cba96a9f7e67"
+                },
+                {
+                  "id": "2c0cd6cb-bb9d-4db2-b9b2-629ff2e03c17",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:37.000Z",
+                  "updatedAt": "2026-07-28T02:26:37.000Z",
+                  "uid": "35240-2c0cd6cb-bb9d-4db2-b9b2-629ff2e03c17"
+                },
+                {
+                  "id": "aeb4a9f6-43fd-4bc7-bcb0-097dbc21aa25",
+                  "name": "Webhook not found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:37.000Z",
+                  "updatedAt": "2026-07-28T02:26:37.000Z",
+                  "uid": "35240-aeb4a9f6-43fd-4bc7-bcb0-097dbc21aa25"
+                }
+              ],
+              "createdAt": "2026-07-28T02:26:37.000Z",
+              "updatedAt": "2026-07-28T02:26:37.000Z",
+              "uid": "35240-8e59acb7-9456-4a83-9b96-a2fc199ad843"
+            },
+            {
+              "name": "Nutanix Delete a webhook",
+              "id": "e042579b-1319-48a2-9470-5616ceb482ff",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks/:uuid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks",
+                    ":uuid"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2f24ce4d-31eb-42f7-9c57-8abb10007c29",
+                      "key": "uuid",
+                      "value": "<uuid>",
+                      "description": "(Required) The UUID of the entity."
+                    }
+                  ]
+                },
+                "description": "Deletes a webhook listener identified by its UUID."
+              },
+              "response": [
+                {
+                  "id": "676d8a10-6cab-4685-a6b2-b395dd9cef2c",
+                  "name": "Accepted - Webhook deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:37.000Z",
+                  "updatedAt": "2026-07-28T02:26:37.000Z",
+                  "uid": "35240-676d8a10-6cab-4685-a6b2-b395dd9cef2c"
+                },
+                {
+                  "id": "05637601-fdc5-4ffc-9dd8-ec572b8d4912",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:37.000Z",
+                  "updatedAt": "2026-07-28T02:26:37.000Z",
+                  "uid": "35240-05637601-fdc5-4ffc-9dd8-ec572b8d4912"
+                },
+                {
+                  "id": "8e280d13-f2ec-4b50-8089-f4fd1b0112fe",
+                  "name": "Webhook not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:uuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":uuid"
+                      ],
+                      "variable": [
+                        {
+                          "key": "uuid"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:26:37.000Z",
+                  "updatedAt": "2026-07-28T02:26:37.000Z",
+                  "uid": "35240-8e280d13-f2ec-4b50-8089-f4fd1b0112fe"
+                }
+              ],
+              "createdAt": "2026-07-28T02:26:37.000Z",
+              "updatedAt": "2026-07-28T02:26:37.000Z",
+              "uid": "35240-e042579b-1319-48a2-9470-5616ceb482ff"
+            }
+          ],
+          "id": "05e19bbd-290d-4b9d-bf78-76580eeea10e",
+          "createdAt": "2026-07-28T02:26:37.000Z",
+          "updatedAt": "2026-07-28T02:26:37.000Z",
+          "uid": "35240-05e19bbd-290d-4b9d-bf78-76580eeea10e"
+        },
+        {
+          "name": "Nutanix Create a webhook",
+          "id": "acfda9ea-3631-4e8c-9fc0-b3dc63fe2257",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/webhooks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhooks"
+              ]
+            },
+            "description": "Registers a new webhook listener to receive event notifications from the Nutanix platform. Specifies the URL and event types for the listener."
+          },
+          "response": [
+            {
+              "id": "4d4f57bc-2531-45bf-8d64-d0ff6f023da8",
+              "name": "Accepted - Webhook created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:26:37.000Z",
+              "updatedAt": "2026-07-28T02:26:37.000Z",
+              "uid": "35240-4d4f57bc-2531-45bf-8d64-d0ff6f023da8"
+            },
+            {
+              "id": "c8576e25-e1a5-4117-9931-fbb89e58620f",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:26:37.000Z",
+              "updatedAt": "2026-07-28T02:26:37.000Z",
+              "uid": "35240-c8576e25-e1a5-4117-9931-fbb89e58620f"
+            },
+            {
+              "id": "40a3174b-d5e9-4704-bd2c-1ea0d3b2d212",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:26:37.000Z",
+              "updatedAt": "2026-07-28T02:26:37.000Z",
+              "uid": "35240-40a3174b-d5e9-4704-bd2c-1ea0d3b2d212"
+            }
+          ],
+          "createdAt": "2026-07-28T02:26:37.000Z",
+          "updatedAt": "2026-07-28T02:26:37.000Z",
+          "uid": "35240-acfda9ea-3631-4e8c-9fc0-b3dc63fe2257"
+        }
+      ],
+      "id": "842e3ed7-b6c1-4dd6-a493-ab9b7305a927",
+      "createdAt": "2026-07-28T02:26:37.000Z",
+      "updatedAt": "2026-07-28T02:26:37.000Z",
+      "uid": "35240-842e3ed7-b6c1-4dd6-a493-ab9b7305a927"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "prismCentralIp",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3"
+    }
+  ]
+}

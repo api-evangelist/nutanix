@@ -1,0 +1,42 @@
+{
+  "provider": "nutanix",
+  "sources": [
+    "nutanix-alerts-api-openapi.yml",
+    "nutanix-categories-api-openapi.yml",
+    "nutanix-clusters-api-openapi.yml",
+    "nutanix-hosts-api-openapi.yml",
+    "nutanix-images-api-openapi.yml",
+    "nutanix-network-security-rules-api-openapi.yml",
+    "nutanix-projects-api-openapi.yml",
+    "nutanix-protection-domains-api-openapi.yml",
+    "nutanix-snapshots-api-openapi.yml",
+    "nutanix-storage-containers-api-openapi.yml",
+    "nutanix-storage-pools-api-openapi.yml",
+    "nutanix-subnets-api-openapi.yml",
+    "nutanix-virtual-disks-api-openapi.yml",
+    "nutanix-vms-api-openapi.yml",
+    "nutanix-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "nutanix-alerts-api-openapi.yml",
+    "nutanix-categories-api-openapi.yml",
+    "nutanix-clusters-api-openapi.yml",
+    "nutanix-hosts-api-openapi.yml",
+    "nutanix-images-api-openapi.yml",
+    "nutanix-network-security-rules-api-openapi.yml",
+    "nutanix-projects-api-openapi.yml",
+    "nutanix-protection-domains-api-openapi.yml",
+    "nutanix-snapshots-api-openapi.yml",
+    "nutanix-storage-containers-api-openapi.yml",
+    "nutanix-storage-pools-api-openapi.yml",
+    "nutanix-subnets-api-openapi.yml",
+    "nutanix-virtual-disks-api-openapi.yml",
+    "nutanix-vms-api-openapi.yml",
+    "nutanix-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
