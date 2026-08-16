@@ -31,7 +31,7 @@ tags:
   - Database
 url: https://raw.githubusercontent.com/api-evangelist/nutanix/refs/heads/main/apis.yml
 created: '2025-03-14'
-modified: '2026-05-19'
+modified: '2026-08-15'
 specificationVersion: '0.19'
 apis:
 - aid: nutanix:prism-central-v4
@@ -375,6 +375,12 @@ apis:
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
 common:
+  - type: MCPServer
+    name: Nutanix MCP Server
+    url: https://github.com/nutanix/ntnx-api-mcp-server
+  - type: MCPDocumentation
+    name: Nutanix MCP Server Documentation
+    url: https://github.com/nutanix/ntnx-api-mcp-server/blob/main/docs/quickstart.md
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/nutanix/overview
   - type: AgenticAccess
