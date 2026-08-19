@@ -32,7 +32,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/nutanix/refs/heads/main/apis.yml
 created: '2025-03-14'
 modified: '2026-08-15'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: nutanix:prism-central-v4
   name: Nutanix Prism Central API V4
@@ -401,7 +401,7 @@ common:
     url: https://www.nutanix.dev/sdk_reference/
   - type: Reference
     url: https://www.nutanix.dev/api_references/
-  - type: Code Samples
+  - type: CodeExamples
     url: https://www.nutanix.dev/code_samples/
   - type: ChangeLog
     url: https://www.nutanix.dev/api-versions/
