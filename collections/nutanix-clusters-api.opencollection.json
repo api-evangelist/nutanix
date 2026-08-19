@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutanix Prism Central API v3 Alerts Clusters API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clusters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/clusters/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of clusters managed by Prism Central with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/clusters/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves the configuration and status of a specific cluster by UUID."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get cluster information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/cluster"
+          },
+          "docs": "Retrieves detailed information about the local Nutanix cluster including configuration, health status, and resource utilization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

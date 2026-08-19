@@ -1,0 +1,1851 @@
+{
+  "item": [
+    {
+      "id": "21ec6c39-a115-4f46-a620-667b0db0109f",
+      "name": "VMs",
+      "description": {
+        "content": "Manage virtual machines including creation, update, deletion, and power state operations through the intent-based API model.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6a46986-8407-4e07-a5ef-54a9ab8ebaf3",
+          "name": "Nutanix List virtual machines",
+          "request": {
+            "name": "Nutanix List virtual machines",
+            "description": {
+              "content": "Retrieves a list of VMs with optional filtering, sorting, and pagination. The v3 API standardizes on POST for list operations to support server-side filtering, grouping, and sorting via the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vms",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_attribute\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79067620-6983-45e0-8cbe-4844b64ce280",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"offset\": 3689,\n    \"length\": 289,\n    \"filter\": \"string\",\n    \"sort_order\": \"ASCENDING\",\n    \"sort_attribute\": \"string\"\n  },\n  \"entities\": [\n    {\n      \"status\": {},\n      \"spec\": {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"resources\": {\n          \"num_sockets\": 6743,\n          \"num_vcpus_per_socket\": 2176,\n          \"memory_size_mib\": 6784,\n          \"power_state\": \"ON\",\n          \"disk_list\": [\n            {\n              \"device_properties\": {\n                \"device_type\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"disk_address\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"disk_size_mib\": 7797\n            },\n            {\n              \"device_properties\": {\n                \"device_type\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"disk_address\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"disk_size_mib\": 223\n            }\n          ],\n          \"nic_list\": [\n            {\n              \"subnet_reference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ip_endpoint_list\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"subnet_reference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ip_endpoint_list\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        },\n        \"cluster_reference\": {\n          \"kind\": \"string\",\n          \"uuid\": \"bce2468f-446b-d669-fdbf-04165ef6a579\",\n          \"name\": \"string\"\n        }\n      },\n      \"metadata\": {\n        \"kind\": \"string\",\n        \"uuid\": \"cbde69bc-2824-d79c-df25-bb19bcca4d21\",\n        \"spec_version\": 6384,\n        \"categories\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"owner_reference\": {\n          \"kind\": \"string\",\n          \"uuid\": \"dfb1f988-8a3e-df0f-8933-4bf2fcc67b23\",\n          \"name\": \"string\"\n        },\n        \"project_reference\": {\n          \"kind\": \"string\",\n          \"uuid\": \"8fd64921-2bf1-feb1-481f-5acf6e61fb57\",\n          \"name\": \"string\"\n        }\n      }\n    },\n    {\n      \"status\": {},\n      \"spec\": {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"resources\": {\n          \"num_sockets\": 4738,\n          \"num_vcpus_per_socket\": 2866,\n          \"memory_size_mib\": 1673,\n          \"power_state\": \"OFF\",\n          \"disk_list\": [\n            {\n              \"device_properties\": {\n                \"device_type\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"disk_address\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"disk_size_mib\": 3749\n            },\n            {\n              \"device_properties\": {\n                \"device_type\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"disk_address\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"disk_size_mib\": 5172\n            }\n          ],\n          \"nic_list\": [\n            {\n              \"subnet_reference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ip_endpoint_list\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"subnet_reference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ip_endpoint_list\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        },\n        \"cluster_reference\": {\n          \"kind\": \"string\",\n          \"uuid\": \"40eae685-6593-6a7f-7f0d-46223e5c3495\",\n          \"name\": \"string\"\n        }\n      },\n      \"metadata\": {\n        \"kind\": \"string\",\n        \"uuid\": \"8414eb30-b588-2c1d-3115-dfaaf4d19363\",\n        \"spec_version\": 1380,\n        \"categories\": {\n          \"key_0\": \"string\"\n        },\n        \"owner_reference\": {\n          \"kind\": \"string\",\n          \"uuid\": \"7bd643ed-b772-3cd3-05f2-b198bc990cc9\",\n          \"name\": \"string\"\n        },\n        \"project_reference\": {\n          \"kind\": \"string\",\n          \"uuid\": \"e04cc09b-7a94-89d3-0762-ee89363df849\",\n          \"name\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97fc39c4-961a-42f4-8f47-19a696453507",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a402df84-bc58-4d45-bcd9-6198a9e450f8",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "faf2c384-bfc1-4717-98b2-c3725def3fe1",
+          "name": "Nutanix Create a virtual machine",
+          "request": {
+            "name": "Nutanix Create a virtual machine",
+            "description": {
+              "content": "Creates a new VM using the intent-based spec. The request includes the desired specification and metadata. The system returns a task that tracks the creation progress.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"resources\": {\n      \"num_sockets\": \"<integer>\",\n      \"num_vcpus_per_socket\": \"<integer>\",\n      \"memory_size_mib\": \"<integer>\",\n      \"power_state\": \"<string>\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"<string>\",\n            \"disk_address\": {\n              \"adapter_type\": \"<string>\",\n              \"device_index\": \"<integer>\"\n            }\n          },\n          \"disk_size_mib\": \"<integer>\"\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"<string>\",\n            \"disk_address\": {\n              \"adapter_type\": \"<string>\",\n              \"device_index\": \"<integer>\"\n            }\n          },\n          \"disk_size_mib\": \"<integer>\"\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"<string>\",\n            \"uuid\": \"<uuid>\",\n            \"name\": \"<string>\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"<string>\",\n              \"type\": \"<string>\"\n            },\n            {\n              \"ip\": \"<string>\",\n              \"type\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"<string>\",\n            \"uuid\": \"<uuid>\",\n            \"name\": \"<string>\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"<string>\",\n              \"type\": \"<string>\"\n            },\n            {\n              \"ip\": \"<string>\",\n              \"type\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4db50be4-c5a9-4eba-bf7a-0acdd073b9cc",
+              "name": "Accepted - VM creation task started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"resources\": {\n      \"num_sockets\": 3442,\n      \"num_vcpus_per_socket\": 9282,\n      \"memory_size_mib\": 8678,\n      \"power_state\": \"OFF\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"CDROM\",\n            \"disk_address\": {\n              \"adapter_type\": \"SCSI\",\n              \"device_index\": 3235\n            }\n          },\n          \"disk_size_mib\": 5228\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"IDE\",\n              \"device_index\": 2993\n            }\n          },\n          \"disk_size_mib\": 5844\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"d5fee5eb-d358-82fa-b356-34a9660f9f91\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"9376cb3e-7bc9-1bc6-0ff4-b0b227f5e3c9\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"7ed0f074-0585-4cb1-c531-15f538c83b4d\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"35dc1026-ddfd-b89c-2a45-6df46c5e7c46\",\n    \"spec_version\": 7622,\n    \"categories\": {\n      \"key_0\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"cc2dabed-0d76-9e83-5bb9-73db52395ec8\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"04a338cf-5683-3a2d-a31a-3591d696115a\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": {},\n  \"spec\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"resources\": {\n      \"num_sockets\": 4277,\n      \"num_vcpus_per_socket\": 515,\n      \"memory_size_mib\": 5728,\n      \"power_state\": \"ON\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"SCSI\",\n              \"device_index\": 6168\n            }\n          },\n          \"disk_size_mib\": 5565\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"IDE\",\n              \"device_index\": 7581\n            }\n          },\n          \"disk_size_mib\": 3202\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"e7a939a4-6e8f-4ad6-3144-06e50c6bbf45\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"e7fedffa-1233-d249-449a-34fc0035cc0e\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"aa051d61-f5c9-3d2a-b3a7-fc5712cf96ce\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"064fc72c-0df5-71fa-02dc-59a0a45cfa4a\",\n    \"spec_version\": 713,\n    \"categories\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"8bc5090e-d12d-f25f-3cf4-775f633b5854\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"fbff946d-8c8e-f50a-8a8d-6be41e901469\",\n      \"name\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e238380-c5d4-4596-9e46-55e9447178c5",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"resources\": {\n      \"num_sockets\": 3442,\n      \"num_vcpus_per_socket\": 9282,\n      \"memory_size_mib\": 8678,\n      \"power_state\": \"OFF\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"CDROM\",\n            \"disk_address\": {\n              \"adapter_type\": \"SCSI\",\n              \"device_index\": 3235\n            }\n          },\n          \"disk_size_mib\": 5228\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"IDE\",\n              \"device_index\": 2993\n            }\n          },\n          \"disk_size_mib\": 5844\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"d5fee5eb-d358-82fa-b356-34a9660f9f91\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"9376cb3e-7bc9-1bc6-0ff4-b0b227f5e3c9\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"7ed0f074-0585-4cb1-c531-15f538c83b4d\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"35dc1026-ddfd-b89c-2a45-6df46c5e7c46\",\n    \"spec_version\": 7622,\n    \"categories\": {\n      \"key_0\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"cc2dabed-0d76-9e83-5bb9-73db52395ec8\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"04a338cf-5683-3a2d-a31a-3591d696115a\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8557d833-f10e-4279-8a68-e87787f2d139",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"resources\": {\n      \"num_sockets\": 3442,\n      \"num_vcpus_per_socket\": 9282,\n      \"memory_size_mib\": 8678,\n      \"power_state\": \"OFF\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"CDROM\",\n            \"disk_address\": {\n              \"adapter_type\": \"SCSI\",\n              \"device_index\": 3235\n            }\n          },\n          \"disk_size_mib\": 5228\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"IDE\",\n              \"device_index\": 2993\n            }\n          },\n          \"disk_size_mib\": 5844\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"d5fee5eb-d358-82fa-b356-34a9660f9f91\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"9376cb3e-7bc9-1bc6-0ff4-b0b227f5e3c9\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"7ed0f074-0585-4cb1-c531-15f538c83b4d\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"35dc1026-ddfd-b89c-2a45-6df46c5e7c46\",\n    \"spec_version\": 7622,\n    \"categories\": {\n      \"key_0\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"cc2dabed-0d76-9e83-5bb9-73db52395ec8\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"04a338cf-5683-3a2d-a31a-3591d696115a\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66edfc15-2df3-48a6-9e7b-3992375d84f9",
+          "name": "Nutanix List virtual machines",
+          "request": {
+            "name": "Nutanix List virtual machines",
+            "description": {
+              "content": "Retrieves a list of all VMs on the local cluster with their configuration and current state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include_vm_disk_config",
+                  "value": "false",
+                  "description": "Include VM disk configuration details in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "include_vm_nic_config",
+                  "value": "false",
+                  "description": "Include VM NIC configuration details in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a89db904-4d46-4d99-b9ae-aabe7f358d95",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_vm_disk_config",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include_vm_nic_config",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee00fa43-1ab9-49d1-811a-6d3f035042bd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_vm_disk_config",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include_vm_nic_config",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "472e89ef-bdfa-4430-94e0-b2e6e5ae8fdd",
+          "name": "Nutanix Get a virtual machine",
+          "request": {
+            "name": "Nutanix Get a virtual machine",
+            "description": {
+              "content": "Retrieves the current state and specification of a VM by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vms",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) The UUID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8d7a07d-89c6-49f5-8a4a-4a34f4fec49c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": {},\n  \"spec\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"resources\": {\n      \"num_sockets\": 4277,\n      \"num_vcpus_per_socket\": 515,\n      \"memory_size_mib\": 5728,\n      \"power_state\": \"ON\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"SCSI\",\n              \"device_index\": 6168\n            }\n          },\n          \"disk_size_mib\": 5565\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"IDE\",\n              \"device_index\": 7581\n            }\n          },\n          \"disk_size_mib\": 3202\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"e7a939a4-6e8f-4ad6-3144-06e50c6bbf45\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"e7fedffa-1233-d249-449a-34fc0035cc0e\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"aa051d61-f5c9-3d2a-b3a7-fc5712cf96ce\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"064fc72c-0df5-71fa-02dc-59a0a45cfa4a\",\n    \"spec_version\": 713,\n    \"categories\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"8bc5090e-d12d-f25f-3cf4-775f633b5854\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"fbff946d-8c8e-f50a-8a8d-6be41e901469\",\n      \"name\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d455f5ae-0edb-4cb9-8cfa-ad4b0548cfc7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a5c46e91-0050-4fd7-9941-d1d286395f7e",
+              "name": "VM not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3cd497f3-5954-40f5-b856-5c5dd3044fcd",
+          "name": "Nutanix Update a virtual machine",
+          "request": {
+            "name": "Nutanix Update a virtual machine",
+            "description": {
+              "content": "Updates the specification of an existing VM. The full intent spec must be provided including unchanged fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vms",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) The UUID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"resources\": {\n      \"num_sockets\": \"<integer>\",\n      \"num_vcpus_per_socket\": \"<integer>\",\n      \"memory_size_mib\": \"<integer>\",\n      \"power_state\": \"<string>\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"<string>\",\n            \"disk_address\": {\n              \"adapter_type\": \"<string>\",\n              \"device_index\": \"<integer>\"\n            }\n          },\n          \"disk_size_mib\": \"<integer>\"\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"<string>\",\n            \"disk_address\": {\n              \"adapter_type\": \"<string>\",\n              \"device_index\": \"<integer>\"\n            }\n          },\n          \"disk_size_mib\": \"<integer>\"\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"<string>\",\n            \"uuid\": \"<uuid>\",\n            \"name\": \"<string>\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"<string>\",\n              \"type\": \"<string>\"\n            },\n            {\n              \"ip\": \"<string>\",\n              \"type\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"<string>\",\n            \"uuid\": \"<uuid>\",\n            \"name\": \"<string>\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"<string>\",\n              \"type\": \"<string>\"\n            },\n            {\n              \"ip\": \"<string>\",\n              \"type\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d69e291-09a1-4565-9d9f-98f1ff8af002",
+              "name": "Accepted - VM update task started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"resources\": {\n      \"num_sockets\": 3442,\n      \"num_vcpus_per_socket\": 9282,\n      \"memory_size_mib\": 8678,\n      \"power_state\": \"OFF\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"CDROM\",\n            \"disk_address\": {\n              \"adapter_type\": \"SCSI\",\n              \"device_index\": 3235\n            }\n          },\n          \"disk_size_mib\": 5228\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"IDE\",\n              \"device_index\": 2993\n            }\n          },\n          \"disk_size_mib\": 5844\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"d5fee5eb-d358-82fa-b356-34a9660f9f91\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"9376cb3e-7bc9-1bc6-0ff4-b0b227f5e3c9\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"7ed0f074-0585-4cb1-c531-15f538c83b4d\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"35dc1026-ddfd-b89c-2a45-6df46c5e7c46\",\n    \"spec_version\": 7622,\n    \"categories\": {\n      \"key_0\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"cc2dabed-0d76-9e83-5bb9-73db52395ec8\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"04a338cf-5683-3a2d-a31a-3591d696115a\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": {},\n  \"spec\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"resources\": {\n      \"num_sockets\": 4277,\n      \"num_vcpus_per_socket\": 515,\n      \"memory_size_mib\": 5728,\n      \"power_state\": \"ON\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"SCSI\",\n              \"device_index\": 6168\n            }\n          },\n          \"disk_size_mib\": 5565\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"IDE\",\n              \"device_index\": 7581\n            }\n          },\n          \"disk_size_mib\": 3202\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"e7a939a4-6e8f-4ad6-3144-06e50c6bbf45\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"e7fedffa-1233-d249-449a-34fc0035cc0e\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"aa051d61-f5c9-3d2a-b3a7-fc5712cf96ce\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"064fc72c-0df5-71fa-02dc-59a0a45cfa4a\",\n    \"spec_version\": 713,\n    \"categories\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"8bc5090e-d12d-f25f-3cf4-775f633b5854\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"fbff946d-8c8e-f50a-8a8d-6be41e901469\",\n      \"name\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18916763-85e1-4923-b31d-578dbfd9e5f6",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"resources\": {\n      \"num_sockets\": 3442,\n      \"num_vcpus_per_socket\": 9282,\n      \"memory_size_mib\": 8678,\n      \"power_state\": \"OFF\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"CDROM\",\n            \"disk_address\": {\n              \"adapter_type\": \"SCSI\",\n              \"device_index\": 3235\n            }\n          },\n          \"disk_size_mib\": 5228\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"IDE\",\n              \"device_index\": 2993\n            }\n          },\n          \"disk_size_mib\": 5844\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"d5fee5eb-d358-82fa-b356-34a9660f9f91\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"9376cb3e-7bc9-1bc6-0ff4-b0b227f5e3c9\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"7ed0f074-0585-4cb1-c531-15f538c83b4d\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"35dc1026-ddfd-b89c-2a45-6df46c5e7c46\",\n    \"spec_version\": 7622,\n    \"categories\": {\n      \"key_0\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"cc2dabed-0d76-9e83-5bb9-73db52395ec8\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"04a338cf-5683-3a2d-a31a-3591d696115a\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9c136236-dc59-4580-8473-f31da2da507a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"resources\": {\n      \"num_sockets\": 3442,\n      \"num_vcpus_per_socket\": 9282,\n      \"memory_size_mib\": 8678,\n      \"power_state\": \"OFF\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"CDROM\",\n            \"disk_address\": {\n              \"adapter_type\": \"SCSI\",\n              \"device_index\": 3235\n            }\n          },\n          \"disk_size_mib\": 5228\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"IDE\",\n              \"device_index\": 2993\n            }\n          },\n          \"disk_size_mib\": 5844\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"d5fee5eb-d358-82fa-b356-34a9660f9f91\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"9376cb3e-7bc9-1bc6-0ff4-b0b227f5e3c9\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"7ed0f074-0585-4cb1-c531-15f538c83b4d\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"35dc1026-ddfd-b89c-2a45-6df46c5e7c46\",\n    \"spec_version\": 7622,\n    \"categories\": {\n      \"key_0\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"cc2dabed-0d76-9e83-5bb9-73db52395ec8\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"04a338cf-5683-3a2d-a31a-3591d696115a\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6a8df626-6825-4878-b23f-d1921b1047c5",
+              "name": "VM not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"resources\": {\n      \"num_sockets\": 3442,\n      \"num_vcpus_per_socket\": 9282,\n      \"memory_size_mib\": 8678,\n      \"power_state\": \"OFF\",\n      \"disk_list\": [\n        {\n          \"device_properties\": {\n            \"device_type\": \"CDROM\",\n            \"disk_address\": {\n              \"adapter_type\": \"SCSI\",\n              \"device_index\": 3235\n            }\n          },\n          \"disk_size_mib\": 5228\n        },\n        {\n          \"device_properties\": {\n            \"device_type\": \"DISK\",\n            \"disk_address\": {\n              \"adapter_type\": \"IDE\",\n              \"device_index\": 2993\n            }\n          },\n          \"disk_size_mib\": 5844\n        }\n      ],\n      \"nic_list\": [\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"d5fee5eb-d358-82fa-b356-34a9660f9f91\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            }\n          ]\n        },\n        {\n          \"subnet_reference\": {\n            \"kind\": \"string\",\n            \"uuid\": \"9376cb3e-7bc9-1bc6-0ff4-b0b227f5e3c9\",\n            \"name\": \"string\"\n          },\n          \"ip_endpoint_list\": [\n            {\n              \"ip\": \"string\",\n              \"type\": \"ASSIGNED\"\n            },\n            {\n              \"ip\": \"string\",\n              \"type\": \"LEARNED\"\n            }\n          ]\n        }\n      ]\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"7ed0f074-0585-4cb1-c531-15f538c83b4d\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"35dc1026-ddfd-b89c-2a45-6df46c5e7c46\",\n    \"spec_version\": 7622,\n    \"categories\": {\n      \"key_0\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"cc2dabed-0d76-9e83-5bb9-73db52395ec8\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"04a338cf-5683-3a2d-a31a-3591d696115a\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb560792-50f1-411d-a19e-358d2bd642bd",
+          "name": "Nutanix Delete a virtual machine",
+          "request": {
+            "name": "Nutanix Delete a virtual machine",
+            "description": {
+              "content": "Deletes a VM identified by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vms",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) The UUID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "292597b4-7bb0-4c2c-8c49-170765f0db9a",
+              "name": "Accepted - VM deletion task started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ec71a74d-bc5a-40cb-972a-cb7858b484fd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c31dd33-feda-4d0e-b27c-db7c6e410b57",
+              "name": "VM not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9072bad2-be54-4801-936c-35dfc6edabed",
+          "name": "Nutanix Get a virtual machine",
+          "request": {
+            "name": "Nutanix Get a virtual machine",
+            "description": {
+              "content": "Retrieves detailed information about a specific VM by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vms",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53c23c45-49ca-4b8c-bca9-b08e33a1c4b7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e913627-8f95-4901-a23a-0a242ca6d568",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c0cc5be7-746d-425d-8660-85253dc2f9c0",
+              "name": "VM not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2773fb06-6b59-4bf5-b611-2a45049826c5",
+          "name": "Nutanix Set VM power state",
+          "request": {
+            "name": "Nutanix Set VM power state",
+            "description": {
+              "content": "Changes the power state of a VM to ON, OFF, POWERCYCLE, RESET, PAUSE, SUSPEND, or ACPI_SHUTDOWN.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vms",
+                ":id",
+                "set_power_state"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transition\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be275ea8-d693-4d42-ad4c-77c2622b8b8a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":id",
+                    "set_power_state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transition\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f2a5d00-41a5-4f89-9487-a910282ac6fb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":id",
+                    "set_power_state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transition\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f53e3048-242e-4b19-a8bf-6bb536aae4b5",
+              "name": "VM not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vms",
+                    ":id",
+                    "set_power_state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transition\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "IP address or FQDN of the Prism Central instance.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "prismCentralIp"
+    },
+    {
+      "type": "string",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "17df8f82-ef12-47ef-91fa-73a2a65389eb",
+    "name": "Nutanix Prism Central API v3 Alerts VMs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+      "type": "text/plain"
+    }
+  }
+}

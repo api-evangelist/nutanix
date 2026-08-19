@@ -1,0 +1,182 @@
+{
+  "item": [
+    {
+      "id": "750fa6ee-f649-4123-9133-3b150c539bb1",
+      "name": "Snapshots",
+      "description": {
+        "content": "Manage VM snapshots for point-in-time recovery of virtual machines.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3e5cf16-26cc-4a49-b8e3-18811446c45e",
+          "name": "Nutanix List snapshots",
+          "request": {
+            "name": "Nutanix List snapshots",
+            "description": {
+              "content": "Retrieves a list of all VM snapshots available in the cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "snapshots"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe9df522-1f6e-4a86-9cb2-887cac69a9fc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46a0e282-fa96-4128-b035-9f01c7821876",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "IP address or FQDN of the Prism Central instance.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "prismCentralIp"
+    },
+    {
+      "type": "string",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0abad3c1-0bbe-4806-b09c-b801dd883b2a",
+    "name": "Nutanix Prism Central API v3 Alerts Snapshots API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+      "type": "text/plain"
+    }
+  }
+}

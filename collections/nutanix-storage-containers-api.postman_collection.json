@@ -1,0 +1,1072 @@
+{
+  "item": [
+    {
+      "id": "92af7949-f6c3-4a35-b00f-ca95fc4dab28",
+      "name": "Storage Containers",
+      "description": {
+        "content": "Manage storage containers that provide logical storage partitions within the Nutanix distributed storage fabric.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9f847b50-c185-4449-96b1-7ab15deac79a",
+          "name": "Nutanix List storage containers",
+          "request": {
+            "name": "Nutanix List storage containers",
+            "description": {
+              "content": "Retrieves a list of all storage containers in the cluster with their configuration and usage statistics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "storage_containers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "057a36be-d5e6-48e2-8855-4a08c162d6be",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"storage_container_uuid\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"max_capacity\": 1876,\n      \"usage_bytes\": 2751,\n      \"replication_factor\": 9413,\n      \"compression_enabled\": false,\n      \"dedupe_enabled\": true\n    },\n    {\n      \"storage_container_uuid\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"max_capacity\": 3906,\n      \"usage_bytes\": 5883,\n      \"replication_factor\": 5661,\n      \"compression_enabled\": false,\n      \"dedupe_enabled\": true\n    }\n  ],\n  \"metadata\": {\n    \"grand_total_entities\": 754,\n    \"total_entities\": 6923,\n    \"count\": 5011,\n    \"start_index\": 7696,\n    \"end_index\": 9822\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5688e4b9-f9bf-4162-8f45-8bf2de1fb658",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8049de6-60b8-4452-a2f7-fd4a87e9d3f6",
+          "name": "Nutanix Create a storage container",
+          "request": {
+            "name": "Nutanix Create a storage container",
+            "description": {
+              "content": "Creates a new storage container with the specified configuration including name, storage pool, and data services settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "storage_containers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cb3c5b67-9467-4e6f-bc7f-9966adff22b2",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aa4dc219-52c9-4f6d-b954-1765f1064049",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e3948848-2b2d-4b3e-a147-fa74e2f8adba",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc6d6cc0-72ea-455e-9b77-5e4cadba5147",
+          "name": "Nutanix Get a storage container",
+          "request": {
+            "name": "Nutanix Get a storage container",
+            "description": {
+              "content": "Retrieves details about a specific storage container by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "storage_containers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f0c4c73b-fd34-4551-9170-36f930bbdedd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"storage_container_uuid\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"max_capacity\": 8144,\n  \"usage_bytes\": 8023,\n  \"replication_factor\": 204,\n  \"compression_enabled\": true,\n  \"dedupe_enabled\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b16c3ea9-302e-4cc6-b191-04b260448dc7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2abb4ac8-abce-48b0-908a-0bb8729d9d91",
+              "name": "Storage container not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e665d636-a7ba-4a0a-9ea5-df21c7084a84",
+          "name": "Nutanix Update a storage container",
+          "request": {
+            "name": "Nutanix Update a storage container",
+            "description": {
+              "content": "Updates the configuration of an existing storage container.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "storage_containers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "08059fa9-8593-450f-9dc4-fb38990e3fc1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6ce4df4-5072-4029-82bd-475435401996",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb3ac1cc-3a68-4ad3-bccb-9c2280067633",
+              "name": "Storage container not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"storage_pool_uuid\": \"<string>\",\n  \"replication_factor\": \"<integer>\",\n  \"compression_enabled\": \"<boolean>\",\n  \"dedupe_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4da1e91-64d9-4ba1-8252-dbb1d09d92cf",
+          "name": "Nutanix Delete a storage container",
+          "request": {
+            "name": "Nutanix Delete a storage container",
+            "description": {
+              "content": "Deletes a storage container identified by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "storage_containers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd08e88c-878f-4775-82aa-66e1c2571829",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5ad9a423-9dd4-4e49-94f1-1732883c78fc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d944a8b-d8e7-4de9-a4c7-d4a6f35efe3a",
+              "name": "Storage container not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage_containers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "IP address or FQDN of the Prism Central instance.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "prismCentralIp"
+    },
+    {
+      "type": "string",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9a8cebe4-83e4-4657-b45d-8318f261a531",
+    "name": "Nutanix Prism Central API v3 Alerts Storage Containers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+      "type": "text/plain"
+    }
+  }
+}

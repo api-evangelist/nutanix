@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutanix Prism Central API v3 Alerts Virtual Disks API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Virtual Disks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List virtual disks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/virtual_disks"
+          },
+          "docs": "Retrieves a list of all virtual disks in the cluster."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

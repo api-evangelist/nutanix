@@ -1,0 +1,578 @@
+{
+  "item": [
+    {
+      "id": "af4024e3-8354-494d-8965-6f1930e626e7",
+      "name": "Clusters",
+      "description": {
+        "content": "Retrieve and manage Nutanix cluster configurations and metadata across the Prism Central deployment.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53427076-8974-4d19-83b5-db1ce5884060",
+          "name": "Nutanix List clusters",
+          "request": {
+            "name": "Nutanix List clusters",
+            "description": {
+              "content": "Retrieves a list of clusters managed by Prism Central with optional filtering and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "clusters",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_attribute\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8aa2cf4b-34c0-4130-b780-ec45499a6af2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clusters",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"offset\": 4913,\n    \"length\": 378,\n    \"filter\": \"string\",\n    \"sort_order\": \"DESCENDING\",\n    \"sort_attribute\": \"string\"\n  },\n  \"entities\": [\n    {\n      \"status\": {},\n      \"spec\": {},\n      \"metadata\": {\n        \"kind\": \"string\",\n        \"uuid\": \"1b9f63ec-cc96-0780-4fd7-51020984d2a1\",\n        \"spec_version\": 2886,\n        \"categories\": {\n          \"key_0\": \"string\"\n        },\n        \"owner_reference\": {\n          \"kind\": \"string\",\n          \"uuid\": \"fe3d8dc8-f32b-3663-aeea-b9adb4c69c25\",\n          \"name\": \"string\"\n        },\n        \"project_reference\": {\n          \"kind\": \"string\",\n          \"uuid\": \"744def5e-b5da-ad41-647f-11e5b74e40ad\",\n          \"name\": \"string\"\n        }\n      }\n    },\n    {\n      \"status\": {},\n      \"spec\": {},\n      \"metadata\": {\n        \"kind\": \"string\",\n        \"uuid\": \"ffeac25c-b3ea-f0b9-2d85-af2c9a2003fa\",\n        \"spec_version\": 7520,\n        \"categories\": {\n          \"key_0\": \"string\"\n        },\n        \"owner_reference\": {\n          \"kind\": \"string\",\n          \"uuid\": \"1b5f4323-a33b-f34b-f3d5-d8645899992a\",\n          \"name\": \"string\"\n        },\n        \"project_reference\": {\n          \"kind\": \"string\",\n          \"uuid\": \"c48fb069-50a2-829f-9237-c09b7940cdb2\",\n          \"name\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cd665dc-28f0-4e46-b831-9739a6cf9861",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clusters",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e844ca00-f344-4eb8-a0c6-76511dd724cc",
+          "name": "Nutanix Get a cluster",
+          "request": {
+            "name": "Nutanix Get a cluster",
+            "description": {
+              "content": "Retrieves the configuration and status of a specific cluster by UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "clusters",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) The UUID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44366022-9906-4d97-b0a5-e310cd2c812d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clusters",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": {},\n  \"spec\": {},\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"909ce6ee-8d1e-7dac-722b-b01312b664f9\",\n    \"spec_version\": 4356,\n    \"categories\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"feb042a7-00f4-6424-ec45-a415f74930a4\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"0ccb0e40-3936-1b3b-3ca9-eda4f58c500c\",\n      \"name\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0180e23-9c0f-456d-afe6-828ee391fabc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clusters",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "21c03d80-6994-42b8-8466-3721ae98691f",
+              "name": "Cluster not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clusters",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "36331a22-5c97-4c14-ad18-796b41d05487",
+          "name": "Nutanix Get cluster information",
+          "request": {
+            "name": "Nutanix Get cluster information",
+            "description": {
+              "content": "Retrieves detailed information about the local Nutanix cluster including configuration, health status, and resource utilization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cluster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f9655b0-c7d9-41ba-8ca9-23af0d930d4b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"uuid\": \"string\",\n  \"name\": \"string\",\n  \"cluster_external_ipaddress\": \"string\",\n  \"num_nodes\": 5459,\n  \"version\": \"string\",\n  \"hypervisor_types\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ace59fc0-4b69-4026-9474-5d7baf5a7176",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "IP address or FQDN of the Prism Central instance.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "prismCentralIp"
+    },
+    {
+      "type": "string",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bee93294-a81a-4f66-a64d-abd54c469732",
+    "name": "Nutanix Prism Central API v3 Alerts Clusters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+      "type": "text/plain"
+    }
+  }
+}

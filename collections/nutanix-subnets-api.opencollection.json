@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutanix Prism Central API v3 Alerts Subnets API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subnets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List subnets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/subnets/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of subnets with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create a subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/subnets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new AHV subnet with the specified configuration including VLAN ID, IP address management, and cluster assignment."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/subnets/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves the configuration and status of a specific subnet by UUID."
+        },
+        {
+          "info": {
+            "name": "Nutanix Update a subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/subnets/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the configuration of an existing subnet."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete a subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/subnets/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Deletes a subnet identified by its UUID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

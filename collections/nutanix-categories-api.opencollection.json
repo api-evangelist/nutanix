@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutanix Prism Central API v3 Alerts Categories API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix Get a category key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/categories/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the category key."
+              }
+            ]
+          },
+          "docs": "Retrieves a category key and its associated metadata."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create or update a category key",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/categories/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the category key."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates a category key with the specified metadata."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete a category key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/categories/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the category key."
+              }
+            ]
+          },
+          "docs": "Deletes a category key and all its associated values."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create or update a category value",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/categories/:name/:value",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the category key."
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "path",
+                "description": "The category value."
+              }
+            ]
+          },
+          "docs": "Creates or updates a value for the specified category key."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete a category value",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/categories/:name/:value",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the category key."
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "path",
+                "description": "The category value."
+              }
+            ]
+          },
+          "docs": "Deletes a specific value from a category key."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutanix Prism Central API v3 Alerts Images API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List images",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/images/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of disk images with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create an image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/images",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new image resource. Images can be uploaded from a URL source or from a file and are distributed to clusters for VM provisioning."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get an image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/images/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves the metadata and status of a specific image by UUID."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete an image",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/images/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Deletes an image identified by its UUID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

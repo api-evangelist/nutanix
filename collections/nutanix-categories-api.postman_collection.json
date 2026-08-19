@@ -1,0 +1,1063 @@
+{
+  "item": [
+    {
+      "id": "3f5dd72c-59d5-4a39-87f0-6b6fff068515",
+      "name": "Categories",
+      "description": {
+        "content": "Manage categories and category values used for tagging and organizing resources across the Nutanix environment.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4a5863bb-c8cc-492e-8a9f-be743d7112ad",
+          "name": "Nutanix Get a category key",
+          "request": {
+            "name": "Nutanix Get a category key",
+            "description": {
+              "content": "Retrieves a category key and its associated metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "categories",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the category key."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c09df2b-6940-42c1-9ab1-46ffe98c2fba",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9b7904f-a027-4765-a426-474b9110cdae",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62ea340f-0c1b-45cb-9f27-c6006c25f301",
+              "name": "Category not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8081fffb-805f-4640-b9e8-e860ea9e824d",
+          "name": "Nutanix Create or update a category key",
+          "request": {
+            "name": "Nutanix Create or update a category key",
+            "description": {
+              "content": "Creates or updates a category key with the specified metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "categories",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the category key."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9de15c19-2eab-4167-bd5c-79a226c58e0d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8642e9a5-0c2e-41f8-b3a7-ae1386f2ef74",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8674be59-47de-497f-a03e-a81803e00e90",
+          "name": "Nutanix Delete a category key",
+          "request": {
+            "name": "Nutanix Delete a category key",
+            "description": {
+              "content": "Deletes a category key and all its associated values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "categories",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the category key."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2a2b2d9-830a-43af-a6ae-e3ef1b36e8e6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "602f42bc-d7b2-4ee9-b6f8-50144914d893",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74e907ca-14e7-4dcf-9869-eb093ee4b3d7",
+              "name": "Category not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3dfafcdc-3070-434d-833e-d5ff8dd1786a",
+          "name": "Nutanix Create or update a category value",
+          "request": {
+            "name": "Nutanix Create or update a category value",
+            "description": {
+              "content": "Creates or updates a value for the specified category key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "categories",
+                ":name",
+                ":value"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the category key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "value",
+                  "description": "(Required) The category value."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9abae04f-4c9c-45c2-8b2c-34d03e728844",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name",
+                    ":value"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "value",
+                      "description": "(Required) The category value."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "13640a99-0e65-4c05-8ed8-c05d5517845f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name",
+                    ":value"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "value",
+                      "description": "(Required) The category value."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1c95b0e-da58-4163-a058-1ff4841f9731",
+          "name": "Nutanix Delete a category value",
+          "request": {
+            "name": "Nutanix Delete a category value",
+            "description": {
+              "content": "Deletes a specific value from a category key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "categories",
+                ":name",
+                ":value"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the category key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "value",
+                  "description": "(Required) The category value."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3111b18-16f2-4463-8adc-003c1b9c1169",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name",
+                    ":value"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "value",
+                      "description": "(Required) The category value."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a188594b-5bf9-42a6-a995-7f59c465ff14",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name",
+                    ":value"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "value",
+                      "description": "(Required) The category value."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "73d25a09-7c11-4793-89a4-57a1c4dabf4d",
+              "name": "Category value not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":name",
+                    ":value"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the category key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "value",
+                      "description": "(Required) The category value."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "IP address or FQDN of the Prism Central instance.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "prismCentralIp"
+    },
+    {
+      "type": "string",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c12a3a25-b2ff-42eb-be32-18a66ce226bf",
+    "name": "Nutanix Prism Central API v3 Alerts Categories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+      "type": "text/plain"
+    }
+  }
+}

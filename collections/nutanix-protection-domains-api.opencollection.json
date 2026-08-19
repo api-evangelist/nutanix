@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutanix Prism Central API v3 Alerts Protection Domains API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Protection Domains",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List protection domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/protection_domains"
+          },
+          "docs": "Retrieves a list of all protection domains configured on the cluster for data protection."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create a protection domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/protection_domains",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new protection domain for grouping entities for data protection and replication."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

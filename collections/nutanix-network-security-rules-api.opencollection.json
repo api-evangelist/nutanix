@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutanix Prism Central API v3 Alerts Network Security Rules API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Network Security Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nutanix List network security rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/network_security_rules/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of Flow network security rules with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Nutanix Create a network security rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/network_security_rules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Flow microsegmentation network security rule that controls traffic between VMs based on categories."
+        },
+        {
+          "info": {
+            "name": "Nutanix Get a network security rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/network_security_rules/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Retrieves the configuration of a specific network security rule by UUID."
+        },
+        {
+          "info": {
+            "name": "Nutanix Update a network security rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/network_security_rules/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the configuration of an existing network security rule."
+        },
+        {
+          "info": {
+            "name": "Nutanix Delete a network security rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{prismCentralIp}:9440/api/nutanix/v3/network_security_rules/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the entity."
+              }
+            ]
+          },
+          "docs": "Deletes a network security rule identified by its UUID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

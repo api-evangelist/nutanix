@@ -1,0 +1,1094 @@
+{
+  "item": [
+    {
+      "id": "cc1b6e96-d0b3-4a17-940d-cd5095035302",
+      "name": "Subnets",
+      "description": {
+        "content": "Manage AHV network subnets including VLAN and overlay network configurations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "179f32e4-21f2-4fa4-be4a-3ee17bc1414f",
+          "name": "Nutanix List subnets",
+          "request": {
+            "name": "Nutanix List subnets",
+            "description": {
+              "content": "Retrieves a list of subnets with optional filtering and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subnets",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_attribute\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f19dd02b-fff5-4dd2-ab0e-5c1d56f71cfc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"offset\": 4382,\n    \"length\": 409,\n    \"filter\": \"string\",\n    \"sort_order\": \"ASCENDING\",\n    \"sort_attribute\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03402e2a-0ddb-4e72-9591-31fd05c2bafa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"length\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"sort_order\": \"<string>\",\n  \"sort_attribute\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4e16a4f-a312-4bf3-a8a7-806a3354194f",
+          "name": "Nutanix Create a subnet",
+          "request": {
+            "name": "Nutanix Create a subnet",
+            "description": {
+              "content": "Creates a new AHV subnet with the specified configuration including VLAN ID, IP address management, and cluster assignment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subnets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"<string>\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"key_0\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c729ecc2-a02c-4167-81c8-02c76cce7f75",
+              "name": "Accepted - Subnet creation task started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"<string>\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"e95507b6-2dba-06fb-efe3-fbb3a3f2d6d2\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"8b6e56b5-43ed-fc15-6311-0f7c747c2d72\",\n    \"spec_version\": 2408,\n    \"categories\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"9ebfce0d-53a4-5535-818e-9825b2f97dfc\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"df45d9e9-ae7a-8dbf-7f2f-bb0962dcfa25\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3acfd87f-2e23-4dea-a7aa-506cdef166fb",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"<string>\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"e95507b6-2dba-06fb-efe3-fbb3a3f2d6d2\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"8b6e56b5-43ed-fc15-6311-0f7c747c2d72\",\n    \"spec_version\": 2408,\n    \"categories\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"9ebfce0d-53a4-5535-818e-9825b2f97dfc\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"df45d9e9-ae7a-8dbf-7f2f-bb0962dcfa25\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1781126b-a19f-4b11-b26d-e867bb71d04c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"<string>\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"e95507b6-2dba-06fb-efe3-fbb3a3f2d6d2\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"8b6e56b5-43ed-fc15-6311-0f7c747c2d72\",\n    \"spec_version\": 2408,\n    \"categories\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"9ebfce0d-53a4-5535-818e-9825b2f97dfc\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"df45d9e9-ae7a-8dbf-7f2f-bb0962dcfa25\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7b200eb-97e9-4a46-9e12-f055883036ff",
+          "name": "Nutanix Get a subnet",
+          "request": {
+            "name": "Nutanix Get a subnet",
+            "description": {
+              "content": "Retrieves the configuration and status of a specific subnet by UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subnets",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) The UUID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c77e569-f3c1-40c6-85b3-c02631dc8c9f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b7f27786-93e0-4c50-bee5-f86850c56a8a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "22259112-956a-4a96-b673-959307a40b4f",
+              "name": "Subnet not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cbf175a-f3f6-4632-9660-611a365c692a",
+          "name": "Nutanix Update a subnet",
+          "request": {
+            "name": "Nutanix Update a subnet",
+            "description": {
+              "content": "Updates the configuration of an existing subnet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subnets",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) The UUID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"<string>\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"<string>\",\n    \"uuid\": \"<uuid>\",\n    \"spec_version\": \"<integer>\",\n    \"categories\": {\n      \"key_0\": \"<string>\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"project_reference\": {\n      \"kind\": \"<string>\",\n      \"uuid\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "35687a20-eed2-4603-b1dc-47c6aa939af2",
+              "name": "Accepted - Subnet update task started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"<string>\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"e95507b6-2dba-06fb-efe3-fbb3a3f2d6d2\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"8b6e56b5-43ed-fc15-6311-0f7c747c2d72\",\n    \"spec_version\": 2408,\n    \"categories\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"9ebfce0d-53a4-5535-818e-9825b2f97dfc\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"df45d9e9-ae7a-8dbf-7f2f-bb0962dcfa25\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f4d0ef65-59a2-456e-9c4b-2f7aed66bd43",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"<string>\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"e95507b6-2dba-06fb-efe3-fbb3a3f2d6d2\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"8b6e56b5-43ed-fc15-6311-0f7c747c2d72\",\n    \"spec_version\": 2408,\n    \"categories\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"9ebfce0d-53a4-5535-818e-9825b2f97dfc\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"df45d9e9-ae7a-8dbf-7f2f-bb0962dcfa25\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "67e53535-1e7b-4bc3-a72b-0e3afbcac521",
+              "name": "Subnet not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spec\": {\n    \"name\": \"<string>\",\n    \"resources\": {\n      \"subnet_type\": \"<string>\",\n      \"vlan_id\": \"<integer>\",\n      \"ip_config\": {\n        \"subnet_ip\": \"<string>\",\n        \"prefix_length\": \"<integer>\",\n        \"default_gateway_ip\": \"<string>\",\n        \"pool_list\": [\n          {\n            \"range\": \"<string>\"\n          },\n          {\n            \"range\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"cluster_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"e95507b6-2dba-06fb-efe3-fbb3a3f2d6d2\",\n      \"name\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"kind\": \"string\",\n    \"uuid\": \"8b6e56b5-43ed-fc15-6311-0f7c747c2d72\",\n    \"spec_version\": 2408,\n    \"categories\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"owner_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"9ebfce0d-53a4-5535-818e-9825b2f97dfc\",\n      \"name\": \"string\"\n    },\n    \"project_reference\": {\n      \"kind\": \"string\",\n      \"uuid\": \"df45d9e9-ae7a-8dbf-7f2f-bb0962dcfa25\",\n      \"name\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6ac44ca-13db-4cda-a1eb-35f4747ff4d4",
+          "name": "Nutanix Delete a subnet",
+          "request": {
+            "name": "Nutanix Delete a subnet",
+            "description": {
+              "content": "Deletes a subnet identified by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subnets",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) The UUID of the entity."
+                },
+                {
+                  "description": "IP address or FQDN of the Prism Central instance.",
+                  "type": "any",
+                  "value": "{{prismCentralIp}}",
+                  "key": "prismCentralIp"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d688480-0e52-4a2e-bb39-c2998c68d443",
+              "name": "Accepted - Subnet deletion task started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "58447850-3797-4157-89d6-0443f6c0d6bc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6cb45910-b0d2-4f75-bb5f-f70fd274fff0",
+              "name": "Subnet not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subnets",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) The UUID of the entity."
+                    },
+                    {
+                      "description": "IP address or FQDN of the Prism Central instance.",
+                      "type": "any",
+                      "value": "{{prismCentralIp}}",
+                      "key": "prismCentralIp"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "IP address or FQDN of the Prism Central instance.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "prismCentralIp"
+    },
+    {
+      "type": "string",
+      "value": "https://{{prismCentralIp}}:9440/api/nutanix/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "40de02d2-449c-4d88-93d8-055c6f1b5f4e",
+    "name": "Nutanix Prism Central API v3 Alerts Subnets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.\n\nContact Support:\n Name: Nutanix Developer Support\n Email: developer@nutanix.com",
+      "type": "text/plain"
+    }
+  }
+}
