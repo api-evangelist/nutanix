@@ -24,6 +24,13 @@ access: 1st-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nutanix.png
 tags:
   - Cloud Management
+  - Hyper-Converged
+  - Infrastructure
+  - Virtualization
+  - Kubernetes
+  - Database
+tags_raw:
+  - Cloud Management
   - Hyperconverged
   - Infrastructure
   - Virtualization
@@ -76,6 +83,9 @@ apis:
     MySQL, SQL Server, Oracle, and MongoDB.
   humanURL: https://www.nutanix.dev/api_reference/apis/ndb0.9.html
   tags:
+  - Database
+  - Database-as-a-Service
+  tags_raw:
   - Database
   - DBaaS
   properties:
@@ -161,6 +171,8 @@ apis:
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
+  - Cluster
+  tags_raw:
   - Clusters
   properties:
   - type: OpenAPI
@@ -194,6 +206,8 @@ apis:
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
@@ -229,6 +243,8 @@ apis:
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -364,6 +380,8 @@ apis:
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
