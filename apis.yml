@@ -6,6 +6,18 @@ description: >-
   including Prism Central, Prism Element, Karbon Kubernetes, Nutanix Database Service (NDB), Cloud Clusters (NC2), NCM
   Self-Service, and the GA v4 API platform.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free-trial
   onboarding: self-serve
@@ -393,6 +405,9 @@ apis:
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
 common:
+  - type: CapabilityMap
+    url: capabilities/nutanix-capability-edges.yml
+    name: Nutanix Business Capability Map
   - type: MCPServer
     name: Nutanix MCP Server
     url: https://github.com/nutanix/ntnx-api-mcp-server

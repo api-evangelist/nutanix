@@ -1,0 +1,76 @@
+slug: nutanix
+provider: Nutanix
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: VMs
+  spec_file: nutanix-vms-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.93
+  evidence: POST /vms  createVm  Nutanix Create a virtual machine; POST /vms/{id}/set_power_state  setVmPowerState
+  reason: Virtual machine lifecycle and power control is core compute infrastructure management; no other
+    reading fits.
+- tag: Storage Containers
+  spec_file: nutanix-storage-containers-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.9
+  evidence: 'POST /storage_containers  createStorageContainer  Nutanix Create a storage container; schemas:
+    StorageContainerInput, StorageContainer'
+  reason: Full CRUD over storage containers on an HCI platform is plainly compute/storage infrastructure
+    management.
+- tag: Subnets
+  spec_file: nutanix-subnets-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.9
+  evidence: POST /subnets  createSubnet  Nutanix Create a subnet; schema SubnetIntentInput
+  reason: Network subnet provisioning on the virtualization platform — network infrastructure management.
+- tag: Storage Pools
+  spec_file: nutanix-storage-pools-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.88
+  evidence: GET /storage_pools  listStoragePools  Nutanix List storage pools
+  reason: Storage pool inspection on Nutanix infrastructure — IT infrastructure (storage) management.
+- tag: Clusters
+  spec_file: nutanix-clusters-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: 'POST /clusters/list  listClusters  Nutanix List clusters; schemas: Cluster, ClusterIntentResponse'
+  reason: Managing hyper-converged compute/storage clusters is compute/storage/cloud infrastructure management.
+- tag: Virtual Disks
+  spec_file: nutanix-virtual-disks-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: GET /virtual_disks  listVirtualDisks  Nutanix List virtual disks
+  reason: Virtual disk inventory on an HCI platform — storage infrastructure management.
+- tag: Images
+  spec_file: nutanix-images-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: 'POST /images  createImage  Nutanix Create an image; schemas: ImageIntentInput'
+  reason: VM/disk image lifecycle within Prism Central is infrastructure resource management; 'Images'
+    here is not media or document content.
