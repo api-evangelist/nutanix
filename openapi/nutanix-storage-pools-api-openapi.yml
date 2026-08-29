@@ -1,20 +1,20 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Nutanix Prism Central API v3 Alerts Storage Pools API
-  description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.
-  version: 3.1.0
+  title: Nutanix Prism Element API v2 Storage Pools API
+  description: API for managing individual Nutanix clusters through Prism Element, including storage containers, hosts, virtual machines, and cluster operations. The v2 API is cluster-local and available through Prism Element only. It exposes operations specific to local cluster entities such as storage containers, data-at-rest encryption, storage pools, and hosts. Authentication uses HTTP Basic Auth with cluster credentials.
+  version: '2.0'
   contact:
     name: Nutanix Developer Support
     email: developer@nutanix.com
     url: https://www.nutanix.dev/
   termsOfService: https://www.nutanix.com/legal/terms-of-use
 servers:
-- url: https://{prismCentralIp}:9440/api/nutanix/v3
-  description: Prism Central Server
+- url: https://{clusterIp}:9440/PrismGateway/services/rest/v2.0
+  description: Prism Element Server
   variables:
-    prismCentralIp:
+    clusterIp:
       default: localhost
-      description: IP address or FQDN of the Prism Central instance.
+      description: IP address or FQDN of the Nutanix cluster or CVM.
 security:
 - basicAuth: []
 tags:
@@ -62,7 +62,7 @@ components:
     basicAuth:
       type: http
       scheme: basic
-      description: HTTP Basic Authentication using Prism Central username and password credentials.
+      description: HTTP Basic Authentication using Prism Element username and password credentials.
 externalDocs:
-  description: Nutanix Prism Central v3 API Documentation
-  url: https://www.nutanix.dev/api_references/prism-central-v3/
+  description: Nutanix Prism Element v2 API Documentation
+  url: https://www.nutanix.dev/api_references/prism-element/

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Nutanix Prism Central API v3 Alerts Projects API
+  title: Nutanix Prism Central API v3 Projects API
   description: RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state, and the system works to achieve that state. All list operations use POST with server-side filtering, grouping, and sorting. Authentication is via HTTP Basic Auth with Prism Central credentials.
   version: 3.1.0
   contact:
@@ -56,15 +56,6 @@ paths:
         '404':
           description: Project not found
 components:
-  parameters:
-    Uuid:
-      name: uuid
-      in: path
-      required: true
-      description: The UUID of the entity.
-      schema:
-        type: string
-        format: uuid
   schemas:
     ListMetadata:
       type: object
@@ -94,6 +85,15 @@ components:
         sort_attribute:
           type: string
           description: The attribute to sort results by.
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     basicAuth:
       type: http
