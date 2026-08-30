@@ -36,7 +36,7 @@ access: 1st-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nutanix.png
 tags:
   - Cloud Management
-  - Hyper-Converged
+  - Hyperconverged
   - Infrastructure
   - Virtualization
   - Kubernetes
@@ -96,7 +96,7 @@ apis:
   humanURL: https://www.nutanix.dev/api_reference/apis/ndb0.9.html
   tags:
   - Database
-  - Database-as-a-Service
+  - DBaaS
   tags_raw:
   - Database
   - DBaaS
