@@ -96,7 +96,7 @@ apis:
   humanURL: https://www.nutanix.dev/api_reference/apis/ndb0.9.html
   tags:
   - Database
-  - DBaaS
+  - Database-as-a-Service
   tags_raw:
   - Database
   - DBaaS
