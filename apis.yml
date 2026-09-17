@@ -368,24 +368,6 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
-- aid: nutanix:nutanix-vms-api
-  name: Nutanix VMs API
-  description: >-
-    Manage virtual machines including creation, update, deletion, and power state operations through the
-    intent-based API model.
-  humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
-  baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
-  tags:
-  - VMs
-  properties:
-  - type: OpenAPI
-    url: openapi/nutanix-vms-api-openapi.yml
-  - type: Documentation
-    url: https://www.nutanix.dev/api_references/prism-central-v3/
-  - type: Authentication
-    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
-  - type: Documentation
-    url: https://www.nutanix.dev/api_references/prism-element/
 - aid: nutanix:nutanix-webhooks-api
   name: Nutanix Webhooks API
   description: Manage webhook listeners that receive event notifications from the Nutanix platform.
@@ -398,6 +380,24 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/nutanix-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-central-v3/
+  - type: Authentication
+    url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
+  - type: Documentation
+    url: https://www.nutanix.dev/api_references/prism-element/
+- aid: nutanix:nutanix-vms-api
+  name: Nutanix V Ms API
+  description: >-
+    Manage virtual machines including creation, update, deletion, and power state operations through the
+    intent-based API model.
+  humanURL: https://www.nutanix.dev/api-reference-v4/
+  baseURL: https://{{prism-central-ip}}:9440/api
+  tags:
+  - VMs
+  properties:
+  - type: OpenAPI
+    url: openapi/nutanix-vms-api-openapi.yml
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-central-v3/
   - type: Authentication
