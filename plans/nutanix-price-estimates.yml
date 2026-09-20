@@ -8,6 +8,10 @@ note: ESTIMATES, not quotes. Computed by API Evangelist from the prices this pro
   replace it — publish that and the estimate is retired.
 audience_of_source_pricing: business-product
 pricing_basis: usage-other
+delivery: managed+licensed
+delivery_method: page
+delivery_evidence: License portability enables the transfer of existing on-premises term-based multi-year
+  Nutanix licenses to any supported Nutanix environment in the public cloud.
 estimate_count: 2
 estimates:
 - kind: entry_cost
