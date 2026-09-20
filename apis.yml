@@ -405,6 +405,10 @@ apis:
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
 common:
+  - type: Pricing
+    url: https://www.nutanix.com/products/nutanix-cloud-clusters/pricing
+  - type: Plans
+    url: plans/nutanix-plans-pricing.yml
   - type: CapabilityMap
     url: capabilities/nutanix-capability-edges.yml
     name: Nutanix Business Capability Map

@@ -1,154 +1,137 @@
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: Nutanix
-providerId: nutanix
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
-tags:
-  - Cloud Management
-  - Hyperconverged
-  - Infrastructure
-  - Virtualization
-  - Kubernetes
-  - Database
-description: Nutanix is sold as licensed software bundled with on-prem clusters or as Nutanix Cloud Clusters
-  (NC2) on AWS/Azure. APIs (Prism Central v3/v4, Prism Element v2, Karbon, NDB, NC2, NCM Self-Service,
-  Foundation) are included with the underlying license; there is no separate API-tier pricing. Licensing
-  is delivered as Nutanix Cloud Infrastructure (NCI), Nutanix Cloud Manager (NCM), Nutanix Unified Storage
-  (NUS), and Nutanix Database Service (NDB) editions, sold per-node or per-CPU-core via Nutanix sales
-  and channel partners. Public list prices are not published. A 90-day free trial is available for evaluation.
-notes: Nutanix does not publish list pricing on its public website; all commercial pricing is custom-quoted
-  via sales/channel. Free trial available. Update once Nutanix exposes a self-serve pricing tier.
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://www.nutanix.com/products/nutanix-cloud-clusters/pricing
 sources:
-  - https://www.nutanix.com/products/cloud-platform
-  - https://www.nutanix.com/products/cloud-clusters
-  - https://www.nutanix.com/products/cloud-infrastructure
+- https://www.nutanix.com/products/nutanix-cloud-clusters/pricing
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T125857
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: usage-other
+published: true
+note: NC2 PAYG pricing per bare-metal node, hourly and yearly, across AWS/Azure/Google Cloud; cloud infrastructure
+  costs paid directly to cloud provider. BYOL multi-year option requires contacting Nutanix.
+plan_count: 19
+currency: USD
 plans:
-  - id: nutanix-trial
-    name: 90-Day Trial / Test Drive
-    type: freemium
-    description: Free 90-day evaluation license available via Nutanix Test Drive (CE / hosted lab) or
-      partner request. Covers Prism Central, infrastructure APIs, and selected services.
-    entries:
-      - label: Trial license
-        name: trial
-        type: subscription
-        metric: cluster
-        limit: 1
-        timeFrame: usage
-        geo: global
-        domains:
-          - https://{{prism-central-ip}}:9440/api/nutanix/v3
-          - https://{{prism-central-ip}}:9440/api
-          - https://{{cluster-ip}}:9440/PrismGateway/services/rest/v2.0
-          - https://api.nutanix.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: 90-day evaluation license
-      - name: Test Drive hosted lab
-      - name: Community Edition (CE) for personal use
-      - name: All Prism APIs included
-  - id: nutanix-nci
-    name: Nutanix Cloud Infrastructure (NCI)
-    type: enterprise
-    description: Per-node / per-core licensed editions (Starter, Pro, Ultimate) covering compute, storage,
-      virtualization, and AHV. Includes Prism Central API access. Pricing custom-quoted by Nutanix sales.
-    entries:
-      - label: Per-node / per-core license
-        name: nci_license
-        type: subscription
-        metric: node
-        limit: -1
-        timeFrame: year
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-    elements:
-      - name: Prism Central / Prism Element APIs
-      - name: AHV hypervisor
-      - name: Multi-edition (Starter / Pro / Ultimate)
-      - name: Per-node licensing
-  - id: nutanix-ncm
-    name: Nutanix Cloud Manager (NCM)
-    type: enterprise
-    description: Add-on suite for self-service, intelligent ops, cost governance, and security. Per-VM
-      or per-core licensing.
-    entries:
-      - label: Per-VM / per-core license
-        name: ncm_license
-        type: subscription
-        metric: vm
-        limit: -1
-        timeFrame: year
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-    elements:
-      - name: NCM Self-Service API
-      - name: Cost governance
-      - name: Intelligent ops / X-Play
-      - name: Security Central
-  - id: nutanix-ndb
-    name: Nutanix Database Service (NDB / Era)
-    type: enterprise
-    description: Database-as-a-service add-on for Postgres, SQL Server, Oracle, MySQL, MongoDB. Includes
-      NDB API.
-    entries:
-      - label: Per-DB-VM license
-        name: ndb_license
-        type: subscription
-        metric: database
-        limit: -1
-        timeFrame: year
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-    elements:
-      - name: Nutanix Database Service API
-      - name: Multi-database (Postgres, SQL Server, Oracle, MySQL, Mongo)
-      - name: Patch / clone / refresh automation
-  - id: nutanix-nc2
-    name: Nutanix Cloud Clusters (NC2)
-    type: usage-based
-    description: Hosted on AWS or Azure, billed via the cloud marketplace; underlying cloud resources
-      (EC2, EBS, network) plus Nutanix software metered hourly.
-    entries:
-      - label: Hourly Nutanix software fee on AWS/Azure
-        name: nc2_hourly
-        type: metered
-        metric: instance-hour
-        limit: -1
-        timeFrame: usage
-        geo: global
-        domains:
-          - https://api.nutanix.com
-        unit: 1
-        price: see AWS/Azure marketplace
-        userMultiplied: false
-      - label: Underlying cloud infrastructure
-        name: nc2_cloud
-        type: metered
-        metric: instance-hour
-        limit: -1
-        timeFrame: usage
-        geo: global
-        unit: 1
-        price: see AWS/Azure cloud rates
-        userMultiplied: false
-    elements:
-      - name: Hourly metered software
-      - name: AWS Nitro / Azure metal hosts
-      - name: NC2 API
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- name: NC2 on AWS i3.metal — NCI Pro/Node
+  price_text: $3.744
+  price: 3.744
+  currency: USD
+  period: per-use
+  unit: per hour per node
+  included_quota: 36 cores, 512GiB memory, 13.824TiB NVMe SSD
+- name: NC2 on AWS i3.metal — NCI Ult/Node
+  price_text: $4.716
+  price: 4.716
+  currency: USD
+  period: per-use
+  unit: per hour per node
+- name: NC2 on AWS i3.metal — NCI Security add-on/node
+  price_text: $0.756
+  price: 0.756
+  currency: USD
+  period: per-use
+  unit: per hour per node
+- name: NC2 on AWS i3.metal — NCI Adv Replication add-on/node
+  price_text: $0.468
+  price: 0.468
+  currency: USD
+  period: per-use
+  unit: per hour per node
+- name: NC2 on AWS i3en.metal / m5d.metal / g4dn.metal — NCI Pro/Node
+  price_text: $4.992
+  price: 4.992
+  currency: USD
+  period: per-use
+  unit: per hour per node
+- name: NC2 on AWS i3en.metal — NCI Ult/Node
+  price_text: $6.288
+  price: 6.288
+  currency: USD
+  period: per-use
+  unit: per hour per node
+- name: NC2 on AWS z1d.metal — NCI Pro/Node
+  price_text: $2.496
+  price: 2.496
+  currency: USD
+  period: per-use
+  unit: per hour per node
+  included_quota: 24 cores, 384GiB memory, 1.64 TiB NVMe SSD
+- name: NC2 on AWS i4i.metal / m6id.metal — NCI Pro/Node
+  price_text: $6.656
+  price: 6.656
+  currency: USD
+  period: per-use
+  unit: per hour per node
+- name: NC2 on AWS i4i.metal — NCI Ult/Node
+  price_text: $8.384
+  price: 8.384
+  currency: USD
+  period: per-use
+  unit: per hour per node
+- name: NC2 on AWS i7i.metal-48xl — NCI Pro/Node
+  price_text: $9.984
+  price: 9.984
+  currency: USD
+  period: per-use
+  unit: per hour per node
+  included_quota: 96 cores, 1536 GiB Memory and 40.93 TiB Storage
+- name: NC2 on AWS i7i.metal-48xl — NCI Ult/Node
+  price_text: $12.576
+  price: 12.576
+  currency: USD
+  period: per-use
+  unit: per hour per node
+- name: NC2 on Azure AN36 — NCI Pro/Node (yearly)
+  price_text: $32,797.44
+  price: 32797.44
+  currency: USD
+  period: year
+  unit: per node
+  included_quota: 36 cores, 576GiB memory, 16.880 TiB NVMe SSD
+- name: NC2 on Azure AN64 — NCI Ult/Node
+  price_text: $8.384
+  price: 8.384
+  currency: USD
+  period: per-use
+  unit: per hour per node
+  included_quota: 64 cores, 1TB memory and 38.4 NVMe
+- name: NC2 on Google Cloud C3-metal — NCI Ult/Node
+  price_text: $12.576
+  price: 12.576
+  currency: USD
+  period: per-use
+  unit: per hour per node
+- name: NC2 on Google Cloud C4-metal — NCI Pro/Node
+  price_text: $14.976
+  price: 14.976
+  currency: USD
+  period: per-use
+  unit: per hour per node
+  included_quota: 144 cores
+- name: NC2 on Google Cloud C4-metal — NCI Ult/Node
+  price_text: $18.864
+  price: 18.864
+  currency: USD
+  period: per-use
+  unit: per hour per node
+- name: EUC Ultimate (PAYG)
+  price_text: $0.061
+  price: 0.061
+  currency: USD
+  period: per-use
+  unit: per user per hour
+- name: NUS Pro (PAYG)
+  price_text: $0.112
+  price: 0.112
+  currency: USD
+  period: per-use
+  unit: per TiB per hour
+  included_quota: First 1TiB is free per cluster
+- name: Multi-Year License Portability (BYOL)
+  price_text: For specific pricing details, please contact Nutanix directly.
+  period: none
+  included_quota: Term based licensing (1 to 5 yrs) with capacity based pricing
