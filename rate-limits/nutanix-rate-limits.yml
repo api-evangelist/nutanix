@@ -1,73 +1,40 @@
-specification: API Commons Rate Limits
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
-provider: Nutanix
-providerId: nutanix
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
-tags:
-  - Cloud Management
-  - Hyperconverged
-  - Infrastructure
-  - Virtualization
-  - Kubernetes
-  - Database
-  - Rate Limiting
-description: Nutanix APIs (Prism Central v3/v4, Prism Element v2, Karbon, NDB, NC2, NCM Self-Service,
-  Foundation) are deployed within customer-controlled clusters and do not have public per-tier rate limits.
-  Throughput is bounded by the cluster's CPU/memory/network and Prism Central's task queue. Long-running
-  operations are returned as task UUIDs for asynchronous polling. Public docs do not publish numeric per-second
-  ceilings.
-notes: Per-API numeric rate limits are not publicly documented; clients should pace requests against
-  cluster capacity and use task-based polling. Update if Nutanix publishes specific limits.
+# Rate limits transcribed from the provider's own documentation — see provenance. Quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://www.nutanix.dev/2024/06/18/new-v4-api-and-sdk-features-in-prism-central-2024-1-and-aos-6-8/
 sources:
-  - https://www.nutanix.dev/
-  - https://docs.api.nutanix.com/
-responseCodes:
-  unauthorized: 401
-  forbidden: 403
-  throttled: 429
-  serviceUnavailable: 503
+- https://www.nutanix.dev/2024/06/18/new-v4-api-and-sdk-features-in-prism-central-2024-1-and-aos-6-8/
+provenance:
+  tool: planning/api-economics/harvest_ratelimits.py
+  run: 20260920T133210
+  grounding: every limit_text was found verbatim in the fetched page text
+published: true
+note: 'Blog post announcing pc.2024.1/AOS 6.8 features; rate limits given in a table of requests per second
+  by Prism Central deployment size (columns: memory, CPU, disk size, rate limit). No headers or status
+  codes documented.'
+limit_count: 4
 limits:
-  - name: Prism Central / Prism Element
-    scope: cluster
-    metric: varies
-    limit: cluster-bounded; not numerically published. Use task-based polling for long ops.
-    applies:
-      - Nutanix Prism Central API V3
-      - Nutanix Prism Central API V4
-      - Nutanix Prism Element API V2
-  - name: NCM Self-Service / Karbon / NDB / Foundation
-    scope: cluster
-    metric: varies
-    limit: cluster-bounded; defer to product-specific docs
-    applies:
-      - Nutanix Karbon API
-      - Nutanix Database Service API
-      - Nutanix NCM Self-Service API
-      - Nutanix Foundation API
-  - name: Nutanix Cloud Clusters (NC2)
-    scope: tenant
-    metric: varies
-    limit: see Nutanix portal documentation
-    applies:
-      - Nutanix Cloud Clusters API
-policies:
-  - name: Async tasks
-    description: Most write operations on Prism return a task UUID; clients should poll the tasks endpoint
-      for completion rather than blocking on the request.
-  - name: Authentication
-    description: Prism uses Basic auth or API key over HTTPS; v4 supports key-based auth via Prism Central
-      service accounts.
-  - name: Backoff
-    description: Implement exponential backoff with jitter on 429/503 and respect Retry-After when present.
-  - name: Cluster capacity
-    description: Effective rate is bounded by the cluster's CPU and Prism Central scheduler; sustained
-      heavy automation should batch and pace requests.
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- name: X-Small Prism Central rate limit
+  limit_text: X-Small 18 4 100 30
+  limit: 30
+  window: second
+  scope: account
+  plan: X-Small
+- name: Small Prism Central rate limit
+  limit_text: Small 26 6 500 40
+  limit: 40
+  window: second
+  scope: account
+  plan: Small
+- name: Large Prism Central rate limit
+  limit_text: Large 44 10 2500 60
+  limit: 60
+  window: second
+  scope: account
+  plan: Large
+- name: Extra Large Prism Central rate limit
+  limit_text: Extra Large 60 14 2500 80
+  limit: 80
+  window: second
+  scope: account
+  plan: Extra Large

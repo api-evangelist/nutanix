@@ -405,6 +405,8 @@ apis:
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
 common:
+  - type: RateLimits
+    url: rate-limits/nutanix-rate-limits.yml
   - type: Pricing
     url: https://www.nutanix.com/products/nutanix-cloud-clusters/pricing
   - type: Plans
