@@ -10,6 +10,13 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: business-product
 pricing_basis: usage-other
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-09-20'
+  evidence: License portability enables the transfer of existing on-premises term-based multi-year Nutanix
+    licenses to any supported Nutanix environment in the public cloud.
+  managed_tier: NCI Pro/Node
 published: true
 note: NC2 PAYG pricing per bare-metal node, hourly and yearly, across AWS/Azure/Google Cloud; cloud infrastructure
   costs paid directly to cloud provider. BYOL multi-year option requires contacting Nutanix.
