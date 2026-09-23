@@ -278,6 +278,82 @@ components:
         sort_attribute:
           type: string
           description: The attribute to sort results by.
+    VmIntentResponse:
+      type: object
+      description: Response containing VM intent status and spec.
+      properties:
+        status:
+          type: object
+          description: The current status of the VM.
+        spec:
+          $ref: '#/components/schemas/VmSpec'
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    VmListResponse:
+      type: object
+      description: Response for listing VMs.
+      properties:
+        api_version:
+          type: string
+          description: API version.
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/VmIntentResponse'
+          description: List of VM intent responses.
+    EntityMetadata:
+      type: object
+      description: Metadata for an entity.
+      properties:
+        kind:
+          type: string
+          description: The kind of entity.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the entity.
+        spec_version:
+          type: integer
+          description: Version number of the spec.
+        categories:
+          type: object
+          additionalProperties:
+            type: string
+          description: Categories assigned to the entity as key-value pairs.
+        owner_reference:
+          $ref: '#/components/schemas/Reference'
+        project_reference:
+          $ref: '#/components/schemas/Reference'
+    Reference:
+      type: object
+      description: A reference to another entity.
+      required:
+      - kind
+      - uuid
+      properties:
+        kind:
+          type: string
+          description: The kind of entity being referenced.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the referenced entity.
+        name:
+          type: string
+          description: The name of the referenced entity.
+    VmIntentInput:
+      type: object
+      description: Input for creating or updating a VM with the intent model.
+      required:
+      - spec
+      - metadata
+      properties:
+        spec:
+          $ref: '#/components/schemas/VmSpec'
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
     VmSpec:
       type: object
       description: VM specification describing the desired state.
@@ -363,82 +439,6 @@ components:
               description: List of NICs attached to the VM.
         cluster_reference:
           $ref: '#/components/schemas/Reference'
-    VmIntentResponse:
-      type: object
-      description: Response containing VM intent status and spec.
-      properties:
-        status:
-          type: object
-          description: The current status of the VM.
-        spec:
-          $ref: '#/components/schemas/VmSpec'
-        metadata:
-          $ref: '#/components/schemas/EntityMetadata'
-    Reference:
-      type: object
-      description: A reference to another entity.
-      required:
-      - kind
-      - uuid
-      properties:
-        kind:
-          type: string
-          description: The kind of entity being referenced.
-        uuid:
-          type: string
-          format: uuid
-          description: The UUID of the referenced entity.
-        name:
-          type: string
-          description: The name of the referenced entity.
-    EntityMetadata:
-      type: object
-      description: Metadata for an entity.
-      properties:
-        kind:
-          type: string
-          description: The kind of entity.
-        uuid:
-          type: string
-          format: uuid
-          description: The UUID of the entity.
-        spec_version:
-          type: integer
-          description: Version number of the spec.
-        categories:
-          type: object
-          additionalProperties:
-            type: string
-          description: Categories assigned to the entity as key-value pairs.
-        owner_reference:
-          $ref: '#/components/schemas/Reference'
-        project_reference:
-          $ref: '#/components/schemas/Reference'
-    VmListResponse:
-      type: object
-      description: Response for listing VMs.
-      properties:
-        api_version:
-          type: string
-          description: API version.
-        metadata:
-          $ref: '#/components/schemas/ListMetadata'
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/VmIntentResponse'
-          description: List of VM intent responses.
-    VmIntentInput:
-      type: object
-      description: Input for creating or updating a VM with the intent model.
-      required:
-      - spec
-      - metadata
-      properties:
-        spec:
-          $ref: '#/components/schemas/VmSpec'
-        metadata:
-          $ref: '#/components/schemas/EntityMetadata'
   parameters:
     Uuid:
       name: uuid

@@ -1,0 +1,29 @@
+# Front Door AI Index — nutanix — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: nutanix
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.nutanix.com
+  final_host: www.nutanix.com
+  ownership: own
+  owner: nutanix
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 18
+  host_score: 18
+  density: 18.02
+  words: 999
+  tiers:
+    agentic: 3
+    core: 15
+    model: 0
+  ambiguous: 2
+  top_terms:
+    AI: 14
+    agentic: 3
+    ML: 1
+    automation: 1
+    smart: 1

@@ -145,58 +145,6 @@ components:
         sort_attribute:
           type: string
           description: The attribute to sort results by.
-    SubnetListResponse:
-      type: object
-      description: Response for listing subnets.
-      properties:
-        api_version:
-          type: string
-        metadata:
-          $ref: '#/components/schemas/ListMetadata'
-        entities:
-          type: array
-          items:
-            type: object
-    Reference:
-      type: object
-      description: A reference to another entity.
-      required:
-      - kind
-      - uuid
-      properties:
-        kind:
-          type: string
-          description: The kind of entity being referenced.
-        uuid:
-          type: string
-          format: uuid
-          description: The UUID of the referenced entity.
-        name:
-          type: string
-          description: The name of the referenced entity.
-    EntityMetadata:
-      type: object
-      description: Metadata for an entity.
-      properties:
-        kind:
-          type: string
-          description: The kind of entity.
-        uuid:
-          type: string
-          format: uuid
-          description: The UUID of the entity.
-        spec_version:
-          type: integer
-          description: Version number of the spec.
-        categories:
-          type: object
-          additionalProperties:
-            type: string
-          description: Categories assigned to the entity as key-value pairs.
-        owner_reference:
-          $ref: '#/components/schemas/Reference'
-        project_reference:
-          $ref: '#/components/schemas/Reference'
     SubnetIntentInput:
       type: object
       description: Input for creating or updating a subnet.
@@ -246,6 +194,58 @@ components:
               $ref: '#/components/schemas/Reference'
         metadata:
           $ref: '#/components/schemas/EntityMetadata'
+    SubnetListResponse:
+      type: object
+      description: Response for listing subnets.
+      properties:
+        api_version:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            type: object
+    EntityMetadata:
+      type: object
+      description: Metadata for an entity.
+      properties:
+        kind:
+          type: string
+          description: The kind of entity.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the entity.
+        spec_version:
+          type: integer
+          description: Version number of the spec.
+        categories:
+          type: object
+          additionalProperties:
+            type: string
+          description: Categories assigned to the entity as key-value pairs.
+        owner_reference:
+          $ref: '#/components/schemas/Reference'
+        project_reference:
+          $ref: '#/components/schemas/Reference'
+    Reference:
+      type: object
+      description: A reference to another entity.
+      required:
+      - kind
+      - uuid
+      properties:
+        kind:
+          type: string
+          description: The kind of entity being referenced.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the referenced entity.
+        name:
+          type: string
+          description: The name of the referenced entity.
   parameters:
     Uuid:
       name: uuid

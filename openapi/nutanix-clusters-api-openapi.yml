@@ -136,6 +136,41 @@ components:
         sort_attribute:
           type: string
           description: The attribute to sort results by.
+    ClusterIntentResponse:
+      type: object
+      description: Response containing cluster intent status and spec.
+      properties:
+        status:
+          type: object
+          description: The current status of the cluster.
+        spec:
+          type: object
+          description: The cluster specification.
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    EntityMetadata:
+      type: object
+      description: Metadata for an entity.
+      properties:
+        kind:
+          type: string
+          description: The kind of entity.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the entity.
+        spec_version:
+          type: integer
+          description: Version number of the spec.
+        categories:
+          type: object
+          additionalProperties:
+            type: string
+          description: Categories assigned to the entity as key-value pairs.
+        owner_reference:
+          $ref: '#/components/schemas/Reference'
+        project_reference:
+          $ref: '#/components/schemas/Reference'
     ClusterListResponse:
       type: object
       description: Response for listing clusters.
@@ -165,41 +200,6 @@ components:
         name:
           type: string
           description: The name of the referenced entity.
-    EntityMetadata:
-      type: object
-      description: Metadata for an entity.
-      properties:
-        kind:
-          type: string
-          description: The kind of entity.
-        uuid:
-          type: string
-          format: uuid
-          description: The UUID of the entity.
-        spec_version:
-          type: integer
-          description: Version number of the spec.
-        categories:
-          type: object
-          additionalProperties:
-            type: string
-          description: Categories assigned to the entity as key-value pairs.
-        owner_reference:
-          $ref: '#/components/schemas/Reference'
-        project_reference:
-          $ref: '#/components/schemas/Reference'
-    ClusterIntentResponse:
-      type: object
-      description: Response containing cluster intent status and spec.
-      properties:
-        status:
-          type: object
-          description: The current status of the cluster.
-        spec:
-          type: object
-          description: The cluster specification.
-        metadata:
-          $ref: '#/components/schemas/EntityMetadata'
     Cluster:
       type: object
       description: Nutanix cluster information.
