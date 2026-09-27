@@ -121,6 +121,48 @@ paths:
           description: Storage container not found
 components:
   schemas:
+    StorageContainerInput:
+      type: object
+      description: Input for creating or updating a storage container.
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: The name of the storage container.
+        storage_pool_uuid:
+          type: string
+          description: UUID of the storage pool to use.
+        replication_factor:
+          type: integer
+          description: Data replication factor.
+          minimum: 2
+          maximum: 3
+        compression_enabled:
+          type: boolean
+          description: Whether to enable inline compression.
+        dedupe_enabled:
+          type: boolean
+          description: Whether to enable deduplication.
+    PaginationMetadata:
+      type: object
+      description: Pagination metadata for list responses.
+      properties:
+        grand_total_entities:
+          type: integer
+          description: Total number of entities.
+        total_entities:
+          type: integer
+          description: Number of entities in the current response.
+        count:
+          type: integer
+          description: Count of entities returned.
+        start_index:
+          type: integer
+          description: Starting index of the returned entities.
+        end_index:
+          type: integer
+          description: Ending index of the returned entities.
     StorageContainer:
       type: object
       description: A storage container in the Nutanix cluster.
@@ -149,48 +191,6 @@ components:
         dedupe_enabled:
           type: boolean
           description: Whether deduplication is enabled.
-    PaginationMetadata:
-      type: object
-      description: Pagination metadata for list responses.
-      properties:
-        grand_total_entities:
-          type: integer
-          description: Total number of entities.
-        total_entities:
-          type: integer
-          description: Number of entities in the current response.
-        count:
-          type: integer
-          description: Count of entities returned.
-        start_index:
-          type: integer
-          description: Starting index of the returned entities.
-        end_index:
-          type: integer
-          description: Ending index of the returned entities.
-    StorageContainerInput:
-      type: object
-      description: Input for creating or updating a storage container.
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: The name of the storage container.
-        storage_pool_uuid:
-          type: string
-          description: UUID of the storage pool to use.
-        replication_factor:
-          type: integer
-          description: Data replication factor.
-          minimum: 2
-          maximum: 3
-        compression_enabled:
-          type: boolean
-          description: Whether to enable inline compression.
-        dedupe_enabled:
-          type: boolean
-          description: Whether to enable deduplication.
   parameters:
     EntityId:
       name: id

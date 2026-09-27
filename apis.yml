@@ -41,6 +41,7 @@ tags:
   - Virtualization
   - Kubernetes
   - Database
+  - Data Center
 tags_raw:
   - Cloud Management
   - Hyperconverged
@@ -48,6 +49,7 @@ tags_raw:
   - Virtualization
   - Kubernetes
   - Database
+  - Data Center
 url: https://raw.githubusercontent.com/api-evangelist/nutanix/refs/heads/main/apis.yml
 created: '2025-03-14'
 modified: '2026-08-15'

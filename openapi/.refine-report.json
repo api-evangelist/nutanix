@@ -21,9 +21,7 @@
     "nutanix-storage-pools-api-openapi.yml",
     "nutanix-virtual-disks-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -33,8 +31,7 @@
     "tag 'Clusters' spans 2 source specs (nutanix-prism-central-v3-openapi.yml, nutanix-prism-element-v2-openapi.yml): per-path servers applied",
     "tag 'Hosts' spans 2 source specs (nutanix-prism-central-v3-openapi.yml, nutanix-prism-element-v2-openapi.yml): per-path servers applied",
     "tag 'VMs' spans 2 source specs (nutanix-prism-central-v3-openapi.yml, nutanix-prism-element-v2-openapi.yml): per-path servers applied",
-    "superseded outputs removed: nutanix-v-ms-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 21 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "nutanix-alerts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -49,8 +46,8 @@
     "nutanix-storage-containers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "nutanix-storage-pools-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "nutanix-subnets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "nutanix-v-ms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "nutanix-virtual-disks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nutanix-vms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "nutanix-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

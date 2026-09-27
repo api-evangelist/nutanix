@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Nutanix V Ms API
+  title: Nutanix VMs API
   contact:
     name: Nutanix Developer Support
     email: developer@nutanix.com
@@ -83,7 +83,7 @@ paths:
         '401':
           description: Unauthorized
     get:
-      operationId: listVms
+      operationId: getVms
       summary: Nutanix List virtual machines
       description: Retrieves a list of all VMs on the local cluster with their configuration and current state.
       tags:
@@ -106,6 +106,8 @@ paths:
           description: Success
         '401':
           description: Unauthorized
+      x-operation-id-source: normalized
+      x-operation-id-original: listVms
     servers:
     - url: https://{prismCentralIp}:9440/api/nutanix/v3
       description: Prism Central Server
@@ -184,7 +186,7 @@ paths:
           description: IP address or FQDN of the Prism Central instance.
   /vms/{id}:
     get:
-      operationId: getVm
+      operationId: getVmsById
       summary: Nutanix Get a virtual machine
       description: Retrieves detailed information about a specific VM by its ID.
       tags:
@@ -198,6 +200,8 @@ paths:
           description: Unauthorized
         '404':
           description: VM not found
+      x-operation-id-source: normalized
+      x-operation-id-original: getVm
     servers:
     - url: https://{clusterIp}:9440/PrismGateway/services/rest/v2.0
       description: Prism Element Server
@@ -250,6 +254,40 @@ paths:
           description: IP address or FQDN of the Nutanix cluster or CVM.
 components:
   schemas:
+    VmIntentInput:
+      type: object
+      description: Input for creating or updating a VM with the intent model.
+      required:
+      - spec
+      - metadata
+      properties:
+        spec:
+          $ref: '#/components/schemas/VmSpec'
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    EntityMetadata:
+      type: object
+      description: Metadata for an entity.
+      properties:
+        kind:
+          type: string
+          description: The kind of entity.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the entity.
+        spec_version:
+          type: integer
+          description: Version number of the spec.
+        categories:
+          type: object
+          additionalProperties:
+            type: string
+          description: Categories assigned to the entity as key-value pairs.
+        owner_reference:
+          $ref: '#/components/schemas/Reference'
+        project_reference:
+          $ref: '#/components/schemas/Reference'
     ListMetadata:
       type: object
       description: Request body for list operations supporting server-side filtering, sorting, and pagination.
@@ -303,29 +341,6 @@ components:
           items:
             $ref: '#/components/schemas/VmIntentResponse'
           description: List of VM intent responses.
-    EntityMetadata:
-      type: object
-      description: Metadata for an entity.
-      properties:
-        kind:
-          type: string
-          description: The kind of entity.
-        uuid:
-          type: string
-          format: uuid
-          description: The UUID of the entity.
-        spec_version:
-          type: integer
-          description: Version number of the spec.
-        categories:
-          type: object
-          additionalProperties:
-            type: string
-          description: Categories assigned to the entity as key-value pairs.
-        owner_reference:
-          $ref: '#/components/schemas/Reference'
-        project_reference:
-          $ref: '#/components/schemas/Reference'
     Reference:
       type: object
       description: A reference to another entity.
@@ -343,17 +358,6 @@ components:
         name:
           type: string
           description: The name of the referenced entity.
-    VmIntentInput:
-      type: object
-      description: Input for creating or updating a VM with the intent model.
-      required:
-      - spec
-      - metadata
-      properties:
-        spec:
-          $ref: '#/components/schemas/VmSpec'
-        metadata:
-          $ref: '#/components/schemas/EntityMetadata'
     VmSpec:
       type: object
       description: VM specification describing the desired state.
