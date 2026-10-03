@@ -95,6 +95,15 @@ paths:
         '404':
           description: Image not found
 components:
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
   schemas:
     ImageIntentInput:
       type: object
@@ -127,6 +136,18 @@ components:
                   description: URL to download the image from.
         metadata:
           $ref: '#/components/schemas/EntityMetadata'
+    ImageListResponse:
+      type: object
+      description: Response for listing images.
+      properties:
+        api_version:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            type: object
     EntityMetadata:
       type: object
       description: Metadata for an entity.
@@ -150,6 +171,23 @@ components:
           $ref: '#/components/schemas/Reference'
         project_reference:
           $ref: '#/components/schemas/Reference'
+    Reference:
+      type: object
+      description: A reference to another entity.
+      required:
+      - kind
+      - uuid
+      properties:
+        kind:
+          type: string
+          description: The kind of entity being referenced.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the referenced entity.
+        name:
+          type: string
+          description: The name of the referenced entity.
     ListMetadata:
       type: object
       description: Request body for list operations supporting server-side filtering, sorting, and pagination.
@@ -178,44 +216,6 @@ components:
         sort_attribute:
           type: string
           description: The attribute to sort results by.
-    ImageListResponse:
-      type: object
-      description: Response for listing images.
-      properties:
-        api_version:
-          type: string
-        metadata:
-          $ref: '#/components/schemas/ListMetadata'
-        entities:
-          type: array
-          items:
-            type: object
-    Reference:
-      type: object
-      description: A reference to another entity.
-      required:
-      - kind
-      - uuid
-      properties:
-        kind:
-          type: string
-          description: The kind of entity being referenced.
-        uuid:
-          type: string
-          format: uuid
-          description: The UUID of the referenced entity.
-        name:
-          type: string
-          description: The name of the referenced entity.
-  parameters:
-    Uuid:
-      name: uuid
-      in: path
-      required: true
-      description: The UUID of the entity.
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     basicAuth:
       type: http

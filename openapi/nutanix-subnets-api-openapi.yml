@@ -116,19 +116,16 @@ paths:
         '404':
           description: Subnet not found
 components:
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
   schemas:
-    SubnetListResponse:
-      type: object
-      description: Response for listing subnets.
-      properties:
-        api_version:
-          type: string
-        metadata:
-          $ref: '#/components/schemas/ListMetadata'
-        entities:
-          type: array
-          items:
-            type: object
     EntityMetadata:
       type: object
       description: Metadata for an entity.
@@ -152,51 +149,6 @@ components:
           $ref: '#/components/schemas/Reference'
         project_reference:
           $ref: '#/components/schemas/Reference'
-    ListMetadata:
-      type: object
-      description: Request body for list operations supporting server-side filtering, sorting, and pagination.
-      properties:
-        kind:
-          type: string
-          description: The entity kind to list.
-        offset:
-          type: integer
-          description: Offset from the start of the entity list.
-          minimum: 0
-        length:
-          type: integer
-          description: The number of records to retrieve.
-          minimum: 1
-          maximum: 500
-        filter:
-          type: string
-          description: The filter criteria in FIQL format.
-        sort_order:
-          type: string
-          description: The sort order.
-          enum:
-          - ASCENDING
-          - DESCENDING
-        sort_attribute:
-          type: string
-          description: The attribute to sort results by.
-    Reference:
-      type: object
-      description: A reference to another entity.
-      required:
-      - kind
-      - uuid
-      properties:
-        kind:
-          type: string
-          description: The kind of entity being referenced.
-        uuid:
-          type: string
-          format: uuid
-          description: The UUID of the referenced entity.
-        name:
-          type: string
-          description: The name of the referenced entity.
     SubnetIntentInput:
       type: object
       description: Input for creating or updating a subnet.
@@ -246,15 +198,63 @@ components:
               $ref: '#/components/schemas/Reference'
         metadata:
           $ref: '#/components/schemas/EntityMetadata'
-  parameters:
-    Uuid:
-      name: uuid
-      in: path
-      required: true
-      description: The UUID of the entity.
-      schema:
-        type: string
-        format: uuid
+    Reference:
+      type: object
+      description: A reference to another entity.
+      required:
+      - kind
+      - uuid
+      properties:
+        kind:
+          type: string
+          description: The kind of entity being referenced.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the referenced entity.
+        name:
+          type: string
+          description: The name of the referenced entity.
+    SubnetListResponse:
+      type: object
+      description: Response for listing subnets.
+      properties:
+        api_version:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            type: object
+    ListMetadata:
+      type: object
+      description: Request body for list operations supporting server-side filtering, sorting, and pagination.
+      properties:
+        kind:
+          type: string
+          description: The entity kind to list.
+        offset:
+          type: integer
+          description: Offset from the start of the entity list.
+          minimum: 0
+        length:
+          type: integer
+          description: The number of records to retrieve.
+          minimum: 1
+          maximum: 500
+        filter:
+          type: string
+          description: The filter criteria in FIQL format.
+        sort_order:
+          type: string
+          description: The sort order.
+          enum:
+          - ASCENDING
+          - DESCENDING
+        sort_attribute:
+          type: string
+          description: The attribute to sort results by.
   securitySchemes:
     basicAuth:
       type: http

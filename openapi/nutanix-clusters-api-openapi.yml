@@ -107,7 +107,28 @@ paths:
           default: localhost
           description: IP address or FQDN of the Nutanix cluster or CVM.
 components:
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
   schemas:
+    ClusterListResponse:
+      type: object
+      description: Response for listing clusters.
+      properties:
+        api_version:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClusterIntentResponse'
     EntityMetadata:
       type: object
       description: Metadata for an entity.
@@ -131,6 +152,35 @@ components:
           $ref: '#/components/schemas/Reference'
         project_reference:
           $ref: '#/components/schemas/Reference'
+    ClusterIntentResponse:
+      type: object
+      description: Response containing cluster intent status and spec.
+      properties:
+        status:
+          type: object
+          description: The current status of the cluster.
+        spec:
+          type: object
+          description: The cluster specification.
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    Reference:
+      type: object
+      description: A reference to another entity.
+      required:
+      - kind
+      - uuid
+      properties:
+        kind:
+          type: string
+          description: The kind of entity being referenced.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the referenced entity.
+        name:
+          type: string
+          description: The name of the referenced entity.
     ListMetadata:
       type: object
       description: Request body for list operations supporting server-side filtering, sorting, and pagination.
@@ -159,47 +209,6 @@ components:
         sort_attribute:
           type: string
           description: The attribute to sort results by.
-    ClusterListResponse:
-      type: object
-      description: Response for listing clusters.
-      properties:
-        api_version:
-          type: string
-        metadata:
-          $ref: '#/components/schemas/ListMetadata'
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClusterIntentResponse'
-    Reference:
-      type: object
-      description: A reference to another entity.
-      required:
-      - kind
-      - uuid
-      properties:
-        kind:
-          type: string
-          description: The kind of entity being referenced.
-        uuid:
-          type: string
-          format: uuid
-          description: The UUID of the referenced entity.
-        name:
-          type: string
-          description: The name of the referenced entity.
-    ClusterIntentResponse:
-      type: object
-      description: Response containing cluster intent status and spec.
-      properties:
-        status:
-          type: object
-          description: The current status of the cluster.
-        spec:
-          type: object
-          description: The cluster specification.
-        metadata:
-          $ref: '#/components/schemas/EntityMetadata'
     Cluster:
       type: object
       description: Nutanix cluster information.
@@ -227,15 +236,6 @@ components:
           items:
             type: string
           description: Hypervisor types in the cluster.
-  parameters:
-    Uuid:
-      name: uuid
-      in: path
-      required: true
-      description: The UUID of the entity.
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     basicAuth:
       type: http
