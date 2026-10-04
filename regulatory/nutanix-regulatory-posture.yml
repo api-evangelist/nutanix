@@ -1,0 +1,11 @@
+generated: '2026-10-04'
+method: probed
+source: https://www.nutanix.com/legal/do-not-sell-my-personal-information
+signals:
+  data_subject_request:
+    evidence:
+      - source: https://www.nutanix.com/legal/do-not-sell-my-personal-information
+        http_status: 200
+        fetched: "true"
+        quote: "Do Not Sell or Share My Personal Information Subject Access Request"
+    note: Provides a subject access request mechanism for data subjects.

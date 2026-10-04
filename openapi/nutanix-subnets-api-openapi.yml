@@ -116,39 +116,47 @@ paths:
         '404':
           description: Subnet not found
 components:
-  parameters:
-    Uuid:
-      name: uuid
-      in: path
-      required: true
-      description: The UUID of the entity.
-      schema:
-        type: string
-        format: uuid
   schemas:
-    EntityMetadata:
+    ListMetadata:
       type: object
-      description: Metadata for an entity.
+      description: Request body for list operations supporting server-side filtering, sorting, and pagination.
       properties:
         kind:
           type: string
-          description: The kind of entity.
-        uuid:
-          type: string
-          format: uuid
-          description: The UUID of the entity.
-        spec_version:
+          description: The entity kind to list.
+        offset:
           type: integer
-          description: Version number of the spec.
-        categories:
-          type: object
-          additionalProperties:
-            type: string
-          description: Categories assigned to the entity as key-value pairs.
-        owner_reference:
-          $ref: '#/components/schemas/Reference'
-        project_reference:
-          $ref: '#/components/schemas/Reference'
+          description: Offset from the start of the entity list.
+          minimum: 0
+        length:
+          type: integer
+          description: The number of records to retrieve.
+          minimum: 1
+          maximum: 500
+        filter:
+          type: string
+          description: The filter criteria in FIQL format.
+        sort_order:
+          type: string
+          description: The sort order.
+          enum:
+          - ASCENDING
+          - DESCENDING
+        sort_attribute:
+          type: string
+          description: The attribute to sort results by.
+    SubnetListResponse:
+      type: object
+      description: Response for listing subnets.
+      properties:
+        api_version:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ListMetadata'
+        entities:
+          type: array
+          items:
+            type: object
     SubnetIntentInput:
       type: object
       description: Input for creating or updating a subnet.
@@ -215,46 +223,38 @@ components:
         name:
           type: string
           description: The name of the referenced entity.
-    SubnetListResponse:
+    EntityMetadata:
       type: object
-      description: Response for listing subnets.
-      properties:
-        api_version:
-          type: string
-        metadata:
-          $ref: '#/components/schemas/ListMetadata'
-        entities:
-          type: array
-          items:
-            type: object
-    ListMetadata:
-      type: object
-      description: Request body for list operations supporting server-side filtering, sorting, and pagination.
+      description: Metadata for an entity.
       properties:
         kind:
           type: string
-          description: The entity kind to list.
-        offset:
+          description: The kind of entity.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the entity.
+        spec_version:
           type: integer
-          description: Offset from the start of the entity list.
-          minimum: 0
-        length:
-          type: integer
-          description: The number of records to retrieve.
-          minimum: 1
-          maximum: 500
-        filter:
-          type: string
-          description: The filter criteria in FIQL format.
-        sort_order:
-          type: string
-          description: The sort order.
-          enum:
-          - ASCENDING
-          - DESCENDING
-        sort_attribute:
-          type: string
-          description: The attribute to sort results by.
+          description: Version number of the spec.
+        categories:
+          type: object
+          additionalProperties:
+            type: string
+          description: Categories assigned to the entity as key-value pairs.
+        owner_reference:
+          $ref: '#/components/schemas/Reference'
+        project_reference:
+          $ref: '#/components/schemas/Reference'
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     basicAuth:
       type: http

@@ -56,15 +56,6 @@ paths:
         '404':
           description: Project not found
 components:
-  parameters:
-    Uuid:
-      name: uuid
-      in: path
-      required: true
-      description: The UUID of the entity.
-      schema:
-        type: string
-        format: uuid
   schemas:
     ListMetadata:
       type: object
@@ -94,6 +85,15 @@ components:
         sort_attribute:
           type: string
           description: The attribute to sort results by.
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     basicAuth:
       type: http

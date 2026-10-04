@@ -1,0 +1,218 @@
+{
+  "@context": {
+    "@vocab": "https://nutanix.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "nutanix": "https://nutanix.com/schema#",
+    "ClusterListResponse": "nutanix:ClusterListResponse",
+    "api_version": {
+      "@id": "nutanix:api_version",
+      "@type": "xsd:string"
+    },
+    "metadata": {
+      "@id": "nutanix:metadata",
+      "@type": "@id"
+    },
+    "entities": {
+      "@id": "nutanix:entities",
+      "@container": "@list"
+    },
+    "EntityMetadata": "nutanix:EntityMetadata",
+    "kind": {
+      "@id": "nutanix:kind",
+      "@type": "xsd:string"
+    },
+    "uuid": {
+      "@id": "nutanix:uuid",
+      "@type": "xsd:string"
+    },
+    "spec_version": {
+      "@id": "nutanix:spec_version",
+      "@type": "xsd:integer"
+    },
+    "categories": {
+      "@id": "nutanix:categories"
+    },
+    "owner_reference": {
+      "@id": "nutanix:owner_reference",
+      "@type": "@id"
+    },
+    "project_reference": {
+      "@id": "nutanix:project_reference",
+      "@type": "@id"
+    },
+    "ClusterIntentResponse": "nutanix:ClusterIntentResponse",
+    "status": {
+      "@id": "nutanix:status"
+    },
+    "spec": {
+      "@id": "nutanix:spec"
+    },
+    "Reference": "nutanix:Reference",
+    "name": {
+      "@id": "nutanix:name",
+      "@type": "xsd:string"
+    },
+    "ListMetadata": "nutanix:ListMetadata",
+    "offset": {
+      "@id": "nutanix:offset",
+      "@type": "xsd:integer"
+    },
+    "length": {
+      "@id": "nutanix:length",
+      "@type": "xsd:integer"
+    },
+    "filter": {
+      "@id": "nutanix:filter",
+      "@type": "xsd:string"
+    },
+    "sort_order": {
+      "@id": "nutanix:sort_order",
+      "@type": "xsd:string"
+    },
+    "sort_attribute": {
+      "@id": "nutanix:sort_attribute",
+      "@type": "xsd:string"
+    },
+    "Cluster": "nutanix:Cluster",
+    "id": {
+      "@id": "nutanix:id",
+      "@type": "xsd:string"
+    },
+    "cluster_external_ipaddress": {
+      "@id": "nutanix:cluster_external_ipaddress",
+      "@type": "xsd:string"
+    },
+    "num_nodes": {
+      "@id": "nutanix:num_nodes",
+      "@type": "xsd:integer"
+    },
+    "version": {
+      "@id": "nutanix:version",
+      "@type": "xsd:string"
+    },
+    "hypervisor_types": {
+      "@id": "nutanix:hypervisor_types",
+      "@container": "@list"
+    },
+    "Host": "nutanix:Host",
+    "serial": {
+      "@id": "nutanix:serial",
+      "@type": "xsd:string"
+    },
+    "block_serial": {
+      "@id": "nutanix:block_serial",
+      "@type": "xsd:string"
+    },
+    "block_model": {
+      "@id": "nutanix:block_model",
+      "@type": "xsd:string"
+    },
+    "hypervisor_address": {
+      "@id": "nutanix:hypervisor_address",
+      "@type": "xsd:string"
+    },
+    "controller_vm_backplane_ip": {
+      "@id": "nutanix:controller_vm_backplane_ip",
+      "@type": "xsd:string"
+    },
+    "num_cpu_sockets": {
+      "@id": "nutanix:num_cpu_sockets",
+      "@type": "xsd:integer"
+    },
+    "num_cpu_cores": {
+      "@id": "nutanix:num_cpu_cores",
+      "@type": "xsd:integer"
+    },
+    "memory_capacity_in_bytes": {
+      "@id": "nutanix:memory_capacity_in_bytes",
+      "@type": "xsd:integer"
+    },
+    "hypervisor_type": {
+      "@id": "nutanix:hypervisor_type",
+      "@type": "xsd:string"
+    },
+    "PaginationMetadata": "nutanix:PaginationMetadata",
+    "grand_total_entities": {
+      "@id": "nutanix:grand_total_entities",
+      "@type": "xsd:integer"
+    },
+    "total_entities": {
+      "@id": "nutanix:total_entities",
+      "@type": "xsd:integer"
+    },
+    "count": {
+      "@id": "nutanix:count",
+      "@type": "xsd:integer"
+    },
+    "start_index": {
+      "@id": "nutanix:start_index",
+      "@type": "xsd:integer"
+    },
+    "end_index": {
+      "@id": "nutanix:end_index",
+      "@type": "xsd:integer"
+    },
+    "ImageIntentInput": "nutanix:ImageIntentInput",
+    "ImageListResponse": "nutanix:ImageListResponse",
+    "StorageContainer": "nutanix:StorageContainer",
+    "storage_container_uuid": {
+      "@id": "nutanix:storage_container_uuid",
+      "@type": "xsd:string"
+    },
+    "max_capacity": {
+      "@id": "nutanix:max_capacity",
+      "@type": "xsd:integer"
+    },
+    "usage_bytes": {
+      "@id": "nutanix:usage_bytes",
+      "@type": "xsd:integer"
+    },
+    "replication_factor": {
+      "@id": "nutanix:replication_factor",
+      "@type": "xsd:integer"
+    },
+    "compression_enabled": {
+      "@id": "nutanix:compression_enabled",
+      "@type": "xsd:boolean"
+    },
+    "dedupe_enabled": {
+      "@id": "nutanix:dedupe_enabled",
+      "@type": "xsd:boolean"
+    },
+    "StorageContainerInput": "nutanix:StorageContainerInput",
+    "storage_pool_uuid": {
+      "@id": "nutanix:storage_pool_uuid",
+      "@type": "xsd:string"
+    },
+    "SubnetIntentInput": "nutanix:SubnetIntentInput",
+    "SubnetListResponse": "nutanix:SubnetListResponse",
+    "VmIntentInput": "nutanix:VmIntentInput",
+    "VmListResponse": "nutanix:VmListResponse",
+    "VmIntentResponse": "nutanix:VmIntentResponse",
+    "VmSpec": "nutanix:VmSpec",
+    "description": {
+      "@id": "nutanix:description",
+      "@type": "xsd:string"
+    },
+    "resources": {
+      "@id": "nutanix:resources"
+    },
+    "cluster_reference": {
+      "@id": "nutanix:cluster_reference",
+      "@type": "@id"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Nutanix API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Nutanix's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-04) from openapi/nutanix-alerts-api-openapi.yml, openapi/nutanix-categories-api-openapi.yml, openapi/nutanix-clusters-api-openapi.yml.",
+  "dcterms:created": "2026-10-04",
+  "dcterms:source": [
+    "openapi/nutanix-alerts-api-openapi.yml",
+    "openapi/nutanix-categories-api-openapi.yml",
+    "openapi/nutanix-clusters-api-openapi.yml",
+    "openapi/nutanix-hosts-api-openapi.yml",
+    "openapi/nutanix-images-api-openapi.yml"
+  ]
+}

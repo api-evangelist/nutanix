@@ -2,6 +2,7 @@
 generated: '2026-09-20'
 method: searched
 source: https://www.nutanix.dev/2024/06/18/new-v4-api-and-sdk-features-in-prism-central-2024-1-and-aos-6-8/
+name: Nutanix API Rate Limits
 sources:
 - https://www.nutanix.dev/2024/06/18/new-v4-api-and-sdk-features-in-prism-central-2024-1-and-aos-6-8/
 provenance:

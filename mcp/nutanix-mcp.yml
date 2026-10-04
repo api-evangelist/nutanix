@@ -1,0 +1,229 @@
+generated: '2026-10-04'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/nutanix-alerts-api-openapi.yml
+- openapi/nutanix-categories-api-openapi.yml
+- openapi/nutanix-clusters-api-openapi.yml
+- openapi/nutanix-hosts-api-openapi.yml
+- openapi/nutanix-images-api-openapi.yml
+- openapi/nutanix-network-security-rules-api-openapi.yml
+- openapi/nutanix-projects-api-openapi.yml
+- openapi/nutanix-protection-domains-api-openapi.yml
+- openapi/nutanix-snapshots-api-openapi.yml
+- openapi/nutanix-storage-containers-api-openapi.yml
+- openapi/nutanix-storage-pools-api-openapi.yml
+- openapi/nutanix-subnets-api-openapi.yml
+- openapi/nutanix-virtual-disks-api-openapi.yml
+- openapi/nutanix-vms-api-openapi.yml
+- openapi/nutanix-webhooks-api-openapi.yml
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: 'No MCP server was found. The pre-flight posted tools/list to /mcp on api.nutanix.com, api.nutanix.dev, www.nutanix.dev, www.nutanix.com;
+  verdict opaque (https://next.nutanix.com/mcp answered 403: the edge authenticates before it routes, which proves nothing either way). Candidate
+  tools below are derived from the 53 operation(s) in the provider''s own OpenAPI (40 listed); they describe what a server WOULD expose, not one
+  that exists.'
+tools:
+- name: list_alerts
+  operationId: listAlerts
+  method: GET
+  path: /alerts
+  description: Nutanix List alerts
+- name: get_category
+  operationId: getCategory
+  method: GET
+  path: /categories/{name}
+  description: Nutanix Get a category key
+- name: list_clusters
+  operationId: listClusters
+  method: POST
+  path: /clusters/list
+  description: Nutanix List clusters
+- name: list_hosts
+  operationId: listHosts
+  method: POST
+  path: /hosts/list
+  description: Nutanix List hosts
+- name: list_images
+  operationId: listImages
+  method: POST
+  path: /images/list
+  description: Nutanix List images
+- name: list_network_security_rules
+  operationId: listNetworkSecurityRules
+  method: POST
+  path: /network_security_rules/list
+  description: Nutanix List network security rules
+- name: list_projects
+  operationId: listProjects
+  method: POST
+  path: /projects/list
+  description: Nutanix List projects
+- name: list_protection_domains
+  operationId: listProtectionDomains
+  method: GET
+  path: /protection_domains
+  description: Nutanix List protection domains
+- name: list_snapshots
+  operationId: listSnapshots
+  method: GET
+  path: /snapshots
+  description: Nutanix List snapshots
+- name: list_storage_containers
+  operationId: listStorageContainers
+  method: GET
+  path: /storage_containers
+  description: Nutanix List storage containers
+- name: list_storage_pools
+  operationId: listStoragePools
+  method: GET
+  path: /storage_pools
+  description: Nutanix List storage pools
+- name: list_subnets
+  operationId: listSubnets
+  method: POST
+  path: /subnets/list
+  description: Nutanix List subnets
+- name: list_virtual_disks
+  operationId: listVirtualDisks
+  method: GET
+  path: /virtual_disks
+  description: Nutanix List virtual disks
+- name: list_vms
+  operationId: listVms
+  method: POST
+  path: /vms/list
+  description: Nutanix List virtual machines
+- name: list_webhooks
+  operationId: listWebhooks
+  method: POST
+  path: /webhooks/list
+  description: Nutanix List webhooks
+- name: get_alert
+  operationId: getAlert
+  method: GET
+  path: /alerts/{id}
+  description: Nutanix Get an alert
+- name: update_category
+  operationId: updateCategory
+  method: PUT
+  path: /categories/{name}
+  description: Nutanix Create or update a category key
+- name: get_cluster
+  operationId: getCluster
+  method: GET
+  path: /clusters/{uuid}
+  description: Nutanix Get a cluster
+- name: get_host
+  operationId: getHost
+  method: GET
+  path: /hosts/{uuid}
+  description: Nutanix Get a host
+- name: create_image
+  operationId: createImage
+  method: POST
+  path: /images
+  description: Nutanix Create an image
+- name: create_network_security_rule
+  operationId: createNetworkSecurityRule
+  method: POST
+  path: /network_security_rules
+  description: Nutanix Create a network security rule
+- name: get_project
+  operationId: getProject
+  method: GET
+  path: /projects/{uuid}
+  description: Nutanix Get a project
+- name: create_protection_domain
+  operationId: createProtectionDomain
+  method: POST
+  path: /protection_domains
+  description: Nutanix Create a protection domain
+- name: create_storage_container
+  operationId: createStorageContainer
+  method: POST
+  path: /storage_containers
+  description: Nutanix Create a storage container
+- name: get_storage_pool
+  operationId: getStoragePool
+  method: GET
+  path: /storage_pools/{id}
+  description: Nutanix Get a storage pool
+- name: create_subnet
+  operationId: createSubnet
+  method: POST
+  path: /subnets
+  description: Nutanix Create a subnet
+- name: create_vm
+  operationId: createVm
+  method: POST
+  path: /vms
+  description: Nutanix Create a virtual machine
+- name: create_webhook
+  operationId: createWebhook
+  method: POST
+  path: /webhooks
+  description: Nutanix Create a webhook
+- name: delete_category
+  operationId: deleteCategory
+  method: DELETE
+  path: /categories/{name}
+  description: Nutanix Delete a category key
+- name: get_hosts
+  operationId: getHosts
+  method: GET
+  path: /hosts
+  description: Nutanix List hosts
+- name: get_image
+  operationId: getImage
+  method: GET
+  path: /images/{uuid}
+  description: Nutanix Get an image
+- name: get_network_security_rule
+  operationId: getNetworkSecurityRule
+  method: GET
+  path: /network_security_rules/{uuid}
+  description: Nutanix Get a network security rule
+- name: get_storage_container
+  operationId: getStorageContainer
+  method: GET
+  path: /storage_containers/{id}
+  description: Nutanix Get a storage container
+- name: get_subnet
+  operationId: getSubnet
+  method: GET
+  path: /subnets/{uuid}
+  description: Nutanix Get a subnet
+- name: get_vms
+  operationId: getVms
+  method: GET
+  path: /vms
+  description: Nutanix List virtual machines
+- name: get_webhook
+  operationId: getWebhook
+  method: GET
+  path: /webhooks/{uuid}
+  description: Nutanix Get a webhook
+- name: update_category_value
+  operationId: updateCategoryValue
+  method: PUT
+  path: /categories/{name}/{value}
+  description: Nutanix Create or update a category value
+- name: get_hosts_by_id
+  operationId: getHostsById
+  method: GET
+  path: /hosts/{id}
+  description: Nutanix Get a host
+- name: delete_image
+  operationId: deleteImage
+  method: DELETE
+  path: /images/{uuid}
+  description: Nutanix Delete an image
+- name: update_network_security_rule
+  operationId: updateNetworkSecurityRule
+  method: PUT
+  path: /network_security_rules/{uuid}
+  description: Nutanix Update a network security rule

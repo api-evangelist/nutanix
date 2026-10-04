@@ -1,6 +1,7 @@
 # ESTIMATES computed by API Evangelist — not published by the provider. See `note` and `replace_by`.
 generated: '2026-09-20'
 method: estimated
+name: Nutanix API Plans
 estimator: 'planning/api-economics/estimate_prices.py — design: ESTIMATION.md'
 note: ESTIMATES, not quotes. Computed by API Evangelist from the prices this provider publishes on https://www.nutanix.com/products/nutanix-cloud-clusters/pricing
   (transcribed in plans/nutanix-plans-pricing.yml). Nothing here overrides a published price. Each estimate
@@ -49,3 +50,4 @@ estimates:
       point: 0.01
       high: 0.05
     note: share of the published ceiling actually used
+plans: []

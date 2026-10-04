@@ -1,0 +1,31 @@
+generated: '2026-10-04'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/nutanix-vms-api-openapi.yml
+skills:
+- file: skills/nutanix-create-vm-and-power-on.md
+  name: nutanix-create-vm-and-power-on
+  api: openapi/nutanix-vms-api-openapi.yml
+  operations:
+  - createVm
+  - setVmPowerState
+- file: skills/nutanix-projects-fetch-details.md
+  name: nutanix-projects-fetch-details
+  api: openapi/nutanix-projects-api-openapi.yml
+  operations:
+  - listProjects
+  - getProject
+- file: skills/nutanix-create-webhook.md
+  name: nutanix-create-webhook
+  api: openapi/nutanix-webhooks-api-openapi.yml
+  operations:
+  - createWebhook
+  - getWebhook
+- file: skills/nutanix-images-manage.md
+  name: nutanix-images-manage
+  api: openapi/nutanix-images-api-openapi.yml
+  operations:
+  - listImages
+  - createImage
+  - getImage
+  - deleteImage

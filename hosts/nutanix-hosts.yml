@@ -1,0 +1,226 @@
+generated: '2026-10-04'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 17
+  own: 12
+  other_domain: 2
+  platform: 3
+  roles:
+  - api
+  - community
+  - docs
+  - identity
+  - other
+  - partner
+  - portal
+  - source
+  - status
+  - website
+hosts:
+- host: api.nutanix.com
+  found_by:
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types: []
+  serves:
+  - api
+  registrable_domain: nutanix.com
+  role: api
+  relation: own
+- host: api.nutanix.dev
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: nutanix.dev
+  role: api
+  relation: other-domain
+- host: console.nutanix.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: nutanix.com
+  role: other
+  relation: own
+- host: developers.nutanix.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types:
+  - DeveloperPortal
+  - LlmsText
+  serves:
+  - docs
+  registrable_domain: nutanix.com
+  role: portal
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - MCPServer
+  - MCPDocumentation
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: ir.nutanix.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: nutanix.com
+  role: other
+  relation: own
+- host: my.nutanix.com
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - Login
+  - Signup
+  serves: []
+  registrable_domain: nutanix.com
+  role: identity
+  relation: own
+- host: next.nutanix.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Community
+  serves:
+  - cdn
+  vendor: cloudfront
+  registrable_domain: nutanix.com
+  role: community
+  relation: own
+- host: nutanix.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: nutanix.com
+  role: other
+  relation: own
+- host: partner.nutanix.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: nutanix.com
+  role: partner
+  relation: own
+- host: partnerportal.nutanix.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: nutanix.com
+  role: other
+  relation: own
+- host: portal.nutanix.com
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: nutanix.com
+  role: other
+  relation: own
+- host: status.nutanix.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: nutanix.com
+  role: status
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: www.nutanix.com
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - TrustCenter
+  - Security
+  - Newsroom
+  - Leadership
+  - Pricing
+  - Website
+  - Support
+  - TermsOfService
+  serves:
+  - docs
+  - cdn
+  vendor: akamai
+  registrable_domain: nutanix.com
+  role: website
+  relation: own
+- host: www.nutanix.dev
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - Documentation
+  - GettingStarted
+  - Reference
+  - CodeExamples
+  - ChangeLog
+  - Blog
+  serves:
+  - docs
+  registrable_domain: nutanix.dev
+  role: docs
+  relation: other-domain
+- host: www.postman.com
+  found_by:
+  - pointer
+  types:
+  - PostmanWorkspace
+  serves: []
+  registrable_domain: postman.com
+  role: other
+  relation: platform

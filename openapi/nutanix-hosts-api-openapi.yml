@@ -137,22 +137,6 @@ paths:
           default: localhost
           description: IP address or FQDN of the Nutanix cluster or CVM.
 components:
-  parameters:
-    Uuid:
-      name: uuid
-      in: path
-      required: true
-      description: The UUID of the entity.
-      schema:
-        type: string
-        format: uuid
-    EntityId:
-      name: id
-      in: path
-      required: true
-      description: The ID of the entity.
-      schema:
-        type: string
   schemas:
     ListMetadata:
       type: object
@@ -182,6 +166,25 @@ components:
         sort_attribute:
           type: string
           description: The attribute to sort results by.
+    PaginationMetadata:
+      type: object
+      description: Pagination metadata for list responses.
+      properties:
+        grand_total_entities:
+          type: integer
+          description: Total number of entities.
+        total_entities:
+          type: integer
+          description: Number of entities in the current response.
+        count:
+          type: integer
+          description: Count of entities returned.
+        start_index:
+          type: integer
+          description: Starting index of the returned entities.
+        end_index:
+          type: integer
+          description: Ending index of the returned entities.
     Host:
       type: object
       description: A physical host in the Nutanix cluster.
@@ -219,25 +222,22 @@ components:
         hypervisor_type:
           type: string
           description: Type of hypervisor running on the host.
-    PaginationMetadata:
-      type: object
-      description: Pagination metadata for list responses.
-      properties:
-        grand_total_entities:
-          type: integer
-          description: Total number of entities.
-        total_entities:
-          type: integer
-          description: Number of entities in the current response.
-        count:
-          type: integer
-          description: Count of entities returned.
-        start_index:
-          type: integer
-          description: Starting index of the returned entities.
-        end_index:
-          type: integer
-          description: Ending index of the returned entities.
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
+    EntityId:
+      name: id
+      in: path
+      required: true
+      description: The ID of the entity.
+      schema:
+        type: string
   securitySchemes:
     basicAuth:
       type: http

@@ -2,6 +2,7 @@
 generated: '2026-09-20'
 method: searched
 source: https://www.nutanix.com/products/nutanix-cloud-clusters/pricing
+name: Nutanix API Plans
 sources:
 - https://www.nutanix.com/products/nutanix-cloud-clusters/pricing
 provenance:

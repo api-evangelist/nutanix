@@ -253,57 +253,46 @@ paths:
           default: localhost
           description: IP address or FQDN of the Nutanix cluster or CVM.
 components:
-  parameters:
-    Uuid:
-      name: uuid
-      in: path
-      required: true
-      description: The UUID of the entity.
-      schema:
-        type: string
-        format: uuid
-    EntityId:
-      name: id
-      in: path
-      required: true
-      description: The ID of the entity.
-      schema:
-        type: string
   schemas:
-    VmIntentInput:
+    ListMetadata:
       type: object
-      description: Input for creating or updating a VM with the intent model.
-      required:
-      - spec
-      - metadata
+      description: Request body for list operations supporting server-side filtering, sorting, and pagination.
       properties:
+        kind:
+          type: string
+          description: The entity kind to list.
+        offset:
+          type: integer
+          description: Offset from the start of the entity list.
+          minimum: 0
+        length:
+          type: integer
+          description: The number of records to retrieve.
+          minimum: 1
+          maximum: 500
+        filter:
+          type: string
+          description: The filter criteria in FIQL format.
+        sort_order:
+          type: string
+          description: The sort order.
+          enum:
+          - ASCENDING
+          - DESCENDING
+        sort_attribute:
+          type: string
+          description: The attribute to sort results by.
+    VmIntentResponse:
+      type: object
+      description: Response containing VM intent status and spec.
+      properties:
+        status:
+          type: object
+          description: The current status of the VM.
         spec:
           $ref: '#/components/schemas/VmSpec'
         metadata:
           $ref: '#/components/schemas/EntityMetadata'
-    EntityMetadata:
-      type: object
-      description: Metadata for an entity.
-      properties:
-        kind:
-          type: string
-          description: The kind of entity.
-        uuid:
-          type: string
-          format: uuid
-          description: The UUID of the entity.
-        spec_version:
-          type: integer
-          description: Version number of the spec.
-        categories:
-          type: object
-          additionalProperties:
-            type: string
-          description: Categories assigned to the entity as key-value pairs.
-        owner_reference:
-          $ref: '#/components/schemas/Reference'
-        project_reference:
-          $ref: '#/components/schemas/Reference'
     VmListResponse:
       type: object
       description: Response for listing VMs.
@@ -318,17 +307,23 @@ components:
           items:
             $ref: '#/components/schemas/VmIntentResponse'
           description: List of VM intent responses.
-    VmIntentResponse:
+    Reference:
       type: object
-      description: Response containing VM intent status and spec.
+      description: A reference to another entity.
+      required:
+      - kind
+      - uuid
       properties:
-        status:
-          type: object
-          description: The current status of the VM.
-        spec:
-          $ref: '#/components/schemas/VmSpec'
-        metadata:
-          $ref: '#/components/schemas/EntityMetadata'
+        kind:
+          type: string
+          description: The kind of entity being referenced.
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID of the referenced entity.
+        name:
+          type: string
+          description: The name of the referenced entity.
     VmSpec:
       type: object
       description: VM specification describing the desired state.
@@ -414,51 +409,56 @@ components:
               description: List of NICs attached to the VM.
         cluster_reference:
           $ref: '#/components/schemas/Reference'
-    Reference:
+    VmIntentInput:
       type: object
-      description: A reference to another entity.
+      description: Input for creating or updating a VM with the intent model.
       required:
-      - kind
-      - uuid
+      - spec
+      - metadata
+      properties:
+        spec:
+          $ref: '#/components/schemas/VmSpec'
+        metadata:
+          $ref: '#/components/schemas/EntityMetadata'
+    EntityMetadata:
+      type: object
+      description: Metadata for an entity.
       properties:
         kind:
           type: string
-          description: The kind of entity being referenced.
+          description: The kind of entity.
         uuid:
           type: string
           format: uuid
-          description: The UUID of the referenced entity.
-        name:
-          type: string
-          description: The name of the referenced entity.
-    ListMetadata:
-      type: object
-      description: Request body for list operations supporting server-side filtering, sorting, and pagination.
-      properties:
-        kind:
-          type: string
-          description: The entity kind to list.
-        offset:
+          description: The UUID of the entity.
+        spec_version:
           type: integer
-          description: Offset from the start of the entity list.
-          minimum: 0
-        length:
-          type: integer
-          description: The number of records to retrieve.
-          minimum: 1
-          maximum: 500
-        filter:
-          type: string
-          description: The filter criteria in FIQL format.
-        sort_order:
-          type: string
-          description: The sort order.
-          enum:
-          - ASCENDING
-          - DESCENDING
-        sort_attribute:
-          type: string
-          description: The attribute to sort results by.
+          description: Version number of the spec.
+        categories:
+          type: object
+          additionalProperties:
+            type: string
+          description: Categories assigned to the entity as key-value pairs.
+        owner_reference:
+          $ref: '#/components/schemas/Reference'
+        project_reference:
+          $ref: '#/components/schemas/Reference'
+  parameters:
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the entity.
+      schema:
+        type: string
+        format: uuid
+    EntityId:
+      name: id
+      in: path
+      required: true
+      description: The ID of the entity.
+      schema:
+        type: string
   securitySchemes:
     basicAuth:
       type: http

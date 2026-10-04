@@ -1,0 +1,48 @@
+generated: '2026-10-04'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/nutanix-alerts-api-openapi.yml
+- openapi/nutanix-categories-api-openapi.yml
+- openapi/nutanix-clusters-api-openapi.yml
+- openapi/nutanix-hosts-api-openapi.yml
+- openapi/nutanix-images-api-openapi.yml
+- openapi/nutanix-network-security-rules-api-openapi.yml
+- openapi/nutanix-projects-api-openapi.yml
+- openapi/nutanix-protection-domains-api-openapi.yml
+- openapi/nutanix-snapshots-api-openapi.yml
+- openapi/nutanix-storage-containers-api-openapi.yml
+- openapi/nutanix-storage-pools-api-openapi.yml
+- openapi/nutanix-subnets-api-openapi.yml
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 54
+  statuses_declared: 4
+problems:
+- status: 400
+  title: Bad Request
+  description: Bad request
+  operations: 8
+  media_types: []
+  schema: null
+- status: 401
+  title: Unauthorized
+  description: Unauthorized
+  operations: 54
+  media_types: []
+  schema: null
+- status: 404
+  title: Not Found
+  description: VM not found
+  operations: 28
+  media_types: []
+  schema: null
+- status: 500
+  title: Internal Server Error
+  description: Internal server error
+  operations: 1
+  media_types: []
+  schema: null

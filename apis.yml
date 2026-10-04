@@ -1,11 +1,13 @@
 aid: nutanix
+
 name: Nutanix
-description: >-
-  Nutanix is a hyper-converged infrastructure solution that integrates compute, virtualization, storage, networking, and
-  security to power enterprise applications. Nutanix provides public APIs for managing and automating infrastructure
-  including Prism Central, Prism Element, Karbon Kubernetes, Nutanix Database Service (NDB), Cloud Clusters (NC2), NCM
-  Self-Service, and the GA v4 API platform.
+
+description: Nutanix is a hyper-converged infrastructure solution that integrates compute, virtualization, storage, networking, and security to
+  power enterprise applications. Nutanix provides public APIs for managing and automating infrastructure including Prism Central, Prism Element,
+  Karbon Kubernetes, Nutanix Database Service (NDB), Cloud Clusters (NC2), NCM Self-Service, and the GA v4 API platform.
+
 type: Index
+
 deliveryModel:
   model: saas
   open_source: false
@@ -18,6 +20,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: free-trial
   onboarding: self-serve
@@ -31,35 +34,143 @@ accessModel:
   - authentication
   generated: '2026-07-22'
   method: derived
+
 position: Producing
+
 access: 1st-Party
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nutanix.png
+
 tags:
-  - Cloud Management
-  - Hyperconverged
-  - Infrastructure
-  - Virtualization
-  - Kubernetes
-  - Database
-  - Data Center
+- Cloud Management
+- Hyperconverged
+- Infrastructure
+- Virtualization
+- Kubernetes
+- Database
+- Data Center
+
 tags_raw:
-  - Cloud Management
-  - Hyperconverged
-  - Infrastructure
-  - Virtualization
-  - Kubernetes
-  - Database
-  - Data Center
+- Cloud Management
+- Hyperconverged
+- Infrastructure
+- Virtualization
+- Kubernetes
+- Database
+- Data Center
+
 url: https://raw.githubusercontent.com/api-evangelist/nutanix/refs/heads/main/apis.yml
+
 created: '2025-03-14'
+
 modified: '2026-08-15'
+
 specificationVersion: '0.23'
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+common:
+- type: PrivacyPolicy
+  url: https://www.nutanix.com/trust/privacy
+- type: FinOps
+  url: finops/nutanix-finops.yml
+- type: Spectral
+  url: rules/nutanix-rules.yml
+- type: Spectral
+  url: rules/nutanix-jsonschema-spectral-rules.yml
+- type: JSONLD
+  url: json-ld/nutanix-context.jsonld
+- type: Vocabulary
+  url: vocabulary/nutanix-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/nutanix-data-model.yml
+- type: ErrorCatalog
+  url: errors/nutanix-problem-types.yml
+- type: Conformance
+  url: conformance/nutanix-conformance.yml
+- type: SecurityTxt
+  url: well-known/nutanix-status-security.txt
+- type: WellKnown
+  url: well-known/nutanix-well-known.yml
+- type: Hosts
+  url: hosts/nutanix-hosts.yml
+- type: Vendors
+  url: vendors/nutanix-vendors.yml
+- type: TrustCenter
+  url: https://www.nutanix.com/trust
+- type: Security
+  url: https://www.nutanix.com/products/security
+- type: Newsroom
+  url: https://www.nutanix.com/newsroom
+- type: Leadership
+  url: https://www.nutanix.com/company/leadership
+- type: RateLimits
+  url: rate-limits/nutanix-rate-limits.yml
+- type: Pricing
+  url: https://www.nutanix.com/products/nutanix-cloud-clusters/pricing
+- type: Plans
+  url: plans/nutanix-plans-pricing.yml
+- type: CapabilityMap
+  url: capabilities/nutanix-capability-edges.yml
+  name: Nutanix Business Capability Map
+- type: MCPServer
+  name: Nutanix MCP Server
+  url: https://github.com/nutanix/ntnx-api-mcp-server
+- type: MCPDocumentation
+  name: Nutanix MCP Server Documentation
+  url: https://github.com/nutanix/ntnx-api-mcp-server/blob/main/docs/quickstart.md
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/nutanix/overview
+- type: AgenticAccess
+  url: agentic-access/nutanix-agentic-access.yml
+- type: DomainSecurity
+  url: security/nutanix-domain-security.yml
+- type: Authentication
+  url: authentication/nutanix-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/nutanix
+- type: Website
+  url: https://www.nutanix.com
+- type: Documentation
+  url: https://www.nutanix.dev/
+- type: GettingStarted
+  url: https://www.nutanix.dev/nutanix-api-user-guide/
+- type: Reference
+  url: https://www.nutanix.dev/api_references/
+- type: CodeExamples
+  url: https://www.nutanix.dev/code_samples/
+- type: ChangeLog
+  url: https://www.nutanix.dev/api-versions/
+- type: Blog
+  url: https://www.nutanix.dev/blog/
+- type: Community
+  url: https://next.nutanix.com/
+- type: Support
+  url: https://www.nutanix.com/support-services/product-support
+- type: StatusPage
+  url: https://status.nutanix.com/
+- type: Login
+  url: https://my.nutanix.com/
+- type: Signup
+  url: https://my.nutanix.com/page/signup
+- type: GitHubOrganization
+  url: https://github.com/nutanix
+- type: DeveloperPortal
+  url: https://developers.nutanix.com/
+- type: TermsOfService
+  url: https://www.nutanix.com/legal/terms-of-use
+- type: LlmsText
+  url: https://developers.nutanix.com/llms.txt
+
 apis:
 - aid: nutanix:prism-central-v4
   name: Nutanix Prism Central API V4
-  description: >-
-    The next-generation v4 API for managing the Nutanix Cloud Platform through Prism Central with GA SDKs
-    for Python, Java, Go, and JavaScript. The v4 API is now the recommended version for production environments.
+  description: The next-generation v4 API for managing the Nutanix Cloud Platform through Prism Central with GA SDKs for Python, Java, Go, and
+    JavaScript. The v4 API is now the recommended version for production environments.
   humanURL: https://www.nutanix.dev/api-reference-v4/
   baseURL: https://{{prism-central-ip}}:9440/api
   tags:
@@ -79,9 +190,7 @@ apis:
     url: https://developers.nutanix.com/
 - aid: nutanix:karbon
   name: Nutanix Karbon API
-  description: >-
-    API for managing Kubernetes clusters through Nutanix Karbon, including cluster lifecycle, upgrades,
-    and configuration.
+  description: API for managing Kubernetes clusters through Nutanix Karbon, including cluster lifecycle, upgrades, and configuration.
   humanURL: https://www.nutanix.dev/api_references/karbon/
   tags:
   - Container Management
@@ -92,9 +201,8 @@ apis:
     url: https://www.nutanix.dev/api_references/karbon/
 - aid: nutanix:ndb
   name: Nutanix Database Service API
-  description: >-
-    REST API for Nutanix Database Service (NDB) providing database-as-a-service capabilities for PostgreSQL,
-    MySQL, SQL Server, Oracle, and MongoDB.
+  description: REST API for Nutanix Database Service (NDB) providing database-as-a-service capabilities for PostgreSQL, MySQL, SQL Server, Oracle,
+    and MongoDB.
   humanURL: https://www.nutanix.dev/api_reference/apis/ndb0.9.html
   tags:
   - Database
@@ -107,9 +215,7 @@ apis:
     url: https://www.nutanix.dev/api_reference/apis/ndb0.9.html
 - aid: nutanix:nc2
   name: Nutanix Cloud Clusters API
-  description: >-
-    REST API for Nutanix Cloud Clusters (NC2), enabling creation and management of Nutanix clusters on
-    AWS and Azure public clouds.
+  description: REST API for Nutanix Cloud Clusters (NC2), enabling creation and management of Nutanix clusters on AWS and Azure public clouds.
   humanURL: https://www.nutanix.dev/api_reference/apis/nc2.html
   baseURL: https://api.nutanix.com
   tags:
@@ -121,9 +227,8 @@ apis:
     url: https://www.nutanix.dev/api_reference/apis/nc2.html
 - aid: nutanix:ncm-self-service
   name: Nutanix NCM Self-Service API
-  description: >-
-    API for Nutanix Cloud Manager Self-Service (formerly Calm), enabling automation of application deployment
-    and lifecycle management through blueprints and runbooks.
+  description: API for Nutanix Cloud Manager Self-Service (formerly Calm), enabling automation of application deployment and lifecycle management
+    through blueprints and runbooks.
   humanURL: https://www.nutanix.dev/api_references/ncm-self-service/
   tags:
   - Automation
@@ -135,8 +240,7 @@ apis:
     url: https://www.nutanix.dev/api_references/ncm-self-service/
 - aid: nutanix:foundation
   name: Nutanix Foundation API
-  description: >-
-    API for Foundation and Foundation Central, enabling automated cluster deployment and remote node imaging.
+  description: API for Foundation and Foundation Central, enabling automated cluster deployment and remote node imaging.
   humanURL: https://www.nutanix.dev/api_references/foundation/
   tags:
   - Cluster Deployment
@@ -162,9 +266,7 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-element/
 - aid: nutanix:nutanix-categories-api
   name: Nutanix Categories API
-  description: >-
-    Manage categories and category values used for tagging and organizing resources across the Nutanix
-    environment.
+  description: Manage categories and category values used for tagging and organizing resources across the Nutanix environment.
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
@@ -180,8 +282,7 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-element/
 - aid: nutanix:nutanix-clusters-api
   name: Nutanix Clusters API
-  description: >-
-    Retrieve and manage Nutanix cluster configurations and metadata across the Prism Central deployment.
+  description: Retrieve and manage Nutanix cluster configurations and metadata across the Prism Central deployment.
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
@@ -197,6 +298,14 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
+  - type: JSONSchema
+    url: json-schema/nutanix-list-metadata-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-cluster-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-cluster-intent-response-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-cluster-list-response-schema.json
 - aid: nutanix:nutanix-hosts-api
   name: Nutanix Hosts API
   description: Retrieve information about physical hosts in the Nutanix cluster infrastructure.
@@ -213,10 +322,15 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
+  - type: JSONSchema
+    url: json-schema/nutanix-host-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-list-metadata-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-pagination-metadata-schema.json
 - aid: nutanix:nutanix-images-api
   name: Nutanix Images API
-  description: >-
-    Manage disk images distributed across clusters for VM provisioning, including ISO and disk image uploads.
+  description: Manage disk images distributed across clusters for VM provisioning, including ISO and disk image uploads.
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
@@ -232,10 +346,15 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
+  - type: JSONSchema
+    url: json-schema/nutanix-list-metadata-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-image-intent-input-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-image-list-response-schema.json
 - aid: nutanix:nutanix-network-security-rules-api
   name: Nutanix Network Security Rules API
-  description: >-
-    Manage Flow microsegmentation policies that control network traffic between VMs based on categories.
+  description: Manage Flow microsegmentation policies that control network traffic between VMs based on categories.
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
@@ -249,11 +368,11 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
+  - type: JSONSchema
+    url: json-schema/nutanix-list-metadata-schema.json
 - aid: nutanix:nutanix-projects-api
   name: Nutanix Projects API
-  description: >-
-    Manage projects that define resource quotas, user access, and infrastructure boundaries for self-service
-    consumption.
+  description: Manage projects that define resource quotas, user access, and infrastructure boundaries for self-service consumption.
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
@@ -269,11 +388,11 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
+  - type: JSONSchema
+    url: json-schema/nutanix-list-metadata-schema.json
 - aid: nutanix:nutanix-protection-domains-api
   name: Nutanix Protection Domains API
-  description: >-
-    Manage protection domains that define groups of VMs and volume groups for data protection and disaster
-    recovery.
+  description: Manage protection domains that define groups of VMs and volume groups for data protection and disaster recovery.
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
@@ -305,9 +424,7 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-element/
 - aid: nutanix:nutanix-storage-containers-api
   name: Nutanix Storage Containers API
-  description: >-
-    Manage storage containers that provide logical storage partitions within the Nutanix distributed storage
-    fabric.
+  description: Manage storage containers that provide logical storage partitions within the Nutanix distributed storage fabric.
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
@@ -321,10 +438,15 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
+  - type: JSONSchema
+    url: json-schema/nutanix-storage-container-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-storage-container-input-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-pagination-metadata-schema.json
 - aid: nutanix:nutanix-storage-pools-api
   name: Nutanix Storage Pools API
-  description: >-
-    Manage storage pools which represent groups of physical disks used for storing data across the cluster.
+  description: Manage storage pools which represent groups of physical disks used for storing data across the cluster.
   humanURL: https://www.nutanix.dev/api_references/prism-central-v3/
   baseURL: https://{{prism-central-ip}}:9440/api/nutanix/v3
   tags:
@@ -354,6 +476,12 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
+  - type: JSONSchema
+    url: json-schema/nutanix-subnet-intent-input-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-list-metadata-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-subnet-list-response-schema.json
 - aid: nutanix:nutanix-virtual-disks-api
   name: Nutanix Virtual Disks API
   description: Manage virtual disks including disk statistics and configuration within the cluster.
@@ -388,11 +516,11 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
+  - type: JSONSchema
+    url: json-schema/nutanix-list-metadata-schema.json
 - aid: nutanix:nutanix-vms-api
   name: Nutanix V Ms API
-  description: >-
-    Manage virtual machines including creation, update, deletion, and power state operations through the
-    intent-based API model.
+  description: Manage virtual machines including creation, update, deletion, and power state operations through the intent-based API model.
   humanURL: https://www.nutanix.dev/api-reference-v4/
   baseURL: https://{{prism-central-ip}}:9440/api
   tags:
@@ -406,68 +534,17 @@ apis:
     url: https://www.nutanix.dev/api_references/prism-central-v3/#authentication
   - type: Documentation
     url: https://www.nutanix.dev/api_references/prism-element/
-common:
-  - type: RateLimits
-    url: rate-limits/nutanix-rate-limits.yml
-  - type: Pricing
-    url: https://www.nutanix.com/products/nutanix-cloud-clusters/pricing
-  - type: Plans
-    url: plans/nutanix-plans-pricing.yml
-  - type: CapabilityMap
-    url: capabilities/nutanix-capability-edges.yml
-    name: Nutanix Business Capability Map
-  - type: MCPServer
-    name: Nutanix MCP Server
-    url: https://github.com/nutanix/ntnx-api-mcp-server
-  - type: MCPDocumentation
-    name: Nutanix MCP Server Documentation
-    url: https://github.com/nutanix/ntnx-api-mcp-server/blob/main/docs/quickstart.md
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/nutanix/overview
-  - type: AgenticAccess
-    url: agentic-access/nutanix-agentic-access.yml
-  - type: DomainSecurity
-    url: security/nutanix-domain-security.yml
-  - type: Authentication
-    url: authentication/nutanix-authentication.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/nutanix
-  - type: Website
-    url: https://www.nutanix.com
-  - type: Documentation
-    url: https://www.nutanix.dev/
-  - type: GettingStarted
-    url: https://www.nutanix.dev/nutanix-api-user-guide/
-  - type: SDKs
-    url: https://www.nutanix.dev/sdk_reference/
-  - type: Reference
-    url: https://www.nutanix.dev/api_references/
-  - type: CodeExamples
-    url: https://www.nutanix.dev/code_samples/
-  - type: ChangeLog
-    url: https://www.nutanix.dev/api-versions/
-  - type: Blog
-    url: https://www.nutanix.dev/blog/
-  - type: Community
-    url: https://next.nutanix.com/
-  - type: Support
-    url: https://www.nutanix.com/support-services/product-support
-  - type: StatusPage
-    url: https://status.nutanix.com/
-  - type: Login
-    url: https://my.nutanix.com/
-  - type: Signup
-    url: https://my.nutanix.com/page/signup
-  - type: GitHubOrganization
-    url: https://github.com/nutanix
-  - type: DeveloperPortal
-    url: https://developers.nutanix.com/
-  - type: TermsOfService
-    url: https://www.nutanix.com/legal/terms-of-use
-  - type: PrivacyPolicy
-    url: https://www.nutanix.com/legal/privacy-notice
-  - type: LlmsText
-    url: https://developers.nutanix.com/llms.txt
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+  - type: JSONSchema
+    url: json-schema/nutanix-list-metadata-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-vm-list-response-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-vm-intent-response-schema.json
+  - type: JSONSchema
+    url: json-schema/nutanix-vm-intent-input-schema.json
+x-enrichment:
+  date: '2026-10-04'
+  status: enriched
+  artifacts_added: 29
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/nutanix/main/json-schema/nutanix-cluster-intent-response-schema.json",
+  "title": "ClusterIntentResponse",
+  "description": "Response containing cluster intent status and spec.",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/nutanix-clusters-api-openapi.yml#/components/schemas/ClusterIntentResponse",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "object",
+      "description": "The current status of the cluster."
+    },
+    "spec": {
+      "type": "object",
+      "description": "The cluster specification."
+    },
+    "metadata": {
+      "$ref": "#/$defs/EntityMetadata"
+    }
+  },
+  "$defs": {
+    "EntityMetadata": {
+      "type": "object",
+      "description": "Metadata for an entity.",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "The kind of entity."
+        },
+        "uuid": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The UUID of the entity."
+        },
+        "spec_version": {
+          "type": "integer",
+          "description": "Version number of the spec."
+        },
+        "categories": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Categories assigned to the entity as key-value pairs."
+        },
+        "owner_reference": {
+          "$ref": "#/$defs/Reference"
+        },
+        "project_reference": {
+          "$ref": "#/$defs/Reference"
+        }
+      }
+    },
+    "Reference": {
+      "type": "object",
+      "description": "A reference to another entity.",
+      "required": [
+        "kind",
+        "uuid"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "The kind of entity being referenced."
+        },
+        "uuid": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The UUID of the referenced entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the referenced entity."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+generated: '2026-10-04'
+method: probed
+source: pre-flight dossier (docs platform, portal detections) + CNAME chains and response headers of the hosts apis.yml names
+registry: all/0-working/vendors.yml
+areas_vocabulary:
+- documentation
+- developer-portal
+- api-gateway
+- cdn
+- hosting
+- sdk-generation
+- api-collections
+- status-page
+- support
+- community
+- identity
+- mcp-hosting
+vendors:
+- vendor: akamai
+  name: Akamai
+  area: cdn
+  host: www.nutanix.com
+  evidence: cname:akamaiedge.net
+  signal: cname
+  confidence: high
+  kin_score: []
+- vendor: cloudfront
+  name: Amazon CloudFront
+  area: cdn
+  host: next.nutanix.com
+  evidence: cname:cloudfront.net
+  signal: cname
+  confidence: high
+  kin_score: []
+- vendor: fastly
+  name: Fastly
+  area: cdn
+  host: www.nutanix.com
+  evidence: header:x-served-by:cache-
+  signal: header
+  confidence: high
+  kin_score: []
+reliance:
+  areas_vendor_served:
+  - cdn
+  vendor_count: 3
+  areas_observed: 12
+  share_of_observable_areas: 0.083
+  note: areas where a third party was DETECTED serving this provider; an area absent here was either self-run or not observed, and this script
+    cannot tell those apart
+checked:
+- 'docs-platform: custom'
+- www.nutanix.com (Website)
+- www.nutanix.dev (Documentation)
+- www.nutanix.dev (GettingStarted)
+- next.nutanix.com (Community)
+- www.nutanix.com (Support)
+- status.nutanix.com (StatusPage)
+- my.nutanix.com (Login)
+- developers.nutanix.com (DeveloperPortal)
+- '{{prism-central-ip}}:9440 (baseURL)'
+- api.nutanix.com (baseURL)

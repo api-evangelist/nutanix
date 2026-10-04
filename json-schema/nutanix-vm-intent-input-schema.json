@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/nutanix/main/json-schema/nutanix-vm-intent-input-schema.json",
+  "title": "VmIntentInput",
+  "description": "Input for creating or updating a VM with the intent model.",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/nutanix-vms-api-openapi.yml#/components/schemas/VmIntentInput",
+  "type": "object",
+  "required": [
+    "spec",
+    "metadata"
+  ],
+  "properties": {
+    "spec": {
+      "$ref": "#/$defs/VmSpec"
+    },
+    "metadata": {
+      "$ref": "#/$defs/EntityMetadata"
+    }
+  },
+  "$defs": {
+    "EntityMetadata": {
+      "type": "object",
+      "description": "Metadata for an entity.",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "The kind of entity."
+        },
+        "uuid": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The UUID of the entity."
+        },
+        "spec_version": {
+          "type": "integer",
+          "description": "Version number of the spec."
+        },
+        "categories": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Categories assigned to the entity as key-value pairs."
+        },
+        "owner_reference": {
+          "$ref": "#/$defs/Reference"
+        },
+        "project_reference": {
+          "$ref": "#/$defs/Reference"
+        }
+      }
+    },
+    "Reference": {
+      "type": "object",
+      "description": "A reference to another entity.",
+      "required": [
+        "kind",
+        "uuid"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "The kind of entity being referenced."
+        },
+        "uuid": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The UUID of the referenced entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the referenced entity."
+        }
+      }
+    },
+    "VmSpec": {
+      "type": "object",
+      "description": "VM specification describing the desired state.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the VM."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the VM."
+        },
+        "resources": {
+          "type": "object",
+          "description": "VM resource configuration.",
+          "properties": {
+            "num_sockets": {
+              "type": "integer",
+              "description": "Number of vCPU sockets.",
+              "minimum": 1
+            },
+            "num_vcpus_per_socket": {
+              "type": "integer",
+              "description": "Number of vCPUs per socket.",
+              "minimum": 1
+            },
+            "memory_size_mib": {
+              "type": "integer",
+              "description": "Memory size in MiB.",
+              "minimum": 1
+            },
+            "power_state": {
+              "type": "string",
+              "description": "The desired power state of the VM.",
+              "enum": [
+                "ON",
+                "OFF"
+              ]
+            },
+            "disk_list": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "device_properties": {
+                    "type": "object",
+                    "properties": {
+                      "device_type": {
+                        "type": "string",
+                        "enum": [
+                          "DISK",
+                          "CDROM"
+                        ]
+                      },
+                      "disk_address": {
+                        "type": "object",
+                        "properties": {
+                          "adapter_type": {
+                            "type": "string",
+                            "enum": [
+                              "SCSI",
+                              "IDE",
+                              "PCI",
+                              "SATA",
+                              "SPAPR"
+                            ]
+                          },
+                          "device_index": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "disk_size_mib": {
+                    "type": "integer",
+                    "description": "Size of the disk in MiB."
+                  }
+                }
+              },
+              "description": "List of disks attached to the VM."
+            },
+            "nic_list": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "subnet_reference": {
+                    "$ref": "#/$defs/Reference"
+                  },
+                  "ip_endpoint_list": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "ip": {
+                          "type": "string",
+                          "description": "IP address."
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "ASSIGNED",
+                            "LEARNED"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "description": "List of NICs attached to the VM."
+            }
+          }
+        },
+        "cluster_reference": {
+          "$ref": "#/$defs/Reference"
+        }
+      }
+    }
+  }
+}

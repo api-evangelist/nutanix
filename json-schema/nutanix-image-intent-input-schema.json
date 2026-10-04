@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/nutanix/main/json-schema/nutanix-image-intent-input-schema.json",
+  "title": "ImageIntentInput",
+  "description": "Input for creating an image.",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/nutanix-images-api-openapi.yml#/components/schemas/ImageIntentInput",
+  "type": "object",
+  "required": [
+    "spec",
+    "metadata"
+  ],
+  "properties": {
+    "spec": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the image."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the image."
+        },
+        "resources": {
+          "type": "object",
+          "properties": {
+            "image_type": {
+              "type": "string",
+              "description": "The type of image.",
+              "enum": [
+                "DISK_IMAGE",
+                "ISO_IMAGE"
+              ]
+            },
+            "source_uri": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL to download the image from."
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "$ref": "#/$defs/EntityMetadata"
+    }
+  },
+  "$defs": {
+    "EntityMetadata": {
+      "type": "object",
+      "description": "Metadata for an entity.",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "The kind of entity."
+        },
+        "uuid": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The UUID of the entity."
+        },
+        "spec_version": {
+          "type": "integer",
+          "description": "Version number of the spec."
+        },
+        "categories": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Categories assigned to the entity as key-value pairs."
+        },
+        "owner_reference": {
+          "$ref": "#/$defs/Reference"
+        },
+        "project_reference": {
+          "$ref": "#/$defs/Reference"
+        }
+      }
+    },
+    "Reference": {
+      "type": "object",
+      "description": "A reference to another entity.",
+      "required": [
+        "kind",
+        "uuid"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "The kind of entity being referenced."
+        },
+        "uuid": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The UUID of the referenced entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the referenced entity."
+        }
+      }
+    }
+  }
+}

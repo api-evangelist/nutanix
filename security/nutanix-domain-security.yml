@@ -1,4 +1,4 @@
-generated: '2026-07-11'
+generated: '2026-10-04'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
@@ -20,12 +20,12 @@ domains:
 - domain: nutanix.com
   dnssec: false
   caa:
-  - 0 iodef "mailto:security@nutanix.com"
   - 0 issue "amazon.com"
   - 0 issue "certainly.com"
   - 0 issue "digicert.com"
   - 0 issue "letsencrypt.org"
   - 0 issue "pki.goog"
+  - 0 issue "sectigo.com"
   spf: true
   dmarc: true
   dmarc_policy: none
