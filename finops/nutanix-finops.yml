@@ -179,10 +179,8 @@ apis:
 unitEconomics:
   - name: Cost per VM-month (on-prem)
     metric: nci_subscription_cost / running_vms
-    target: track against AWS/Azure equivalent for buy/burst decisions
   - name: Cost per NC2 cluster-hour
     metric: nc2_software_hours_cost + nc2_cloud_infra_cost / nc2_active_clusters
-    target: minimize via reserved instances on AWS/Azure for steady-state
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
