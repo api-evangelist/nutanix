@@ -143,3 +143,163 @@ plans:
   price_text: For specific pricing details, please contact Nutanix directly.
   period: none
   included_quota: Term based licensing (1 to 5 yrs) with capacity based pricing
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units:
+  - compute
+  plans:
+  - name: NC2 on AWS i3.metal — NCI Pro/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on AWS i3.metal — NCI Ult/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on AWS i3.metal — NCI Security add-on/node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on AWS i3.metal — NCI Adv Replication add-on/node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on AWS i3en.metal / m5d.metal / g4dn.metal — NCI Pro/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on AWS i3en.metal — NCI Ult/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on AWS z1d.metal — NCI Pro/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on AWS i4i.metal / m6id.metal — NCI Pro/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on AWS i4i.metal — NCI Ult/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on AWS i7i.metal-48xl — NCI Pro/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on AWS i7i.metal-48xl — NCI Ult/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on Azure AN36 — NCI Pro/Node (yearly)
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - year
+  - name: NC2 on Azure AN64 — NCI Ult/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on Google Cloud C3-metal — NCI Ult/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on Google Cloud C4-metal — NCI Pro/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NC2 on Google Cloud C4-metal — NCI Ult/Node
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: EUC Ultimate (PAYG)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: NUS Pro (PAYG)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Multi-Year License Portability (BYOL)
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
