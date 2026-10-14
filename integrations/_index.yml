@@ -27,3 +27,28 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: nutanix-crowdstrike-own
+  label: CrowdStrike (own)
+  partner: crowdstrike
+  partner_name: CrowdStrike (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.crowdstrike.com/listings/nutanix-cloud-platform/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: nutanix-splunk-own
+  label: Splunk (own)
+  partner: splunk
+  partner_name: Splunk (own)
+  category: app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://splunkbase.splunk.com/app/8355/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
