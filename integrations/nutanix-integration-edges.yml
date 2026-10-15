@@ -10,6 +10,9 @@ checked:
 - https://github.com/kubeflow/website
 - https://github.com/lfai/landscape
 - https://github.com/mlcommons
+- https://govramp.org/program-participants
+- https://raw.githubusercontent.com/18F/fedramp-data/4b73d9247fd6360759960e4690e3ce4ca858e0fa/data/data.json
+- https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-15/suppliers
 - splunk/integrations/splunk-integration-edges.yml
 marketplace_apps: []
 edges:
@@ -305,6 +308,46 @@ edges:
     detected_by: sweep-mlops.py
     detected: '2026-10-15'
   detected_by: sweep-mlops.py
+  first_seen: '2026-10-15'
+- partner_name: FedRAMP
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://marketplace.fedramp.gov/products/FR1824038232
+  category: FedRAMP authorization
+  contract_reference:
+    register: FedRAMP Marketplace data (github.com/18F/fedramp-data data/data.json @4b73d9247f)
+    standard: FedRAMP
+    spec_file: null
+    role: fedramp-authorized
+    registered_name: Nutanix
+    register_id: FR1824038232
+    matched_domain: nutanix.com
+    matched_by: domain
+    domain_source: website
+    designations:
+    - Compliant
+    packages:
+    - Nutanix Government Cloud Services
+    service_models:
+    - PaaS
+    - SaaS
+    paths:
+    - Agency
+    signal_note: certified_products = one entry per AUTHORIZED impact level, never per package; packages, service
+      models, paths and leveraging agencies are context, never counted. The register lists current designations
+      only (revoked / expired are removed), so lapsed is always false
+    detected_by: sweep-gov-cloud.py
+    detected: '2026-10-15'
+    certified_products:
+    - product: FedRAMP Moderate
+      impact_level: Moderate
+      lapsed: false
+      latest_authorization: '2020-03-19'
+  detected_by: sweep-gov-cloud.py
   first_seen: '2026-10-15'
 source:
 - crowdstrike/integrations/crowdstrike-integration-edges.yml
