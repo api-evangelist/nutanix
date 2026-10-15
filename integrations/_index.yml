@@ -52,3 +52,119 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: nutanix-cncf-cloud-native-landscape
+  label: CNCF (Cloud Native Landscape)
+  partner: cncf
+  partner_name: CNCF (Cloud Native Landscape)
+  category: Cloud native landscape
+  type: register
+  channel: standard-directory
+  evidence: https://github.com/cncf/landscape/blob/3a7d378b1824b82e729a453bb03fa6f1e37557e1/landscape.yml
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Cloud Native Landscape (github.com/cncf/landscape landscape.yml @3a7d378b18)
+    spec_file: null
+    standard: Cloud Native (CNCF)
+    role: cncf-member (Silver)
+    registered_name: Nutanix
+    registered_names:
+    - Nutanix
+    - Nutanix Data Services for Kubernetes (NDK)
+    - Nutanix Kubernetes Platform (NKP)
+    website: https://www.nutanix.com
+    matched_domain: nutanix.com
+    matched_by: domain
+    member_tier: Silver
+    joined: '2018-08-01'
+    end_user: false
+    cncf_projects: []
+    landscape_categories:
+    - Platform / Certified Kubernetes - Distribution
+    - Runtime / Cloud Native Storage
+    landscape_entries: 2
+    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
+      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: nutanix-cncf-kubernetes-certified-service-provider
+  label: CNCF (Kubernetes Certified Service Provider)
+  partner: cncf
+  partner_name: CNCF (Kubernetes Certified Service Provider)
+  category: Kubernetes services
+  type: register
+  channel: standard-directory
+  evidence: https://landscape.cncf.io/?group=special&view-mode=grid
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Kubernetes Certified Service Provider (github.com/cncf/landscape landscape.yml Special / Kubernetes
+      Certified Service Provider @3a7d378b18)
+    spec_file: null
+    standard: Kubernetes (KCSP)
+    role: kcsp
+    registered_name: Nutanix
+    website: https://www.nutanix.com/support-services/professional-services/cloud-native
+    matched_domain: nutanix.com
+    matched_by: domain
+    certified_products:
+    - product: Kubernetes Certified Service Provider
+      lapsed: false
+    signal_note: certified_products = ONE entry (the KCSP vetting itself), never a count
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: nutanix-cncf-certified-kubernetes
+  label: CNCF Certified Kubernetes
+  partner: cncf
+  partner_name: CNCF Certified Kubernetes
+  category: Certified Kubernetes
+  type: register
+  channel: standard-directory
+  evidence: https://github.com/cncf/k8s-conformance/tree/85d26a419e7df96137e66817b61cb22a616ce1e9/v1.36/konvoy
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @85d26a419e)
+    spec_file: null
+    standard: Kubernetes conformance
+    role: certified-kubernetes
+    registered_name: Nutanix
+    website: https://www.nutanix.com/products/kubernetes-management-platform
+    matched_domain: nutanix.com
+    matched_by: domain
+    certified_products:
+    - product: distribution
+      newest_version: v1.36
+      lapsed: false
+    - product: hosted
+      newest_version: v1.30
+      lapsed: true
+    versions_certified:
+    - v1.24
+    - v1.25
+    - v1.26
+    - v1.27
+    - v1.28
+    - v1.29
+    - v1.30
+    - v1.31
+    - v1.32
+    - v1.33
+    - v1.34
+    - v1.35
+    - v1.36
+    products:
+    - Konvoy
+    - NKP
+    - Nutanix Kubernetes Engine
+    current_window: v1.34+ (newest 4 minors in the register)
+    signal_note: certified_products = one entry per product TYPE (distribution/hosted/installer), lapsed when its
+      newest certified minor is outside the current window; products and versions are context, never read
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
