@@ -7,6 +7,9 @@ checked:
 - https://focus.finops.org/data-generators/
 - https://github.com/cncf/k8s-conformance
 - https://github.com/cncf/landscape
+- https://github.com/kubeflow/website
+- https://github.com/lfai/landscape
+- https://github.com/mlcommons
 - splunk/integrations/splunk-integration-edges.yml
 marketplace_apps: []
 edges:
@@ -262,6 +265,46 @@ edges:
     detected_by: sweep-cloud-native.py
     detected: '2026-10-15'
   detected_by: sweep-cloud-native.py
+  first_seen: '2026-10-15'
+- partner_name: MLCommons MLPerf
+  partner: mlcommons
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: ML benchmark results
+  evidence: https://github.com/mlcommons/inference_results_v3.1/tree/main/closed/Nutanix
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: MLCommons MLPerf results (github.com/mlcommons/<family>_results_v<round>, closed/ + open/ submitter
+      directories)
+    spec_file: null
+    standard: MLPerf (MLCommons)
+    role: mlperf-submitter
+    registered_name: Nutanix
+    register_directories:
+    - Nutanix
+    - nutanix
+    matched_domain: nutanix.com
+    matched_by: domain
+    identity_source: wikidata Q16959629 'Nutanix' P856 http://www.nutanix.com/
+    identity_note: 'MLPerf publishes names only: domain from Wikidata P856 (labelled lookup, Kin 2026-10-15 decision
+      1), then partner_link (domain + name check)'
+    certified_products:
+    - product: MLPerf Inference (closed division)
+      newest_round: v3.1
+      lapsed: true
+    - product: MLPerf Storage (closed division)
+      newest_round: v2.0
+      lapsed: false
+    open_division_only: []
+    current_window: each family's newest 2 rounds
+    signal_note: certified_products = one entry per benchmark FAMILY with a closed-division (peer-reviewed, reference-rules)
+      result, lapsed outside the current window; open-division families, rounds and result counts are context, never
+      read
+    detected_by: sweep-mlops.py
+    detected: '2026-10-15'
+  detected_by: sweep-mlops.py
   first_seen: '2026-10-15'
 source:
 - crowdstrike/integrations/crowdstrike-integration-edges.yml
