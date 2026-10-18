@@ -7,6 +7,7 @@ checked:
 - https://focus.finops.org/data-generators/
 - https://github.com/cncf/k8s-conformance
 - https://github.com/cncf/landscape
+- https://github.com/istio/istio.io
 - https://github.com/kubeflow/website
 - https://github.com/lfai/landscape
 - https://github.com/mlcommons
@@ -349,6 +350,32 @@ edges:
       latest_authorization: '2020-03-19'
   detected_by: sweep-gov-cloud.py
   first_seen: '2026-10-15'
+- partner_name: Istio (ecosystem)
+  partner: istio
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: Service mesh ecosystem
+  evidence: https://github.com/istio/istio.io/blob/a03df1cfd4fda35a88a37b7a6486141c1c153bea/data/companies.yml
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: Istio ecosystem (github.com/istio/istio.io data/companies.yml @a03df1cfd4)
+    spec_file: null
+    standard: Istio service mesh
+    role: istio-provider
+    registered_name: Nutanix Karbon Platform Services
+    registered_names:
+    - Nutanix Karbon Platform Services
+    website: https://portal.nutanix.com/page/documents/details?targetId=Karbon-Platform-Services-Project-User-Guide:ks-ks-istio-r.html
+    matched_domain: nutanix.com
+    matched_by: domain
+    identity_source: register-url
+    signal_note: 'participation only: the ecosystem lists are context, never read'
+    detected_by: sweep-api-management.py
+    detected: '2026-10-18'
+  detected_by: sweep-api-management.py
+  first_seen: '2026-10-18'
 source:
 - crowdstrike/integrations/crowdstrike-integration-edges.yml
 - splunk/integrations/splunk-integration-edges.yml

@@ -249,3 +249,30 @@
       latest_authorization: '2020-03-19'
   status: not-a-workflow
   arazzo: null
+- slug: nutanix-istio-ecosystem
+  label: Istio (ecosystem)
+  partner: istio
+  partner_name: Istio (ecosystem)
+  category: Service mesh ecosystem
+  type: register
+  channel: standard-directory
+  evidence: https://github.com/istio/istio.io/blob/a03df1cfd4fda35a88a37b7a6486141c1c153bea/data/companies.yml
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Istio ecosystem (github.com/istio/istio.io data/companies.yml @a03df1cfd4)
+    spec_file: null
+    standard: Istio service mesh
+    role: istio-provider
+    registered_name: Nutanix Karbon Platform Services
+    registered_names:
+    - Nutanix Karbon Platform Services
+    website: https://portal.nutanix.com/page/documents/details?targetId=Karbon-Platform-Services-Project-User-Guide:ks-ks-istio-r.html
+    matched_domain: nutanix.com
+    matched_by: domain
+    identity_source: register-url
+    signal_note: 'participation only: the ecosystem lists are context, never read'
+    detected_by: sweep-api-management.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
