@@ -220,6 +220,10 @@ apis:
   baseURL: https://api.nutanix.com
   tags:
   - AWS
+  - Microsoft Azure
+  - Hybrid Cloud
+  tags_raw:
+  - AWS
   - Azure
   - Hybrid Cloud
   properties:
