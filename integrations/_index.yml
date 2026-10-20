@@ -52,163 +52,6 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
-- slug: nutanix-cncf-cloud-native-landscape
-  label: CNCF (Cloud Native Landscape)
-  partner: cncf
-  partner_name: CNCF (Cloud Native Landscape)
-  category: Cloud native landscape
-  type: register
-  channel: standard-directory
-  evidence: https://github.com/cncf/landscape/blob/3a7d378b1824b82e729a453bb03fa6f1e37557e1/landscape.yml
-  source: edge
-  relationship: standard-participant
-  contract_reference:
-    register: CNCF Cloud Native Landscape (github.com/cncf/landscape landscape.yml @3a7d378b18)
-    spec_file: null
-    standard: Cloud Native (CNCF)
-    role: cncf-member (Silver)
-    registered_name: Nutanix
-    registered_names:
-    - Nutanix
-    - Nutanix Data Services for Kubernetes (NDK)
-    - Nutanix Kubernetes Platform (NKP)
-    website: https://www.nutanix.com
-    matched_domain: nutanix.com
-    matched_by: domain
-    member_tier: Silver
-    joined: '2018-08-01'
-    end_user: false
-    cncf_projects: []
-    landscape_categories:
-    - Platform / Certified Kubernetes - Distribution
-    - Runtime / Cloud Native Storage
-    landscape_entries: 2
-    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
-      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
-    detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
-  status: not-a-workflow
-  arazzo: null
-- slug: nutanix-cncf-kubernetes-certified-service-provider
-  label: CNCF (Kubernetes Certified Service Provider)
-  partner: cncf
-  partner_name: CNCF (Kubernetes Certified Service Provider)
-  category: Kubernetes services
-  type: register
-  channel: standard-directory
-  evidence: https://landscape.cncf.io/?group=special&view-mode=grid
-  source: edge
-  relationship: standard-participant
-  contract_reference:
-    register: CNCF Kubernetes Certified Service Provider (github.com/cncf/landscape landscape.yml Special / Kubernetes
-      Certified Service Provider @3a7d378b18)
-    spec_file: null
-    standard: Kubernetes (KCSP)
-    role: kcsp
-    registered_name: Nutanix
-    website: https://www.nutanix.com/support-services/professional-services/cloud-native
-    matched_domain: nutanix.com
-    matched_by: domain
-    certified_products:
-    - product: Kubernetes Certified Service Provider
-      lapsed: false
-    signal_note: certified_products = ONE entry (the KCSP vetting itself), never a count
-    detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
-  status: not-a-workflow
-  arazzo: null
-- slug: nutanix-cncf-certified-kubernetes
-  label: CNCF Certified Kubernetes
-  partner: cncf
-  partner_name: CNCF Certified Kubernetes
-  category: Certified Kubernetes
-  type: register
-  channel: standard-directory
-  evidence: https://github.com/cncf/k8s-conformance/tree/85d26a419e7df96137e66817b61cb22a616ce1e9/v1.36/konvoy
-  source: edge
-  relationship: standard-participant
-  contract_reference:
-    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @85d26a419e)
-    spec_file: null
-    standard: Kubernetes conformance
-    role: certified-kubernetes
-    registered_name: Nutanix
-    website: https://www.nutanix.com/products/kubernetes-management-platform
-    matched_domain: nutanix.com
-    matched_by: domain
-    certified_products:
-    - product: distribution
-      newest_version: v1.36
-      lapsed: false
-    - product: hosted
-      newest_version: v1.30
-      lapsed: true
-    versions_certified:
-    - v1.24
-    - v1.25
-    - v1.26
-    - v1.27
-    - v1.28
-    - v1.29
-    - v1.30
-    - v1.31
-    - v1.32
-    - v1.33
-    - v1.34
-    - v1.35
-    - v1.36
-    products:
-    - Konvoy
-    - NKP
-    - Nutanix Kubernetes Engine
-    current_window: v1.34+ (newest 4 minors in the register)
-    signal_note: certified_products = one entry per product TYPE (distribution/hosted/installer), lapsed when its
-      newest certified minor is outside the current window; products and versions are context, never read
-    detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
-  status: not-a-workflow
-  arazzo: null
-- slug: nutanix-mlcommons-mlperf
-  label: MLCommons MLPerf
-  partner: mlcommons
-  partner_name: MLCommons MLPerf
-  category: ML benchmark results
-  type: register
-  channel: standard-directory
-  evidence: https://github.com/mlcommons/inference_results_v3.1/tree/main/closed/Nutanix
-  source: edge
-  relationship: standard-participant
-  contract_reference:
-    register: MLCommons MLPerf results (github.com/mlcommons/<family>_results_v<round>, closed/ + open/ submitter
-      directories)
-    spec_file: null
-    standard: MLPerf (MLCommons)
-    role: mlperf-submitter
-    registered_name: Nutanix
-    register_directories:
-    - Nutanix
-    - nutanix
-    matched_domain: nutanix.com
-    matched_by: domain
-    identity_source: wikidata Q16959629 'Nutanix' P856 http://www.nutanix.com/
-    identity_note: 'MLPerf publishes names only: domain from Wikidata P856 (labelled lookup, Kin 2026-10-15 decision
-      1), then partner_link (domain + name check)'
-    certified_products:
-    - product: MLPerf Inference (closed division)
-      newest_round: v3.1
-      lapsed: true
-    - product: MLPerf Storage (closed division)
-      newest_round: v2.0
-      lapsed: false
-    open_division_only: []
-    current_window: each family's newest 2 rounds
-    signal_note: certified_products = one entry per benchmark FAMILY with a closed-division (peer-reviewed, reference-rules)
-      result, lapsed outside the current window; open-division families, rounds and result counts are context, never
-      read
-    detected_by: sweep-mlops.py
-    detected: '2026-10-15'
-  status: not-a-workflow
-  arazzo: null
 - slug: nutanix-fedramp
   label: FedRAMP
   partner_name: FedRAMP
@@ -249,6 +92,164 @@
       latest_authorization: '2020-03-19'
   status: not-a-workflow
   arazzo: null
+- slug: nutanix-mlcommons-mlperf
+  label: MLCommons MLPerf
+  partner: mlcommons
+  partner_name: MLCommons MLPerf
+  category: ML benchmark results
+  type: register
+  channel: standard-directory
+  evidence: https://github.com/mlcommons/inference_results_v3.1/tree/main/closed/Nutanix
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: MLCommons MLPerf results (github.com/mlcommons/<family>_results_v<round>, closed/ + open/ submitter
+      directories)
+    spec_file: null
+    standard: MLPerf (MLCommons)
+    role: mlperf-submitter
+    registered_name: Nutanix
+    register_directories:
+    - Nutanix
+    - nutanix
+    matched_domain: nutanix.com
+    matched_by: domain
+    identity_source: wikidata Q16959629 'Nutanix' P856 http://www.nutanix.com/
+    identity_note: 'MLPerf publishes names only: domain from Wikidata P856 (labelled lookup, Kin 2026-10-15 decision
+      1), then partner_link (domain + name check)'
+    certified_products:
+    - product: MLPerf Inference (closed division)
+      newest_round: v3.1
+      lapsed: true
+    - product: MLPerf Storage (closed division)
+      newest_round: v2.0
+      lapsed: false
+    open_division_only: []
+    current_window: each family's newest 2 rounds
+    signal_note: certified_products = one entry per benchmark FAMILY with a closed-division (peer-reviewed, reference-rules)
+      result, lapsed outside the current window; open-division families, rounds and result counts are context, never
+      read
+    detected_by: sweep-mlops.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: nutanix-cncf-cloud-native-landscape
+  label: CNCF (Cloud Native Landscape)
+  partner: cncf
+  partner_name: CNCF (Cloud Native Landscape)
+  category: Cloud native landscape
+  type: register
+  channel: standard-directory
+  evidence: https://github.com/cncf/landscape/blob/42dd4cd91dad8ec8558ac02467a43f0805b9957a/landscape.yml
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Cloud Native Landscape (github.com/cncf/landscape landscape.yml @42dd4cd91d)
+    spec_file: null
+    standard: Cloud Native (CNCF)
+    role: cncf-member (Silver)
+    registered_name: Nutanix
+    registered_names:
+    - Nutanix
+    - Nutanix Data Services for Kubernetes (NDK)
+    - Nutanix Kubernetes Platform (NKP)
+    website: https://www.nutanix.com
+    matched_domain: nutanix.com
+    matched_by: domain
+    member_tier: Silver
+    joined: '2018-08-01'
+    end_user: false
+    cncf_projects: []
+    landscape_categories:
+    - Platform / Certified Kubernetes - Distribution
+    - Runtime / Cloud Native Storage
+    landscape_entries: 2
+    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
+      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: nutanix-cncf-kubernetes-certified-service-provider
+  label: CNCF (Kubernetes Certified Service Provider)
+  partner: cncf
+  partner_name: CNCF (Kubernetes Certified Service Provider)
+  category: Kubernetes services
+  type: register
+  channel: standard-directory
+  evidence: https://landscape.cncf.io/?group=special&view-mode=grid
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Kubernetes Certified Service Provider (github.com/cncf/landscape landscape.yml Special / Kubernetes
+      Certified Service Provider @42dd4cd91d)
+    spec_file: null
+    standard: Kubernetes (KCSP)
+    role: kcsp
+    registered_name: Nutanix
+    website: https://www.nutanix.com/support-services/professional-services/cloud-native
+    matched_domain: nutanix.com
+    matched_by: domain
+    certified_products:
+    - product: Kubernetes Certified Service Provider
+      lapsed: false
+    signal_note: certified_products = ONE entry (the KCSP vetting itself), never a count
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: nutanix-cncf-certified-kubernetes
+  label: CNCF Certified Kubernetes
+  partner: cncf
+  partner_name: CNCF Certified Kubernetes
+  category: Certified Kubernetes
+  type: register
+  channel: standard-directory
+  evidence: https://github.com/cncf/k8s-conformance/tree/621a55d41c23eab137118626e941b72fb8d32f89/v1.37/konvoy
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @621a55d41c)
+    spec_file: null
+    standard: Kubernetes conformance
+    role: certified-kubernetes
+    registered_name: Nutanix
+    website: https://www.nutanix.com/products/kubernetes-management-platform
+    matched_domain: nutanix.com
+    matched_by: domain
+    certified_products:
+    - product: distribution
+      newest_version: v1.37
+      lapsed: false
+    - product: hosted
+      newest_version: v1.30
+      lapsed: true
+    versions_certified:
+    - v1.24
+    - v1.25
+    - v1.26
+    - v1.27
+    - v1.28
+    - v1.29
+    - v1.30
+    - v1.31
+    - v1.32
+    - v1.33
+    - v1.34
+    - v1.35
+    - v1.36
+    - v1.37
+    products:
+    - Konvoy
+    - NKP
+    - Nutanix Kubernetes Engine
+    current_window: v1.34+ (newest 4 minors in the register)
+    signal_note: certified_products = one entry per product TYPE (distribution/hosted/installer), lapsed when its
+      newest certified minor is outside the current window; products and versions are context, never read
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
 - slug: nutanix-istio-ecosystem
   label: Istio (ecosystem)
   partner: istio
@@ -256,11 +257,11 @@
   category: Service mesh ecosystem
   type: register
   channel: standard-directory
-  evidence: https://github.com/istio/istio.io/blob/a03df1cfd4fda35a88a37b7a6486141c1c153bea/data/companies.yml
+  evidence: https://github.com/istio/istio.io/blob/3a0c0f3e81c007d7b6e55d02418877bb6d1b4022/data/companies.yml
   source: edge
   relationship: standard-participant
   contract_reference:
-    register: Istio ecosystem (github.com/istio/istio.io data/companies.yml @a03df1cfd4)
+    register: Istio ecosystem (github.com/istio/istio.io data/companies.yml @3a0c0f3e81)
     spec_file: null
     standard: Istio service mesh
     role: istio-provider
@@ -273,6 +274,6 @@
     identity_source: register-url
     signal_note: 'participation only: the ecosystem lists are context, never read'
     detected_by: sweep-api-management.py
-    detected: '2026-10-18'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
