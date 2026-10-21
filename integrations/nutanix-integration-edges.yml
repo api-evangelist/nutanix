@@ -22,6 +22,8 @@ checked:
 - https://www.peeringdb.com/api/ix
 - https://www.peeringdb.com/api/net
 - docker-hub/integrations/docker-hub-integration-edges.yml
+- opentofu/integrations/opentofu-integration-edges.yml
+- terraform/integrations/terraform-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -470,6 +472,47 @@ edges:
   category: Docker Verified Publisher
   badges:
   - Docker Verified Publisher
+- partner_name: OpenTofu (opentofu-registry)
+  partner: opentofu
+  partner_match: mirror
+  mirror_match: register
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: opentofu-registry
+  evidence: https://search.opentofu.org/provider/nutanix/nutanix
+  mirror_of: opentofu/integrations/opentofu-integration-edges.yml
+  apps:
+  - nutanix/nutanix
+  - nutanix/nutanixkps
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+  badges:
+  - Verified publisher (GitHub domain-verified organization)
+- partner_name: Terraform (terraform-registry)
+  partner: terraform
+  partner_match: mirror
+  mirror_match: register
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: terraform-registry
+  evidence: https://registry.terraform.io/providers/nutanix/nutanix
+  mirror_of: terraform/integrations/terraform-integration-edges.yml
+  apps:
+  - nutanix/nutanix
+  - nutanix/nutanixkps
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+  badges:
+  - Verified publisher (Terraform partner tier)
+  - Verified publisher (GitHub domain-verified organization)
 source:
 - crowdstrike/integrations/crowdstrike-integration-edges.yml
 - splunk/integrations/splunk-integration-edges.yml
