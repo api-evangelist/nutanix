@@ -1,4 +1,4 @@
-# Nutanix (nutanix)
+# Nutanix
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,223 +66,235 @@
 
 Nutanix is a hyper-converged infrastructure solution that integrates compute, virtualization, storage, networking, and security to power enterprise applications. Nutanix provides public APIs for managing and automating infrastructure including Prism Central, Prism Element, Karbon Kubernetes, Nutanix Database Service (NDB), Cloud Clusters (NC2), NCM Self-Service, and the GA v4 API platform.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/nutanix/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/nutanix/refs/heads/main/apis.yml)
+**Areas:** Cloud Management · Hyperconverged · Infrastructure · Virtualization · Kubernetes · Database · Data Center
 
-## Scope
+## Nutanix on APIs.io
 
-- **Type:** Index
-- **Position:** Producer
-- **Access:** 1st-Party
+Everything profiled for Nutanix is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nutanix/](https://apis.io/providers/nutanix/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (21)
 
-- Cloud Management
-- Hyperconverged
-- Infrastructure
-- Virtualization
-- Kubernetes
-- Database
+- [Nutanix Prism Central API V4](https://apis.io/apis/nutanix/prism-central-v4/) — The next-generation v4 API for managing the Nutanix Cloud Platform through Prism Central with GA SDKs for Python, Java, Go, and JavaScript. The v4 API is…
+- [Nutanix Karbon API](https://apis.io/apis/nutanix/karbon/) — API for managing Kubernetes clusters through Nutanix Karbon, including cluster lifecycle, upgrades, and configuration.
+- [Nutanix Database Service API](https://apis.io/apis/nutanix/ndb/) — REST API for Nutanix Database Service (NDB) providing database-as-a-service capabilities for PostgreSQL, MySQL, SQL Server, Oracle, and MongoDB.
+- [Nutanix Cloud Clusters API](https://apis.io/apis/nutanix/nc2/) — REST API for Nutanix Cloud Clusters (NC2), enabling creation and management of Nutanix clusters on AWS and Azure public clouds.
+- [Nutanix NCM Self-Service API](https://apis.io/apis/nutanix/ncm-self-service/) — API for Nutanix Cloud Manager Self-Service (formerly Calm), enabling automation of application deployment and lifecycle management through blueprints and…
+- [Nutanix Foundation API](https://apis.io/apis/nutanix/foundation/) — API for Foundation and Foundation Central, enabling automated cluster deployment and remote node imaging.
+- [Nutanix Alerts API](https://apis.io/apis/nutanix/nutanix-alerts-api/) — Retrieve and manage cluster alerts for monitoring health and operational events.
+- [Nutanix Categories API](https://apis.io/apis/nutanix/nutanix-categories-api/) — Manage categories and category values used for tagging and organizing resources across the Nutanix environment.
+- [Nutanix Clusters API](https://apis.io/apis/nutanix/nutanix-clusters-api/) — Retrieve and manage Nutanix cluster configurations and metadata across the Prism Central deployment.
+- [Nutanix Hosts API](https://apis.io/apis/nutanix/nutanix-hosts-api/) — Retrieve information about physical hosts in the Nutanix cluster infrastructure.
+- [Nutanix Images API](https://apis.io/apis/nutanix/nutanix-images-api/) — Manage disk images distributed across clusters for VM provisioning, including ISO and disk image uploads.
+- [Nutanix Network Security Rules API](https://apis.io/apis/nutanix/nutanix-network-security-rules-api/) — Manage Flow microsegmentation policies that control network traffic between VMs based on categories.
+- [Nutanix Projects API](https://apis.io/apis/nutanix/nutanix-projects-api/) — Manage projects that define resource quotas, user access, and infrastructure boundaries for self-service consumption.
+- [Nutanix Protection Domains API](https://apis.io/apis/nutanix/nutanix-protection-domains-api/) — Manage protection domains that define groups of VMs and volume groups for data protection and disaster recovery.
+- [Nutanix Snapshots API](https://apis.io/apis/nutanix/nutanix-snapshots-api/) — Manage VM snapshots for point-in-time recovery of virtual machines.
+- [Nutanix Storage Containers API](https://apis.io/apis/nutanix/nutanix-storage-containers-api/) — Manage storage containers that provide logical storage partitions within the Nutanix distributed storage fabric.
+- [Nutanix Storage Pools API](https://apis.io/apis/nutanix/nutanix-storage-pools-api/) — Manage storage pools which represent groups of physical disks used for storing data across the cluster.
+- [Nutanix Subnets API](https://apis.io/apis/nutanix/nutanix-subnets-api/) — Manage AHV network subnets including VLAN and overlay network configurations.
+- [Nutanix Virtual Disks API](https://apis.io/apis/nutanix/nutanix-virtual-disks-api/) — Manage virtual disks including disk statistics and configuration within the cluster.
+- [Nutanix Webhooks API](https://apis.io/apis/nutanix/nutanix-webhooks-api/) — Manage webhook listeners that receive event notifications from the Nutanix platform.
+- [Nutanix V Ms API](https://apis.io/apis/nutanix/nutanix-vms-api/) — Manage virtual machines including creation, update, deletion, and power state operations through the intent-based API model.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (2)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Nutanix MCP Server](https://apis.io/servers/nutanix/nutanix-mcp-server/)
+- [nutanix-mcp.yml](https://apis.io/servers/nutanix/nutanix-mcp-yml/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Nutanix Agentic Access](https://apis.io/agentic-access/nutanix/nutanix-agentic-access/)
+
+#### JSON Schema (31)
 
-## Timestamps
+The data models the API reads and writes.
 
-- **Created:** 2025-03-14
-- **Modified:** 2026-05-19
+- [Cluster](https://apis.io/schemas/nutanix/nutanix-cluster/)
+- [ClusterIntentResponse](https://apis.io/schemas/nutanix/nutanix-cluster-intent-response/)
+- [ClusterListResponse](https://apis.io/schemas/nutanix/nutanix-cluster-list-response/)
+- [ClusterIntentResponse](https://apis.io/schemas/nutanix/nutanix-clusterintentresponse/)
+- [ClusterListResponse](https://apis.io/schemas/nutanix/nutanix-clusterlistresponse/)
+- [EntityMetadata](https://apis.io/schemas/nutanix/nutanix-entitymetadata/)
+- [Host](https://apis.io/schemas/nutanix/nutanix-host/)
+- [ImageIntentInput](https://apis.io/schemas/nutanix/nutanix-image-intent-input/)
+- [ImageListResponse](https://apis.io/schemas/nutanix/nutanix-image-list-response/)
+- [ImageIntentInput](https://apis.io/schemas/nutanix/nutanix-imageintentinput/)
+- [ImageListResponse](https://apis.io/schemas/nutanix/nutanix-imagelistresponse/)
+- [ListMetadata](https://apis.io/schemas/nutanix/nutanix-list-metadata/)
+- [ListMetadata](https://apis.io/schemas/nutanix/nutanix-listmetadata/)
+- [PaginationMetadata](https://apis.io/schemas/nutanix/nutanix-pagination-metadata/)
+- [PaginationMetadata](https://apis.io/schemas/nutanix/nutanix-paginationmetadata/)
+- [Reference](https://apis.io/schemas/nutanix/nutanix-reference/)
+- [StorageContainer](https://apis.io/schemas/nutanix/nutanix-storage-container/)
+- [StorageContainerInput](https://apis.io/schemas/nutanix/nutanix-storage-container-input/)
+- [StorageContainer](https://apis.io/schemas/nutanix/nutanix-storagecontainer/)
+- [StorageContainerInput](https://apis.io/schemas/nutanix/nutanix-storagecontainerinput/)
+- [SubnetIntentInput](https://apis.io/schemas/nutanix/nutanix-subnet-intent-input/)
+- [SubnetListResponse](https://apis.io/schemas/nutanix/nutanix-subnet-list-response/)
+- [SubnetIntentInput](https://apis.io/schemas/nutanix/nutanix-subnetintentinput/)
+- [SubnetListResponse](https://apis.io/schemas/nutanix/nutanix-subnetlistresponse/)
+- [VmIntentInput](https://apis.io/schemas/nutanix/nutanix-vm-intent-input/)
+- …and 6 more published on APIs.io
 
-## APIs
+#### JSON Structure (1)
 
-### Nutanix Prism Central API V3
+Data models expressed in JSON Structure.
 
-RESTful API for managing Nutanix clusters, VMs, storage, networking, and other infrastructure components through Prism Central. The v3 API uses an intent-based model where resources are defined by their desired state.
+- [Nutanix Structure](https://apis.io/json-structure/nutanix/nutanix-structure/)
 
-- **Human URL:** [https://www.nutanix.dev/api_references/prism-central-v3/](https://www.nutanix.dev/api_references/prism-central-v3/)
-- **Base URL:** `https://{{prism-central-ip}}:9440/api/nutanix/v3`
+#### JSON-LD (1)
 
-#### Tags
+Linked-data contexts for the provider's vocabulary.
 
-- Cloud Management
-- Infrastructure
-- Virtualization
+- [Nutanix Context](https://apis.io/jsonld/nutanix/nutanix-context/)
 
-#### Properties
+#### Vocabulary (1)
 
-- [Documentation](https://www.nutanix.dev/api_references/prism-central-v3/)
-- [Authentication](https://www.nutanix.dev/api_references/prism-central-v3/#authentication)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/nutanix/refs/heads/main/openapi/nutanix-prism-central-v3-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/nutanix-prism-central-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-central-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nutanix-prism-element-v2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-element-v2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The provider's domain terms, defined.
 
-### Nutanix Prism Central API V4
+- [Nutanix Domain Vocabulary](https://apis.io/vocabularies/nutanix/nutanix-vocabulary/)
 
-The next-generation v4 API for managing the Nutanix Cloud Platform through Prism Central with GA SDKs for Python, Java, Go, and JavaScript. The v4 API is now the recommended version for production environments.
+#### Collections (32)
 
-- **Human URL:** [https://www.nutanix.dev/api-reference-v4/](https://www.nutanix.dev/api-reference-v4/)
-- **Base URL:** `https://{{prism-central-ip}}:9440/api`
+Postman and Open Collection request collections.
 
-#### Tags
+- [Nutanix Prism Central API v3 Alerts API](https://apis.io/collections/nutanix/open-nutanix-alerts-api/)
+- [Nutanix Prism Central API v3 Alerts Categories API](https://apis.io/collections/nutanix/open-nutanix-categories-api/)
+- [Nutanix Prism Central API v3 Alerts Clusters API](https://apis.io/collections/nutanix/open-nutanix-clusters-api/)
+- [Nutanix Prism Central API v3 Alerts Hosts API](https://apis.io/collections/nutanix/open-nutanix-hosts-api/)
+- [Nutanix Prism Central API v3 Alerts Images API](https://apis.io/collections/nutanix/open-nutanix-images-api/)
+- [Nutanix Prism Central API v3 Alerts Network Security Rules API](https://apis.io/collections/nutanix/open-nutanix-network-security-rules-api/)
+- [Nutanix Prism Central API v3](https://apis.io/collections/nutanix/open-nutanix-prism-central-v3/)
+- [Nutanix Prism Element API v2](https://apis.io/collections/nutanix/open-nutanix-prism-element-v2/)
+- [Nutanix Prism Central API v3 Alerts Projects API](https://apis.io/collections/nutanix/open-nutanix-projects-api/)
+- [Nutanix Prism Central API v3 Alerts Protection Domains API](https://apis.io/collections/nutanix/open-nutanix-protection-domains-api/)
+- [Nutanix Prism Central API v3 Alerts Snapshots API](https://apis.io/collections/nutanix/open-nutanix-snapshots-api/)
+- [Nutanix Prism Central API v3 Alerts Storage Containers API](https://apis.io/collections/nutanix/open-nutanix-storage-containers-api/)
+- [Nutanix Prism Central API v3 Alerts Storage Pools API](https://apis.io/collections/nutanix/open-nutanix-storage-pools-api/)
+- [Nutanix Prism Central API v3 Alerts Subnets API](https://apis.io/collections/nutanix/open-nutanix-subnets-api/)
+- [Nutanix Prism Central API v3 Alerts Virtual Disks API](https://apis.io/collections/nutanix/open-nutanix-virtual-disks-api/)
+- [Nutanix Prism Central API v3 Alerts VMs API](https://apis.io/collections/nutanix/open-nutanix-vms-api/)
+- [Nutanix Prism Central API v3 Alerts Webhooks API](https://apis.io/collections/nutanix/open-nutanix-webhooks-api/)
+- [Nutanix Prism Central API v3 Alerts API](https://apis.io/collections/nutanix/postman-nutanix-alerts-api/)
+- [Nutanix Prism Central API v3 Alerts Categories API](https://apis.io/collections/nutanix/postman-nutanix-categories-api/)
+- [Nutanix Prism Central API v3 Alerts Clusters API](https://apis.io/collections/nutanix/postman-nutanix-clusters-api/)
+- [Nutanix Prism Central API v3 Alerts Hosts API](https://apis.io/collections/nutanix/postman-nutanix-hosts-api/)
+- [Nutanix Prism Central API v3 Alerts Images API](https://apis.io/collections/nutanix/postman-nutanix-images-api/)
+- [Nutanix Prism Central API v3 Alerts Network Security Rules API](https://apis.io/collections/nutanix/postman-nutanix-network-security-rules-api/)
+- [Nutanix Prism Central API v3 Alerts Projects API](https://apis.io/collections/nutanix/postman-nutanix-projects-api/)
+- [Nutanix Prism Central API v3 Alerts Protection Domains API](https://apis.io/collections/nutanix/postman-nutanix-protection-domains-api/)
+- …and 7 more published on APIs.io
 
-- Cloud Management
-- Infrastructure
-- SDK
+#### Governance rules (2)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://www.nutanix.dev/api-reference-v4/)
-- [Getting Started](https://www.nutanix.dev/nutanix-api-user-guide/)
-- [S D Ks](https://www.nutanix.dev/sdk_reference/)
-- [Changelog](https://www.nutanix.dev/api-versions/)
-- [Developer  Portal](https://developers.nutanix.com/)
-- [Postman Collection](collections/nutanix-prism-central-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-central-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nutanix-prism-element-v2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-element-v2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Nutanix — jsonschema rules](https://apis.io/rules/nutanix/nutanix-jsonschema-spectral-rules/)
+- [Nutanix API Rules](https://apis.io/rules/nutanix/nutanix-rules/)
 
-### Nutanix Prism Element API V2
+#### Security (2)
 
-Cluster-local API for managing individual Nutanix clusters through Prism Element, including storage containers, hosts, virtual machines, and cluster operations.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://www.nutanix.dev/api_references/prism-element/](https://www.nutanix.dev/api_references/prism-element/)
-- **Base URL:** `https://{{cluster-ip}}:9440/PrismGateway/services/rest/v2.0`
+- [Nutanix Authentication](https://apis.io/security/nutanix/nutanix-authentication/)
+- [Nutanix Domain Security](https://apis.io/security/nutanix/nutanix-domain-security/)
 
-#### Tags
+#### Plans and pricing (2)
 
-- Cluster Management
-- Infrastructure
-- Storage
+Published plans, tiers and prices.
 
-#### Properties
+- [Nutanix Plans Pricing](https://apis.io/plans/nutanix/nutanix-plans-pricing/)
+- [Nutanix Price Estimates](https://apis.io/plans/nutanix/nutanix-price-estimates/)
 
-- [Documentation](https://www.nutanix.dev/api_references/prism-element/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/nutanix/refs/heads/main/openapi/nutanix-prism-element-v2-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/nutanix-prism-central-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-central-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nutanix-prism-element-v2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-element-v2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Nutanix Karbon API
+Published request limits.
 
-API for managing Kubernetes clusters through Nutanix Karbon, including cluster lifecycle, upgrades, and configuration.
+- [Nutanix Rate Limits](https://apis.io/rate-limits/nutanix/nutanix-rate-limits/)
 
-- **Human URL:** [https://www.nutanix.dev/api_references/karbon/](https://www.nutanix.dev/api_references/karbon/)
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Container Management
-- Kubernetes
-- Orchestration
+- [Nutanix Finops](https://apis.io/finops/nutanix/nutanix-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://www.nutanix.dev/api_references/karbon/)
-- [Postman Collection](collections/nutanix-prism-central-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-central-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nutanix-prism-element-v2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-element-v2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Nutanix Database Service API
-
-REST API for Nutanix Database Service (NDB) providing database-as-a-service capabilities for PostgreSQL, MySQL, SQL Server, Oracle, and MongoDB.
-
-- **Human URL:** [https://www.nutanix.dev/api_reference/apis/ndb0.9.html](https://www.nutanix.dev/api_reference/apis/ndb0.9.html)
-
-#### Tags
-
-- Database
-- DBaaS
-
-#### Properties
-
-- [Documentation](https://www.nutanix.dev/api_reference/apis/ndb0.9.html)
-- [Postman Collection](collections/nutanix-prism-central-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-central-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nutanix-prism-element-v2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-element-v2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Nutanix Cloud Clusters API
-
-REST API for Nutanix Cloud Clusters (NC2), enabling creation and management of Nutanix clusters on AWS and Azure public clouds.
-
-- **Human URL:** [https://www.nutanix.dev/api_reference/apis/nc2.html](https://www.nutanix.dev/api_reference/apis/nc2.html)
-- **Base URL:** `https://api.nutanix.com`
-
-#### Tags
-
-- AWS
-- Azure
-- Hybrid Cloud
-
-#### Properties
-
-- [Documentation](https://www.nutanix.dev/api_reference/apis/nc2.html)
-- [Postman Collection](collections/nutanix-prism-central-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-central-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nutanix-prism-element-v2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-element-v2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Nutanix NCM Self-Service API
-
-API for Nutanix Cloud Manager Self-Service (formerly Calm), enabling automation of application deployment and lifecycle management through blueprints and runbooks.
-
-- **Human URL:** [https://www.nutanix.dev/api_references/ncm-self-service/](https://www.nutanix.dev/api_references/ncm-self-service/)
-
-#### Tags
-
-- Automation
-- Application Management
-- Orchestration
-- DevOps
-
-#### Properties
-
-- [Documentation](https://www.nutanix.dev/api_references/ncm-self-service/)
-- [Postman Collection](collections/nutanix-prism-central-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-central-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nutanix-prism-element-v2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-element-v2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Nutanix Foundation API
-
-API for Foundation and Foundation Central, enabling automated cluster deployment and remote node imaging.
-
-- **Human URL:** [https://www.nutanix.dev/api_references/foundation/](https://www.nutanix.dev/api_references/foundation/)
-
-#### Tags
-
-- Cluster Deployment
-- Automation
-
-#### Properties
-
-- [Documentation](https://www.nutanix.dev/api_references/foundation/)
-- [Postman Collection](collections/nutanix-prism-central-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-central-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nutanix-prism-element-v2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nutanix-prism-element-v2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/nutanix)
 - [Website](https://www.nutanix.com)
 - [Documentation](https://www.nutanix.dev/)
-- [Getting Started](https://www.nutanix.dev/nutanix-api-user-guide/)
-- [S D Ks](https://www.nutanix.dev/sdk_reference/)
-- [Reference](https://www.nutanix.dev/api_references/)
-- [Code  Samples](https://www.nutanix.dev/code_samples/)
+- [Getting started](https://www.nutanix.dev/nutanix-api-user-guide/)
+- [Pricing](https://www.nutanix.com/products/nutanix-cloud-clusters/pricing)
+- [Support](https://www.nutanix.com/support-services/product-support)
 - [Changelog](https://www.nutanix.dev/api-versions/)
 - [Blog](https://www.nutanix.dev/blog/)
-- [Community](https://next.nutanix.com/)
-- [Support](https://www.nutanix.com/support-services/product-support)
-- [Status Page](https://status.nutanix.com/)
-- [Login](https://my.nutanix.com/)
-- [Sign Up](https://my.nutanix.com/page/signup)
-- [GitHub Organization](https://github.com/nutanix)
-- [Developer  Portal](https://developers.nutanix.com/)
-- [Terms of Service](https://www.nutanix.com/legal/terms-of-use)
-- [Privacy Policy](https://www.nutanix.com/legal/privacy-notice)
-- [L L Ms Txt](https://developers.nutanix.com/llms.txt)
+- [Security](https://www.nutanix.com/products/security)
+- [Trust centre](https://www.nutanix.com/trust)
+- [Terms of service](https://www.nutanix.com/legal/terms-of-use)
+- [Privacy policy](https://www.nutanix.com/trust/privacy)
+- [GitHub](https://github.com/nutanix)
+- [Status](https://status.nutanix.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 65.9** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 67.9 |
+| Contract quality | 69.3 |
+| Contract governance | 31.8 |
+| Operational transparency | 76.3 |
+| Developer ergonomics | 57.7 |
+| Access clarity | 67.1 |
+
+**Agent readiness 22.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | — |
+
+**Regulatory alignment 25.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nutanix/](https://apis.io/providers/nutanix/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Nutanix: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nutanix/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
